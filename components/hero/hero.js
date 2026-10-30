@@ -259,7 +259,7 @@ export default function Hero() {
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
           autoplay={{
-            delay: 5000,
+            delay: 2500,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}

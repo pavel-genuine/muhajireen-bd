@@ -4,8 +4,44 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const facilities = [
   {
-    id: "pool",
+    id: "residences",
     number: "01",
+    title: "Premium Residences",
+    category: "RECREATION",
+    description:
+      "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
+    image: "/images/slider/hero-slide/new folder/img-9.jpg",
+  },
+  {
+    id: "mall",
+    number: "02",
+    title: "Shopping Mall",
+    category: "RECREATION",
+    description:
+      "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
+    image: "/images/slider/hero-slide/new folder/img-11.jpg",
+  },
+  {
+    id: "foodcourt",
+    number: "03",
+    title: "Food Court",
+    category: "RECREATION",
+    description:
+      "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
+    image: "/images/slider/hero-slide/new folder/img-10.jpg",
+  },
+  {
+    id: "commercialspaces",
+    number: "04",
+    title: "Commercial Spaces",
+    category: "RECREATION",
+    description:
+      "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
+    image: "/images/slider/hero-slide/new folder/img-12.jpg",
+  },
+  {
+    id: "pool",
+    number: "05",
     title: "Swimming Pools",
     category: "RECREATION",
     description:
@@ -14,7 +50,7 @@ const facilities = [
   },
   {
     id: "gym",
-    number: "02",
+    number: "06",
     title: "Fitness & Gym",
     category: "WELLNESS",
     description:
@@ -23,7 +59,7 @@ const facilities = [
   },
   {
     id: "kids",
-    number: "03",
+    number: "07",
     title: "Kids' Play Zone",
     category: "FAMILY LIVING",
     description:
@@ -32,7 +68,7 @@ const facilities = [
   },
   {
     id: "green",
-    number: "04",
+    number: "08",
     title: "Green Spaces",
     category: "NATURE",
     description:
@@ -41,7 +77,7 @@ const facilities = [
   },
   {
     id: "walkway",
-    number: "05",
+    number: "09",
     title: "Walking & Jogging",
     category: "ACTIVE LIVING",
     description:
@@ -50,30 +86,40 @@ const facilities = [
   },
   {
     id: "bicycle",
-    number: "06",
+    number: "10",
     title: "Bicycle Zone",
     category: "ACTIVE LIVING",
     description:
       "A planned bicycle-friendly zone encouraging active movement within the community.",
     image: "/images/slider/hero-slide/new folder/img (1).jpeg",
   },
-  {
-    id: "community",
-    number: "07",
-    title: "Mosque & Madrasha",
-    category: "FAITH & COMMUNITY",
-    description:
-      "A planned spiritual and educational destination serving the community.",
-    image: "/images/slider/hero-slide/img-7-main.png",
-  },
+
   {
     id: "medical",
-    number: "08",
+    number: "11",
     title: "Emergency Medical Support",
     category: "CARE",
     description:
       "Emergency medical services are included in the project's stated lifestyle facilities.",
     image: "/images/slider/hero-slide/img-4.1-main.png",
+  },
+  {
+    id: "school",
+    number: "12",
+    title: "School",
+    category: "Education",
+    description:
+      "A planned spiritual and educational destination serving the community.",
+    image: "/images/slider/hero-slide/img-8-main.png",
+  },
+  {
+    id: "community",
+    number: "13",
+    title: "Mosque & Madrasha",
+    category: "FAITH & COMMUNITY",
+    description:
+      "A planned spiritual and educational destination serving the community.",
+    image: "/images/slider/hero-slide/img-7-main.png",
   },
 ];
 
@@ -195,7 +241,7 @@ export default function LifestyleFacilities() {
         currentIndex + 1 >= filteredFacilities.length ? 0 : currentIndex + 1;
 
       setActiveFacilityId(filteredFacilities[nextIndex].id);
-    }, 4000);
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [activeFacilityId, filteredFacilities, isCarouselPaused]);
