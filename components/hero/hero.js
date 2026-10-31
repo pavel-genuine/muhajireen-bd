@@ -66,6 +66,18 @@ const sliderData = [
   },
   {
     id: 5,
+    img: "/images/slider/hero-slide/img-9.1-main.png",
+    foregroundImg: "/images/slider/hero-slide/img-9.1-fg.png",
+    bgLetter: "LIVING",
+    eyebrow: "LIVE ABOVE EXPECTATIONS",
+    title: "Close To Nature",
+    subtitle:
+      "Contemporary green park meets thoughtfully designed community living.",
+    category: "Central Park",
+    class: 'park'
+  },
+  {
+    id: 6,
     img: "/images/slider/hero-slide/img-4.1-main.png",
     foregroundImg: "/images/slider/hero-slide/img-4.1-fg.png",
     bgLetter: "HEALTH",
@@ -77,19 +89,31 @@ const sliderData = [
     class: 'hospital'
   },
   {
-    id: 6,
+    id: 7,
     img: "/images/slider/hero-slide/img-5.1-main.png",
     foregroundImg: "/images/slider/hero-slide/img-5.1-fg.png",
     bgLetter: "WELLNESS",
     eyebrow: "CARE THAT MAKES A DIFFERENCE",
     title: "A Better Way To Care",
     subtitle:
-      "A dedicated vision for specialized dental care, nursing education and wellbeing.",
+      "A dedicated vision for specialized dental and wellbeing.",
     category: "SPECIALIZED CARE",
     class: 'dental'
   },
   {
-    id: 7,
+    id: 8,
+    img: "/images/slider/hero-slide/img-6.1-main.png",
+    foregroundImg: "/images/slider/hero-slide/img-6.1-fg.png",
+    bgLetter: "WELLNESS",
+    eyebrow: "A New Way To Care",
+    title: " A Committed  Future",
+    subtitle:
+      "A dedicated vision for specialized nursing education and wellbeing.",
+    category: "SPECIALIZED CARE",
+    class: 'nursing'
+  },
+  {
+    id: 9,
     img: "/images/slider/hero-slide/img-7-main.png",
     foregroundImg: "/images/slider/hero-slide/img-7-fg.png",
     bgLetter: "HARMONY",
@@ -101,7 +125,7 @@ const sliderData = [
     class: 'mosque'
   },
   {
-    id: 8,
+    id: 10,
     img: "/images/slider/hero-slide/img-8-main.png",
     foregroundImg: "/images/slider/hero-slide/iimg-8-main.png",
     bgLetter: "FUTURE",
@@ -144,7 +168,7 @@ const projectHotspots = [
 
     x: 42,
     y: 34,
-    image: "/images/slider/hero-slide/img-6.jpeg",
+    image: "/images/slider/hero-slide/img-6.1-main.png",
     description:
       "Modern nursing institute with hi-tech facilities.",
   },
@@ -185,7 +209,7 @@ const projectHotspots = [
     short: "Central Park",
     x: 63,
     y: 40,
-    image: "/images/slider/hero-slide/img-3.1-main.png",
+    image: "/images/slider/hero-slide/img-9.1-main.png",
     description:
       "Family park with landscaped surroundings and community spaces.",
   },
@@ -248,7 +272,7 @@ export default function Hero() {
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            Autoplay,
+            // Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -258,11 +282,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -287,7 +311,7 @@ export default function Hero() {
                 />
 
                 {/* Contrast overlay sits above the background, below the title. */}
-                {(slide.id != 8 || slide.id != 2) && <div className="uttara-slide-overlay" />}
+                {<div className="uttara-slide-overlay" />}
 
                 {/* Large title: this layer sits BEHIND the building cutout. */}
                 <h1
@@ -304,7 +328,7 @@ export default function Hero() {
                                   its matching hero image. Building, roof, trees, etc. stay
                                   opaque so the headline naturally passes behind them.
                                 */}
-                <img
+                {(slide.id != 2 && slide.id != 10) && <img
                   className={`uttara-building-foreground ${slide?.class}`}
                   src={slide.foregroundImg}
                   alt=""
@@ -318,7 +342,7 @@ export default function Hero() {
                     );
                     event.currentTarget.style.display = "none";
                   }}
-                />
+                />}
 
 
                 {slide.id === 1 && (
@@ -539,12 +563,15 @@ export default function Hero() {
   ================================ */
 
   .connection { top: 15%; }
+  .school     { top: 15%; }
+  .park     { top: 19%; margin-top: -20px;  }
+  .nursing     { top: 11%; margin-top: 110px; }
   .commercial { top: 17%; margin-top: -10px; }
   .residence  { top: 10%; margin-top: 10px; }
   .hospital   { top: 16%; margin-top: -40px; }
   .dental     { top: 11%; margin-top: 20px; }
   .mosque     { top: 19%; margin-top: -50px; }
-  .school     { top: 15%; }
+  
 
   /* ---------- Hotspots ---------- */
   .uttara-project-hotspots {

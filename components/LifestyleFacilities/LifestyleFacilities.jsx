@@ -10,7 +10,7 @@ const facilities = [
     category: "RECREATION",
     description:
       "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
-    image: "/images/slider/hero-slide/new folder/img-9.jpg",
+    image: "/images/slider/hero-slide/newfolder/img-9.jpg",
   },
   {
     id: "mall",
@@ -19,7 +19,7 @@ const facilities = [
     category: "RECREATION",
     description:
       "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
-    image: "/images/slider/hero-slide/new folder/img-11.jpg",
+    image: "/images/slider/hero-slide/newfolder/img-11.jpg",
   },
   {
     id: "foodcourt",
@@ -28,7 +28,7 @@ const facilities = [
     category: "RECREATION",
     description:
       "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
-    image: "/images/slider/hero-slide/new folder/img-10.jpg",
+    image: "/images/slider/hero-slide/newfolder/img-10.jpg",
   },
   {
     id: "commercialspaces",
@@ -37,7 +37,7 @@ const facilities = [
     category: "RECREATION",
     description:
       "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
-    image: "/images/slider/hero-slide/new folder/img-12.jpg",
+    image: "/images/slider/hero-slide/newfolder/img-12.jpg",
   },
   {
     id: "pool",
@@ -46,7 +46,7 @@ const facilities = [
     category: "RECREATION",
     description:
       "Dedicated swimming facilities for relaxation, recreation and a healthier lifestyle.",
-    image: "/images/slider/hero-slide/new folder/img-8.jpeg",
+    image: "/images/slider/hero-slide/newfolder/img-8.jpeg",
   },
   {
     id: "gym",
@@ -55,7 +55,7 @@ const facilities = [
     category: "WELLNESS",
     description:
       "Planned fitness facilities with dedicated spaces for men and women.",
-    image: "/images/slider/hero-slide/new folder/img (2).jpeg",
+    image: "/images/slider/hero-slide/newfolder/img(2).jpeg",
   },
   {
     id: "kids",
@@ -64,7 +64,7 @@ const facilities = [
     category: "FAMILY LIVING",
     description:
       "A dedicated play area envisioned for children's outdoor activities and family time.",
-    image: "/images/slider/hero-slide/new folder/img (5).jpeg",
+    image: "/images/slider/hero-slide/newfolder/img(5).jpeg",
   },
   {
     id: "green",
@@ -73,7 +73,7 @@ const facilities = [
     category: "NATURE",
     description:
       "Landscaped green areas planned to bring nature and open space into everyday living.",
-    image: "/images/slider/hero-slide/new folder/img (7).jpeg",
+    image: "/images/slider/hero-slide/newfolder/img(7).jpeg",
   },
   {
     id: "walkway",
@@ -82,7 +82,7 @@ const facilities = [
     category: "ACTIVE LIVING",
     description:
       "A dedicated walkway envisioned for daily walks, light exercise and outdoor relaxation.",
-    image: "/images/slider/hero-slide/new folder/img (3).jpeg",
+    image: "/images/slider/hero-slide/newfolder/img(3).jpeg",
   },
   {
     id: "bicycle",
@@ -91,7 +91,7 @@ const facilities = [
     category: "ACTIVE LIVING",
     description:
       "A planned bicycle-friendly zone encouraging active movement within the community.",
-    image: "/images/slider/hero-slide/new folder/img (1).jpeg",
+    image: "/images/slider/hero-slide/newfolder/img(1).jpeg",
   },
 
   {

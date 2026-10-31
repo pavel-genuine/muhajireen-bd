@@ -24,11 +24,42 @@ const investmentPlans = [
       },
     ],
   },
+
+  {
+    id: "profit",
+    number: "02",
+    label: "RECURRING COMMERCIAL OPPORTUNITY",
+    title: "Monthly Profit from all Commercial Entities",
+    description:
+      "The proposal lists monthly profit opportunities associated with land shares in the following commercial and institutional facilities.",
+    image: "/images/slider/hero-slide/img-2.1-main.png",
+    options: [
+      {
+        share: "01 Share",
+        title: "Monthly Profit Opportunity",
+        detail: "From the listed commercial and institutional land shares",
+      },
+      {
+        share: "03 Shares",
+        title: "3X Monthly Profit Opportunity",
+        detail: "From the listed commercial and institutional land shares",
+      },
+    ],
+    facilities: [
+      "Shopping Mall Land Share",
+      "Commercial Space Land Share",
+      "Multi-SpecializedGeneral Hospital Land Share",
+      "Dental Hospital Land Share",
+      "Nursing Institute Land Share",
+
+      "School Land Share",
+    ],
+  },
   {
     id: "membership",
-    number: "02",
+    number: "03",
     label: "LIFETIME ACCESS",
-    title: "Lifetime Membership from Commercial Spaces",
+    title: "Lifetime Membership from Commercial Entities",
     description:
       "The proposal describes lifetime membership access for the listed healthcare and education-related facilities.",
     image: "/images/slider/hero-slide/img-4.1-main.png",
@@ -45,39 +76,14 @@ const investmentPlans = [
       },
     ],
     facilities: [
-      "Hospital",
-      "Medical College",
+      "Shooping Mall",
+      "Commercial Office Spaces",
+
+      "Multi-Specilized General Hospital",
+
       "Nursing Institute",
       "Dental Hospital",
-    ],
-  },
-  {
-    id: "profit",
-    number: "03",
-    label: "COMMERCIAL OPPORTUNITY",
-    title: "Monthly Profit from all Commercial Spaces",
-    description:
-      "The proposal lists monthly profit opportunities associated with land shares in the following commercial and institutional facilities.",
-    image: "/images/slider/hero-slide/img-2.1-main.png",
-    options: [
-      {
-        share: "01 Share",
-        title: "Monthly Profit Opportunity",
-        detail: "From the listed commercial and institutional land shares",
-      },
-      {
-        share: "03 Shares",
-        title: "Monthly Profit Opportunity",
-        detail: "From the listed commercial and institutional land shares",
-      },
-    ],
-    facilities: [
-      "Medical College Land Share",
-      "General Hospital Land Share",
-      "Nursing Institute Land Share",
-      "Shopping Mall Land Share",
-      "Commercial Space Land Share",
-      "School Land Share",
+      "International School",
     ],
   },
 ];
