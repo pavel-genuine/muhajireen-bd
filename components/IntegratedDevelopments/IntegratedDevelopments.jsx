@@ -91,7 +91,7 @@ const developmentGroups = [
       "Dental Hospital",
       "Nursing Institute",
     ],
-    image: "/images/slider/hero-slide/img-6.1-main.png",
+    image: "/images/slider/hero-slide/img-6.1-main1.png",
     imageAlt: "Hospital infrastructure",
     href: "/projects#healthcare",
     size: "",
