@@ -278,13 +278,12 @@ const About = (props) => {
                     isolation: isolate;
                     overflow: hidden;
                     width: 100%;
-                    height: 100vh;
-                    min-height: 680px;
-                    max-height: 1000px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    padding: 0;
+                    height: auto !important; 
+          min-height: auto !important;
+          max-height: none !important;
+          display: block !important;
+           padding: clamp(60px, 7vw, 90px) 24px !important; /* Shudhu dorkari padding thakbe */
+          
                     color: var(--mc-burgundy-dark);
                     background:
                         radial-gradient(ellipse at 82% 15%, rgba(201, 164, 106, 0.18), transparent 32%),

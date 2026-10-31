@@ -63,7 +63,8 @@ const Header = (props) => {
                             {props.Logo && (
                                 <Image
                                     src={props.Logo}
-                                    alt="Uttara View"
+                                    alt="MUHAJIREEN"
+
                                     priority
                                     className="uv-logo-image"
                                     style={{
@@ -99,6 +100,15 @@ const Header = (props) => {
                                 </Link>
                             </li>
 
+                            <li>
+                                <Link
+                                    href="/about"
+                                    onClick={ClickHandler}
+                                    className="uv-nav-link"
+                                >
+                                    Investment Opportunities
+                                </Link>
+                            </li>
                             <li>
                                 <Link
                                     href="/about"

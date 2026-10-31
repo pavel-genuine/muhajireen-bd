@@ -156,7 +156,7 @@ export default function ContactSection() {
                             >
                                 <Image
                                     src={masterplanImg}
-                                    alt="Uttara View Master Plan"
+                                    alt="MUHAJIREEN Master Plan"
                                     fill
                                     sizes="(max-width: 767px) 100vw, 48vw"
                                     className="uv-contact-main-image"
@@ -483,13 +483,12 @@ export default function ContactSection() {
                     isolation: isolate;
                     overflow: hidden;
                     width: 100%;
-                    height: 120vh;
-                    min-height: 800px;
-                    max-height: 1100px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    padding: 0;
+                             height: auto !important; 
+          min-height: auto !important;
+          max-height: none !important;
+          display: block !important;
+           padding: clamp(60px, 7vw, 90px) 24px !important; /* Shudhu dorkari padding thakbe */
+          
                     color: var(--uv-ink);
 
                     background:

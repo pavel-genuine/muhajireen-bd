@@ -12,6 +12,7 @@ import MasterplanConnectivity from '../components/MasterplanConnectivity/Masterp
 import LifestyleFacilities from '../components/LifestyleFacilities/LifestyleFacilities';
 import InvestmentOpportunities from '../components/InvestmentOpportunities/InvestmentOpportunities';
 import ContactSection from '../components/ContactSection/ContactSection';
+import WAIcon from '../components/WAIcon/WAIcon';
 
 
 
@@ -31,7 +32,8 @@ const HomePage = () => {
             <ContactSection></ContactSection>
 
             <Footer />
-            <Scrollbar />
+            {/* <Scrollbar /> */}
+            <WAIcon></WAIcon>
         </Fragment>
     )
 }
