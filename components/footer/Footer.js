@@ -172,7 +172,7 @@ export default function Footer() {
         {/* BOTTOM BAR */}
         <div className="uv-footer-bottom">
           <p>
-            © {currentYear} Uttara View. All Rights Reserved.
+            © {currentYear} MUHAJIREEN. All Rights Reserved.
           </p>
 
           <div className="uv-footer-bottom-links">
