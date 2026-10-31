@@ -31,7 +31,7 @@ const facilities = [
     short: "NURSING INSTITUTE",
     x: 42,
     y: 34,
-    image: "/images/slider/hero-slide/img-6.jpeg",
+    image: "/images/slider/hero-slide/img-6.1-main1.png",
     category: "EDUCATION & HEALTHCARE",
     description:
       "A planned nursing institute with modern learning facilities for future healthcare professionals.",
@@ -75,7 +75,7 @@ const facilities = [
     short: "CENTRAL PARK",
     x: 63,
     y: 40,
-    image: "/images/slider/hero-slide/img-3.1-main.png",
+    image: "/images/slider/hero-slide/img-9.1-main.png",
     category: "LIFESTYLE",
     description:
       "A green community space envisioned for outdoor recreation and family time.",

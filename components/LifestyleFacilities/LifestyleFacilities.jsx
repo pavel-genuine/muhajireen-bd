@@ -266,7 +266,7 @@ export default function LifestyleFacilities() {
             </h2>
           </div>
 
-          <div className="uv-life-heading-side">
+          <div style={{ marginBlock: "20px" }} className="uv-life-heading-side">
             <p>
               Recreation, wellness, nature and community essentials come
               together in a thoughtfully planned environment at MUHAJIREEN.
@@ -1038,6 +1038,10 @@ export default function LifestyleFacilities() {
         }
 
         @media (max-width: 900px) {
+          .uv-life-heading {
+            display: block;
+          }
+
           .uv-lifestyle {
             height: auto;
             min-height: 120vh;

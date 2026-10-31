@@ -122,14 +122,16 @@ export default function InvestmentOpportunities() {
           </p>
         </header>
 
-        <div className="uv-investment__intro">
+        <div style={{ marginBottom: "30px" }} className="uv-investment__intro">
           <div>
             <span className="uv-investment__kicker">INVESTOR BENEFITS</span>
-            <h3>What do you get as an investor?</h3>
+            <h3 style={{ marginBottom: "5px" }}>
+              What do you get as an investor?
+            </h3>
           </div>
           <p>
-            Select an investment category to explore the share options and
-            benefits described in the proposal.
+            Select an investment category to explore <br /> the share options
+            and benefits.
           </p>
         </div>
 
@@ -814,6 +816,9 @@ export default function InvestmentOpportunities() {
         }
 
         @media (max-width: 900px) {
+          .uv-investment__intro {
+            display: block;
+          }
           .uv-investment {
             height: auto;
             min-height: 150vh;

@@ -49,9 +49,9 @@ const Header = (props) => {
                 <nav className="uv-navbar">
 
                     {/* MOBILE MENU */}
-                    <div className="uv-mobile-toggle">
+                    {/* <div className="uv-mobile-toggle">
                         <MobileMenu />
-                    </div>
+                    </div> */}
 
                     {/* LOGO */}
                     <div className="uv-header-logo">
