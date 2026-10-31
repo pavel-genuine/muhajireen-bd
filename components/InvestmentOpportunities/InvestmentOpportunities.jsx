@@ -262,13 +262,6 @@ export default function InvestmentOpportunities() {
             <b>↗</b>
           </a>
         </div>
-
-        <p className="uv-investment__disclaimer">
-          Information on this page reflects the investment proposal provided for
-          MUHAJIREEN. Share entitlements, membership scope, profit calculation,
-          payment terms and applicable legal rights should be confirmed in the
-          official agreement and supporting documents.
-        </p>
       </div>
 
       <style jsx global>{`
