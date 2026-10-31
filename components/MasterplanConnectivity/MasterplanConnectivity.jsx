@@ -458,7 +458,7 @@ export default function MasterplanConnectivity() {
                 >
                   <img
                     className="uv-mp-connectivity-map-image"
-                    src="/images/slider/hero-slide/location-map.png"
+                    src="/images/slider/hero-slide/localmap.png"
                     alt="Map of Uttara View and nearby destinations around Uttara and Ashulia"
                     loading="lazy"
                     decoding="async"
