@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -140,7 +139,7 @@ export default function ContactSection() {
                         <p>
                             Whether you're exploring a new home or looking
                             for an investment opportunity, we're here to
-                            help you discover Uttara View.
+                            help you discover MUHAJIREEN.
                         </p>
                     </div>
 
@@ -167,7 +166,7 @@ export default function ContactSection() {
 
                                 <div className="uv-contact-image-top">
                                     <span className="uv-live-dot" />
-                                    <span>DISCOVER UTTARA VIEW</span>
+                                    <span>DISCOVER MUHAJIREEN</span>
                                 </div>
 
                                 <div className="uv-contact-image-content">
@@ -205,7 +204,7 @@ export default function ContactSection() {
                                 <div className="uv-floating-card-bottom">
                                     <span />
                                     <p>
-                                        Let's make your Uttara View
+                                        Let's make your MUHAJIREEN
                                         experience meaningful.
                                     </p>
                                 </div>
@@ -233,7 +232,7 @@ export default function ContactSection() {
 
                                         <div>
                                             <small>OUR LOCATION</small>
-                                            <strong>Uttara View, Uttara, Dhaka</strong>
+                                            <strong> Uttara, Dhaka</strong>
                                         </div>
                                     </div>
 
@@ -260,7 +259,7 @@ export default function ContactSection() {
 
                                         <div>
                                             <small>EMAIL ADDRESS</small>
-                                            <strong>info@uttaraview.com</strong>
+                                            <strong>info@muhajireen.com.bd</strong>
                                         </div>
                                     </div>
 
@@ -413,7 +412,7 @@ export default function ContactSection() {
                                     <textarea
                                         id="uv-message"
                                         name="message"
-                                        rows="4"
+                                        rows="3"
                                         placeholder="Tell us what you have in mind..."
                                         value={formData.message}
                                         onChange={handleChange}
@@ -464,18 +463,13 @@ export default function ContactSection() {
                     >
                         <span>YOUR FUTURE BEGINS WITH A CONVERSATION</span>
                         <div />
-                        <span>UTTARA VIEW</span>
+                        <span>MUHAJIREEN</span>
                     </div>
 
                 </div>
             </section>
 
             <style jsx global>{`
-
-                /* =========================================
-                   UTTARA VIEW CONTACT
-                   MUHAJIREEN GLASSMORPHISM IDENTITY
-                ========================================= */
 
                 .uv-contact-section {
                     --uv-gold: #c9a46a;
@@ -488,7 +482,14 @@ export default function ContactSection() {
                     position: relative;
                     isolation: isolate;
                     overflow: hidden;
-                    padding: 120px 0 35px;
+                    width: 100%;
+                    height: 120vh;
+                    min-height: 800px;
+                    max-height: 1100px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 0;
                     color: var(--uv-ink);
 
                     background:
@@ -518,8 +519,12 @@ export default function ContactSection() {
                 .uv-contact-container {
                     position: relative;
                     z-index: 2;
-                    width: min(1380px, calc(100% - 100px));
+                    width: min(1320px, calc(100% - 64px));
                     margin: 0 auto;
+                    max-height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                 }
 
                 /* BACKGROUND ORBS */
@@ -536,37 +541,30 @@ export default function ContactSection() {
                 .uv-contact-orb-one {
                     top: 5%;
                     right: -180px;
-                    width: 460px;
-                    height: 460px;
-                    animation: uv-contact-orb-float 13s ease-in-out infinite;
+                    width: 400px;
+                    height: 400px;
                 }
 
                 .uv-contact-orb-two {
                     bottom: 8%;
                     left: -170px;
-                    width: 390px;
-                    height: 390px;
-                    animation: uv-contact-orb-float 16s ease-in-out infinite reverse;
+                    width: 350px;
+                    height: 350px;
                 }
 
                 .uv-contact-orb-three {
                     top: 48%;
                     right: 42%;
-                    width: 130px;
-                    height: 130px;
+                    width: 110px;
+                    height: 110px;
                     border-color: rgba(201,164,106,0.12);
-                }
-
-                @keyframes uv-contact-orb-float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-22px); }
                 }
 
                 /* HEADING */
 
                 .uv-contact-heading {
-                    max-width: 800px;
-                    margin: 0 auto 75px;
+                    max-width: 750px;
+                    margin: 0 auto 30px;
                     text-align: center;
                 }
 
@@ -574,28 +572,27 @@ export default function ContactSection() {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    gap: 13px;
-                    margin-bottom: 25px;
+                    gap: 10px;
+                    margin-bottom: 12px;
                     color: var(--uv-gold-dark);
-                    font-size: 10px;
+                    font-size: 9px;
                     font-weight: 700;
-                    letter-spacing: 0.24em;
+                    letter-spacing: 0.22em;
                 }
 
                 .uv-contact-eyebrow-line {
-                    width: 36px;
+                    width: 30px;
                     height: 1px;
                     background: var(--uv-gold);
-                    box-shadow: 0 0 12px rgba(201,164,106,0.4);
                 }
 
                 .uv-contact-heading h2 {
-                    margin: 0 0 22px;
+                    margin: 0 0 10px;
                     color: #443d34;
-                    font-size: clamp(36px, 4.5vw, 61px);
+                    font-size: clamp(28px, 3.5vh, 46px);
                     font-weight: 500;
-                    line-height: 1.12;
-                    letter-spacing: -0.065em;
+                    line-height: 1.1;
+                    letter-spacing: -0.002em;
                 }
 
                 .uv-contact-heading h2 span {
@@ -603,53 +600,46 @@ export default function ContactSection() {
                     font-family: Georgia, "Times New Roman", serif;
                     font-style: italic;
                     font-weight: 400;
-                    letter-spacing: -0.055em;
                 }
 
                 .uv-contact-heading p {
-                    max-width: 650px;
+                    max-width: 580px;
                     margin: 0 auto;
                     color: #766c68;
-                    font-size: 14px;
-                    line-height: 1.9;
+                    font-size: 11.5px;
+                    line-height: 1.6;
                 }
 
                 /* MAIN GRID */
 
                 .uv-contact-grid {
                     display: grid;
-                    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-                    align-items: start;
-                    gap: clamp(35px, 5vw, 75px);
+                    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                    align-items: stretch;
+                    gap: clamp(25px, 3.5vw, 50px);
                 }
 
                 .uv-contact-left {
                     position: relative;
                     min-width: 0;
-                    padding-bottom: 25px;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 /* PROJECT IMAGE */
 
                 .uv-contact-image {
                     position: relative;
-                    height: 470px;
+                    height: 310px;
                     overflow: hidden;
                     border: 1px solid rgba(255,255,255,0.9);
-                    border-radius: 28px;
+                    border-radius: 20px;
                     background: #e7d9c8;
-                    box-shadow:
-                        0 30px 85px rgba(107,91,72,0.16),
-                        inset 0 1px 0 rgba(255,255,255,0.8);
+                    box-shadow: 0 16px 45px rgba(107,91,72,0.1);
                 }
 
                 .uv-contact-main-image {
                     object-fit: cover;
-                    transition: transform 1.2s cubic-bezier(0.2,0.7,0.2,1);
-                }
-
-                .uv-contact-image:hover .uv-contact-main-image {
-                    transform: scale(1.045);
                 }
 
                 .uv-contact-image-overlay {
@@ -665,103 +655,87 @@ export default function ContactSection() {
 
                 .uv-contact-image-top {
                     position: absolute;
-                    top: 22px;
-                    left: 22px;
+                    top: 14px;
+                    left: 14px;
                     display: flex;
                     align-items: center;
-                    gap: 10px;
-                    padding: 11px 16px;
+                    gap: 8px;
+                    padding: 6px 12px;
                     border: 1px solid rgba(255,255,255,0.55);
                     border-radius: 99px;
                     background: rgba(255,255,255,0.18);
                     color: white;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.15em;
-                    backdrop-filter: blur(15px);
-                    -webkit-backdrop-filter: blur(15px);
+                    letter-spacing: 0.12em;
+                    backdrop-filter: blur(12px);
                 }
 
                 .uv-live-dot {
-                    width: 7px;
-                    height: 7px;
+                    width: 6px;
+                    height: 6px;
                     border-radius: 50%;
                     background: #e6c28a;
-                    box-shadow: 0 0 12px #e6c28a;
                 }
 
                 .uv-contact-image-content {
                     position: absolute;
-                    left: 35px;
-                    bottom: 40px;
+                    left: 20px;
+                    bottom: 20px;
                     color: white;
                 }
 
                 .uv-contact-image-content > span {
                     color: #e6c28a;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.19em;
+                    letter-spacing: 0.15em;
                 }
 
                 .uv-contact-image-content h3 {
-                    margin: 13px 0 0;
+                    margin: 6px 0 0;
                     font-family: Georgia, "Times New Roman", serif;
-                    font-size: clamp(38px, 4vw, 54px);
+                    font-size: clamp(26px, 2.8vh, 36px);
                     font-weight: 400;
-                    line-height: 1.08;
-                    letter-spacing: -0.045em;
+                    line-height: 1.1;
                 }
 
                 .uv-contact-image-index {
                     position: absolute;
-                    right: 25px;
-                    bottom: 30px;
+                    right: 18px;
+                    bottom: 18px;
                     display: flex;
                     align-items: center;
-                    gap: 9px;
+                    gap: 8px;
                     color: rgba(255,255,255,0.88);
-                    font-size: 9px;
-                    letter-spacing: 0.14em;
+                    font-size: 8px;
+                    letter-spacing: 0.12em;
                 }
 
                 .uv-contact-index-line {
-                    width: 25px;
+                    width: 20px;
                     height: 1px;
                     background: rgba(255,255,255,0.7);
                 }
 
                 /* FLOATING GLASS CARD */
 
-                
-
                 .uv-contact-floating-card {
                     position: absolute;
-                    bottom:25%;
-                    right:-10%;
+                    bottom: 30%;
+                    right: -8%;
                     z-index: 3;
-                 
-                    width: min(340px, 85%);
-                    margin: -85px 0 0 -20px;
-                    padding: 25px;
+                    width: min(300px, 80%);
+                    padding: 18px;
                     border: 1px solid rgba(255,255,255,0.88);
-                    border-radius: 23px;
+                    border-radius: 16px;
                     background: linear-gradient(
                         145deg,
-                        rgba(255,255,255,0.84),
-                        rgba(255,250,241,0.57)
+                        rgba(255,255,255,0.88),
+                        rgba(255,250,241,0.65)
                     );
-                    box-shadow:
-                        0 25px 65px rgba(107,91,72,0.14),
-                        inset 0 1px 0 rgba(255,255,255,0.98);
-                    backdrop-filter: blur(28px) saturate(145%);
-                    -webkit-backdrop-filter: blur(28px) saturate(145%);
-                    animation: uv-contact-card-float 7s ease-in-out infinite;
-                }
-
-                @keyframes uv-contact-card-float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-9px); }
+                    box-shadow: 0 15px 40px rgba(107,91,72,0.1);
+                    backdrop-filter: blur(20px);
                 }
 
                 .uv-floating-card-top {
@@ -772,46 +746,45 @@ export default function ContactSection() {
 
                 .uv-floating-card-top > span:first-child {
                     color: #8b7162;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.16em;
+                    letter-spacing: 0.14em;
                 }
 
                 .uv-floating-icon {
                     display: grid;
-                    width: 36px;
-                    height: 36px;
+                    width: 28px;
+                    height: 28px;
                     place-items: center;
                     border: 1px solid rgba(156,121,65,0.3);
                     border-radius: 50%;
                     color: var(--uv-gold-dark);
                     background: rgba(255,255,255,0.5);
-                    font-size: 18px;
+                    font-size: 14px;
                 }
 
                 .uv-contact-floating-card h3 {
-                    margin: 23px 0;
+                    margin: 10px 0;
                     color: #7d5b32;
                     font-family: Georgia, "Times New Roman", serif;
-                    font-size: 30px;
+                    font-size: 20px;
                     font-weight: 400;
-                    line-height: 1.2;
-                    letter-spacing: -0.04em;
+                    line-height: 1.15;
                 }
 
                 .uv-floating-card-bottom {
                     display: flex;
                     align-items: flex-start;
-                    gap: 10px;
-                    padding-top: 16px;
+                    gap: 8px;
+                    padding-top: 10px;
                     border-top: 1px solid rgba(165,139,104,0.15);
                 }
 
                 .uv-floating-card-bottom > span {
-                    width: 6px;
-                    height: 6px;
+                    width: 5px;
+                    height: 5px;
                     flex-shrink: 0;
-                    margin-top: 6px;
+                    margin-top: 5px;
                     border-radius: 50%;
                     background: var(--uv-gold);
                 }
@@ -819,71 +792,67 @@ export default function ContactSection() {
                 .uv-floating-card-bottom p {
                     margin: 0;
                     color: #776962;
-                    font-size: 11px;
-                    line-height: 1.7;
+                    font-size: 9.5px;
+                    line-height: 1.5;
                 }
 
                 /* CONTACT DETAILS */
 
                 .uv-contact-info-card {
-                    margin-top: 30px;
-                    padding: 27px;
+                    margin-top: 16px;
+                    padding: 18px 20px;
                     border: 1px solid rgba(255,255,255,0.85);
-                    border-radius: 22px;
+                    border-radius: 18px;
                     background: linear-gradient(
                         135deg,
                         rgba(255,255,255,0.68),
                         rgba(255,255,255,0.35)
                     );
-                    box-shadow:
-                        0 16px 45px rgba(107,91,72,0.07),
-                        inset 0 1px 0 rgba(255,255,255,0.9);
-                    backdrop-filter: blur(20px);
-                    -webkit-backdrop-filter: blur(20px);
+                    box-shadow: 0 10px 30px rgba(107,91,72,0.05);
+                    backdrop-filter: blur(15px);
                 }
 
                 .uv-contact-info-heading > span {
                     color: var(--uv-gold-dark);
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.18em;
+                    letter-spacing: 0.15em;
                 }
 
                 .uv-contact-info-heading h3 {
-                    margin: 8px 0 22px;
+                    margin: 4px 0 12px;
                     color: #443d34;
                     font-family: Georgia, "Times New Roman", serif;
-                    font-size: 27px;
+                    font-size: 20px;
                     font-weight: 400;
                 }
 
                 .uv-contact-info-list {
                     display: grid;
-                    gap: 19px;
+                    gap: 12px;
                 }
 
                 .uv-contact-info-item {
                     display: flex;
                     align-items: center;
-                    gap: 15px;
+                    gap: 12px;
                     min-width: 0;
                 }
 
                 .uv-info-icon {
                     display: grid;
-                    width: 43px;
-                    height: 43px;
+                    width: 34px;
+                    height: 34px;
                     flex-shrink: 0;
                     place-items: center;
                     border: 1px solid rgba(201,164,106,0.25);
-                    border-radius: 13px;
+                    border-radius: 10px;
                     background: rgba(255,255,255,0.62);
-                    box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
                 }
 
                 .uv-info-icon svg {
-                    width: 19px;
-                    height: 19px;
+                    width: 16px;
+                    height: 16px;
                     fill: none;
                     stroke: #9c7941;
                     stroke-width: 1.5;
@@ -894,20 +863,20 @@ export default function ContactSection() {
                 .uv-contact-info-item > div:last-child {
                     display: flex;
                     flex-direction: column;
-                    gap: 5px;
+                    gap: 2px;
                     min-width: 0;
                 }
 
                 .uv-contact-info-item small {
                     color: #a1845c;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.14em;
+                    letter-spacing: 0.12em;
                 }
 
                 .uv-contact-info-item strong {
                     color: #51473e;
-                    font-size: 12px;
+                    font-size: 11px;
                     font-weight: 600;
                     overflow-wrap: anywhere;
                 }
@@ -917,97 +886,67 @@ export default function ContactSection() {
                 .uv-contact-form-card {
                     position: relative;
                     min-width: 0;
-                    padding: clamp(25px, 3.3vw, 43px);
+                    padding: clamp(20px, 2.5vw, 30px);
                     overflow: hidden;
                     border: 1px solid rgba(255,255,255,0.92);
-                    border-radius: 30px;
+                    border-radius: 22px;
                     background: linear-gradient(
                         145deg,
                         rgba(255,255,255,0.82),
                         rgba(255,250,242,0.56)
                     );
-                    box-shadow:
-                        0 30px 90px rgba(107,91,72,0.12),
-                        inset 0 1px 0 rgba(255,255,255,0.98),
-                        inset 0 -1px 0 rgba(255,255,255,0.4);
-                    backdrop-filter: blur(30px) saturate(150%);
-                    -webkit-backdrop-filter: blur(30px) saturate(150%);
-                }
-
-                .uv-contact-form-card::before {
-                    content: "";
-                    position: absolute;
-                    top: -100px;
-                    right: -100px;
-                    width: 260px;
-                    height: 260px;
-                    pointer-events: none;
-                    border-radius: 50%;
-                    background: radial-gradient(
-                        circle,
-                        rgba(201,164,106,0.13),
-                        transparent 70%
-                    );
+                    box-shadow: 0 20px 60px rgba(107,91,72,0.08);
+                    backdrop-filter: blur(20px);
                 }
 
                 .uv-form-top {
-                    position: relative;
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
-                    gap: 15px;
+                    gap: 12px;
                 }
 
                 .uv-form-eyebrow {
                     color: var(--uv-gold-dark);
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.19em;
+                    letter-spacing: 0.16em;
                 }
 
                 .uv-form-top h3 {
-                    margin: 14px 0 12px;
+                    margin: 8px 0 6px;
                     color: #443d34;
                     font-family: Georgia, "Times New Roman", serif;
-                    font-size: clamp(35px, 3.4vw, 47px);
+                    font-size: clamp(24px, 2.6vh, 32px);
                     font-weight: 400;
-                    line-height: 1.12;
-                    letter-spacing: -0.05em;
+                    line-height: 1.1;
                 }
 
                 .uv-form-top p {
-                    max-width: 400px;
+                    max-width: 360px;
                     margin: 0;
                     color: #827670;
-                    font-size: 12px;
-                    line-height: 1.8;
+                    font-size: 11px;
+                    line-height: 1.5;
                 }
 
                 .uv-form-decoration {
                     display: grid;
-                    width: 52px;
-                    height: 52px;
+                    width: 38px;
+                    height: 38px;
                     flex-shrink: 0;
                     place-items: center;
                     border: 1px solid rgba(201,164,106,0.3);
-                    border-radius: 18px;
+                    border-radius: 12px;
                     background: rgba(255,255,255,0.55);
                     color: var(--uv-gold);
-                    font-size: 29px;
-                    box-shadow: inset 0 1px 0 white;
+                    font-size: 20px;
                 }
 
                 .uv-form-divider {
                     height: 1px;
-                    margin: 28px 0;
+                    margin: 16px 0;
                     background: rgba(165,139,104,0.16);
-                }
-
-                .uv-form-divider span {
-                    display: block;
-                    width: 55px;
-                    height: 2px;
-                    background: var(--uv-gold);
                 }
 
                 /* INPUTS */
@@ -1015,21 +954,21 @@ export default function ContactSection() {
                 .uv-form-row {
                     display: grid;
                     grid-template-columns: repeat(2, minmax(0,1fr));
-                    gap: 17px;
+                    gap: 12px;
                 }
 
                 .uv-form-group {
                     min-width: 0;
-                    margin-bottom: 20px;
+                    margin-bottom: 12px;
                 }
 
                 .uv-form-group label {
                     display: block;
-                    margin-bottom: 9px;
+                    margin-bottom: 5px;
                     color: #665a50;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.12em;
+                    letter-spacing: 0.1em;
                 }
 
                 .uv-form-group label span {
@@ -1042,27 +981,15 @@ export default function ContactSection() {
                     display: block;
                     width: 100%;
                     min-width: 0;
-                    padding: 14px 15px;
+                    padding: 10px 12px;
                     border: 1px solid rgba(165,139,104,0.19);
-                    border-radius: 13px;
+                    border-radius: 10px;
                     outline: none;
                     color: #51473e;
                     background: rgba(255,255,255,0.55);
-                    box-shadow:
-                        inset 0 1px 3px rgba(107,91,72,0.025),
-                        0 4px 15px rgba(107,91,72,0.025);
                     font-family: inherit;
-                    font-size: 12px;
-                    transition:
-                        border-color 0.3s ease,
-                        background 0.3s ease,
-                        box-shadow 0.3s ease,
-                        transform 0.3s ease;
-                }
-
-                .uv-form-group input::placeholder,
-                .uv-form-group textarea::placeholder {
-                    color: #aaa09a;
+                    font-size: 11px;
+                    transition: all 0.3s ease;
                 }
 
                 .uv-form-group input:focus,
@@ -1070,20 +997,12 @@ export default function ContactSection() {
                 .uv-form-group textarea:focus {
                     border-color: rgba(156,121,65,0.65);
                     background: rgba(255,255,255,0.9);
-                    box-shadow:
-                        0 0 0 4px rgba(201,164,106,0.10),
-                        0 8px 22px rgba(107,91,72,0.06);
-                    transform: translateY(-1px);
-                }
-
-                .uv-form-group select {
-                    cursor: pointer;
+                    box-shadow: 0 0 0 3px rgba(201,164,106,0.1);
                 }
 
                 .uv-form-group textarea {
-                    min-height: 105px;
-                    resize: vertical;
-                    line-height: 1.7;
+                    min-height: 65px;
+                    resize: none;
                 }
 
                 /* SUBMIT BUTTON */
@@ -1092,56 +1011,26 @@ export default function ContactSection() {
                     position: relative;
                     display: flex;
                     width: 100%;
-                    min-height: 59px;
+                    min-height: 46px;
                     align-items: center;
                     justify-content: space-between;
-                    gap: 15px;
-                    padding: 9px 10px 9px 23px;
-                    overflow: hidden;
+                    gap: 12px;
+                    padding: 6px 6px 6px 16px;
                     border: 1px solid rgba(255,255,255,0.7);
-                    border-radius: 15px;
+                    border-radius: 12px;
                     color: white;
-                    background: linear-gradient(
-                        120deg,
-                        #a58b68,
-                        #846a48
-                    );
-                    box-shadow:
-                        0 12px 30px rgba(132,106,72,0.20),
-                        inset 0 1px 0 rgba(255,255,255,0.2);
+                    background: linear-gradient(120deg, #a58b68, #846a48);
+                    box-shadow: 0 8px 22px rgba(132,106,72,0.18);
                     cursor: pointer;
                     font-family: inherit;
-                    font-size: 10px;
+                    font-size: 9px;
                     font-weight: 700;
-                    letter-spacing: 0.14em;
-                    transition:
-                        transform 0.3s ease,
-                        box-shadow 0.3s ease,
-                        background 0.3s ease;
-                }
-
-                .uv-contact-submit::before {
-                    content: "";
-                    position: absolute;
-                    inset: 0;
-                    pointer-events: none;
-                    background: linear-gradient(
-                        110deg,
-                        transparent 15%,
-                        rgba(255,255,255,0.18) 48%,
-                        transparent 75%
-                    );
-                    transform: translateX(-120%);
-                    transition: transform 0.7s ease;
-                }
-
-                .uv-contact-submit:hover::before {
-                    transform: translateX(120%);
+                    letter-spacing: 0.12em;
+                    transition: all 0.3s ease;
                 }
 
                 .uv-contact-submit:hover:not(:disabled) {
-                    transform: translateY(-3px);
-                    box-shadow: 0 17px 38px rgba(132,106,72,0.26);
+                    transform: translateY(-2px);
                 }
 
                 .uv-contact-submit:disabled {
@@ -1150,48 +1039,33 @@ export default function ContactSection() {
                 }
 
                 .uv-submit-icon {
-                    position: relative;
-                    z-index: 1;
                     display: grid;
-                    width: 39px;
-                    height: 39px;
+                    width: 32px;
+                    height: 32px;
                     flex-shrink: 0;
                     place-items: center;
-                    border: 1px solid rgba(255,255,255,0.65);
-                    border-radius: 11px;
+                    border-radius: 8px;
                     color: #846a48;
-                    background: linear-gradient(
-                        145deg,
-                        rgba(255,255,255,0.98),
-                        rgba(247,241,232,0.82)
-                    );
-                    font-size: 19px;
-                    transition: transform 0.3s ease;
-                }
-
-                .uv-contact-submit:hover .uv-submit-icon {
-                    transform: rotate(45deg);
+                    background: #fff;
+                    font-size: 15px;
                 }
 
                 .uv-form-status {
-                    margin: 15px 0 0;
-                    padding: 12px 14px;
-                    border: 1px solid rgba(201,164,106,0.2);
-                    border-radius: 12px;
+                    margin: 10px 0 0;
+                    padding: 8px 10px;
+                    border-radius: 8px;
                     color: #725c3d;
                     background: rgba(255,255,255,0.58);
-                    font-size: 11px;
-                    line-height: 1.7;
+                    font-size: 10px;
                 }
 
                 .uv-form-privacy {
                     display: flex;
                     align-items: flex-start;
-                    gap: 8px;
-                    margin-top: 19px;
+                    gap: 6px;
+                    margin-top: 10px;
                     color: #948780;
-                    font-size: 9px;
-                    line-height: 1.7;
+                    font-size: 8px;
                 }
 
                 .uv-form-privacy span {
@@ -1203,12 +1077,12 @@ export default function ContactSection() {
                 .uv-contact-bottom {
                     display: flex;
                     align-items: center;
-                    gap: 20px;
-                    margin-top: 85px;
+                    gap: 15px;
+                    margin-top: 25px;
                     color: #8c7b73;
-                    font-size: 9px;
+                    font-size: 8px;
                     font-weight: 700;
-                    letter-spacing: 0.15em;
+                    letter-spacing: 0.12em;
                 }
 
                 .uv-contact-bottom div {
@@ -1219,17 +1093,14 @@ export default function ContactSection() {
 
                 .uv-contact-bottom span:last-child {
                     color: var(--uv-gold-dark);
-                    white-space: nowrap;
                 }
 
                 /* SCROLL REVEAL */
 
                 .uv-contact-section [data-reveal] {
                     opacity: 0;
-                    transform: translate3d(0,30px,0);
-                    transition:
-                        opacity 0.8s ease,
-                        transform 0.9s cubic-bezier(0.2,0.7,0.2,1);
+                    transform: translate3d(0,20px,0);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
                 }
 
                 .uv-contact-section [data-reveal].uv-contact-visible {
@@ -1237,171 +1108,31 @@ export default function ContactSection() {
                     transform: translate3d(0,0,0);
                 }
 
-                .uv-contact-left > [data-reveal]:nth-child(1) {
-                    transition-delay: 0.08s;
-                }
+                /* TABLET & MOBILE */
 
-                .uv-contact-left > [data-reveal]:nth-child(2) {
-                    transition-delay: 0.22s;
-                }
-
-                .uv-contact-left > [data-reveal]:nth-child(3) {
-                    transition-delay: 0.34s;
-                }
-
-                .uv-contact-form-card[data-reveal] {
-                    transition-delay: 0.2s;
-                }
-
-                /* TABLET */
-
-                @media (max-width: 1100px) {
-                    .uv-contact-container {
-                        width: calc(100% - 64px);
-                    }
-                         .uv-contact-floating-card {
-                    display:none;
-                 }
-
-                    .uv-contact-grid {
-                        gap: 35px;
-                    }
-
-                    .uv-contact-image {
-                        height: 410px;
-                    }
-
-                    .uv-contact-floating-card {
-                        margin-left: -10px;
-                    }
-
-                    .uv-contact-form-card {
-                        padding: 28px;
-                    }
-
-                    .uv-contact-bottom {
-                        margin-top: 65px;
-                    }
-                }
-
-                /* MOBILE */
-
-               
-
-                @media (max-width: 767px) {
+                @media (max-width: 900px) {
                     .uv-contact-section {
-                        padding: 80px 0 28px;
-                    }
-
-                   .uv-contact-floating-card {
-                    display:none;
-                 }
-
-                    .uv-contact-container {
-                        width: calc(100% - 40px);
-                    }
-
-                    .uv-contact-heading {
-                        margin-bottom: 45px;
-                    }
-
-                    .uv-contact-heading h2 {
-                        font-size: clamp(34px, 9vw, 49px);
-                    }
-
-                    .uv-contact-heading p {
-                        font-size: 13px;
-                    }
-
-                    .uv-contact-grid {
-                        grid-template-columns: minmax(0,1fr);
-                        gap: 45px;
-                    }
-
-                    .uv-contact-image {
-                        height: 330px;
-                        border-radius: 22px;
-                    }
-
-                    .uv-contact-image-content {
-                        left: 23px;
-                        bottom: 28px;
-                    }
-
-                    .uv-contact-image-content h3 {
-                        font-size: 42px;
+                        height: auto;
+                        min-height: 120vh;
+                        padding: 50px 0;
                     }
 
                     .uv-contact-floating-card {
-                        width: min(300px, 88%);
-                        margin-top: -65px;
-                        margin-left: -5px;
-                        padding: 21px;
-                        border-radius: 20px;
-                    }
-
-                    .uv-contact-floating-card h3 {
-                        font-size: 27px;
-                    }
-
-                    .uv-contact-info-card {
-                        padding: 22px;
-                        border-radius: 19px;
-                    }
-
-                    .uv-contact-form-card {
-                        padding: 27px 20px;
-                        border-radius: 23px;
-                    }
-
-                    .uv-form-top h3 {
-                        font-size: 38px;
-                    }
-
-                    .uv-form-decoration {
-                        width: 43px;
-                        height: 43px;
-                        border-radius: 14px;
-                    }
-
-                    .uv-form-row {
-                        grid-template-columns: minmax(0,1fr);
-                        gap: 0;
-                    }
-
-                    .uv-contact-bottom {
-                        gap: 10px;
-                        margin-top: 60px;
-                        font-size: 7px;
-                        letter-spacing: 0.08em;
-                    }
-                }
-
-                @media (max-width: 380px) {
-                    .uv-contact-container {
-                        width: calc(100% - 30px);
-                    }
-
-                    .uv-contact-image {
-                        height: 290px;
-                    }
-
-                    .uv-contact-image-index {
-                        right: 15px;
-                        bottom: 18px;
-                        font-size: 8px;
-                    }
-
-                    .uv-contact-form-card {
-                        padding: 23px 16px;
-                    }
-
-                    .uv-form-decoration {
                         display: none;
                     }
 
-                    .uv-contact-bottom {
-                        font-size: 6px;
+                    .uv-contact-grid {
+                        grid-template-columns: 1fr;
+                        gap: 24px;
+                    }
+
+                    .uv-contact-image {
+                        height: 240px;
+                    }
+
+                    .uv-form-row {
+                        grid-template-columns: 1fr;
+                        gap: 0;
                     }
                 }
 
@@ -1409,14 +1140,8 @@ export default function ContactSection() {
                     .uv-contact-section *,
                     .uv-contact-section *::before,
                     .uv-contact-section *::after {
-                        animation-duration: 0.01ms !important;
-                        animation-iteration-count: 1 !important;
-                        transition-duration: 0.01ms !important;
-                    }
-
-                    .uv-contact-section [data-reveal] {
-                        opacity: 1;
-                        transform: none;
+                        animation: none !important;
+                        transition: none !important;
                     }
                 }
 

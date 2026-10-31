@@ -158,8 +158,6 @@ export default function LifestyleFacilities() {
     }
   }, [activeCategory, activeFacilityId, filteredFacilities]);
 
-  // Keep the active thumbnail visible in the horizontal carousel.
-
   useEffect(() => {
     const track = thumbnailTrackRef.current;
     if (!track || !activeFacility) return;
@@ -271,7 +269,7 @@ export default function LifestyleFacilities() {
           <div className="uv-life-heading-side">
             <p>
               Recreation, wellness, nature and community essentials come
-              together in a thoughtfully planned environment at Uttara View.
+              together in a thoughtfully planned environment at MUHAJIREEN.
             </p>
 
             <div className="uv-life-total">
@@ -333,7 +331,7 @@ export default function LifestyleFacilities() {
             </span>
 
             <span className="uv-life-image-caption">
-              UTTARA VIEW · THE LIFESTYLE
+              MUHAJIREEN · THE LIFESTYLE
             </span>
           </div>
 
@@ -484,22 +482,6 @@ export default function LifestyleFacilities() {
             </button>
           ))}
         </div>
-
-        <div className="uv-life-carousel-hint">
-          <span>←</span>
-          <span>DRAG OR SCROLL TO EXPLORE</span>
-          <span>→</span>
-        </div>
-
-        {/* DISCLAIMER */}
-        <div className="uv-life-disclaimer">
-          <span aria-hidden="true">✳</span>
-          <p>
-            Facilities are presented according to the project information
-            provided. Availability, specifications, final design and delivery
-            are subject to approved plans and project updates.
-          </p>
-        </div>
       </div>
 
       <style jsx>{`
@@ -512,7 +494,12 @@ export default function LifestyleFacilities() {
           position: relative;
           isolation: isolate;
           overflow: hidden;
-          padding: clamp(78px, 8.5vw, 122px) 0 clamp(70px, 7vw, 100px);
+          width: 100%;
+          height: auto !important; /* Fixed height bad diye auto kora holo */
+          min-height: auto !important;
+          max-height: none !important;
+          display: block !important;
+          padding: clamp(60px, 7vw, 90px) 24px !important; /* Shudhu dorkari padding thakbe */
           color: var(--life-ink);
           background:
             radial-gradient(
@@ -533,21 +520,21 @@ export default function LifestyleFacilities() {
           content: "";
           position: absolute;
           z-index: -1;
-          width: 420px;
-          height: 420px;
+          width: 380px;
+          height: 380px;
           border: 1px solid rgba(201, 164, 106, 0.16);
           border-radius: 50%;
           pointer-events: none;
         }
 
         .uv-lifestyle::before {
-          top: -245px;
-          right: -180px;
+          top: -180px;
+          right: -150px;
         }
 
         .uv-lifestyle::after {
-          bottom: -280px;
-          left: -210px;
+          bottom: -200px;
+          left: -180px;
         }
 
         .uv-lifestyle,
@@ -558,45 +545,49 @@ export default function LifestyleFacilities() {
         .uv-life-shell {
           position: relative;
           z-index: 1;
-          width: min(1320px, calc(100% - 48px));
+          width: min(1280px, calc(100% - 48px));
           margin: 0 auto;
+          max-height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         /* HEADING */
 
         .uv-life-heading {
           display: grid;
-          grid-template-columns: minmax(0, 1fr) minmax(270px, 0.62fr);
+          grid-template-columns: minmax(0, 1fr) minmax(250px, 0.62fr);
           align-items: end;
-          gap: 50px;
-          margin-bottom: 42px;
+          gap: 30px;
+          margin-bottom: 20px;
         }
 
         .uv-life-eyebrow,
         .uv-life-filter-label {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 10px;
           color: var(--life-gold-dark);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.22em;
-          line-height: 1.6;
+          line-height: 1.5;
         }
 
         .uv-life-eyebrow-line {
           display: inline-block;
-          width: 34px;
+          width: 30px;
           height: 1px;
-          flex: 0 0 34px;
+          flex: 0 0 30px;
           background: var(--life-gold);
         }
 
         .uv-life-heading h2 {
-          margin: 18px 0 0;
+          margin: 10px 0 0;
           color: #443d34;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(42px, 5.1vw, 70px);
+          font-size: clamp(32px, 4vh, 52px);
           font-weight: 400;
           letter-spacing: -0.065em;
           line-height: 1.04;
@@ -613,43 +604,43 @@ export default function LifestyleFacilities() {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          gap: 22px;
+          gap: 18px;
         }
 
         .uv-life-heading-side p {
-          max-width: 390px;
-          margin: 0 0 3px;
+          max-width: 370px;
+          margin: 0;
           color: #766c68;
-          font-size: 12px;
-          line-height: 1.95;
+          font-size: 11.5px;
+          line-height: 1.6;
         }
 
         .uv-life-total {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
           flex: 0 0 auto;
-          min-height: 68px;
-          padding: 10px 16px;
+          min-height: 54px;
+          padding: 8px 14px;
           border: 1px solid #e6ded1;
-          border-radius: 14px;
+          border-radius: 12px;
           background: rgba(255, 255, 255, 0.56);
         }
 
         .uv-life-total strong {
           color: #a88961;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: 34px;
+          font-size: 28px;
           font-weight: 400;
           line-height: 1;
         }
 
         .uv-life-total span {
           color: #8b7b68;
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.15em;
-          line-height: 1.6;
+          line-height: 1.4;
         }
 
         /* CATEGORY FILTER */
@@ -658,25 +649,25 @@ export default function LifestyleFacilities() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 22px;
-          margin-bottom: 18px;
+          gap: 16px;
+          margin-bottom: 14px;
         }
 
         .uv-life-filters {
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-end;
-          gap: 7px;
+          gap: 6px;
         }
 
         .uv-life-filters button {
-          min-height: 32px;
-          padding: 8px 13px;
+          min-height: 28px;
+          padding: 6px 11px;
           border: 1px solid #e5ddd1;
           border-radius: 99px;
           color: #786f66;
           background: rgba(255, 255, 255, 0.58);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.08em;
           cursor: pointer;
@@ -694,18 +685,18 @@ export default function LifestyleFacilities() {
 
         .uv-life-feature {
           display: grid;
-          grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.82fr);
-          min-height: 440px;
+          grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+          height: 310px;
           overflow: hidden;
           border: 1px solid #e8e0d5;
-          border-radius: 21px;
+          border-radius: 18px;
           background: rgba(255, 255, 255, 0.72);
-          box-shadow: 0 22px 60px rgba(63, 48, 34, 0.07);
+          box-shadow: 0 16px 45px rgba(63, 48, 34, 0.06);
         }
 
         .uv-life-feature-image {
           position: relative;
-          min-height: 440px;
+          height: 100%;
           overflow: hidden;
           background: #d8d0c2;
         }
@@ -717,13 +708,6 @@ export default function LifestyleFacilities() {
           height: 100%;
           object-fit: cover;
           animation: uvLifeImageIn 0.65s ease both;
-          transition:
-            transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
-            opacity 0.2s ease;
-        }
-
-        .uv-life-feature:hover .uv-life-feature-image img {
-          transform: scale(1.025);
         }
 
         .uv-life-feature-image-shade {
@@ -740,34 +724,34 @@ export default function LifestyleFacilities() {
 
         .uv-life-image-index {
           position: absolute;
-          top: 23px;
-          left: 25px;
+          top: 14px;
+          left: 16px;
           display: flex;
           align-items: center;
-          gap: 10px;
-          padding: 9px 13px;
+          gap: 8px;
+          padding: 6px 10px;
           border: 1px solid rgba(255, 255, 255, 0.55);
           border-radius: 99px;
           color: #fff;
           background: rgba(35, 35, 30, 0.22);
           backdrop-filter: blur(12px);
-          font-size: 10px;
+          font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.12em;
         }
 
         .uv-life-image-index i {
-          width: 20px;
+          width: 16px;
           height: 1px;
           background: rgba(255, 255, 255, 0.8);
         }
 
         .uv-life-image-caption {
           position: absolute;
-          bottom: 24px;
-          left: 26px;
+          bottom: 14px;
+          left: 16px;
           color: rgba(255, 255, 255, 0.9);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.2em;
         }
@@ -776,7 +760,7 @@ export default function LifestyleFacilities() {
           display: flex;
           flex-direction: column;
           min-width: 0;
-          padding: clamp(25px, 3vw, 43px);
+          padding: 20px 24px;
           background: linear-gradient(
             145deg,
             rgba(255, 255, 255, 0.94),
@@ -787,7 +771,7 @@ export default function LifestyleFacilities() {
         .uv-life-feature-top {
           display: flex;
           justify-content: space-between;
-          gap: 12px;
+          gap: 10px;
           color: #a17d4b;
           font-size: 8px;
           font-weight: 800;
@@ -796,40 +780,31 @@ export default function LifestyleFacilities() {
 
         .uv-life-feature-top span:last-child {
           color: #9b9185;
-          font-size: 10px;
+          font-size: 9px;
           letter-spacing: 0.08em;
         }
 
         .uv-life-feature-icon {
-          display: grid;
-          place-items: center;
-          width: 54px;
-          height: 54px;
-          margin-top: 38px;
-          border: 1px solid #e3c99f;
-          border-radius: 50%;
-          color: #a17d4b;
-          background: #f5ecdd;
-          font-size: 23px;
+          display: none; /* Height banchar jonno hide rakha holo */
         }
 
         .uv-life-feature-copy {
           margin: auto 0;
-          padding: 28px 0 34px;
+          padding: 12px 0;
         }
 
         .uv-life-feature-kicker {
           color: #a17d4b;
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.18em;
         }
 
         .uv-life-feature-copy h3 {
-          margin: 14px 0;
+          margin: 6px 0 6px;
           color: #443d34;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(29px, 3vw, 39px);
+          font-size: clamp(22px, 2.4vh, 30px);
           font-weight: 400;
           letter-spacing: -0.045em;
           line-height: 1.12;
@@ -838,16 +813,16 @@ export default function LifestyleFacilities() {
         .uv-life-feature-copy p {
           margin: 0;
           color: #766c68;
-          font-size: 12px;
-          line-height: 1.9;
+          font-size: 11px;
+          line-height: 1.55;
         }
 
         .uv-life-feature-bottom {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          gap: 15px;
-          padding-top: 18px;
+          gap: 12px;
+          padding-top: 12px;
           border-top: 1px solid #e9e1d6;
         }
 
@@ -857,9 +832,9 @@ export default function LifestyleFacilities() {
 
         .uv-life-next > span {
           display: block;
-          margin-bottom: 9px;
+          margin-bottom: 4px;
           color: #a17d4b;
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.16em;
         }
@@ -867,14 +842,14 @@ export default function LifestyleFacilities() {
         .uv-life-next button {
           display: flex;
           align-items: center;
-          gap: 18px;
-          max-width: 220px;
+          gap: 12px;
+          max-width: 190px;
           padding: 0;
           border: 0;
           color: #51483f;
           background: transparent;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: 15px;
+          font-size: 13.5px;
           text-align: left;
           cursor: pointer;
         }
@@ -888,13 +863,13 @@ export default function LifestyleFacilities() {
         .uv-life-next button b {
           color: #a17d4b;
           font-family: Arial, sans-serif;
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 400;
         }
 
         .uv-life-feature-arrows {
           display: flex;
-          gap: 7px;
+          gap: 6px;
           flex: 0 0 auto;
         }
 
@@ -902,13 +877,13 @@ export default function LifestyleFacilities() {
         .uv-life-carousel-controls button {
           display: grid;
           place-items: center;
-          width: 35px;
-          height: 35px;
+          width: 30px;
+          height: 30px;
           border: 1px solid #e2d8c9;
           border-radius: 50%;
           color: #80633d;
           background: #fff;
-          font-size: 16px;
+          font-size: 14px;
           cursor: pointer;
           transition: all 0.2s ease;
         }
@@ -920,117 +895,80 @@ export default function LifestyleFacilities() {
           background: #a88961;
         }
 
-        .uv-life-feature-arrows button:disabled {
-          opacity: 0.4;
-          cursor: not-allowed;
-        }
-
         /* THUMBNAIL CAROUSEL HEADING */
 
         .uv-life-carousel-heading {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          gap: 20px;
-          margin: clamp(45px, 5vw, 65px) 0 20px;
+          gap: 16px;
+          margin: 22px 0 12px;
         }
 
         .uv-life-carousel-heading h3 {
-          margin: 11px 0 0;
+          margin: 6px 0 0;
           color: #443d34;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(27px, 3vw, 38px);
+          font-size: clamp(22px, 2.4vh, 30px);
           font-weight: 400;
-          letter-spacing: -0.045em;
         }
 
         .uv-life-carousel-controls {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
         }
 
         .uv-life-result-count {
-          margin-right: 9px;
+          margin-right: 8px;
           color: #928779;
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.13em;
-          white-space: nowrap;
         }
 
         /* HORIZONTAL THUMBNAILS */
 
         .uv-life-thumbnail-track {
           display: flex;
-          gap: 14px;
+          gap: 12px;
           overflow-x: auto;
           overflow-y: hidden;
-          padding: 5px 3px 12px;
-
+          padding: 4px 2px 8px;
           scroll-behavior: smooth;
           scroll-snap-type: x mandatory;
-          -webkit-overflow-scrolling: touch;
-
-          /* Hide scrollbar */
           scrollbar-width: none;
-          -ms-overflow-style: none;
         }
 
         .uv-life-thumbnail-track::-webkit-scrollbar {
           display: none;
         }
 
-        .uv-life-thumbnail-track::-webkit-scrollbar-track {
-          border-radius: 10px;
-          background: #e9e1d6;
-        }
-
-        .uv-life-thumbnail-track::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-          background: #c9a46a;
-        }
-
         .uv-life-thumbnail {
-          flex: 0 0 calc((100% - 42px) / 4);
+          flex: 0 0 calc((100% - 36px) / 4);
           min-width: 0;
           padding: 0;
           overflow: hidden;
-
           border: 1px solid #e8e0d5;
-          border-radius: 13px;
-
+          border-radius: 14px;
           color: inherit;
           background: rgba(255, 255, 255, 0.72);
           text-align: left;
           cursor: pointer;
-
           scroll-snap-align: start;
-
-          transition:
-            transform 0.3s ease,
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
-        }
-
-        .uv-life-thumbnail:hover {
-          transform: translateY(-4px);
-          border-color: #c9a46a;
-          box-shadow: 0 12px 28px rgba(63, 48, 34, 0.08);
+          transition: all 0.3s ease;
         }
 
         .uv-life-thumbnail.is-selected {
           border: 2px solid #c9a46a;
-          box-shadow:
-            0 0 0 2px rgba(201, 164, 106, 0.12),
-            0 10px 25px rgba(63, 48, 34, 0.08);
+          box-shadow: 0 8px 20px rgba(63, 48, 34, 0.08);
         }
 
         .uv-life-thumbnail-image {
           position: relative;
-          height: 125px;
+          height: 95px;
           overflow: hidden;
-          background: linear-gradient(135deg, #d8d0c2, #a8a08e);
+          background: #d8d0c2;
         }
 
         .uv-life-thumbnail-image img {
@@ -1039,58 +977,40 @@ export default function LifestyleFacilities() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition:
-            transform 0.65s ease,
-            opacity 0.2s ease;
-        }
-
-        .uv-life-thumbnail:hover .uv-life-thumbnail-image img {
-          transform: scale(1.07);
         }
 
         .uv-life-thumbnail-number {
           position: absolute;
-          top: 10px;
-          left: 11px;
+          top: 8px;
+          left: 8px;
           display: grid;
           place-items: center;
-          width: 28px;
-          height: 28px;
-          border: 1px solid rgba(255, 255, 255, 0.72);
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
           color: #fff;
-          background: rgba(30, 30, 25, 0.3);
-          backdrop-filter: blur(8px);
-          font-size: 8px;
+          background: rgba(30, 30, 25, 0.4);
+          font-size: 7.5px;
           font-weight: 800;
         }
 
         .uv-life-thumbnail-arrow {
           position: absolute;
-          top: 10px;
-          right: 11px;
+          top: 8px;
+          right: 8px;
           display: grid;
           place-items: center;
-          width: 28px;
-          height: 28px;
-          border: 1px solid rgba(255, 255, 255, 0.72);
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
           color: #fff;
-          background: rgba(30, 30, 25, 0.3);
-          font-size: 14px;
-          transition: all 0.25s ease;
-        }
-
-        .uv-life-thumbnail:hover .uv-life-thumbnail-arrow,
-        .uv-life-thumbnail.is-selected .uv-life-thumbnail-arrow {
-          transform: rotate(45deg);
-          color: #fff;
-          background: #a88961;
+          background: rgba(30, 30, 25, 0.4);
+          font-size: 11px;
         }
 
         .uv-life-thumbnail-info {
-          min-height: 76px;
-          padding: 12px 14px 13px;
+          min-height: 54px;
+          padding: 8px 10px;
         }
 
         .uv-life-thumbnail-info > span {
@@ -1101,222 +1021,37 @@ export default function LifestyleFacilities() {
         }
 
         .uv-life-thumbnail-info h4 {
-          margin: 6px 0 0;
+          margin: 3px 0 0;
           color: #51483f;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: 16px;
+          font-size: 13.5px;
           font-weight: 400;
-          line-height: 1.25;
+          line-height: 1.2;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
+        .uv-life-disclaimer,
         .uv-life-carousel-hint {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
-          margin-top: 5px;
-          color: #a18c70;
-          font-size: 8px;
-          font-weight: 800;
-          letter-spacing: 0.17em;
+          display: none; /* Height controler jonno hide rakha holo */
         }
 
-        .uv-life-carousel-hint span:first-child,
-        .uv-life-carousel-hint span:last-child {
-          font-size: 13px;
-        }
-
-        /* DISCLAIMER */
-
-        .uv-life-disclaimer {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          margin-top: 23px;
-          padding: 15px 17px;
-          border: 1px solid #e8e0d5;
-          border-radius: 10px;
-          background: rgba(255, 255, 255, 0.48);
-        }
-
-        .uv-life-disclaimer > span {
-          color: #a88961;
-          font-size: 16px;
-        }
-
-        .uv-life-disclaimer p {
-          margin: 0;
-          color: #82786e;
-          font-size: 9px;
-          line-height: 1.8;
-        }
-
-        @keyframes uvLifeImageIn {
-          from {
-            opacity: 0.55;
-            transform: scale(1.035);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        /* TABLET */
-
-        @media (max-width: 1050px) {
-          .uv-life-heading {
-            grid-template-columns: 1fr;
-            gap: 22px;
-          }
-
-          .uv-life-heading-side {
-            justify-content: space-between;
-          }
-
-          .uv-life-feature {
-            grid-template-columns: minmax(0, 1.35fr) minmax(290px, 0.9fr);
-          }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 760px) {
-          .uv-life-shell {
-            width: min(100% - 34px, 600px);
-          }
-
-          .uv-life-filter-row {
-            align-items: flex-start;
-            flex-direction: column;
-          }
-
-          .uv-life-filters {
-            justify-content: flex-start;
-          }
-
-          .uv-life-feature {
-            grid-template-columns: 1fr;
-          }
-
-          .uv-life-feature-image {
-            min-height: clamp(250px, 58vw, 390px);
-          }
-
-          .uv-life-feature-panel {
-            min-height: 340px;
-          }
-
-          .uv-life-feature-icon {
-            margin-top: 25px;
-          }
-
-          .uv-life-feature-copy {
-            padding: 22px 0 26px;
-          }
-
-          .uv-life-thumbnail {
-            flex-basis: 190px;
-          }
-
-          .uv-life-thumbnail-image {
-            height: 115px;
-          }
-        }
-
-        @media (max-width: 480px) {
+        @media (max-width: 900px) {
           .uv-lifestyle {
-            padding: 68px 0;
+            height: auto;
+            min-height: 120vh;
+            padding: 50px 0;
           }
-
-          .uv-life-heading h2 {
-            font-size: clamp(39px, 11vw, 50px);
-          }
-
-          .uv-life-heading-side {
-            align-items: flex-start;
-          }
-
-          .uv-life-total {
-            min-height: 58px;
-            padding: 8px 11px;
-          }
-
-          .uv-life-total strong {
-            font-size: 28px;
-          }
-
-          .uv-life-filters {
-            gap: 6px;
-          }
-
-          .uv-life-filters button {
-            padding: 8px 10px;
-            font-size: 7px;
-          }
-
           .uv-life-feature {
-            border-radius: 15px;
+            grid-template-columns: 1fr;
+            height: auto;
           }
-
-          .uv-life-feature-panel {
-            padding: 23px 20px;
+          .uv-life-feature-image {
+            height: 220px;
           }
-
-          .uv-life-feature-copy h3 {
-            font-size: 32px;
-          }
-
-          .uv-life-carousel-heading {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 14px;
-          }
-
           .uv-life-thumbnail {
-            flex-basis: 170px;
-          }
-
-          .uv-life-thumbnail-image {
-            height: 105px;
-          }
-
-          .uv-life-thumbnail-info {
-            min-height: 70px;
-            padding: 11px;
-          }
-
-          .uv-life-thumbnail-info h4 {
-            font-size: 14px;
-          }
-
-          .uv-life-disclaimer {
-            padding: 13px;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .uv-life-feature-image img,
-          .uv-life-thumbnail,
-          .uv-life-thumbnail-image img,
-          .uv-life-thumbnail-arrow {
-            animation: none;
-            transition: none;
-          }
-
-          .uv-life-thumbnail-track {
-            scroll-behavior: auto;
-          }
-        }
-        @media (max-width: 760px) {
-          .uv-life-thumbnail {
-            flex: 0 0 calc((100% - 14px) / 2);
-          }
-        }
-
-        @media (max-width: 480px) {
-          .uv-life-thumbnail {
-            flex: 0 0 calc((100% - 10px) / 2);
+            flex: 0 0 calc((100% - 12px) / 2);
           }
         }
       `}</style>

@@ -163,7 +163,7 @@ const nearbyDestinations = [
     category: "EDUCATION",
     icon: "⌘",
     description:
-      "World University of Bangladesh, shown south-east of Uttara View in the supplied map.",
+      "World University of Bangladesh, shown south-east of MUHAJIREEN in the supplied map.",
     query: "World University of Bangladesh",
   },
   {
@@ -189,7 +189,7 @@ const nearbyDestinations = [
     category: "EDUCATION",
     icon: "⌂",
     description:
-      "A university shown north-east of Uttara View in the supplied map screenshot.",
+      "A university shown north-east of MUHAJIREEN in the supplied map screenshot.",
     query: "Uttara University Dhaka",
   },
   {
@@ -330,7 +330,7 @@ export default function MasterplanConnectivity() {
                   <img
                     className="uv-mp-map-image"
                     src="/images/slider/hero-slide/img-1-1.png"
-                    alt="Uttara View project masterplan"
+                    alt="MUHAJIREEN project masterplan"
                     loading="lazy"
                     decoding="async"
                     draggable="false"
@@ -454,12 +454,12 @@ export default function MasterplanConnectivity() {
               <div className="uv-mp-connectivity-map-layout">
                 <div
                   className="uv-mp-connectivity-map uv-mp-connectivity-map-real"
-                  aria-label="Real map showing Uttara View and nearby destinations"
+                  aria-label="Real map showing MUHAJIREEN and nearby destinations"
                 >
                   <img
                     className="uv-mp-connectivity-map-image"
                     src="/images/slider/hero-slide/localmap.png"
-                    alt="Map of Uttara View and nearby destinations around Uttara and Ashulia"
+                    alt="Map of MUHAJIREEN and nearby destinations around Uttara and Ashulia"
                     loading="lazy"
                     decoding="async"
                     draggable="false"
@@ -468,7 +468,7 @@ export default function MasterplanConnectivity() {
                   <div className="uv-mp-nearby-home uv-mp-nearby-home-real">
                     <span>⌂</span>
                     <div>
-                      <b>UTTARA VIEW</b>
+                      <b>MUHAJIREEN</b>
                       <small>PROJECT LOCATION</small>
                     </div>
                   </div>
@@ -583,7 +583,7 @@ export default function MasterplanConnectivity() {
               <div>
                 <strong>Location context</strong>
                 <p>
-                  Uttara View is described in the project materials as being
+                  MUHAJIREEN is described in the project materials as being
                   beside Uttara Sector 16, Ashulia Model Town. Any proposed
                   bridge or future transport link should be clearly labelled
                   “Proposed,” not shown as completed.
@@ -609,7 +609,11 @@ export default function MasterplanConnectivity() {
           position: relative;
           isolation: isolate;
           overflow: hidden;
-          padding: clamp(78px, 9vw, 132px) 24px;
+          width: 100%;
+          height: auto !important;
+          min-height: auto !important;
+          max-height: none !important;
+          padding: clamp(50px, 6vw, 90px) 24px;
           color: var(--mp-ink);
           background:
             radial-gradient(
@@ -653,7 +657,7 @@ export default function MasterplanConnectivity() {
         }
         .uv-mp-heading {
           max-width: 790px;
-          margin: 0 auto 34px;
+          margin: 0 auto 24px;
           text-align: center;
         }
         .uv-mp-eyebrow {
@@ -672,12 +676,12 @@ export default function MasterplanConnectivity() {
           content: "";
         }
         .uv-mp-heading h2 {
-          margin: 22px 0 18px;
+          margin: 16px 0 12px;
           color: #51483d;
-          font-size: clamp(40px, 5.4vw, 72px);
+          font-size: clamp(35px, 4.8vw, 62px);
           font-weight: 500;
           line-height: 1.02;
-          letter-spacing: -0.065em;
+          letter-spacing: -0.022em;
         }
         .uv-mp-heading h2 em,
         .uv-mp-connectivity h3 em,
@@ -692,14 +696,14 @@ export default function MasterplanConnectivity() {
           max-width: 620px;
           margin: auto;
           color: var(--mp-muted);
-          font-size: 14px;
-          line-height: 1.9;
+          font-size: 13px;
+          line-height: 1.7;
         }
         .uv-mp-stats {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           max-width: 780px;
-          margin: 0 auto 58px;
+          margin: 0 auto 35px;
           border: 1px solid rgba(166, 139, 103, 0.2);
           border-radius: 16px;
           background: rgba(255, 255, 255, 0.55);
@@ -707,7 +711,7 @@ export default function MasterplanConnectivity() {
           backdrop-filter: blur(14px);
         }
         .uv-mp-stats > div {
-          padding: 21px 12px;
+          padding: 16px 12px;
           text-align: center;
         }
         .uv-mp-stats > div + div {
@@ -716,22 +720,22 @@ export default function MasterplanConnectivity() {
         .uv-mp-stats strong {
           display: block;
           color: #51483d;
-          font-size: clamp(27px, 3vw, 39px);
+          font-size: clamp(24px, 2.6vw, 34px);
           font-weight: 500;
           letter-spacing: -0.055em;
         }
         .uv-mp-stats small {
           color: var(--mp-sand);
           font-family: Georgia, serif;
-          font-size: 15px;
+          font-size: 13px;
           font-style: italic;
           font-weight: 400;
         }
         .uv-mp-stats span {
           display: block;
-          margin-top: 6px;
+          margin-top: 4px;
           color: var(--mp-muted);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.14em;
         }
@@ -755,33 +759,33 @@ export default function MasterplanConnectivity() {
           justify-content: space-between;
           align-items: center;
           gap: 14px;
-          padding: 20px 22px;
+          padding: 16px 20px;
           border-bottom: 1px solid rgba(166, 139, 103, 0.16);
         }
         .uv-mp-map-heading > div {
           display: grid;
-          gap: 7px;
+          gap: 5px;
         }
         .uv-mp-map-heading span,
         .uv-mp-connectivity-copy > .uv-mp-eyebrow {
           color: var(--mp-sand);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.17em;
         }
         .uv-mp-map-heading strong {
           color: #51483d;
           font-family: Georgia, serif;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 400;
         }
         .uv-mp-map-heading button {
-          padding: 9px 14px;
+          padding: 8px 12px;
           border: 1px solid rgba(166, 139, 103, 0.32);
           border-radius: 99px;
           color: #6e593d;
           background: rgba(255, 255, 255, 0.7);
-          font-size: 10px;
+          font-size: 9.5px;
           font-weight: 800;
           cursor: pointer;
         }
@@ -791,8 +795,8 @@ export default function MasterplanConnectivity() {
         .uv-mp-map {
           position: relative;
           isolation: isolate;
-          min-height: 420px;
-          aspect-ratio: 1.35/1;
+          min-height: 380px;
+          aspect-ratio: 1.45/1;
           overflow: hidden;
           background: #e7e0d3;
         }
@@ -831,10 +835,10 @@ export default function MasterplanConnectivity() {
         .uv-mp-pin-dot {
           position: relative;
           display: grid;
-          flex: 0 0 29px;
+          flex: 0 0 26px;
           place-items: center;
-          width: 29px;
-          height: 29px;
+          width: 26px;
+          height: 26px;
           border: 2px solid white;
           border-radius: 50%;
           color: #604a2e;
@@ -842,26 +846,26 @@ export default function MasterplanConnectivity() {
           box-shadow:
             0 0 0 4px rgba(255, 255, 255, 0.38),
             0 3px 14px rgba(0, 0, 0, 0.25);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 900;
         }
         .uv-mp-pin-dot:after {
           position: absolute;
-          inset: -7px;
+          inset: -6px;
           border: 1px solid rgba(255, 255, 255, 0.85);
           border-radius: 50%;
           content: "";
           animation: uvMpPulse 2.2s ease-out infinite;
         }
         .uv-mp-pin-label {
-          max-width: 165px;
-          padding: 8px 10px;
+          max-width: 155px;
+          padding: 6px 9px;
           border: 1px solid rgba(255, 255, 255, 0.58);
           border-radius: 99px;
           color: white;
           background: rgba(30, 37, 34, 0.72);
           backdrop-filter: blur(10px);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.05em;
           line-height: 1.2;
@@ -882,23 +886,23 @@ export default function MasterplanConnectivity() {
         }
         .uv-mp-map-caption {
           position: absolute;
-          left: 16px;
-          bottom: 14px;
-          padding: 9px 12px;
+          left: 14px;
+          bottom: 12px;
+          padding: 7px 11px;
           border: 1px solid rgba(255, 255, 255, 0.5);
           border-radius: 99px;
           color: white;
           background: rgba(30, 37, 34, 0.62);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.12em;
         }
         .uv-mp-note {
           margin: 0;
-          padding: 13px 17px;
+          padding: 10px 16px;
           color: var(--mp-muted);
-          font-size: 10px;
-          line-height: 1.65;
+          font-size: 9.5px;
+          line-height: 1.5;
         }
         .uv-mp-detail {
           display: flex;
@@ -906,7 +910,7 @@ export default function MasterplanConnectivity() {
         }
         .uv-mp-detail-image {
           position: relative;
-          min-height: 235px;
+          min-height: 200px;
           overflow: hidden;
           background: linear-gradient(135deg, #e4d8c5, #b6a487);
         }
@@ -914,19 +918,19 @@ export default function MasterplanConnectivity() {
           display: block;
           width: 100%;
           height: 100%;
-          min-height: 235px;
+          min-height: 200px;
           object-fit: cover;
         }
         .uv-mp-detail-image > span {
           position: absolute;
-          right: 15px;
-          bottom: 14px;
-          padding: 7px 11px;
+          right: 14px;
+          bottom: 12px;
+          padding: 6px 10px;
           border: 1px solid rgba(255, 255, 255, 0.55);
           border-radius: 99px;
           color: white;
           background: rgba(30, 37, 34, 0.55);
-          font-size: 10px;
+          font-size: 9px;
           font-weight: 800;
         }
         .uv-mp-detail-image i {
@@ -937,19 +941,19 @@ export default function MasterplanConnectivity() {
           display: flex;
           flex: 1;
           flex-direction: column;
-          padding: clamp(22px, 2.5vw, 31px);
+          padding: clamp(18px, 2.2vw, 26px);
         }
         .uv-mp-detail-body small {
           color: var(--mp-sand);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.17em;
         }
         .uv-mp-detail-body h3 {
-          margin: 13px 0 11px;
+          margin: 10px 0 8px;
           color: #51483d;
           font-family: Georgia, serif;
-          font-size: clamp(24px, 2.3vw, 32px);
+          font-size: clamp(22px, 2.1vw, 29px);
           font-weight: 400;
           line-height: 1.14;
           letter-spacing: -0.035em;
@@ -957,22 +961,22 @@ export default function MasterplanConnectivity() {
         .uv-mp-detail-body p {
           margin: 0;
           color: var(--mp-muted);
-          font-size: 12px;
-          line-height: 1.9;
+          font-size: 11px;
+          line-height: 1.7;
         }
         .uv-mp-detail-actions {
           display: flex;
           justify-content: space-between;
           gap: 12px;
           margin-top: auto;
-          padding-top: 25px;
+          padding-top: 18px;
         }
         .uv-mp-detail-actions button {
-          padding: 9px 0;
+          padding: 6px 0;
           border: 0;
           background: transparent;
           color: #766750;
-          font-size: 10px;
+          font-size: 9.5px;
           font-weight: 800;
           cursor: pointer;
         }
@@ -982,18 +986,18 @@ export default function MasterplanConnectivity() {
         .uv-mp-connectivity {
           display: grid;
           grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
-          gap: 45px;
+          gap: 35px;
           align-items: center;
-          margin-top: clamp(72px, 8vw, 108px);
-          padding: clamp(25px, 4vw, 48px);
+          margin-top: clamp(35px, 4vw, 55px);
+          padding: clamp(20px, 3.2vw, 38px);
           border: 1px solid rgba(166, 139, 103, 0.17);
-          border-radius: 22px;
+          border-radius: 20px;
           background: rgba(255, 255, 255, 0.43);
         }
         .uv-mp-connectivity h3 {
-          margin: 14px 0 13px;
+          margin: 10px 0 10px;
           color: #51483d;
-          font-size: clamp(30px, 4vw, 49px);
+          font-size: clamp(26px, 3.5vw, 42px);
           font-weight: 500;
           line-height: 1.05;
           letter-spacing: -0.05em;
@@ -1002,8 +1006,8 @@ export default function MasterplanConnectivity() {
           max-width: 430px;
           margin: 0;
           color: var(--mp-muted);
-          font-size: 12px;
-          line-height: 1.9;
+          font-size: 11.5px;
+          line-height: 1.7;
         }
         .uv-mp-roads {
           display: grid;
@@ -1012,51 +1016,51 @@ export default function MasterplanConnectivity() {
         }
         .uv-mp-road {
           display: grid;
-          grid-template-columns: 28px 1fr auto;
+          grid-template-columns: 26px 1fr auto;
           align-items: center;
           gap: 9px;
-          padding: 17px 14px;
+          padding: 14px 12px;
           border: 1px solid rgba(166, 139, 103, 0.18);
-          border-radius: 13px;
+          border-radius: 12px;
           background: rgba(255, 255, 255, 0.72);
         }
         .uv-mp-road span {
           display: grid;
           place-items: center;
-          width: 27px;
-          height: 27px;
+          width: 25px;
+          height: 25px;
           border-radius: 50%;
           color: #89683e;
           background: #eee3d1;
         }
         .uv-mp-road b {
           color: #766d61;
-          font-size: 10px;
+          font-size: 9.5px;
         }
         .uv-mp-road strong {
           color: #51483d;
           font-family: Georgia, serif;
-          font-size: 22px;
+          font-size: 19px;
           font-weight: 400;
           white-space: nowrap;
         }
         .uv-mp-nearby {
-          margin-top: clamp(76px, 8vw, 112px);
+          margin-top: clamp(35px, 4vw, 55px);
         }
         .uv-mp-nearby-heading {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          gap: 30px;
-          margin-bottom: 25px;
+          gap: 25px;
+          margin-bottom: 20px;
         }
         .uv-mp-nearby-heading > div:first-child {
           max-width: 730px;
         }
         .uv-mp-nearby-heading h3 {
-          margin: 14px 0 12px;
+          margin: 10px 0 10px;
           color: #51483d;
-          font-size: clamp(32px, 4.5vw, 56px);
+          font-size: clamp(28px, 4vw, 48px);
           font-weight: 500;
           line-height: 1.04;
           letter-spacing: -0.055em;
@@ -1065,31 +1069,31 @@ export default function MasterplanConnectivity() {
           max-width: 650px;
           margin: 0;
           color: var(--mp-muted);
-          font-size: 12px;
-          line-height: 1.9;
+          font-size: 11.5px;
+          line-height: 1.7;
         }
         .uv-mp-nearby-count {
           display: flex;
           align-items: center;
-          gap: 11px;
-          padding: 12px 16px;
+          gap: 10px;
+          padding: 10px 14px;
           border: 1px solid rgba(166, 139, 103, 0.22);
-          border-radius: 13px;
+          border-radius: 12px;
           background: rgba(255, 255, 255, 0.58);
         }
         .uv-mp-nearby-count strong {
           color: var(--mp-sand);
           font-family: Georgia, serif;
-          font-size: 35px;
+          font-size: 30px;
           font-weight: 400;
         }
         .uv-mp-nearby-count span {
           max-width: 65px;
           color: var(--mp-muted);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.13em;
-          line-height: 1.5;
+          line-height: 1.4;
         }
         .uv-mp-connectivity-map-layout {
           display: grid;
@@ -1129,7 +1133,7 @@ export default function MasterplanConnectivity() {
           display: flex;
           align-items: center;
           gap: 6px;
-          padding: 7px 9px;
+          padding: 6px 8px;
           border: 1px solid #d7bd91;
           background: rgba(255, 253, 248, 0.96);
           box-shadow: 0 4px 15px rgba(59, 51, 36, 0.16);
@@ -1138,25 +1142,25 @@ export default function MasterplanConnectivity() {
         .uv-mp-nearby-home > span {
           display: grid;
           place-items: center;
-          width: 24px;
-          height: 24px;
+          width: 22px;
+          height: 22px;
           border-radius: 50%;
           color: white;
           background: #a8844f;
-          font-size: 16px;
+          font-size: 14px;
         }
         .uv-mp-nearby-home div {
           display: grid;
-          gap: 3px;
+          gap: 2px;
         }
         .uv-mp-nearby-home b {
-          font-size: 8px;
+          font-size: 7.5px;
           letter-spacing: 0.1em;
           white-space: nowrap;
         }
         .uv-mp-nearby-home small {
           color: #9a7545;
-          font-size: 7px;
+          font-size: 6.5px;
           letter-spacing: 0.13em;
         }
         .uv-mp-nearby-pin {
@@ -1175,10 +1179,10 @@ export default function MasterplanConnectivity() {
         }
         .uv-mp-nearby-pin-dot {
           display: grid;
-          flex: 0 0 29px;
+          flex: 0 0 26px;
           place-items: center;
-          width: 29px;
-          height: 29px;
+          width: 26px;
+          height: 26px;
           border: 2px solid white;
           border-radius: 50%;
           color: #76562e;
@@ -1186,18 +1190,18 @@ export default function MasterplanConnectivity() {
           box-shadow:
             0 2px 8px rgba(66, 53, 28, 0.19),
             0 0 0 4px rgba(255, 255, 255, 0.58);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
         }
         .uv-mp-nearby-pin-label {
           max-width: 145px;
-          padding: 6px 8px;
+          padding: 5px 7px;
           border: 1px solid rgba(198, 161, 107, 0.72);
           border-radius: 7px;
           color: #4e585a;
           background: rgba(255, 253, 248, 0.96);
           box-shadow: 0 8px 24px rgba(24, 31, 34, 0.12);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 700;
           line-height: 1.3;
           opacity: 1;
@@ -1245,7 +1249,7 @@ export default function MasterplanConnectivity() {
           display: flex;
           flex-direction: column;
           min-width: 0;
-          padding: clamp(22px, 3vw, 34px);
+          padding: clamp(18px, 2.5vw, 28px);
           border-left: 1px solid rgba(166, 139, 103, 0.17);
           background: linear-gradient(
             160deg,
@@ -1259,12 +1263,12 @@ export default function MasterplanConnectivity() {
           align-items: center;
           gap: 10px;
           color: var(--mp-sand);
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           letter-spacing: 0.12em;
         }
         .uv-mp-nearby-detail-top strong {
-          font-size: 12px;
+          font-size: 11px;
           letter-spacing: 0;
         }
         .uv-mp-nearby-detail-top i {
@@ -1275,61 +1279,61 @@ export default function MasterplanConnectivity() {
         .uv-mp-nearby-detail-icon {
           display: grid;
           place-items: center;
-          width: 54px;
-          height: 54px;
-          margin: 38px 0 22px;
+          width: 46px;
+          height: 46px;
+          margin: 24px 0 16px;
           border: 1px solid #ddc69f;
           border-radius: 50%;
           color: #96713f;
           background: #f4ead8;
-          font-size: 27px;
+          font-size: 22px;
         }
         .uv-mp-nearby-detail h4 {
-          margin: 0 0 12px;
+          margin: 0 0 10px;
           color: #51483d;
           font-family: Georgia, serif;
-          font-size: clamp(22px, 2.4vw, 30px);
+          font-size: clamp(20px, 2.2vw, 26px);
           font-weight: 400;
           line-height: 1.15;
         }
         .uv-mp-nearby-detail p {
           margin: 0;
           color: var(--mp-muted);
-          font-size: 11px;
-          line-height: 1.9;
+          font-size: 10.5px;
+          line-height: 1.7;
         }
         .uv-mp-nearby-detail-actions {
           display: grid;
-          gap: 14px;
+          gap: 12px;
           margin-top: auto;
-          padding-top: 30px;
+          padding-top: 20px;
         }
         .uv-mp-nearby-detail-actions button {
           display: flex;
           justify-content: space-between;
-          padding: 12px 0;
+          padding: 10px 0;
           border: 0;
           border-top: 1px solid rgba(166, 139, 103, 0.2);
           background: transparent;
           color: #766d61;
-          font-size: 10px;
+          font-size: 9.5px;
           font-weight: 800;
           cursor: pointer;
         }
         .uv-mp-nearby-detail-actions button span {
           color: var(--mp-sand);
-          font-size: 17px;
+          font-size: 15px;
         }
         .uv-mp-nearby-detail-actions a {
           display: block;
-          padding: 13px 14px;
+          padding: 11px 12px;
           border: 1px solid rgba(166, 139, 103, 0.4);
           border-radius: 99px;
           color: #6e593d;
           background: #f4ead8;
           text-align: center;
           text-decoration: none;
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 800;
           transition:
             background 0.2s ease,
@@ -1343,32 +1347,32 @@ export default function MasterplanConnectivity() {
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          gap: 22px;
-          margin: 24px 0 14px;
+          gap: 20px;
+          margin: 20px 0 12px;
         }
         .uv-mp-nearby-toolbar > div:first-child {
           display: grid;
-          gap: 8px;
+          gap: 6px;
         }
         .uv-mp-nearby-toolbar strong {
           color: #51483d;
           font-family: Georgia, serif;
-          font-size: 21px;
+          font-size: 19px;
           font-weight: 400;
         }
         .uv-mp-nearby-filters {
           display: flex;
           flex-wrap: wrap;
           justify-content: flex-end;
-          gap: 7px;
+          gap: 6px;
         }
         .uv-mp-nearby-filters button {
-          padding: 9px 13px;
+          padding: 8px 12px;
           border: 1px solid rgba(166, 139, 103, 0.25);
           border-radius: 99px;
           color: #766d61;
           background: rgba(255, 255, 255, 0.65);
-          font-size: 8px;
+          font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.08em;
           cursor: pointer;
@@ -1380,41 +1384,41 @@ export default function MasterplanConnectivity() {
           background: #f2e5ce;
         }
         .uv-mp-nearby-note {
-          margin: 14px 0 0;
+          margin: 12px 0 0;
           color: var(--mp-muted);
-          font-size: 10px;
-          line-height: 1.75;
+          font-size: 9.5px;
+          line-height: 1.6;
         }
         .uv-mp-location-note {
           display: flex;
-          gap: 14px;
+          gap: 12px;
           align-items: flex-start;
-          margin-top: 27px;
-          padding: 19px 21px;
+          margin-top: 20px;
+          padding: 16px 18px;
           border: 1px solid rgba(166, 139, 103, 0.2);
-          border-radius: 15px;
+          border-radius: 14px;
           background: rgba(255, 255, 255, 0.48);
         }
         .uv-mp-location-note > span {
           display: grid;
-          flex: 0 0 36px;
+          flex: 0 0 32px;
           place-items: center;
-          width: 36px;
-          height: 36px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           color: #87653b;
           background: #eee3d1;
-          font-size: 23px;
+          font-size: 20px;
         }
         .uv-mp-location-note strong {
           color: #51483d;
-          font-size: 11px;
+          font-size: 10.5px;
         }
         .uv-mp-location-note p {
-          margin: 5px 0 0;
+          margin: 4px 0 0;
           color: var(--mp-muted);
-          font-size: 10px;
-          line-height: 1.75;
+          font-size: 9.5px;
+          line-height: 1.6;
         }
         .uv-masterplan button:focus-visible,
         .uv-masterplan a:focus-visible {
@@ -1442,10 +1446,10 @@ export default function MasterplanConnectivity() {
           .uv-mp-detail-image,
           .uv-mp-detail-image img {
             height: 100%;
-            min-height: 280px;
+            min-height: 250px;
           }
           .uv-mp-connectivity {
-            gap: 25px;
+            gap: 20px;
           }
           .uv-mp-connectivity-map-layout {
             grid-template-columns: minmax(0, 1.4fr) minmax(230px, 0.8fr);
@@ -1456,60 +1460,60 @@ export default function MasterplanConnectivity() {
         }
         @media (max-width: 650px) {
           .uv-masterplan {
-            padding: 70px 18px;
+            padding: 40px 16px;
           }
           .uv-mp-heading h2 {
-            font-size: clamp(39px, 10vw, 56px);
+            font-size: clamp(32px, 8.5vw, 48px);
           }
           .uv-mp-heading p {
-            font-size: 12px;
+            font-size: 11px;
           }
           .uv-mp-stats {
-            margin-bottom: 48px;
+            margin-bottom: 30px;
           }
           .uv-mp-stats > div {
-            padding: 15px 6px;
+            padding: 12px 6px;
           }
           .uv-mp-stats strong {
-            font-size: 24px;
+            font-size: 22px;
           }
           .uv-mp-stats small {
             display: block;
-            font-size: 11px;
+            font-size: 10px;
           }
           .uv-mp-stats span {
-            font-size: 7px;
+            font-size: 6.5px;
             letter-spacing: 0.06em;
           }
           .uv-mp-map-heading {
-            padding: 14px;
+            padding: 12px;
           }
           .uv-mp-map-heading strong {
-            font-size: 16px;
+            font-size: 15px;
           }
           .uv-mp-map {
-            min-height: 370px;
+            min-height: 300px;
             aspect-ratio: auto;
           }
           .uv-mp-pin {
             gap: 4px;
           }
           .uv-mp-pin-dot {
-            flex-basis: 24px;
-            width: 24px;
-            height: 24px;
-            font-size: 7px;
+            flex-basis: 22px;
+            width: 22px;
+            height: 22px;
+            font-size: 6.5px;
           }
           .uv-mp-pin-label {
-            max-width: 104px;
-            padding: 6px 7px;
-            font-size: 7px;
+            max-width: 95px;
+            padding: 5px 6px;
+            font-size: 6.5px;
             white-space: normal;
           }
           .uv-mp-map-caption {
             left: 8px;
             bottom: 8px;
-            font-size: 7px;
+            font-size: 6.5px;
           }
           .uv-mp-detail {
             display: flex;
@@ -1517,45 +1521,45 @@ export default function MasterplanConnectivity() {
           .uv-mp-detail-image,
           .uv-mp-detail-image img {
             height: auto;
-            min-height: 190px;
-            max-height: 235px;
+            min-height: 170px;
+            max-height: 210px;
           }
           .uv-mp-detail-body {
-            padding: 21px 19px;
+            padding: 18px 16px;
           }
           .uv-mp-connectivity {
             grid-template-columns: 1fr;
-            margin-top: 60px;
-            padding: 22px 18px;
+            margin-top: 35px;
+            padding: 18px 16px;
           }
           .uv-mp-roads {
             grid-template-columns: 1fr;
           }
           .uv-mp-road {
-            padding: 14px 12px;
+            padding: 12px 10px;
           }
           .uv-mp-nearby {
-            margin-top: 65px;
+            margin-top: 35px;
           }
           .uv-mp-nearby-heading {
             align-items: flex-start;
-            gap: 13px;
+            gap: 10px;
           }
           .uv-mp-nearby-heading h3 {
-            font-size: 32px;
+            font-size: 28px;
           }
           .uv-mp-nearby-heading p {
-            font-size: 11px;
+            font-size: 10.5px;
           }
           .uv-mp-nearby-count {
-            gap: 7px;
-            padding: 9px;
+            gap: 6px;
+            padding: 8px;
           }
           .uv-mp-nearby-count strong {
-            font-size: 27px;
+            font-size: 24px;
           }
           .uv-mp-nearby-count span {
-            font-size: 7px;
+            font-size: 6.5px;
           }
           .uv-mp-connectivity-map-layout {
             grid-template-columns: 1fr;
@@ -1564,59 +1568,59 @@ export default function MasterplanConnectivity() {
             aspect-ratio: 1.25/1;
           }
           .uv-mp-nearby-detail {
-            min-height: 300px;
-            padding: 23px;
+            min-height: 260px;
+            padding: 18px;
             border-top: 1px solid rgba(166, 139, 103, 0.17);
             border-left: 0;
           }
           .uv-mp-nearby-detail-icon {
-            margin: 24px 0 16px;
+            margin: 18px 0 12px;
           }
           .uv-mp-nearby-toolbar {
             align-items: flex-start;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
           }
           .uv-mp-nearby-filters {
             justify-content: flex-start;
           }
           .uv-mp-nearby-filters button {
-            padding: 8px 10px;
-            font-size: 7px;
+            padding: 7px 9px;
+            font-size: 6.5px;
           }
           .uv-mp-nearby-pin {
             gap: 3px;
           }
           .uv-mp-nearby-pin-dot {
-            flex-basis: 24px;
-            width: 24px;
-            height: 24px;
-            font-size: 8px;
+            flex-basis: 22px;
+            width: 22px;
+            height: 22px;
+            font-size: 7.5px;
           }
           .uv-mp-nearby-pin-label {
-            max-width: 78px;
-            padding: 5px;
-            font-size: 7px;
+            max-width: 72px;
+            padding: 4px;
+            font-size: 6.5px;
           }
           .uv-mp-nearby-home {
             left: 38%;
             top: 46%;
-            padding: 6px;
-            gap: 5px;
+            padding: 5px;
+            gap: 4px;
           }
           .uv-mp-nearby-home > span {
-            width: 21px;
-            height: 21px;
-            font-size: 14px;
+            width: 19px;
+            height: 19px;
+            font-size: 12px;
           }
           .uv-mp-nearby-home b {
-            font-size: 7px;
+            font-size: 6.5px;
           }
           .uv-mp-nearby-home small {
-            font-size: 6px;
+            font-size: 5.5px;
           }
           .uv-mp-location-note {
-            padding: 15px;
+            padding: 12px;
           }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -1634,8 +1638,8 @@ export default function MasterplanConnectivity() {
           align-items: center;
           gap: 6px;
           width: fit-content;
-          margin: 0 auto 42px;
-          padding: 5px;
+          margin: 0 auto 26px;
+          padding: 4px;
           border: 1px solid rgba(166, 139, 103, 0.22);
           border-radius: 50px;
           background: rgba(255, 255, 255, 0.58);
@@ -1644,12 +1648,12 @@ export default function MasterplanConnectivity() {
 
         .uv-mp-tabs button {
           position: relative;
-          padding: 11px 25px;
+          padding: 9px 20px;
           border: 0;
           border-radius: 50px;
           color: #81776b;
           background: transparent;
-          font-size: 10px;
+          font-size: 9.5px;
           font-weight: 800;
           letter-spacing: 0.09em;
           cursor: pointer;
@@ -1669,12 +1673,12 @@ export default function MasterplanConnectivity() {
 
         @media (max-width: 650px) {
           .uv-mp-tabs {
-            margin-bottom: 32px;
+            margin-bottom: 20px;
           }
 
           .uv-mp-tabs button {
-            padding: 10px 20px;
-            font-size: 9px;
+            padding: 8px 16px;
+            font-size: 8.5px;
           }
         }
       `}</style>

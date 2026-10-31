@@ -5,189 +5,189 @@ import React from "react";
 import Link from "next/link";
 import Logo from '/public/images/logo.png'
 const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Our Vision", href: "/#about" },
-    { label: "Connectivity", href: "/#connectivity" },
-    { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Vision", href: "/#about" },
+  { label: "Connectivity", href: "/#connectivity" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const projectLinks = [
-    { label: "Master Plan", href: "/#masterplan" },
-    { label: "Residential Living", href: "/#residential" },
-    { label: "Commercial Spaces", href: "/#commercial" },
-    { label: "Healthcare", href: "/#healthcare" },
-    { label: "Education", href: "/#education" },
+  { label: "Master Plan", href: "/#masterplan" },
+  { label: "Residential Living", href: "/#residential" },
+  { label: "Commercial Spaces", href: "/#commercial" },
+  { label: "Healthcare", href: "/#healthcare" },
+  { label: "Education", href: "/#education" },
 ];
 
 const contactInfo = {
-    address: "Uttara View, Uttara, Dhaka, Bangladesh",
-    phone: "+880 1XXXXXXXXX",
-    email: "info@yourdomain.com",
+  address: "Uttara View,Ashulia Model Town, Dhaka, Bangladesh",
+  phone: "+880 1XXXXXXXXX",
+  email: "info@MUHAJIREEN.com",
 };
 
 const socialLinks = [
-    { label: "Facebook", icon: "f", href: "https://facebook.com" },
-    { label: "Instagram", icon: "◎", href: "https://instagram.com" },
-    { label: "LinkedIn", icon: "in", href: "https://linkedin.com" },
-    { label: "YouTube", icon: "▶", href: "https://youtube.com" },
+  { label: "Facebook", icon: "f", href: "https://facebook.com" },
+  { label: "Instagram", icon: "◎", href: "https://instagram.com" },
+  { label: "LinkedIn", icon: "in", href: "https://linkedin.com" },
+  { label: "YouTube", icon: "▶", href: "https://youtube.com" },
 ];
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
-    return (
-        <footer className="uv-footer">
-            <div className="uv-footer-orb uv-orb-one" />
-            <div className="uv-footer-orb uv-orb-two" />
+  return (
+    <footer className="uv-footer">
+      <div className="uv-footer-orb uv-orb-one" />
+      <div className="uv-footer-orb uv-orb-two" />
 
-            <div className="uv-footer-container">
+      <div className="uv-footer-container">
 
-                {/* TOP CTA */}
-                <div className="uv-footer-cta">
-                    <div className="uv-cta-decoration">UV</div>
+        {/* TOP CTA */}
+        <div className="uv-footer-cta">
+          <div className="uv-cta-decoration">UV</div>
 
-                    <div className="uv-cta-content">
-                        <span className="uv-eyebrow">
-                            YOUR NEXT CHAPTER STARTS HERE
-                        </span>
+          <div className="uv-cta-content">
+            <span className="uv-eyebrow">
+              YOUR NEXT CHAPTER STARTS HERE
+            </span>
 
-                        <h2>
-                            Find Your Place.
-                            <br />
-                            <span>Build Your Future.</span>
-                        </h2>
+            <h2>
+              Find Your Place.
+              <br />
+              <span>Build Your Future.</span>
+            </h2>
 
-                        <p>
-                            Discover a thoughtfully planned community where
-                            modern living meets meaningful connections.
-                        </p>
-                    </div>
+            <p>
+              Discover a thoughtfully planned community where
+              modern living meets meaningful connections.
+            </p>
+          </div>
 
-                    <Link style={{ color: '#a9844e' }} href="/contact" className="uv-cta-button">
-                        <span>Book a Site Visit</span>
-                        <span className="uv-cta-arrow">↗</span>
-                    </Link>
-                </div>
+          <Link style={{ color: '#a9844e' }} href="/contact" className="uv-cta-button">
+            <span>Book a Site Visit</span>
+            <span className="uv-cta-arrow">↗</span>
+          </Link>
+        </div>
 
-                {/* DIVIDER */}
-                <div className="uv-footer-divider" />
+        {/* DIVIDER */}
+        <div className="uv-footer-divider" />
 
-                {/* FOOTER CONTENT */}
-                <div className="uv-footer-grid">
+        {/* FOOTER CONTENT */}
+        <div className="uv-footer-grid">
 
-                    {/* BRAND */}
-                    <div className="uv-footer-brand">
-                        <Link href="/" className="uv-footer-logo">
+          {/* BRAND */}
+          <div className="uv-footer-brand">
+            <Link href="/" className="uv-footer-logo">
 
-                            <img style={{ width: '70%', margin: '20px' }} src={'/images/logo.png'} alt="Uttara View Logo" />
+              <img style={{ width: '70%', margin: '20px' }} src={'/images/logo.png'} alt="Uttara View Logo" />
 
-                            <span className="uv-logo-text">
+              <span className="uv-logo-text">
 
-                                <small>LIVE BEYOND ORDINARY</small>
-                            </span>
-                        </Link>
+                <small>LIVE BEYOND ORDINARY</small>
+              </span>
+            </Link>
 
-                        <p className="uv-brand-description">
-                            A thoughtfully planned integrated community
-                            designed to bring together modern living,
-                            connectivity and a better way of life.
-                        </p>
+            <p className="uv-brand-description">
+              A thoughtfully planned integrated community
+              designed to bring together modern living,
+              connectivity and a better way of life.
+            </p>
 
-                        <div className="uv-social-links">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.label}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={social.label}
-                                    className="uv-social-link"
-                                >
-                                    {social.icon}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
+            <div className="uv-social-links">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="uv-social-link"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
 
-                    {/* EXPLORE */}
-                    <div className="uv-footer-column">
-                        <h3>Explore</h3>
+          {/* EXPLORE */}
+          <div className="uv-footer-column">
+            <h3>Explore</h3>
 
-                        <ul >
-                            {quickLinks.map((link) => (
-                                <li key={link.label}>
-                                    <Link style={{ color: '#a9844e' }} href={link.href}>
-                                        <span className="uv-link-arrow">↗</span>
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            <ul >
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link style={{ color: '#a9844e' }} href={link.href}>
+                    <span className="uv-link-arrow">↗</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                    {/* DISCOVER */}
-                    <div className="uv-footer-column">
-                        <h3>Discover</h3>
+          {/* DISCOVER */}
+          <div className="uv-footer-column">
+            <h3>Discover</h3>
 
-                        <ul>
-                            {projectLinks.map((link) => (
-                                <li key={link.label}>
-                                    <Link style={{ color: '#a9844e' }} href={link.href}>
-                                        <span className="uv-link-arrow">↗</span>
-                                        {link.label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            <ul>
+              {projectLinks.map((link) => (
+                <li key={link.label}>
+                  <Link style={{ color: '#a9844e' }} href={link.href}>
+                    <span className="uv-link-arrow">↗</span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                    {/* CONTACT */}
-                    <div className="uv-footer-column uv-contact-column">
-                        <h3>Get In Touch</h3>
+          {/* CONTACT */}
+          <div className="uv-footer-column uv-contact-column">
+            <h3>Get In Touch</h3>
 
-                        <div className="uv-contact-item">
-                            <span className="uv-contact-icon">⌖</span>
-                            <p style={{ color: 'var(--uv-text)' }}>{contactInfo.address}</p>
-                        </div>
-
-                        <a
-                            href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                            className="uv-contact-item"
-                        >
-                            <span className="uv-contact-icon">↗</span>
-                            <p style={{ color: 'var(--uv-text)' }}>{contactInfo.phone}</p>
-                        </a>
-
-                        <a
-                            href={`mailto:${contactInfo.email}`}
-                            className="uv-contact-item"
-                        >
-                            <span className="uv-contact-icon">✉</span>
-                            <p style={{ color: 'var(--uv-text)' }}>{contactInfo.email}</p>
-                        </a>
-                    </div>
-                </div>
-
-                {/* BOTTOM BAR */}
-                <div className="uv-footer-bottom">
-                    <p>
-                        © {currentYear} Uttara View. All Rights Reserved.
-                    </p>
-
-                    <div className="uv-footer-bottom-links">
-                        <Link style={{ color: '#a9844e' }} href="/privacy-policy">Privacy Policy</Link>
-                        <span />
-                        <Link style={{ color: '#a9844e' }} href="/terms">Terms & Conditions</Link>
-                    </div>
-
-                    <p className="uv-footer-credit">
-                        Crafted with <span>♥</span>
-                    </p>
-                </div>
+            <div className="uv-contact-item">
+              <span className="uv-contact-icon">⌖</span>
+              <p style={{ color: 'var(--uv-text)' }}>{contactInfo.address}</p>
             </div>
 
-            <style jsx>{`
+            <a
+              href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
+              className="uv-contact-item"
+            >
+              <span className="uv-contact-icon">↗</span>
+              <p style={{ color: 'var(--uv-text)' }}>{contactInfo.phone}</p>
+            </a>
+
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="uv-contact-item"
+            >
+              <span className="uv-contact-icon">✉</span>
+              <p style={{ color: 'var(--uv-text)' }}>{contactInfo.email}</p>
+            </a>
+          </div>
+        </div>
+
+        {/* BOTTOM BAR */}
+        <div className="uv-footer-bottom">
+          <p>
+            © {currentYear} Uttara View. All Rights Reserved.
+          </p>
+
+          <div className="uv-footer-bottom-links">
+            <Link style={{ color: '#a9844e' }} href="/privacy-policy">Privacy Policy</Link>
+            <span />
+            <Link style={{ color: '#a9844e' }} href="/terms">Terms & Conditions</Link>
+          </div>
+
+          <p className="uv-footer-credit">
+            Crafted with <span>♥</span>
+          </p>
+        </div>
+      </div>
+
+      <style jsx>{`
         .uv-footer {
           --uv-bg: #f6f1e8;
           --uv-cream: #fbf8f2;
@@ -724,6 +724,6 @@ export default function Footer() {
           }
         }
       `}</style>
-        </footer>
-    );
+    </footer>
+  );
 }

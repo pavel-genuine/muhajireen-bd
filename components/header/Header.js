@@ -58,7 +58,7 @@ const Header = (props) => {
                         <Link
                             href="/home"
                             onClick={ClickHandler}
-                            aria-label="Uttara View Home"
+                            aria-label="MUHAJIREEN Home"
                         >
                             {props.Logo && (
                                 <Image

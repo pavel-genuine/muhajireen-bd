@@ -80,7 +80,6 @@ const developmentGroups = [
     href: "/projects#healthcare",
     size: "",
   },
-
   {
     number: "06",
     category: "HEALTHCARE & MEDICAL EDUCATION",
@@ -183,18 +182,22 @@ export default function IntegratedDevelopments() {
           </div>
         </header>
 
-        <div className="id-carousel-wrap" data-development-reveal>
+        <div
+          style={{ marginTop: "40px" }}
+          className="id-carousel-wrap"
+          data-development-reveal
+        >
           <Swiper
             className="id-development-swiper"
             modules={[A11y, Autoplay, Navigation, Pagination]}
             slidesPerView={1.08}
-            spaceBetween={16}
+            spaceBetween={14}
             speed={850}
             loop={true}
             watchOverflow={true}
             grabCursor={true}
             autoplay={{
-              delay: 2500,
+              delay: 3000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -206,11 +209,11 @@ export default function IntegratedDevelopments() {
             breakpoints={{
               621: {
                 slidesPerView: 2,
-                spaceBetween: 18,
+                spaceBetween: 16,
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 22,
+                spaceBetween: 18,
               },
             }}
             a11y={{
@@ -223,7 +226,7 @@ export default function IntegratedDevelopments() {
                 <article
                   className={`id-card ${item.size}`}
                   data-development-reveal
-                  style={{ "--id-delay": `${index * 90}ms` }}
+                  style={{ "--id-delay": `${index * 80}ms` }}
                 >
                   <div className="id-card-image">
                     <Image
@@ -296,10 +299,16 @@ export default function IntegratedDevelopments() {
           --id-gold: #c9a46a;
           --id-ink: #4f473d;
           --id-muted: #81776b;
+
           position: relative;
           isolation: isolate;
           overflow: hidden;
-          padding: clamp(78px, 9vw, 132px) 0;
+          width: 100%;
+          height: auto !important; /* Fixed height bad diye auto kora holo */
+          min-height: auto !important;
+          max-height: none !important;
+          display: block !important;
+          padding: clamp(60px, 7vw, 90px) 24px !important; /* Shudhu dorkari padding thakbe */
           color: var(--id-ink);
           background:
             radial-gradient(
@@ -318,7 +327,7 @@ export default function IntegratedDevelopments() {
         .id-container {
           position: relative;
           z-index: 1;
-          width: min(1320px, calc(100% - 96px));
+          width: min(1280px, calc(100% - 64px));
           margin: 0 auto;
         }
 
@@ -331,54 +340,54 @@ export default function IntegratedDevelopments() {
         }
 
         .id-orb--one {
-          top: 10%;
-          right: -180px;
-          width: 430px;
-          height: 430px;
+          top: 5%;
+          right: -150px;
+          width: 380px;
+          height: 380px;
         }
 
         .id-orb--two {
-          bottom: 9%;
-          left: -190px;
-          width: 390px;
-          height: 390px;
+          bottom: 5%;
+          left: -150px;
+          width: 350px;
+          height: 350px;
         }
 
         .id-header {
-          margin-bottom: 48px;
+          margin-bottom: 16px;
         }
 
         .id-eyebrow {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-bottom: 24px;
+          gap: 10px;
+          margin-bottom: 10px;
           color: var(--id-sand);
-          font-size: 10px;
+          font-size: 9.5px;
           font-weight: 700;
           letter-spacing: 0.2em;
         }
 
         .id-eyebrow-line {
-          width: 34px;
+          width: 30px;
           height: 1px;
           background: var(--id-gold);
         }
 
         .id-heading-row {
           display: grid;
-          grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.65fr);
+          grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.65fr);
           align-items: end;
-          gap: 50px;
+          gap: 40px;
         }
 
         .id-heading {
           margin: 0;
           color: #51483d;
-          font-size: clamp(38px, 5.3vw, 72px);
+          font-size: clamp(28px, 3.8vw, 50px);
           font-weight: 500;
-          line-height: 1.03;
-          letter-spacing: -0.065em;
+          line-height: 1.05;
+          letter-spacing: -0.022em;
         }
 
         .id-heading span {
@@ -386,21 +395,15 @@ export default function IntegratedDevelopments() {
           font-family: Georgia, "Times New Roman", serif;
           font-weight: 400;
           font-style: italic;
-          letter-spacing: -0.055em;
+          letter-spacing: -0.05em;
         }
 
         .id-intro {
-          max-width: 440px;
-          margin: 0 0 5px;
+          max-width: 420px;
+          margin: 0;
           color: var(--id-muted);
-          font-size: 14px;
-          line-height: 1.9;
-        }
-
-        .id-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 22px;
+          font-size: 12.5px;
+          line-height: 1.6;
         }
 
         .id-card {
@@ -408,47 +411,44 @@ export default function IntegratedDevelopments() {
           min-width: 0;
           overflow: hidden;
           border: 1px solid rgba(255, 255, 255, 0.92);
-          border-radius: 22px;
+          border-radius: 16px;
           background: rgba(255, 255, 255, 0.52);
           box-shadow:
-            0 16px 48px rgba(91, 73, 48, 0.07),
+            0 12px 40px rgba(91, 73, 48, 0.06),
             inset 0 1px 0 rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
           transition:
-            transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
-            box-shadow 0.45s ease,
-            border-color 0.45s ease;
+            transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+            box-shadow 0.4s ease,
+            border-color 0.4s ease;
           transition-delay: 0ms;
         }
 
-        .id-card--wide {
-          grid-column: auto;
-        }
-
         .id-card:hover {
-          transform: translateY(-7px);
+          transform: translateY(-4px);
           border-color: rgba(201, 164, 106, 0.5);
           box-shadow:
-            0 26px 65px rgba(91, 73, 48, 0.13),
+            0 18px 45px rgba(91, 73, 48, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.98);
         }
 
         .id-card-image {
           position: relative;
-          min-height: 235px;
-          height: clamp(235px, 25vw, 340px);
+          min-height: 150px;
+          height: clamp(150px, 15vw, 200px);
           overflow: hidden;
           background: #e5d9c7;
         }
 
         .id-photo {
           object-fit: cover;
-          transition: transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+          object-position: center;
+          transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
 
         .id-card:hover .id-photo {
-          transform: scale(1.055);
+          transform: scale(1.04);
         }
 
         .id-image-shade {
@@ -456,73 +456,65 @@ export default function IntegratedDevelopments() {
           inset: 0;
           background: linear-gradient(
             180deg,
-            rgba(38, 31, 23, 0.36) 0%,
-            transparent 36%,
-            transparent 58%,
-            rgba(38, 31, 23, 0.18) 100%
+            rgba(38, 31, 23, 0.35) 0%,
+            transparent 40%,
+            rgba(38, 31, 23, 0.15) 100%
           );
         }
 
         .id-card-top {
           position: absolute;
-          top: 18px;
-          right: 18px;
-          left: 18px;
+          top: 12px;
+          right: 12px;
+          left: 12px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 12px;
+          gap: 8px;
         }
 
         .id-number,
         .id-category {
           display: inline-flex;
           align-items: center;
-          min-height: 34px;
+          min-height: 26px;
           border: 1px solid rgba(255, 255, 255, 0.48);
           border-radius: 999px;
           color: #fff;
           background: rgba(255, 252, 246, 0.18);
-          box-shadow: 0 5px 18px rgba(40, 30, 18, 0.08);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
+          backdrop-filter: blur(14px);
         }
 
         .id-number {
           justify-content: center;
-          width: 36px;
+          width: 28px;
           flex-shrink: 0;
-          font-size: 10px;
+          font-size: 8.5px;
           font-weight: 700;
         }
 
         .id-category {
-          padding: 0 13px;
-          font-size: 8px;
+          padding: 0 10px;
+          font-size: 7px;
           font-weight: 700;
-          letter-spacing: 0.13em;
-          text-align: right;
+          letter-spacing: 0.1em;
         }
 
         .id-image-mark {
           position: absolute;
-          right: 18px;
-          bottom: 18px;
+          right: 12px;
+          bottom: 12px;
           display: grid;
-          width: 42px;
-          height: 42px;
+          width: 32px;
+          height: 32px;
           place-items: center;
           border: 1px solid rgba(255, 255, 255, 0.65);
           border-radius: 50%;
           color: #fff;
           background: rgba(255, 252, 246, 0.2);
-          font-size: 20px;
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          transition:
-            color 0.3s ease,
-            background 0.3s ease,
-            transform 0.3s ease;
+          font-size: 14px;
+          backdrop-filter: blur(14px);
+          transition: all 0.3s ease;
         }
 
         .id-card:hover .id-image-mark {
@@ -532,50 +524,49 @@ export default function IntegratedDevelopments() {
         }
 
         .id-card-body {
-          padding: clamp(21px, 2.5vw, 31px);
+          padding: clamp(14px, 1.8vw, 18px);
         }
 
         .id-card-body h3 {
-          margin: 0 0 12px;
+          margin: 0 0 6px;
           color: #51483d;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(23px, 2.4vw, 32px);
+          font-size: clamp(18px, 1.8vw, 22px);
           font-weight: 400;
-          line-height: 1.16;
-          letter-spacing: -0.035em;
+          line-height: 1.15;
+          letter-spacing: -0.03em;
         }
 
         .id-card-description {
           max-width: 520px;
           margin: 0;
           color: var(--id-muted);
-          font-size: 13px;
-          line-height: 1.85;
+          font-size: 11.5px;
+          line-height: 1.5;
         }
 
         .id-feature-list {
           display: flex;
           flex-wrap: wrap;
-          gap: 8px;
-          margin-top: 20px;
+          gap: 5px;
+          margin-top: 10px;
         }
 
         .id-feature {
           display: inline-flex;
           align-items: center;
-          gap: 7px;
-          padding: 8px 11px;
+          gap: 5px;
+          padding: 4px 8px;
           border: 1px solid rgba(166, 139, 103, 0.17);
           border-radius: 999px;
           color: #766750;
           background: rgba(255, 255, 255, 0.58);
-          font-size: 10px;
-          line-height: 1.35;
+          font-size: 9px;
         }
 
         .id-feature-dot {
-          width: 5px;
-          height: 5px;
+          width: 3.5px;
+          height: 3.5px;
           flex-shrink: 0;
           border-radius: 50%;
           background: var(--id-gold);
@@ -585,12 +576,12 @@ export default function IntegratedDevelopments() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 14px;
-          margin-top: 25px;
-          padding-top: 17px;
-          border-top: 1px solid rgba(166, 139, 103, 0.2);
+          gap: 10px;
+          margin-top: 12px;
+          padding-top: 10px;
+          border-top: 1px solid rgba(166, 139, 103, 0.18);
           color: #8a704b;
-          font-size: 11px;
+          font-size: 9.5px;
           font-weight: 700;
           text-decoration: none;
           transition: color 0.3s ease;
@@ -602,17 +593,14 @@ export default function IntegratedDevelopments() {
 
         .id-link-arrow {
           display: grid;
-          width: 30px;
-          height: 30px;
+          width: 22px;
+          height: 22px;
           flex-shrink: 0;
           place-items: center;
           border: 1px solid rgba(166, 139, 103, 0.28);
           border-radius: 50%;
-          font-size: 16px;
-          transition:
-            color 0.3s ease,
-            background 0.3s ease,
-            transform 0.3s ease;
+          font-size: 12px;
+          transition: all 0.3s ease;
         }
 
         .id-card-link:hover .id-link-arrow {
@@ -625,53 +613,50 @@ export default function IntegratedDevelopments() {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 24px;
-          margin-top: 32px;
-          padding: 24px 28px;
+          gap: 16px;
+          margin-top: 18px;
+          padding: 14px 20px;
           border: 1px solid rgba(255, 255, 255, 0.85);
-          border-radius: 18px;
+          border-radius: 14px;
           background: rgba(255, 255, 255, 0.48);
-          box-shadow: 0 12px 35px rgba(91, 73, 48, 0.05);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
+          box-shadow: 0 10px 30px rgba(91, 73, 48, 0.04);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
         }
 
         .id-bottom-kicker {
           display: block;
-          margin-bottom: 7px;
+          margin-bottom: 2px;
           color: #a68b67;
-          font-size: 9px;
+          font-size: 8px;
           font-weight: 700;
-          letter-spacing: 0.17em;
+          letter-spacing: 0.15em;
         }
 
         .id-bottom-copy p {
           margin: 0;
           color: #5c5348;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(17px, 2vw, 23px);
-          line-height: 1.35;
+          font-size: clamp(13px, 1.4vw, 17px);
+          line-height: 1.25;
         }
 
         .id-masterplan-link {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 22px;
-          min-height: 48px;
+          gap: 12px;
+          min-height: 38px;
           flex-shrink: 0;
-          padding: 0 18px;
+          padding: 0 14px;
           border: 1px solid rgba(166, 139, 103, 0.5);
           border-radius: 999px;
           color: #6e593d;
           background: rgba(255, 255, 255, 0.58);
-          font-size: 11px;
+          font-size: 9.5px;
           font-weight: 700;
           text-decoration: none;
-          transition:
-            color 0.3s ease,
-            background 0.3s ease,
-            transform 0.3s ease;
+          transition: all 0.3s ease;
         }
 
         .id-masterplan-link:hover {
@@ -680,16 +665,12 @@ export default function IntegratedDevelopments() {
           transform: translateY(-2px);
         }
 
-        .id-masterplan-link span {
-          font-size: 17px;
-        }
-
         .id-section [data-development-reveal] {
           opacity: 0;
-          transform: translate3d(0, 24px, 0);
+          transform: translate3d(0, 16px, 0);
           transition:
-            opacity 0.75s ease,
-            transform 0.85s cubic-bezier(0.2, 0.7, 0.2, 1);
+            opacity 0.6s ease,
+            transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
           transition-delay: var(--id-delay, 0ms);
         }
 
@@ -698,157 +679,17 @@ export default function IntegratedDevelopments() {
           transform: translate3d(0, 0, 0);
         }
 
-        @media (max-width: 900px) {
-          .id-container {
-            width: calc(100% - 56px);
-          }
-
-          .id-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
-
-          .id-heading-row {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .id-intro {
-            max-width: 620px;
-          }
-
-          .id-grid {
-            gap: 16px;
-          }
-
-          .id-card-image {
-            height: 260px;
-          }
-
-          .id-card-body {
-            padding: 22px;
-          }
-
-          .id-card-body h3 {
-            font-size: 27px;
-          }
-
-          .id-bottom {
-            align-items: flex-start;
-            flex-direction: column;
-          }
-        }
-
-        @media (max-width: 620px) {
-          .id-section {
-            padding: 76px 0;
-          }
-
-          .id-container {
-            width: calc(100% - 36px);
-          }
-
-          .id-header {
-            margin-bottom: 30px;
-          }
-
-          .id-eyebrow {
-            margin-bottom: 19px;
-            font-size: 8px;
-            letter-spacing: 0.15em;
-          }
-
-          .id-heading {
-            font-size: clamp(39px, 10vw, 56px);
-          }
-
-          .id-intro {
-            font-size: 13px;
-            line-height: 1.8;
-          }
-
-          .id-grid {
-            grid-template-columns: minmax(0, 1fr);
-            gap: 17px;
-          }
-
-          .id-card,
-          .id-card--wide {
-            grid-column: auto;
-            border-radius: 18px;
-          }
-
-          .id-card-image {
-            height: clamp(220px, 63vw, 310px);
-            min-height: 220px;
-          }
-
-          .id-card-top {
-            top: 13px;
-            right: 13px;
-            left: 13px;
-          }
-
-          .id-category {
-            max-width: calc(100% - 50px);
-            padding: 0 10px;
-            font-size: 7px;
-            letter-spacing: 0.1em;
-          }
-
-          .id-card-body {
-            padding: 22px 19px;
-          }
-
-          .id-card-body h3 {
-            font-size: 28px;
-          }
-
-          .id-card-description {
-            font-size: 12px;
-          }
-
-          .id-feature {
-            font-size: 9px;
-          }
-
-          .id-bottom {
-            padding: 21px 19px;
-          }
-
-          .id-masterplan-link {
-            width: 100%;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .id-section *,
-          .id-section *::before,
-          .id-section *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            scroll-behavior: auto !important;
-            transition-duration: 0.01ms !important;
-          }
-
-          .id-section [data-development-reveal] {
-            opacity: 1;
-            transform: none;
-          }
-        }
-        /* =========================================
-   INTEGRATED DEVELOPMENT CAROUSEL
-========================================= */
-
+        /* Carousel setup */
         .id-carousel-wrap {
           position: relative;
           width: 100%;
-          padding-bottom: 52px;
+          padding-bottom: 34px;
         }
 
         .id-development-swiper {
           width: 100%;
           overflow: visible;
-          padding: 5px 2px 20px;
+          padding: 2px 2px 10px;
         }
 
         .id-development-swiper .swiper-slide {
@@ -867,34 +708,33 @@ export default function IntegratedDevelopments() {
           display: flex;
           flex: 1;
           flex-direction: column;
+          justify-content: space-between;
         }
 
         .id-development-swiper .id-card-link {
           margin-top: auto;
-          padding-top: 25px;
+          padding-top: 10px;
         }
 
         /* Navigation arrows */
-
         .id-development-swiper .swiper-button-prev,
         .id-development-swiper .swiper-button-next {
           top: auto;
-          bottom: -43px;
-          width: 38px;
-          height: 38px;
+          bottom: -28px;
+          width: 30px;
+          height: 30px;
           margin: 0;
           border: 1px solid rgba(166, 139, 103, 0.4);
           border-radius: 50%;
           color: #806747;
           background: rgba(255, 255, 255, 0.72);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(10px);
           transition: all 0.3s ease;
         }
 
         .id-development-swiper .swiper-button-prev {
           left: auto;
-          right: 52px;
+          right: 40px;
         }
 
         .id-development-swiper .swiper-button-next {
@@ -903,7 +743,7 @@ export default function IntegratedDevelopments() {
 
         .id-development-swiper .swiper-button-prev::after,
         .id-development-swiper .swiper-button-next::after {
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 700;
         }
 
@@ -915,69 +755,99 @@ export default function IntegratedDevelopments() {
         }
 
         /* Pagination */
-
         .id-development-swiper .swiper-pagination {
           position: absolute;
           right: auto;
-          bottom: -32px;
+          bottom: -20px;
           left: 2px;
           width: auto;
           display: flex;
           align-items: center;
-          gap: 7px;
+          gap: 5px;
         }
 
         .id-development-swiper .swiper-pagination-bullet {
-          width: 7px;
-          height: 7px;
+          width: 5px;
+          height: 5px;
           margin: 0 !important;
           opacity: 1;
           background: #d5c5ad;
-          transition: all 0.35s ease;
+          transition: all 0.3s ease;
         }
 
         .id-development-swiper .swiper-pagination-bullet-active {
-          width: 24px;
-          border-radius: 20px;
+          width: 16px;
+          border-radius: 12px;
           background: #a68b67;
         }
 
-        /* Tablet */
-
+        /* Responsive Breakpoints */
         @media (max-width: 900px) {
-          .id-development-swiper .id-card-image {
-            height: 260px;
+          .id-container {
+            width: calc(100% - 40px);
+          }
+          .id-heading-row {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+          .id-bottom {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 10px;
+            padding: 12px 16px;
           }
         }
 
-        /* Mobile */
-
         @media (max-width: 620px) {
-          .id-carousel-wrap {
-            padding-bottom: 48px;
+          .id-section {
+            height: 100dvh;
+            min-height: 560px;
+            padding: 30px 0;
           }
-
-          .id-development-swiper {
-            padding-right: 2px;
+          .id-container {
+            width: calc(100% - 24px);
           }
-
-          .id-development-swiper .id-card-image {
-            height: clamp(220px, 63vw, 310px);
+          .id-header {
+            margin-bottom: 14px;
           }
-
-          .id-development-swiper .swiper-button-prev,
-          .id-development-swiper .swiper-button-next {
-            width: 34px;
-            height: 34px;
-            bottom: -40px;
+          .id-heading {
+            font-size: clamp(26px, 7vw, 36px);
           }
-
-          .id-development-swiper .swiper-button-prev {
-            right: 46px;
+          .id-intro {
+            font-size: 11.5px;
           }
+          .id-card-image {
+            height: 140px;
+            min-height: 140px;
+          }
+          .id-card-body {
+            padding: 12px 14px;
+          }
+          .id-card-body h3 {
+            font-size: 18px;
+          }
+          .id-bottom {
+            padding: 12px;
+            margin-top: 12px;
+          }
+          .id-masterplan-link {
+            width: 100%;
+            min-height: 36px;
+          }
+        }
 
-          .id-development-swiper .swiper-pagination {
-            bottom: -27px;
+        @media (prefers-reduced-motion: reduce) {
+          .id-section *,
+          .id-section *::before,
+          .id-section *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+          }
+          .id-section [data-development-reveal] {
+            opacity: 1;
+            transform: none;
           }
         }
       `}</style>
