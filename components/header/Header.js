@@ -22,6 +22,8 @@ const navItems = [
 const Header = (props) => {
     const [menuActive, setMenuState] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const pathname = usePathname();
     const isProjectOverview =
         pathname === "/project-overview";
@@ -30,10 +32,53 @@ const Header = (props) => {
         isProjectOverview || pathname === "/";
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 40);
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const isMobile = window.innerWidth <= 767;
+
+            setIsScrolled(currentScrollY > 40);
+
+            // Mobile: header always visible
+            if (isMobile) {
+                setIsHeaderVisible(true);
+                lastScrollY = currentScrollY;
+                return;
+            }
+
+            // Page top: header always visible
+            if (currentScrollY <= 40) {
+                setIsHeaderVisible(true);
+                lastScrollY = currentScrollY;
+                return;
+            }
+
+            // Scroll up 15px: show header
+            if (currentScrollY < lastScrollY - 15) {
+                setIsHeaderVisible(true);
+                lastScrollY = currentScrollY;
+            }
+            // Scroll down 15px: hide header
+            else if (currentScrollY > lastScrollY + 15) {
+                setIsHeaderVisible(false);
+                lastScrollY = currentScrollY;
+            }
+        };
+
+        // Set initial state
         handleScroll();
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+
+        window.addEventListener("scroll", handleScroll, {
+            passive: true,
+        });
+
+        window.addEventListener("resize", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleScroll);
+        };
     }, []);
 
     useEffect(() => {
@@ -63,6 +108,7 @@ const Header = (props) => {
         <header
             id="header"
             className={`uv-header ${isScrolled ? "uv-header-scrolled" : ""} ${alwaysTinted ? "uv-header-always-tinted" : "uv-header-project-overview"
+                } ${isHeaderVisible ? "uv-header-visible" : "uv-header-hidden"
                 } ${menuActive ? "uv-header-menu-open" : ""}`}
         >
             <div className="uv-header-container">
@@ -298,7 +344,24 @@ const Header = (props) => {
         @media (prefers-reduced-motion: reduce) {
           .uv-header *, .uv-header *::before, .uv-header *::after { transition: none !important; }
         }
-      `}</style>
+      .uv-header {
+    transform: translateY(0);
+    transition:
+        transform 0.35s ease,
+        padding 0.35s ease,
+        background 0.35s ease;
+    will-change: transform;
+}
+
+.uv-header-visible {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.uv-header-hidden {
+    transform: translateY(-110%);
+    pointer-events: none;
+}`}</style>
         </header>
     );
 };
