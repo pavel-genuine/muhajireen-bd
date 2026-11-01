@@ -16,30 +16,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 const sliderData = [
-  {
-    id: 1,
-    img: "/images/slider/hero-slide/img-1.1.png",
-    foregroundImg: "/images/slider/hero-slide/img-1.1.png",
-    bgLetter: "",
-    eyebrow: "",
-    title: "",
-    subtitle: "",
-    category: "",
 
-  },
-  {
-    id: 2,
-    img: "/images/slider/hero-slide/img-2.2-main.png",
-    foregroundImg:
-      "/images/slider/hero-slide/img-2.2-main-.png",
-    bgLetter: "CONNECT",
-    eyebrow: "CONNECTED TO EVERYTHING",
-    title: "Closer To What Matters",
-    subtitle:
-      "Experience convenient access to the Turag River, Uttara and surrounding destinations.",
-    category: "SEAMLESS CONNECTIVITY",
-    class: 'connection'
-  },
   {
     id: 3,
     img: "/images/slider/hero-slide/img-2.1-main.png",
@@ -135,6 +112,31 @@ const sliderData = [
       "An international school envisioned to nurture curiosity, creativity and lifelong learning.",
     category: "WORLD-CLASS EDUCATION",
     class: 'school'
+  },
+
+  {
+    id: 1,
+    img: "/images/slider/hero-slide/img-1.1.png",
+    foregroundImg: "/images/slider/hero-slide/img-1.1.png",
+    bgLetter: "",
+    eyebrow: "",
+    title: "",
+    subtitle: "",
+    category: "",
+
+  },
+  {
+    id: 2,
+    img: "/images/slider/hero-slide/img-2.2-main.png",
+    foregroundImg:
+      "/images/slider/hero-slide/img-2.2-main-.png",
+    bgLetter: "CONNECT",
+    eyebrow: "CONNECTED TO EVERYTHING",
+    title: "Closer To What Matters",
+    subtitle:
+      "Experience convenient access to the Turag River, Uttara and surrounding destinations.",
+    category: "SEAMLESS CONNECTIVITY",
+    class: 'connection'
   },
 ];
 
@@ -285,7 +287,7 @@ export default function Hero() {
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            // Autoplay,
+            Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -295,11 +297,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          //   pauseOnMouseEnter: true,
-          // }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -314,256 +316,261 @@ export default function Hero() {
           }}
 
         >
-          {sliderData.map((slide) => (
-            <SwiperSlide key={slide.id}>
-              <div className="uttara-slide">
-                {/* Background image: moves more slowly than the content */}
-                <div
-                  className="uttara-slide-image"
-                  style={{ backgroundImage: `url("${slide.img}")` }}
-                />
+          {sliderData.map((slide) => {
+            if (width < 768 && slide.id === 1) return null;
 
-                {/* Contrast overlay sits above the background, below the title. */}
-                {<div className="uttara-slide-overlay" />}
+            return (
+              <SwiperSlide key={slide.id}>
+                <div className="uttara-slide">
+                  {/* Background image: moves more slowly than the content */}
+                  <div
+                    className="uttara-slide-image"
+                    style={{ backgroundImage: `url("${slide.img}")` }}
+                  />
 
-                {/* Large title: this layer sits BEHIND the building cutout. */}
-                <h1
-                  className={`uttara-hero-title ${slide?.class || ""}`}
-                  data-swiper-parallax="-240"
-                  data-swiper-parallax-duration="1400"
-                >
-                  {slide.title}
-                </h1>
+                  {/* Contrast overlay sits above the background, below the title. */}
+                  {<div className="uttara-slide-overlay" />}
 
-                {/*
+                  {/* Large title: this layer sits BEHIND the building cutout. */}
+                  <h1
+                    className={`uttara-hero-title ${slide?.class || ""}`}
+                    data-swiper-parallax="-240"
+                    data-swiper-parallax-duration="1400"
+                  >
+                    {slide.title}
+                  </h1>
+
+                  {/*
                                   Real object-depth layer. Each foreground PNG must have
                                   a transparent background and align pixel-perfectly with
                                   its matching hero image. Building, roof, trees, etc. stay
                                   opaque so the headline naturally passes behind them.
                                 */}
-                {(slide.id != 2 && slide.id != 10) && <img
-                  className={`uttara-building-foreground ${slide?.class}`}
-                  src={slide.foregroundImg}
-                  alt=""
-                  aria-hidden="true"
-                  draggable="false"
-                  onError={(event) => {
-                    // A transparent foreground cutout is required for realistic occlusion.
-                    // If it is missing, hide the broken image and report the exact path.
-                    console.warn(
-                      `Missing foreground cutout: ${slide.foregroundImg}`,
-                    );
-                    event.currentTarget.style.display = "none";
-                  }}
-                />}
+                  {(slide.id != 2 && slide.id != 10) && <img
+                    className={`uttara-building-foreground ${slide?.class}`}
+                    src={slide.foregroundImg}
+                    alt=""
+                    aria-hidden="true"
+                    draggable="false"
+                    onError={(event) => {
+                      // A transparent foreground cutout is required for realistic occlusion.
+                      // If it is missing, hide the broken image and report the exact path.
+                      console.warn(
+                        `Missing foreground cutout: ${slide.foregroundImg}`,
+                      );
+                      event.currentTarget.style.display = "none";
+                    }}
+                  />}
 
 
-                {slide.id === 1 && (
-                  <div
-                    className="uttara-project-hotspots"
-                    aria-label="Project infrastructure hotspots"
-                  >
-                    {projectHotspots.map((item, index) => (
-                      <button
-                        key={item.id}
-                        type="button"
-                        className={`uttara-hotspot ${activeHotspotId === item.id ? "is-active" : ""}`}
-                        style={{
-                          left: `${item.x}%`,
-                          top: `${item.y}%`,
-                          "--hotspot-index": index,
-                        }}
-                        onClick={() => {
-                          setActiveHotspotId(item.id);
-                          setHotspotDetailsOpen(true);
-                        }}
-                        aria-label={`Show details for ${item.label}`}
-                        aria-pressed={activeHotspotId === item.id}
-                      >
-                        <span className="uttara-hotspot-pulse" />
-                        <span className="uttara-hotspot-label">
-                          {item.short}
-                        </span>
-                      </button>
-                    ))}
-
-                    {hotspotDetailsOpen && (
-                      <aside
-                        className="uttara-hotspot-card"
-                        aria-live="polite"
-                        style={{
-                          left: `${activeHotspot.x}%`,
-                          top: `${activeHotspot.y}%`,
-                          right: "auto",
-                          bottom: "auto",
-                          "--hotspot-card-shift-x":
-                            activeHotspot.x > 55
-                              ? "calc(-100% - 22px)"
-                              : "22px",
-                          "--hotspot-card-shift-y":
-                            activeHotspot.y > 58
-                              ? "calc(-100% - 22px)"
-                              : "22px",
-                        }}
-                      >
+                  {slide.id === 1 && (
+                    <div
+                      className="uttara-project-hotspots"
+                      aria-label="Project infrastructure hotspots"
+                    >
+                      {projectHotspots.map((item, index) => (
                         <button
-                          className="uttara-hotspot-close"
+                          key={item.id}
                           type="button"
-                          onClick={() => setHotspotDetailsOpen(false)}
-                          aria-label="Close infrastructure details"
+                          className={`uttara-hotspot ${activeHotspotId === item.id ? "is-active" : ""}`}
+                          style={{
+                            left: `${item.x}%`,
+                            top: `${item.y}%`,
+                            "--hotspot-index": index,
+                          }}
+                          onClick={() => {
+                            setActiveHotspotId(item.id);
+                            setHotspotDetailsOpen(true);
+                          }}
+                          aria-label={`Show details for ${item.label}`}
+                          aria-pressed={activeHotspotId === item.id}
                         >
-                          ×
-                        </button>
-                        <div className="uttara-hotspot-card-image">
-                          <img
-                            src={activeHotspot.image}
-                            alt={activeHotspot.label}
-                            onError={(event) => {
-                              event.currentTarget.style.display = "none";
-                            }}
-                          />
-                        </div>
-                        <div className="uttara-hotspot-card-body">
-                          <span className="uttara-hotspot-kicker">
-                            PROJECT INFRASTRUCTURE
+                          <span className="uttara-hotspot-pulse" />
+                          <span className="uttara-hotspot-label">
+                            {item.short}
                           </span>
-                          <h2 style={{ letterSpacing: '.1em' }} className="">{activeHotspot.label}</h2>
-                          <p>{activeHotspot.description}</p>
-                          <div className="uttara-hotspot-card-controls">
-                            <span>
-                              {String(
-                                projectHotspots.findIndex(
-                                  (item) => item.id === activeHotspot.id,
-                                ) + 1,
-                              ).padStart(2, "0")}{" "}
-                              <i>
-                                /{" "}
-                                {String(projectHotspots.length).padStart(
-                                  2,
-                                  "0",
-                                )}
-                              </i>
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() =>
-                                setActiveHotspotId(
-                                  (current) =>
-                                    projectHotspots[
-                                      (projectHotspots.findIndex(
-                                        (item) => item.id === current,
-                                      ) +
-                                        1) %
-                                      projectHotspots.length
-                                    ].id,
-                                )
-                              }
-                            >
-                              Next location <b>→</b>
-                            </button>
+                        </button>
+                      ))}
+
+                      {hotspotDetailsOpen && (
+                        <aside
+                          className="uttara-hotspot-card"
+                          aria-live="polite"
+                          style={{
+                            left: `${activeHotspot.x}%`,
+                            top: `${activeHotspot.y}%`,
+                            right: "auto",
+                            bottom: "auto",
+                            "--hotspot-card-shift-x":
+                              activeHotspot.x > 55
+                                ? "calc(-100% - 22px)"
+                                : "22px",
+                            "--hotspot-card-shift-y":
+                              activeHotspot.y > 58
+                                ? "calc(-100% - 22px)"
+                                : "22px",
+                          }}
+                        >
+                          <button
+                            className="uttara-hotspot-close"
+                            type="button"
+                            onClick={() => setHotspotDetailsOpen(false)}
+                            aria-label="Close infrastructure details"
+                          >
+                            ×
+                          </button>
+                          <div className="uttara-hotspot-card-image">
+                            <img
+                              src={activeHotspot.image}
+                              alt={activeHotspot.label}
+                              onError={(event) => {
+                                event.currentTarget.style.display = "none";
+                              }}
+                            />
                           </div>
-                        </div>
-                      </aside>
-                    )}
-                  </div>
-                )}
+                          <div className="uttara-hotspot-card-body">
+                            <span className="uttara-hotspot-kicker">
+                              PROJECT INFRASTRUCTURE
+                            </span>
+                            <h2 style={{ letterSpacing: '.1em' }} className="">{activeHotspot.label}</h2>
+                            <p>{activeHotspot.description}</p>
+                            <div className="uttara-hotspot-card-controls">
+                              <span>
+                                {String(
+                                  projectHotspots.findIndex(
+                                    (item) => item.id === activeHotspot.id,
+                                  ) + 1,
+                                ).padStart(2, "0")}{" "}
+                                <i>
+                                  /{" "}
+                                  {String(projectHotspots.length).padStart(
+                                    2,
+                                    "0",
+                                  )}
+                                </i>
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setActiveHotspotId(
+                                    (current) =>
+                                      projectHotspots[
+                                        (projectHotspots.findIndex(
+                                          (item) => item.id === current,
+                                        ) +
+                                          1) %
+                                        projectHotspots.length
+                                      ].id,
+                                  )
+                                }
+                              >
+                                Next location <b>→</b>
+                              </button>
+                            </div>
+                          </div>
+                        </aside>
+                      )}
+                    </div>
+                  )}
 
-                {/* Main content */}
-                <div className="uttara-container">
-                  <div className="uttara-content">
-                    <div
-                      className="uttara-eyebrow"
-                      data-swiper-parallax="-180"
-                      data-swiper-parallax-duration="900"
-                    >
-                      <span className="uttara-eyebrow-line" />
-                      {slide.eyebrow}
+                  {/* Main content */}
+                  <div className="uttara-container">
+                    <div className="uttara-content">
+                      <div
+                        className="uttara-eyebrow"
+                        data-swiper-parallax="-180"
+                        data-swiper-parallax-duration="900"
+                      >
+                        <span className="uttara-eyebrow-line" />
+                        {slide.eyebrow}
+                      </div>
+
+                      <p
+                        className="uttara-subtitle"
+                        data-swiper-parallax="-180"
+                        data-swiper-parallax-duration="1000"
+                      >
+                        {slide.subtitle}
+                      </p>
+
+                      <div
+                        className="uttara-actions"
+                        data-swiper-parallax="-100"
+                        data-swiper-parallax-duration="900"
+                      >
+                        <AnchorLink href="#about" className="uttara-cta">
+                          <span>Discover MUHAJIREEN</span>
+                          <span className="uttara-cta-icon">↗</span>
+                        </AnchorLink>
+
+                        <span className="uttara-category">{slide.category}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom information bar */}
+                  <div className="uttara-bottom">
+                    <div className="uttara-slider-arrows" aria-label="Slider navigation">
+                      <button
+                        type="button"
+                        className="uttara-slider-arrow"
+                        onClick={() => swiperRef.current?.slidePrev()}
+                        aria-label="Previous slide"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          width="20"
+                          height="20"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M19 12H5M12 19l-7-7 7-7"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        className="uttara-slider-arrow"
+                        onClick={() => swiperRef.current?.slideNext()}
+                        aria-label="Next slide"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          width="20"
+                          height="20"
+                          fill="none"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M5 12h14m-7-7 7 7-7 7"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
                     </div>
 
-                    <p
-                      className="uttara-subtitle"
-                      data-swiper-parallax="-180"
-                      data-swiper-parallax-duration="1000"
-                    >
-                      {slide.subtitle}
-                    </p>
+                    <div className="uttara-pagination" />
 
-                    <div
-                      className="uttara-actions"
-                      data-swiper-parallax="-100"
-                      data-swiper-parallax-duration="900"
-                    >
-                      <AnchorLink href="#about" className="uttara-cta">
-                        <span>Discover MUHAJIREEN</span>
-                        <span className="uttara-cta-icon">↗</span>
-                      </AnchorLink>
-
-                      <span className="uttara-category">{slide.category}</span>
-                    </div>
+                    <AnchorLink href="#about" className="uttara-scroll">
+                      <span>SCROLL TO EXPLORE</span>
+                      <span className="uttara-scroll-line" />
+                      <span className="uttara-scroll-arrow">↓</span>
+                    </AnchorLink>
                   </div>
                 </div>
+              </SwiperSlide>
+            );
+          })}
 
-                {/* Bottom information bar */}
-                <div className="uttara-bottom">
-                  <div className="uttara-slider-arrows" aria-label="Slider navigation">
-                    <button
-                      type="button"
-                      className="uttara-slider-arrow"
-                      onClick={() => swiperRef.current?.slidePrev()}
-                      aria-label="Previous slide"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="20"
-                        height="20"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M19 12H5M12 19l-7-7 7-7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-
-                    <button
-                      type="button"
-                      className="uttara-slider-arrow"
-                      onClick={() => swiperRef.current?.slideNext()}
-                      aria-label="Next slide"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="20"
-                        height="20"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M5 12h14m-7-7 7 7-7 7"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div className="uttara-pagination" />
-
-                  <AnchorLink href="#about" className="uttara-scroll">
-                    <span>SCROLL TO EXPLORE</span>
-                    <span className="uttara-scroll-line" />
-                    <span className="uttara-scroll-arrow">↓</span>
-                  </AnchorLink>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
         </Swiper>
 
 
