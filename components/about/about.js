@@ -130,15 +130,17 @@ const About = (props) => {
                             </Link>
 
 
-                            <div className="video-wrap">
-                                <div className="video-holder">
-                                    <VideoModal />
-                                </div>
+                            <Link href="/about">
+                                <div className="video-wrap">
+                                    <div className="video-holder">
+                                        <VideoModal />
+                                    </div>
 
-                                <div className="video-story-text">
-                                    <strong>Our Story</strong>
+                                    <div className="video-story-text">
+                                        <strong>Our Story</strong>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
 
                         </div>
 
