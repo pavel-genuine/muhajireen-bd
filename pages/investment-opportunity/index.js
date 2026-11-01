@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from '/public/images/logo.png'
 import Contactpage from '../../components/Contactpage/Contactpage'
@@ -74,11 +74,19 @@ export default function InvestmentOpportunityPage() {
         setActiveShare(0);
     };
 
+    const [width, setWidth] = useState(0);
+
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+
+    });
+
     return (
         <main className="uv-investment-page">
             <Navbar Logo={Logo}
             />
-            <section className="uv-investment-hero">
+            <section style={{ marginTop: width > 768 ? "" : "30px" }} className="uv-investment-hero">
                 <div className="uv-investment-orbit uv-investment-orbit--one" />
                 <div className="uv-investment-orbit uv-investment-orbit--two" />
                 <div className="uv-investment-shell">

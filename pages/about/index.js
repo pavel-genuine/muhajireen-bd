@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar/Navbar";
@@ -7,11 +7,18 @@ import Footer from "../../components/footer/Footer";
 import WAIcon from "../../components/WAIcon/WAIcon";
 
 export default function AboutPage() {
+    const [width, setWidth] = useState(0);
+
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+
+    });
     return (
         <main className="uv-about-page">
             <Navbar Logo={Logo}
             />
-            <section className="uv-hero">
+            <section style={{ marginTop: width > 768 ? "" : "30px" }} className="uv-hero">
                 <div className="uv-hero-copy">
                     <span className="uv-eyebrow"><i /> WHO WE ARE · MUHAJIREEN CONSULTANT LTD.</span>
                     <h1>Building trust.<br />Creating <em>possibility.</em></h1>
@@ -261,7 +268,7 @@ export default function AboutPage() {
           border: 1px solid rgba(255, 255, 255, .6);
           border-radius: 15px;
           background: rgba(255, 250, 241, .77);
-          backdrop-filter: blur(10px);
+          backdrop-filter: blur(5px);
         }
         
         .uv-visual-glass small {

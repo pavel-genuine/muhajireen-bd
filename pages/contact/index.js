@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -16,11 +16,21 @@ const ScrollTextAnimation = dynamic(
 );
 
 const ContactPage = () => {
+    const [width, setWidth] = useState(0);
+
+
+    useEffect(() => {
+        setWidth(window.innerWidth);
+
+    });
     return (
         <Fragment>
             <Navbar Logo={Logo}
             />
             <ScrollTextAnimation />
+            <div style={{ marginTop: width > 768 ? "" : "30px" }}>
+
+            </div>
             <Contactpage />
             <section className="wpo-contact-map-section">
                 <h2 className="hidden">Contact map</h2>
