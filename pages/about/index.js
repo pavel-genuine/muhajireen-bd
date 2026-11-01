@@ -261,7 +261,7 @@ export default function AboutPage() {
           border: 1px solid rgba(255, 255, 255, .6);
           border-radius: 15px;
           background: rgba(255, 250, 241, .77);
-          backdrop-filter: blur(5px);
+          backdrop-filter: blur(10px);
         }
         
         .uv-visual-glass small {
