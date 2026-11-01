@@ -6,18 +6,17 @@ import Link from "next/link";
 import Logo from '/public/images/logo.png'
 const quickLinks = [
   { label: "Home", href: "/" },
+  { label: "Project Overview", href: "/project-overview" },
+  { label: "Investment Opportunity", href: "/investment-opportunity" },
   { label: "About Us", href: "/about" },
-  { label: "Our Vision", href: "/#about" },
-  { label: "Connectivity", href: "/#connectivity" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact us", href: "/contact" },
 ];
 
 const projectLinks = [
-  { label: "Master Plan", href: "/#masterplan" },
-  { label: "Residential Living", href: "/#residential" },
-  { label: "Commercial Spaces", href: "/#commercial" },
-  { label: "Healthcare", href: "/#healthcare" },
-  { label: "Education", href: "/#education" },
+  { label: "Master Plan & Connectivity", href: "/#masterplan-connectivity" },
+  { label: "Integrated Development", href: "/#developments" },
+  { label: "Lifestyle & Facilities", href: "/#lifestyle-facilities" },
+
 ];
 
 const contactInfo = {

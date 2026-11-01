@@ -127,7 +127,7 @@ const sliderData = [
   {
     id: 10,
     img: "/images/slider/hero-slide/img-8-main.png",
-    foregroundImg: "/images/slider/hero-slide/iimg-8-main.png",
+    foregroundImg: "/images/slider/hero-slide/img-8-main.png",
     bgLetter: "FUTURE",
     eyebrow: "WHERE POTENTIAL TAKES FLIGHT",
     title: "Inspiring The Future ",
@@ -251,6 +251,13 @@ export default function Hero() {
   const activeHotspot =
     projectHotspots.find((item) => item.id === activeHotspotId) ||
     projectHotspots[0];
+  const [width, setWidth] = useState(0);
+
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+
+  });
 
   const swiperRef = useRef(null);
 
@@ -267,12 +274,18 @@ export default function Hero() {
   }, [activeSlideId, hotspotDetailsOpen]);
 
   return (
-    <>
-      <section className="uttara-hero" aria-label="Uttara View highlights">
+    <section >
+      <section style={{
+        marginTop: width > 768 ? "0px" : "80px",
+        backgroundColor: "#101b25",
+        position: "relative",
+
+
+      }} className="uttara-hero" aria-label="Uttara View highlights">
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            Autoplay,
+            // Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -282,11 +295,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -1606,6 +1619,8 @@ export default function Hero() {
   }
 
   @media (max-width: 600px) {
+
+  
     .uttara-slider-arrows {
       left: 12px;
       bottom: 14px;
@@ -1622,8 +1637,166 @@ export default function Hero() {
       height: 16px;
     }
   }
-`}</style>
 
-    </>
+/* FIX: Match hero height to the 1792 × 878 image */
+
+.uttara-hero {
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: 1792 / 878;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.uttara-hero .uttara-swiper,
+.uttara-hero .swiper-wrapper,
+.uttara-hero .swiper-slide,
+.uttara-hero .uttara-slide {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.uttara-hero .uttara-slide-image {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: 100% 100% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transform: none !important;
+}
+
+.uttara-hero .uttara-building-foreground {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  object-position: center !important;
+  transform: none !important;
+}
+
+/* Remove conflicting responsive height rules */
+@media (max-width: 991px) {
+  .uttara-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 1792 / 878;
+  }
+}
+
+/* Mobile: Keep only the main hero title */
+@media (max-width: 600px) {
+  /* Hide eyebrow text */
+  .uttara-hero .uttara-eyebrow {
+    display: none !important;
+  }
+
+  /* Hide subtitle */
+  .uttara-hero .uttara-subtitle {
+    display: none !important;
+  }
+
+  /* Hide CTA button and category */
+  .uttara-hero .uttara-actions {
+    display: none !important;
+  }
+
+  /* Keep title visible and clear of navbar */
+  
+
+  /* Remove unused content spacing */
+  .uttara-hero .uttara-container {
+    padding-top: 75px !important;
+    padding-bottom: 85px !important;
+  }
+
+ 
+}
+  .uttara-hero {
+  
+  padding-top: 80px;
+  box-sizing: border-box;
+  background-color: #101b25;
+}
+
+html,
+body {
+  background-color: #101b25 !important;
+}
+
+@media (max-width: 768px) {
+  .uttara-hero {
+    background-color: #101b25 !important;
+  }
+
+  /* MOBILE: FOREGROUND IMAGE POSITION */
+@media screen and (max-width: 768px) {
+
+
+  .uttara-hero-title .connection {
+    top: 0% !important;
+    margin-top: 10px !important;
+  }
+
+  .uttara-hero .uttara-building-foreground.school {
+    top: 15% !important;
+    margin-top: 0 !important;
+  }
+
+  .uttara-hero .uttara-building-foreground.park {
+    top: 19% !important;
+    margin-top: -35px !important;
+  }
+    .uttara-hero-title.park {
+    top: 37% !important;
+    margin-top: -20px !important;
+  }
+
+  .uttara-hero .uttara-building-foreground.nursing {
+    top: 11% !important;
+    margin-top: 10px !important;
+  }
+  .uttara-hero-title.nursing {
+    top: 23% !important;
+
+  }
+
+  .uttara-hero-title.commercial {
+    top: 25% !important;
+    margin-top: -10px !important;
+  }
+
+ .uttara-hero-title.residence {
+    top: 10% !important;
+    margin-top: 10px !important;
+  }
+
+  .uttara-hero-title.hospital {
+    top: 42% !important;
+    margin-top: -40px !important;
+  }
+
+  .uttara-hero-title.dental {
+    top: 5% !important;
+    margin-top: 20px !important;
+  }
+
+  .uttara-hero .uttara-building-foreground.mosque {
+    top: 19% !important;
+    margin-top: -45px !important;
+    margin-left: -5px !important;
+  }
+  .uttara-hero-title.mosque {
+    top: 27% !important;
+   
+  }
+}
+}`}</style>
+
+    </section>
   );
 }
