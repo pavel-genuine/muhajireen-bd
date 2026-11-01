@@ -287,7 +287,7 @@ export default function Hero() {
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            Autoplay,
+            // Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -297,11 +297,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -584,13 +584,13 @@ export default function Hero() {
 
   .connection { top: 15%; }
   .school     { top: 15%; }
-  .park     { top: 19%; margin-top: -20px;  }
-  .nursing     { top: 11%; margin-top: 110px; }
-  .commercial { top: 17%; margin-top: -10px; }
-  .residence  { top: 10%; margin-top: 10px; }
-  .hospital   { top: 16%; margin-top: -40px; }
-  .dental     { top: 11%; margin-top: 20px; }
-  .mosque     { top: 19%; margin-top: -50px; }
+  .park     { top: 23%; margin-top: -20px;  }
+  .nursing     { top: 13%; margin-top: 60px;margin-left: -60px; }
+  .commercial { top: 18%; margin-top: -10px; }
+  .residence  { top: 16%; margin-top: 20px; }
+  .hospital   { top: 19%; margin-top: -40px; }
+  .dental     { top: 13%; margin-top: 20px; }
+  .mosque     { top: 24%; margin-top: -10px;margin-left: -10px; }
   
 
   /* ---------- Hotspots ---------- */
@@ -1770,6 +1770,7 @@ body {
   .uttara-hero .uttara-building-foreground.nursing {
     top: 11% !important;
     margin-top: 10px !important;
+    margin-left: -10px;
   }
   .uttara-hero-title.nursing {
     top: 23% !important;
