@@ -1732,12 +1732,12 @@ export default function Hero() {
 
 html,
 body {
-  background-color: #101b25 !important;
+  background-color: #423a30 !important;
 }
 
 @media (max-width: 768px) {
   .uttara-hero {
-    background-color: #101b25 !important;
+    background-color: #423a30 !important;
   }
 
   /* MOBILE: FOREGROUND IMAGE POSITION */
