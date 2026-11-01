@@ -51,7 +51,7 @@ const Header = (props) => {
                     {/* LOGO */}
                     <div className="uv-header-logo">
                         <Link
-                            href="/home"
+                            href="/"
                             onClick={ClickHandler}
                             aria-label="MUHAJIREEN Home"
                         >
@@ -77,7 +77,7 @@ const Header = (props) => {
                         <ul className="uv-nav-list">
                             <li>
                                 <Link
-                                    href="/home"
+                                    href="/"
                                     onClick={ClickHandler}
                                     className="uv-nav-link"
                                 >
@@ -97,7 +97,7 @@ const Header = (props) => {
 
                             <li>
                                 <Link
-                                    href="/about"
+                                    href="/investment-opportunity"
                                     onClick={ClickHandler}
                                     className="uv-nav-link"
                                 >

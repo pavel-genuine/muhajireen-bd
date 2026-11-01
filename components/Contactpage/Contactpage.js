@@ -123,7 +123,7 @@ export default function ContactUsPage() {
                         className="uv-contact-heading"
                         data-reveal
                     >
-                        <div className="uv-contact-eyebrow">
+                        <div style={{ paddingTop: '20px' }} className="uv-contact-eyebrow">
                             <span className="uv-contact-eyebrow-line" />
                             <span>LET'S CONNECT</span>
                             <span className="uv-contact-eyebrow-line" />
