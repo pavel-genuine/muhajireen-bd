@@ -4,7 +4,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import MobileMenu from "../MobileMenu/MobileMenu";
 
 const ClickHandler = () => {
     if (typeof window !== "undefined") {
@@ -48,10 +47,6 @@ const Header = (props) => {
             <div className="uv-header-container">
                 <nav className="uv-navbar">
 
-                    {/* MOBILE MENU */}
-                    {/* <div className="uv-mobile-toggle">
-                        <MobileMenu />
-                    </div> */}
 
                     {/* LOGO */}
                     <div className="uv-header-logo">
@@ -92,7 +87,7 @@ const Header = (props) => {
 
                             <li>
                                 <Link
-                                    href="/#masterplan"
+                                    href="/project-overview"
                                     onClick={ClickHandler}
                                     className="uv-nav-link"
                                 >

@@ -1,2226 +1,1121 @@
-
-import React, { useEffect } from "react";
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../../components/Navbar/Navbar";
+import Logo from '../../public/images/logo.png'
+import Footer from "../../components/footer/Footer";
+import WAIcon from "../../components/WAIcon/WAIcon";
 
-const projectImages = {
-    hero: "/images/about/about-hero.jpg",
-    vision: "/images/about/vision.jpg",
-    project: "/images/about/ashulia-model-town.jpg",
-    lifestyle: "/images/about/lifestyle.jpg",
-    commercial: "/images/about/commercial.jpg",
-    location: "/images/about/location.jpg",
-};
-
-const advantages = [
-    {
-        number: "01",
-        title: "Beside Uttara",
-        text: "Enjoy convenient access to the established lifestyle, facilities and everyday conveniences of Uttara.",
-    },
-    {
-        number: "02",
-        title: "Direct Connectivity",
-        text: "A proposed modern bridge over the river is intended to strengthen connectivity between Ashulia and Uttara.",
-    },
-    {
-        number: "03",
-        title: "A Growing Destination",
-        text: "Located in one of the rapidly developing areas surrounding Dhaka, with evolving urban infrastructure.",
-    },
-    {
-        number: "04",
-        title: "Peaceful Living",
-        text: "A quieter residential environment with the potential to enjoy a more relaxed lifestyle close to the city.",
-    },
-    {
-        number: "05",
-        title: "Regional Connectivity",
-        text: "Potential connectivity with wider regional road networks, including the Padma Bridge routes.",
-    },
-    {
-        number: "06",
-        title: "Future Opportunities",
-        text: "Emerging infrastructure and proposed transport developments may create new opportunities for the area.",
-    },
-];
-
-const lifestyleFacilities = [
-    {
-        no: "01",
-        title: "Swimming Pools",
-        subtitle: "Separate facilities for men and women",
-        icon: "◉",
-    },
-    {
-        no: "02",
-        title: "Modern Gym",
-        subtitle: "Dedicated fitness facilities for men and women",
-        icon: "↗",
-    },
-    {
-        no: "03",
-        title: "Kids Playing Zone",
-        subtitle: "A dedicated space for childhood and recreation",
-        icon: "✳",
-    },
-    {
-        no: "04",
-        title: "Green Zone",
-        subtitle: "Landscaped spaces surrounded by greenery",
-        icon: "❋",
-    },
-    {
-        no: "05",
-        title: "Riverside Walkway",
-        subtitle: "A pedestrian-friendly community experience",
-        icon: "↝",
-    },
-    {
-        no: "06",
-        title: "Bicycle Zone",
-        subtitle: "Encouraging active and healthier lifestyles",
-        icon: "◎",
-    },
-    {
-        no: "07",
-        title: "Mosque & Madrasha",
-        subtitle: "Dedicated spaces for worship and education",
-        icon: "◇",
-    },
-    {
-        no: "08",
-        title: "Emergency Medical Services",
-        subtitle: "Healthcare support for the community",
-        icon: "＋",
-    },
-];
-
-const commercialFacilities = [
-    {
-        no: "01",
-        title: "Medical College",
-        description: "A modern medical education facility with long-term institutional potential.",
-        tag: "Education",
-    },
-    {
-        no: "02",
-        title: "General Hospital",
-        description: "Advanced healthcare services and medical support for residents.",
-        tag: "Healthcare",
-    },
-    {
-        no: "03",
-        title: "Nursing Institute",
-        description: "Professional nursing education serving the growing healthcare sector.",
-        tag: "Education",
-    },
-    {
-        no: "04",
-        title: "Shopping Mall",
-        description: "A modern retail destination for shopping, restaurants and daily services.",
-        tag: "Retail",
-    },
-    {
-        no: "05",
-        title: "Commercial Spaces",
-        description: "Dedicated spaces for offices, businesses and commercial activities.",
-        tag: "Business",
-    },
-    {
-        no: "06",
-        title: "International School",
-        description: "A contemporary educational environment for the next generation.",
-        tag: "Education",
-    },
-];
-
-const nearbyLocations = [
-    "Uttara",
-    "Metro Rail",
-    "Hazrat Shahjalal International Airport",
-    "Birulia Bridge",
-    "Gabtoli Bus Stand",
-    "Mirpur DOHS",
-    "Daffodil University",
-    "City University",
-    "BRAC University",
-    "Eastern University",
-    "World University",
-    "Passport Office",
-    "Uttara West Police Station",
-    "VIP Block Park & Playground",
-];
-
-const AboutPage = () => {
-    useEffect(() => {
-        const elements = document.querySelectorAll(".about-reveal");
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.12 }
-        );
-
-        elements.forEach((element) => observer.observe(element));
-
-        const handleParallax = () => {
-            const layers = document.querySelectorAll("[data-parallax]");
-
-            layers.forEach((layer) => {
-                const rect = layer.getBoundingClientRect();
-                const speed = Number(layer.dataset.parallax || 0.08);
-                const offset = (rect.top - window.innerHeight / 2) * speed;
-
-                layer.style.setProperty("--parallax-y", `${-offset}px`);
-            });
-        };
-
-        window.addEventListener("scroll", handleParallax, { passive: true });
-        handleParallax();
-
-        return () => {
-            observer.disconnect();
-            window.removeEventListener("scroll", handleParallax);
-        };
-    }, []);
-
+export default function AboutPage() {
     return (
-        <>
-            <main className="muh-about">
-
-                {/* HERO */}
-                <section className="about-hero">
-                    <div
-                        className="hero-background"
-                        style={{ backgroundImage: `url(${projectImages.hero})` }}
-                    />
-                    <div className="hero-overlay" />
-
-                    <div className="hero-content container">
-                        <div className="eyebrow light">
-                            <span />
-                            THE MUHAJIREEN STORY
-                        </div>
-
-                        <h1>
-                            More Than
-                            <br />
-                            <em>A Place To Live.</em>
-                            <br />
-                            A Way To Belong.
-                        </h1>
-
-                        <p>
-                            Creating meaningful spaces, connecting communities
-                            and building possibilities for generations to come.
-                        </p>
-
-                        <div className="hero-actions">
-                            <Link href="/projects" className="primary-btn">
-                                Explore Our Projects <span>↗</span>
-                            </Link>
-                            <a href="#our-story" className="text-link light-link">
-                                Discover Our Story <span>↓</span>
-                            </a>
-                        </div>
+        <main className="uv-about-page">
+            <Navbar Logo={Logo}
+            />
+            <section className="uv-hero">
+                <div className="uv-hero-copy">
+                    <span className="uv-eyebrow"><i /> WHO WE ARE · MUHAJIREEN CONSULTANT LTD.</span>
+                    <h1>Building trust.<br />Creating <em>possibility.</em></h1>
+                    <p className="uv-lead">MUHAJIREEN Consultant Ltd. is focused on thoughtful development, meaningful partnerships and long-term value for the communities it serves.</p>
+                    <p className="uv-support">Our approach brings people, ideas and opportunities together through a commitment to transparency, responsibility and community-minded planning.</p>
+                    <Link href="/contact" className="uv-button">Discuss the project <span>↗</span></Link>
+                    <div className="uv-hero-foot"><span>VISION-LED DEVELOPMENT</span><b /> <span>COMMUNITY-FOCUSED APPROACH</span></div>
+                </div>
+                <div className="uv-hero-visual">
+                    <Image src="/images/slider/hero-slide/about.jpg" alt="MUHAJIREEN Consultant Ltd. development vision" fill priority sizes="(max-width: 900px) 100vw, 55vw" />
+                    <div className="uv-visual-glass"><small>OUR APPROACH</small><strong>MUHAJIREEN</strong><span>Thoughtful Development · Meaningful Partnerships</span></div>
+                    <span className="uv-vertical-label">VISION · INTEGRITY · COMMUNITY</span>
+                </div>
+            </section>
+            <section className="uv-story uv-section">
+                <div className="uv-section-tag">01 / THE VISION</div>
+                <div className="uv-story-grid">
+                    <h2>More than a development.<br /><em>A community vision.</em></h2>
+                    <div className="uv-story-copy">
+                        <p>At MUHAJIREEN Consultant Ltd., we believe development is about more than buildings. It is about creating opportunities, building trust and considering the people who will shape a place over time.</p>
+                        <p>We aim to approach every initiative with care, clear communication and a long-term perspective. Our company values guide how we engage with partners, customers and the wider community.</p>
                     </div>
-
-                    <div className="hero-bottom">
-                        <span>MUHAJIREEN CONSULTANT LTD.</span>
-                        <span>BUILDING TOMORROW, TODAY</span>
+                </div>
+            </section>
+            <section className="uv-purpose uv-section">
+                <div className="uv-purpose-heading">
+                    <div className="uv-section-tag">02 / OUR PURPOSE</div>
+                    <h2> <span style={{ color: 'var(--uv-ink)' }}>What guides </span><em>our work.</em></h2>
+                    <p>Our mission, vision and values shape how we build relationships, approach development and work toward lasting value.</p>
+                </div>
+                <div className="uv-purpose-grid">
+                    <article className="uv-purpose-card uv-purpose-card-featured">
+                        <span className="uv-purpose-number">01</span><span className="uv-purpose-label">OUR VISION</span>
+                        <h3 style={{ color: 'var(--uv-ink)' }}>A better future, thoughtfully planned.</h3>
+                        <p>To contribute to well-planned, sustainable communities where people can find opportunity, connection and a sense of belonging.</p>
+                    </article>
+                    <article className="uv-purpose-card">
+                        <span className="uv-purpose-number">02</span><span className="uv-purpose-label">OUR MISSION</span>
+                        <h3 style={{ color: 'var(--uv-ink)' }}>Turning ideas into meaningful progress.</h3>
+                        <p>To pursue responsible development through careful planning, transparent communication, quality-minded decisions and meaningful collaboration.</p>
+                    </article>
+                </div>
+                <div className="uv-values-block">
+                    <div className="uv-values-intro"><span className="uv-purpose-label">03 / OUR CORE VALUES</span><h3 style={{ color: 'var(--uv-ink)' }}>Principles that<br /><em>move us forward.</em></h3></div>
+                    <div className="uv-values-grid">
+                        <article><span>01</span><h4 style={{ color: 'var(--uv-ink)' }}>Integrity & Transparency</h4><p>Communicating clearly and building relationships on trust.</p></article>
+                        <article><span>02</span><h4 style={{ color: 'var(--uv-ink)' }}>Quality & Excellence</h4><p>Taking a thoughtful, detail-oriented approach to our work.</p></article>
+                        <article><span>03</span><h4 style={{ color: 'var(--uv-ink)' }}>Customer Commitment</h4><p>Listening carefully and respecting the needs of our customers and partners.</p></article>
+                        <article><span>04</span><h4 style={{ color: 'var(--uv-ink)' }}>Responsible Development</h4><p>Considering long-term community value in the decisions we make.</p></article>
                     </div>
-
-                    <div className="hero-scroll">
-                        <span>SCROLL TO EXPLORE</span>
-                        <i />
+                </div>
+                <div className="uv-commitment"><span className="uv-purpose-label">04 / OUR COMMITMENT</span><p>We are committed to fostering lasting relationships through responsibility, thoughtful planning and open communication—one meaningful step at a time.</p></div>
+            </section>
+            <section className="uv-story uv-section uv-approach">
+                <div className="uv-section-tag">05 / OUR APPROACH</div>
+                <div className="uv-story-grid">
+                    <h2>Thoughtful by design.<br /><em>Responsible in action.</em></h2>
+                    <div className="uv-story-copy">
+                        <p>We believe meaningful development begins with listening, careful planning and a clear understanding of people’s needs. We aim to make considered decisions and communicate openly throughout our work.</p>
+                        <p>By valuing collaboration, quality and long-term thinking, MUHAJIREEN Consultant Ltd. seeks to build relationships that grow through trust and shared purpose.</p>
                     </div>
-                </section>
+                </div>
+            </section>
+            <section className="uv-cta"><span className="uv-eyebrow"><i /> LEARN MORE</span><h2>Let’s build<br /><em>something meaningful.</em></h2><p>Connect with MUHAJIREEN Consultant Ltd. to learn about our company, values and approach to development.</p><Link href="/contact" className="uv-button">Contact our team <span>↗</span></Link></section>
 
-                {/* INTRODUCTION */}
-                <section className="about-intro section-space" id="our-story">
-                    <div className="container">
-                        <div className="intro-grid">
 
-                            <div className="intro-left about-reveal">
-                                <div className="eyebrow">
-                                    <span />
-                                    WHO WE ARE
-                                </div>
-
-                                <h2 className="editorial-heading">
-                                    We Believe
-                                    <br />
-                                    <em>Every Place</em>
-                                    <br />
-                                    Has A Purpose.
-                                </h2>
-
-                                <div className="intro-image" data-parallax="0.06">
-                                    <img src={projectImages.vision} alt="Muhajireen vision" />
-                                    <div className="image-caption">
-                                        <span>01 / OUR VISION</span>
-                                        <span>Beyond Ordinary Living ↗</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="intro-right about-reveal">
-                                <span className="side-index">01 — ABOUT MUHAJIREEN</span>
-
-                                <h3>
-                                    More than a real estate company.
-                                    <em> A vision for better living.</em>
-                                </h3>
-
-                                <p>
-                                    At MUHAJIREEN Consultant Ltd, we believe a property
-                                    is more than an address. It is where aspirations take
-                                    shape, families grow and meaningful futures begin.
-                                </p>
-
-                                <p>
-                                    Through thoughtful real estate development, including
-                                    Ashulia Model Town and Uttara View, we aim to bring
-                                    together contemporary living, considered planning
-                                    and a stronger sense of community.
-                                </p>
-
-                                <p>
-                                    Our vision is to create destinations where residential
-                                    comfort, modern facilities and opportunities for
-                                    growth exist together.
-                                </p>
-
-                                <Link href="/projects" className="underlined-link">
-                                    Discover Our Developments <span>↗</span>
-                                </Link>
-
-                                <div className="intro-stats">
-                                    <div>
-                                        <strong>02<span>+</span></strong>
-                                        <small>Project Identities</small>
-                                    </div>
-                                    <div>
-                                        <strong>01</strong>
-                                        <small>Shared Vision</small>
-                                    </div>
-                                    <div>
-                                        <strong>∞</strong>
-                                        <small>Future Possibilities</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                {/* PHILOSOPHY */}
-                <section className="philosophy-section">
-                    <div className="philosophy-bg" />
-                    <div className="container philosophy-content about-reveal">
-                        <div className="eyebrow light">
-                            <span />
-                            WHAT WE BELIEVE
-                        </div>
-
-                        <h2>
-                            Thoughtful Spaces.
-                            <br />
-                            <em>Meaningful Lives.</em>
-                        </h2>
-
-                        <p>
-                            We see real estate as more than land and buildings.
-                            It is about creating a setting for belonging,
-                            opportunity and a better everyday experience.
-                        </p>
-
-                        <div className="philosophy-line">
-                            <span>PEOPLE</span>
-                            <i />
-                            <span>PLACE</span>
-                            <i />
-                            <span>POSSIBILITY</span>
-                        </div>
-                    </div>
-                </section>
-
-                {/* ASHULIA PROJECT */}
-                <section className="project-overview section-space">
-                    <div className="container">
-
-                        <div className="section-heading about-reveal">
-                            <div>
-                                <div className="eyebrow">
-                                    <span />
-                                    OUR FLAGSHIP DEVELOPMENT
-                                </div>
-                                <h2 className="editorial-heading">
-                                    A New Perspective
-                                    <br />
-                                    <em>On Modern Living.</em>
-                                </h2>
-                            </div>
-
-                            <p>
-                                Introducing Ashulia Model Town — a planned
-                                residential and commercial destination beside
-                                Uttara Sector 16.
-                            </p>
-                        </div>
-
-                        <div className="project-visual about-reveal">
-                            <img src={projectImages.project} alt="Ashulia Model Town" />
-
-                            <div className="project-glass-card">
-                                <span>MUHAJIREEN PRESENTS</span>
-                                <h3>Ashulia<br />Model Town</h3>
-                                <p>A luxurious residential model town.</p>
-                                <Link href="/projects" className="round-link">↗</Link>
-                            </div>
-
-                            <div className="project-location-label">
-                                <span>LOCATION</span>
-                                <strong>Beside Uttara Sector 16</strong>
-                            </div>
-                        </div>
-
-                        <div className="project-facts">
-                            <div className="fact">
-                                <span>01 / TOTAL DEVELOPMENT AREA</span>
-                                <strong>05 <small>Acres</small></strong>
-                                <p>Approximately 303 Kathas</p>
-                            </div>
-
-                            <div className="fact">
-                                <span>02 / FRONT ROAD</span>
-                                <strong>80 <small>Feet</small></strong>
-                                <p>Wide road frontage</p>
-                            </div>
-
-                            <div className="fact">
-                                <span>03 / SIDE CONNECTIVITY</span>
-                                <strong>4 <small>Sides</small></strong>
-                                <p>30 ft, 50 ft and 30 ft side roads</p>
-                            </div>
-
-                            <div className="fact fact-note">
-                                <span>04 / DEVELOPMENT VISION</span>
-                                <strong>One Destination.</strong>
-                                <p>Residential, commercial and community facilities.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* LOCATION */}
-                <section className="location-section section-space">
-                    <div className="container">
-                        <div className="location-grid">
-
-                            <div className="location-image about-reveal">
-                                <img src={projectImages.location} alt="Ashulia location" />
-                                <div className="location-image-caption">
-                                    <span>ASHULIA · DHAKA</span>
-                                    <span>CONNECTED TO WHAT MATTERS</span>
-                                </div>
-                            </div>
-
-                            <div className="location-content about-reveal">
-                                <div className="eyebrow">
-                                    <span />
-                                    THE LOCATION ADVANTAGE
-                                </div>
-
-                                <h2 className="editorial-heading">
-                                    Close To
-                                    <br />
-                                    <em>What Matters.</em>
-                                </h2>
-
-                                <p className="section-description">
-                                    Positioned beside Uttara Sector 16, Ashulia Model Town
-                                    offers the vision of a peaceful residential environment
-                                    with access to the wider Dhaka urban landscape.
-                                </p>
-
-                                <div className="advantage-list">
-                                    {advantages.map((item) => (
-                                        <div className="advantage-item" key={item.number}>
-                                            <span className="advantage-number">{item.number}</span>
-                                            <div>
-                                                <h4>{item.title}</h4>
-                                                <p>{item.text}</p>
-                                            </div>
-                                            <span className="advantage-arrow">↗</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                {/* LIFESTYLE */}
-                <section className="lifestyle-section section-space">
-                    <div className="container">
-
-                        <div className="section-heading about-reveal">
-                            <div>
-                                <div className="eyebrow light">
-                                    <span />
-                                    DESIGNED AROUND LIVING
-                                </div>
-
-                                <h2 className="editorial-heading light-heading">
-                                    Everyday Living,
-                                    <br />
-                                    <em>Elevated.</em>
-                                </h2>
-                            </div>
-
-                            <p>
-                                A community vision that brings recreation, wellness,
-                                greenery and essential facilities closer to home.
-                            </p>
-                        </div>
-
-                        <div className="lifestyle-layout">
-                            <div className="lifestyle-main-image about-reveal">
-                                <img src={projectImages.lifestyle} alt="Community lifestyle" />
-                                <div className="lifestyle-image-overlay">
-                                    <span>THE COMMUNITY EXPERIENCE</span>
-                                    <h3>Live Well.<br />Feel Connected.</h3>
-                                </div>
-                            </div>
-
-                            <div className="facility-grid">
-                                {lifestyleFacilities.map((item) => (
-                                    <div className="facility-card about-reveal" key={item.no}>
-                                        <div className="facility-top">
-                                            <span>{item.no}</span>
-                                            <span className="facility-icon">{item.icon}</span>
-                                        </div>
-                                        <h4>{item.title}</h4>
-                                        <p>{item.subtitle}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* COMMERCIAL */}
-                <section className="commercial-section section-space">
-                    <div className="container">
-
-                        <div className="commercial-heading about-reveal">
-                            <div className="eyebrow">
-                                <span />
-                                BEYOND RESIDENTIAL
-                            </div>
-
-                            <h2 className="editorial-heading">
-                                A Destination
-                                <br />
-                                <em>For Every Need.</em>
-                            </h2>
-
-                            <p>
-                                A broader development vision combining residential
-                                living with commercial, educational and healthcare
-                                infrastructure.
-                            </p>
-                        </div>
-
-                        <div className="commercial-visual about-reveal">
-                            <img src={projectImages.commercial} alt="Commercial development" />
-                            <div className="commercial-glass">
-                                <span>COMMERCIAL & INSTITUTIONAL VISION</span>
-                                <h3>Spaces That<br />Create Possibilities.</h3>
-                                <p>Education · Healthcare · Retail · Business</p>
-                            </div>
-                        </div>
-
-                        <div className="commercial-grid">
-                            {commercialFacilities.map((item) => (
-                                <div className="commercial-card about-reveal" key={item.no}>
-                                    <span>{item.no} / {item.tag}</span>
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
-                                    <span className="commercial-arrow">↗</span>
-                                </div>
-                            ))}
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* INVESTMENT */}
-                <section className="investment-section section-space">
-                    <div className="container">
-
-                        <div className="investment-heading about-reveal">
-                            <div className="eyebrow light">
-                                <span />
-                                INVESTMENT OPPORTUNITIES
-                            </div>
-
-                            <h2 className="editorial-heading light-heading">
-                                More Than Ownership.
-                                <br />
-                                <em>A Share In Possibility.</em>
-                            </h2>
-
-                            <p>
-                                The project profile outlines a participation model
-                                connecting residential land-share ownership with
-                                commercial and institutional development.
-                            </p>
-                        </div>
-
-                        <div className="investment-grid">
-
-                            <div className="investment-card about-reveal">
-                                <span className="investment-number">01</span>
-                                <div className="investment-icon">⌂</div>
-                                <h3>Residential Land Share</h3>
-                                <p>
-                                    Residential land-share ownership linked to the
-                                    project's proposed two-flat and six-flat share options.
-                                </p>
-                                <span className="investment-label">OWNERSHIP OPPORTUNITY</span>
-                            </div>
-
-                            <div className="investment-card featured about-reveal">
-                                <span className="investment-number">02</span>
-                                <div className="investment-icon">◇</div>
-                                <h3>Commercial Membership</h3>
-                                <p>
-                                    Lifetime membership opportunities associated with
-                                    the commercial facilities outlined in the project profile.
-                                </p>
-                                <span className="investment-label">LIFETIME MEMBERSHIP</span>
-                            </div>
-
-                            <div className="investment-card about-reveal">
-                                <span className="investment-number">03</span>
-                                <div className="investment-icon">↗</div>
-                                <h3>Commercial Participation</h3>
-                                <p>
-                                    Participation opportunities associated with the
-                                    proposed commercial and institutional developments.
-                                </p>
-                                <span className="investment-label">PROJECT PARTICIPATION</span>
-                            </div>
-
-                        </div>
-
-                        <p className="investment-disclaimer">
-                            Investment structures, membership entitlements, ownership
-                            terms and any potential distributions are subject to
-                            the applicable agreements, project approvals and legal
-                            documentation. Returns are not guaranteed.
-                        </p>
-
-                    </div>
-                </section>
-
-                {/* NEARBY LOCATIONS */}
-                <section className="nearby-section section-space">
-                    <div className="container">
-
-                        <div className="nearby-heading about-reveal">
-                            <div className="eyebrow">
-                                <span />
-                                THE SURROUNDING LANDSCAPE
-                            </div>
-
-                            <h2 className="editorial-heading">
-                                Everything Within
-                                <br />
-                                <em>Your Horizon.</em>
-                            </h2>
-
-                            <p>
-                                Explore the educational institutions, transport
-                                connections and everyday destinations in the
-                                surrounding region.
-                            </p>
-                        </div>
-
-                        <div className="nearby-layout">
-                            <div className="nearby-feature">
-                                <span>THE NEIGHBOURHOOD</span>
-                                <h3>Connected<br />To More.</h3>
-                                <p>A location with access to a growing network of destinations.</p>
-                            </div>
-
-                            <div className="nearby-list">
-                                {nearbyLocations.map((location, index) => (
-                                    <div className="nearby-item" key={location}>
-                                        <span>{String(index + 1).padStart(2, "0")}</span>
-                                        <strong>{location}</strong>
-                                        <span>↗</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                {/* LEADERSHIP */}
-                <section className="leadership-section section-space">
-                    <div className="container leadership-content about-reveal">
-                        <div className="eyebrow">
-                            <span />
-                            THE PEOPLE BEHIND THE VISION
-                        </div>
-
-                        <h2 className="editorial-heading">
-                            Guided By Vision.
-                            <br />
-                            <em>Driven By Purpose.</em>
-                        </h2>
-
-                        <p>
-                            Our leadership is committed to advancing the MUHAJIREEN
-                            vision through thoughtful planning, responsible
-                            development and a long-term commitment to community.
-                        </p>
-
-                        <Link href="/contact" className="underlined-link">
-                            Connect With Our Team <span>↗</span>
-                        </Link>
-                    </div>
-                </section>
-
-                {/* FINAL CTA */}
-                <section className="about-cta">
-                    <div className="cta-background" />
-                    <div className="container cta-content about-reveal">
-
-                        <div className="eyebrow light">
-                            <span />
-                            YOUR FUTURE STARTS HERE
-                        </div>
-
-                        <h2>
-                            Find Your Place.
-                            <br />
-                            <em>Shape Your Future.</em>
-                        </h2>
-
-                        <p>
-                            Discover a new perspective on residential living
-                            and future possibilities with MUHAJIREEN.
-                        </p>
-
-                        <div className="cta-actions">
-                            <Link href="/projects" className="primary-btn">
-                                Explore Our Projects <span>↗</span>
-                            </Link>
-
-                            <a href="tel:+8801715102130" className="cta-phone">
-                                <span>CALL US FOR MORE INFORMATION</span>
-                                +880 1715-102130
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <div className="cta-footer">
-                        <span>MUHAJIREEN CONSULTANT LTD.</span>
-                        <span>BUILDING TOMORROW, TODAY.</span>
-                    </div>
-                </section>
-
-            </main>
+            <Footer />
+            {/* <Scrollbar /> */}
+            <WAIcon></WAIcon>
 
             <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
-
-        .muh-about {
-          --burgundy: #581e30;
-          --burgundy-dark: #35121f;
-          --ivory: #f6f0e7;
-          --ivory-dark: #eee4d8;
-          --gold: #cda66b;
-          --muted: #84776f;
-          font-family: 'DM Sans', sans-serif;
-          color: #321d26;
+        .uv-about-page {
+          --uv-ink: #3e372e;
+          --uv-muted: #766d62;
+          --uv-gold: #b58b52;
+          --uv-gold-light: #dec79f;
+          --uv-line: rgba(145, 111, 67, .2);
+          background: #faf7f1;
+          color: var(--uv-ink);
           overflow: hidden;
-          background: var(--ivory);
         }
-
-        .muh-about * {
+        
+        .uv-about-page * {
           box-sizing: border-box;
         }
-
-        .muh-about img {
-          width: 100%;
-          height: 100%;
-          display: block;
+        
+        .uv-about-page img {
           object-fit: cover;
         }
-
-        .muh-about a {
-          text-decoration: none;
-        }
-
-        .muh-about .container {
-          width: min(1320px, calc(100% - 100px));
+        
+        .uv-section {
+          max-width: 1440px;
           margin: 0 auto;
+          padding: 100px 7%;
         }
-
-        .section-space {
-          padding: 130px 0;
-        }
-
-        .eyebrow {
+        
+        .uv-eyebrow {
           display: flex;
           align-items: center;
-          gap: 12px;
-          font-size: 10px;
-          font-weight: 800;
-          letter-spacing: 2.5px;
-          color: var(--burgundy);
-          text-transform: uppercase;
+          gap: 10px;
+          color: #987345;
+          font-size: 9px;
+          font-weight: 750;
+          letter-spacing: .17em;
+          line-height: 1.6;
         }
-
-        .eyebrow > span {
-          width: 35px;
+        
+        .uv-eyebrow i {
+          display: block;
+          width: 28px;
           height: 1px;
-          background: var(--gold);
+          background: var(--uv-gold);
           flex-shrink: 0;
         }
-
-        .eyebrow.light {
-          color: #f4dfbc;
-        }
-
-        .editorial-heading {
-          margin: 25px 0;
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(45px, 5.5vw, 78px);
-          font-weight: 400;
-          line-height: 1.07;
-          letter-spacing: -3px;
-        }
-
-        .editorial-heading em {
-          color: var(--burgundy);
-          font-weight: 400;
-        }
-
-        .light-heading {
-          color: white;
-        }
-
-        .light-heading em {
-          color: #d7b27b;
-        }
-
-        .about-reveal {
-          opacity: 0;
-          transform: translateY(45px);
-          transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
-        }
-
-        .about-reveal.is-visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        /* HERO */
-
-        .about-hero {
-          height: min(850px, 92vh);
-          min-height: 650px;
+        
+        .uv-hero {
+          max-width: 1500px;
+          margin: 0 auto;
+          min-height: 700px;
+          padding: 115px 6.5% 78px;
+          display: grid;
+          grid-template-columns: .88fr 1.12fr;
+          gap: 6%;
+          align-items: center;
           position: relative;
-          display: flex;
-          align-items: center;
-          color: white;
-          background: var(--burgundy-dark);
-          isolation: isolate;
         }
-
-        .hero-background,
-        .hero-overlay {
-          position: absolute;
-          inset: 0;
-          z-index: -1;
+        
+        .uv-hero-copy {
+          position: relative;
+          z-index: 2;
         }
-
-        .hero-background {
-          background-size: cover;
-          background-position: center 48%;
-          transform: scale(1.02);
-          animation: heroZoom 15s ease-out forwards;
+        
+        .uv-hero h1,
+        .uv-story h2,
+        .uv-image-story h2,
+        .uv-project h2,
+        .uv-facilities h2,
+        .uv-connect h2,
+        .uv-nearby h2,
+        .uv-cta h2 {
+          font-size: clamp(42px, 5.2vw, 72px);
+          font-weight: 450;
+          line-height: 1.01;
+          letter-spacing: -.06em;
+          margin: 22px 0;
+          color: #40382e;
         }
-
-        .hero-overlay {
-          background: linear-gradient(
-            90deg,
-            rgba(28, 16, 22, .76) 0%,
-            rgba(28, 16, 22, .48) 45%,
-            rgba(28, 16, 22, .12) 100%
-          );
-        }
-
-        .hero-content {
-          padding-top: 50px;
-        }
-
-        .hero-content h1 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(55px, 7.2vw, 100px);
-          line-height: .99;
+        
+        .uv-about-page em {
+          font-family: Georgia, 'Times New Roman', serif;
+          color: #a7814d;
           font-weight: 400;
-          letter-spacing: -4px;
-          max-width: 900px;
-          margin: 30px 0;
         }
-
-        .hero-content h1 em {
-          color: #dfbd8b;
+        
+        .uv-lead {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #51483e;
+          max-width: 500px;
         }
-
-        .hero-content > p {
-          max-width: 490px;
-          color: rgba(255,255,255,.83);
+        
+        .uv-support {
+          font-size: 12px;
           line-height: 1.9;
-          font-size: 15px;
+          color: var(--uv-muted);
+          max-width: 460px;
         }
-
-        .hero-actions,
-        .cta-actions {
+        
+        .uv-button,
+        .uv-outline-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 26px;
+          min-height: 48px;
+          margin-top: 22px;
+          padding: 7px 8px 7px 20px;
+          border-radius: 99px;
+          text-decoration: none !important;
+          font-size: 11px;
+          font-weight: 700;
+        }
+        
+        .uv-button {
+          color: #3d3021 !important;
+          background: linear-gradient(135deg, #e3cea8, #bd965f);
+          border: 1px solid rgba(255, 255, 255, .9);
+          box-shadow: 0 12px 28px rgba(130, 99, 55, .13);
+        }
+        
+        .uv-button span,
+        .uv-outline-button span {
+          display: grid;
+          place-items: center;
+          width: 31px;
+          height: 31px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, .62);
+          font-size: 16px;
+        }
+        
+        .uv-hero-foot {
           display: flex;
           align-items: center;
-          gap: 30px;
-          margin-top: 38px;
+          gap: 10px;
+          margin-top: 42px;
+          color: #987b56;
+          font-size: 8px;
+          font-weight: 750;
+          letter-spacing: .12em;
           flex-wrap: wrap;
         }
-
-        .primary-btn {
-          min-height: 56px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 35px;
-          padding: 8px 10px 8px 22px;
-          background: #fff;
-          color: #321d26 !important;
-          font-size: 12px;
-          font-weight: 700;
-          transition: .35s;
-        }
-
-        .primary-btn span {
-          display: grid;
-          place-items: center;
-          width: 38px;
-          height: 38px;
-          background: var(--ivory);
-          font-size: 20px;
-          transition: .35s;
-        }
-
-        .primary-btn:hover {
-          background: var(--gold);
-        }
-
-        .primary-btn:hover span {
-          transform: rotate(45deg);
-        }
-
-        .text-link {
-          display: inline-flex;
-          gap: 15px;
-          align-items: center;
-          font-size: 12px;
-          font-weight: 600;
-        }
-
-        .light-link {
-          color: white;
-        }
-
-        .light-link span {
-          font-size: 20px;
-          color: var(--gold);
-        }
-
-        .hero-bottom {
-          position: absolute;
-          bottom: 35px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: min(1320px, calc(100% - 100px));
-          display: flex;
-          justify-content: space-between;
-          font-size: 9px;
-          letter-spacing: 2px;
-          font-weight: 700;
-          color: rgba(255,255,255,.8);
-        }
-
-        .hero-scroll {
-          position: absolute;
-          right: 5%;
-          bottom: 110px;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          writing-mode: vertical-rl;
-          font-size: 9px;
-          letter-spacing: 2px;
-        }
-
-        .hero-scroll i {
-          height: 65px;
-          width: 1px;
-          background: var(--gold);
-        }
-
-        /* INTRO */
-
-        .about-intro {
-          background:
-            radial-gradient(circle at 90% 10%, rgba(205,166,107,.11), transparent 28%),
-            var(--ivory);
-        }
-
-        .intro-grid {
-          display: grid;
-          grid-template-columns: 1fr .85fr;
-          gap: 12%;
-          align-items: center;
-        }
-
-        .intro-image {
-          margin-top: 45px;
-          height: 370px;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .intro-image img {
-          transform: translateY(var(--parallax-y, 0));
-          height: 115%;
-          transition: transform .2s linear;
-        }
-
-        .image-caption {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          padding: 20px;
-          display: flex;
-          justify-content: space-between;
-          color: white;
-          background: linear-gradient(transparent, rgba(0,0,0,.65));
-          font-size: 9px;
-          letter-spacing: 1.5px;
-        }
-
-        .side-index {
-          font-size: 9px;
-          letter-spacing: 2px;
-          color: #aa8b6d;
-        }
-
-        .intro-right h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 37px;
-          line-height: 1.25;
-          font-weight: 400;
-          margin: 35px 0 25px;
-        }
-
-        .intro-right h3 em {
-          color: var(--burgundy);
-        }
-
-        .intro-right > p,
-        .section-description {
-          color: var(--muted);
-          font-size: 14px;
-          line-height: 2;
-          margin-bottom: 18px;
-        }
-
-        .underlined-link {
-          display: inline-flex;
-          gap: 35px;
-          align-items: center;
-          padding-bottom: 12px;
-          margin-top: 15px;
-          color: var(--burgundy);
-          border-bottom: 1px solid #c9b6a9;
-          font-size: 12px;
-          font-weight: 700;
-        }
-
-        .underlined-link span {
-          font-size: 19px;
-        }
-
-        .intro-stats {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          border-top: 1px solid #dfd0c5;
-          margin-top: 55px;
-          padding-top: 28px;
-          gap: 15px;
-        }
-
-        .intro-stats > div {
-          display: flex;
-          flex-direction: column;
-          gap: 7px;
-        }
-
-        .intro-stats strong {
-          font-family: 'Playfair Display', serif;
-          font-size: 38px;
-          color: var(--burgundy);
-          font-weight: 400;
-        }
-
-        .intro-stats strong span {
-          color: var(--gold);
-        }
-
-        .intro-stats small {
-          font-size: 10px;
-          color: var(--muted);
-        }
-
-        /* PHILOSOPHY */
-
-        .philosophy-section {
-          min-height: 560px;
-          display: flex;
-          align-items: center;
-          position: relative;
-          background: var(--burgundy-dark);
-          color: white;
-          overflow: hidden;
-        }
-
-        .philosophy-bg {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(90deg, rgba(42,13,25,.92), rgba(42,13,25,.67)),
-            url('/images/about/philosophy.jpg') center/cover;
-          opacity: .9;
-        }
-
-        .philosophy-content {
-          position: relative;
-          z-index: 1;
-          padding-top: 90px;
-          padding-bottom: 90px;
-        }
-
-        .philosophy-content h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(50px, 7vw, 90px);
-          font-weight: 400;
-          line-height: 1.1;
-          letter-spacing: -3px;
-          margin: 30px 0;
-        }
-
-        .philosophy-content h2 em {
-          color: #d6b27e;
-        }
-
-        .philosophy-content > p {
-          max-width: 530px;
-          font-size: 14px;
-          line-height: 2;
-          color: rgba(255,255,255,.7);
-        }
-
-        .philosophy-line {
-          display: flex;
-          gap: 22px;
-          align-items: center;
-          margin-top: 65px;
-          font-size: 9px;
-          letter-spacing: 2px;
-          color: #d6b27e;
-        }
-
-        .philosophy-line i {
+        
+        .uv-hero-foot b {
           height: 1px;
-          width: 50px;
-          background: rgba(255,255,255,.3);
+          width: 24px;
+          background: var(--uv-gold);
         }
-
-        /* PROJECT OVERVIEW */
-
-        .project-overview {
-          background: #f1e9df;
-        }
-
-        .section-heading {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          gap: 50px;
-          margin-bottom: 55px;
-        }
-
-        .section-heading > p {
-          max-width: 370px;
-          font-size: 14px;
-          color: var(--muted);
-          line-height: 2;
-        }
-
-        .project-visual {
-          height: 600px;
+        
+        .uv-hero-visual {
+          height: 510px;
           position: relative;
+          border: 7px solid rgba(255, 255, 255, .8);
+          border-radius: 4px 65px 4px 4px;
           overflow: hidden;
-          background: #c4b6a9;
+          box-shadow: 0 25px 70px rgba(75, 59, 38, .14);
+          background: #e7ddce;
         }
-
-        .project-visual > img {
-          transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
-        }
-
-        .project-visual:hover > img {
-          transform: scale(1.045);
-        }
-
-        .project-glass {
+        
+        .uv-hero-visual:after {
+          content: "";
           position: absolute;
-          bottom: 45px;
-          left: 45px;
-          width: 320px;
-          padding: 35px;
-          background: rgba(255,250,244,.78);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(255,255,255,.7);
-          box-shadow: 0 20px 60px rgba(0,0,0,.12);
+          inset: 35% 0 0;
+          background: linear-gradient(transparent, rgba(30, 26, 21, .36));
         }
-
-        .project-glass > span,
-        .commercial-glass > span {
-          font-size: 9px;
-          letter-spacing: 2px;
-          color: #9c795f;
-          font-weight: 700;
-        }
-
-        .project-glass h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 39px;
-          font-weight: 400;
-          line-height: 1.1;
-          color: var(--burgundy);
-          margin: 28px 0 15px;
-        }
-
-        .project-glass p {
-          color: var(--muted);
-          font-size: 12px;
-        }
-
-        .round-link {
+        
+        .uv-visual-glass {
           position: absolute;
-          right: 25px;
-          top: 25px;
-          width: 38px;
-          height: 38px;
-          border: 1px solid #c6b4a8;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          color: var(--burgundy);
-        }
-
-        .project-location-label {
-          position: absolute;
-          bottom: 40px;
-          right: 45px;
+          z-index: 2;
+          bottom: 22px;
+          left: 22px;
+          right: 22px;
           display: flex;
           flex-direction: column;
-          gap: 7px;
+          gap: 6px;
+          padding: 18px 20px;
+          border: 1px solid rgba(255, 255, 255, .6);
+          border-radius: 15px;
+          background: rgba(255, 250, 241, .77);
+          backdrop-filter: blur(5px);
+        }
+        
+        .uv-visual-glass small {
+          font-size: 8px;
+          letter-spacing: .17em;
+          color: #987345;
+          font-weight: 750;
+        }
+        
+        .uv-visual-glass strong {
+          font: 28px Georgia, serif;
+        }
+        
+        .uv-visual-glass span {
+          font-size: 10px;
+          color: #74685a;
+        }
+        
+        .uv-vertical-label {
+          position: absolute;
+          z-index: 2;
+          top: 22px;
+          right: 17px;
+          writing-mode: vertical-rl;
           color: white;
-          text-align: right;
-          text-shadow: 0 2px 10px rgba(0,0,0,.4);
+          font-size: 8px;
+          letter-spacing: .2em;
+          text-shadow: 0 1px 8px #51483e;
         }
-
-        .project-location-label span {
-          font-size: 9px;
-          letter-spacing: 2px;
-        }
-
-        .project-location-label strong {
-          font-size: 15px;
-        }
-
-        .project-facts {
+        
+        .uv-facts {
+          max-width: 1250px;
+          margin: -20px auto 0;
+          position: relative;
+          z-index: 3;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          margin-top: 60px;
-          border-top: 1px solid #d6c8bb;
-          border-bottom: 1px solid #d6c8bb;
+          border: 1px solid rgba(255, 255, 255, .9);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, .72);
+          backdrop-filter: blur(20px);
+          box-shadow: 0 18px 50px rgba(80, 62, 38, .07);
+          padding: 23px 28px;
         }
-
-        .fact {
-          padding: 35px 25px;
-          border-right: 1px solid #d6c8bb;
+        
+        .uv-fact {
+          padding: 0 24px;
+          border-right: 1px solid var(--uv-line);
         }
-
-        .fact:first-child {
-          padding-left: 0;
-        }
-
-        .fact:last-child {
-          border: none;
-        }
-
-        .fact > span {
-          display: block;
-          font-size: 8px;
-          letter-spacing: 1.3px;
-          color: #9c887b;
-          font-weight: 700;
-        }
-
-        .fact strong {
-          display: block;
-          font-family: 'Playfair Display', serif;
-          font-size: 55px;
-          font-weight: 400;
-          color: var(--burgundy);
-          margin: 15px 0 5px;
-        }
-
-        .fact strong small {
-          font-size: 15px;
-        }
-
-        .fact p {
-          color: var(--muted);
-          font-size: 11px;
-          line-height: 1.8;
-        }
-
-        .fact-note strong {
-          font-size: 27px;
-          margin-top: 25px;
-        }
-
-        /* LOCATION */
-
-        .location-section {
-          background: var(--ivory);
-        }
-
-        .location-grid {
-          display: grid;
-          grid-template-columns: .9fr 1fr;
-          gap: 10%;
-          align-items: start;
-        }
-
-        .location-image {
-          height: 740px;
-          position: relative;
-          overflow: hidden;
-          background: #c6b7a7;
-        }
-
-        .location-image img {
-          transition: transform 1.2s ease;
-        }
-
-        .location-image:hover img {
-          transform: scale(1.04);
-        }
-
-        .location-image-caption {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          display: flex;
-          justify-content: space-between;
-          padding: 22px;
-          color: white;
-          background: linear-gradient(transparent, rgba(0,0,0,.7));
-          font-size: 9px;
-          letter-spacing: 1px;
-        }
-
-        .location-content .editorial-heading {
-          font-size: clamp(50px, 5vw, 70px);
-        }
-
-        .advantage-list {
-          margin-top: 35px;
-          border-top: 1px solid #ded0c4;
-        }
-
-        .advantage-item {
-          display: grid;
-          grid-template-columns: 38px 1fr 25px;
-          gap: 14px;
-          align-items: start;
-          padding: 21px 0;
-          border-bottom: 1px solid #ded0c4;
-          transition: padding .3s;
-        }
-
-        .advantage-item:hover {
+        
+        .uv-fact:first-child {
           padding-left: 8px;
         }
-
-        .advantage-number {
+        
+        .uv-fact:last-child {
+          border: 0;
+        }
+        
+        .uv-fact strong {
+          display: block;
+          font: 35px Georgia, serif;
+          color: #a7814d;
+        }
+        
+        .uv-fact strong em {
+          font: 12px Arial, sans-serif;
+          color: #8b7962;
+          letter-spacing: 0;
+        }
+        
+        .uv-fact span {
+          display: block;
+          margin-top: 5px;
+          color: var(--uv-muted);
           font-size: 10px;
-          color: #b48b58;
-          padding-top: 4px;
+          line-height: 1.5;
         }
-
-        .advantage-item h4 {
-          font-family: 'Playfair Display', serif;
-          font-size: 19px;
-          font-weight: 500;
-          margin: 0 0 7px;
-          color: var(--burgundy);
+        
+        .uv-section-tag {
+          padding-bottom: 17px;
+          border-bottom: 1px solid var(--uv-line);
+          font-size: 9px;
+          font-weight: 750;
+          letter-spacing: .17em;
+          color: #987345;
         }
-
-        .advantage-item p {
-          font-size: 11px;
-          line-height: 1.8;
-          color: var(--muted);
+        
+        .uv-story-grid {
+          display: grid;
+          grid-template-columns: 1.05fr .95fr;
+          gap: 9%;
+          padding: 30px;
+          border: 1px solid rgba(255, 255, 255, .9);
+          border-radius: 22px;
+          background: rgba(255, 255, 255, .48);
+          backdrop-filter: blur(18px);
+          box-shadow: 0 18px 45px rgba(91, 70, 43, .05);
+          margin-top: 24px;
+        }
+        
+        .uv-story h2 {
           margin: 0;
         }
-
-        .advantage-arrow {
-          color: #b48b58;
+        
+        .uv-story-copy p {
+          font-size: 13px;
+          line-height: 1.95;
+          color: var(--uv-muted);
+          margin: 0 0 14px;
         }
-
-        /* LIFESTYLE */
-
-        .lifestyle-section {
-          background: #351b27;
-          color: white;
-        }
-
-        .lifestyle-section .section-heading > p {
-          color: rgba(255,255,255,.6);
-        }
-
-        .lifestyle-layout {
+        
+        .uv-image-story {
           display: grid;
-          grid-template-columns: .85fr 1fr;
-          gap: 22px;
+          grid-template-columns: 1fr 1fr;
+          background: linear-gradient(135deg, rgba(245, 236, 222, .78), rgba(255, 255, 255, .52));
+          border-top: 1px solid rgba(255, 255, 255, .9);
+          border-bottom: 1px solid rgba(255, 255, 255, .9);
         }
-
-        .lifestyle-main-image {
-          height: 620px;
+        
+        .uv-image-story-photo {
           position: relative;
-          overflow: hidden;
+          min-height: 520px;
         }
-
-        .lifestyle-main-image img {
-          transition: transform 1s ease;
+        
+        .uv-image-story-copy {
+          align-self: center;
+          padding: 70px clamp(35px, 7vw, 105px);
         }
-
-        .lifestyle-main-image:hover img {
-          transform: scale(1.04);
+        
+        .uv-image-story h2 {
+          font-size: clamp(38px, 4.3vw, 60px);
         }
-
-        .lifestyle-image-overlay {
-          position: absolute;
-          inset: 0;
+        
+        .uv-image-story-copy > p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 480px;
+        }
+        
+        .uv-mini-points {
           display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 40px;
-          background: linear-gradient(transparent, rgba(0,0,0,.7));
+          gap: 18px;
+          flex-wrap: wrap;
+          margin-top: 30px;
+          padding-top: 17px;
+          border-top: 1px solid var(--uv-line);
         }
-
-        .lifestyle-image-overlay span {
+        
+        .uv-mini-points span {
           font-size: 9px;
-          letter-spacing: 2px;
-          color: #e2c08e;
+          color: #a7814d;
+        }
+        
+        .uv-mini-points b {
+          display: block;
+          color: #5d5143;
+          margin-top: 5px;
+          font-size: 10px;
         }
 
-        .lifestyle-image-overlay h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 48px;
-          font-weight: 400;
-          line-height: 1.1;
-          margin: 20px 0 0;
-        }
-
-        .facility-grid {
+        .uv-project-highlights {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 16px;
+          margin-top: 32px;
         }
-
-        .facility-card {
-          padding: 24px;
-          min-height: 145px;
-          border: 1px solid rgba(255,255,255,.13);
-          background: rgba(255,255,255,.045);
-          transition: .4s;
+        
+        .uv-project-highlights article {
+          padding: 25px 24px;
+          border: 1px solid rgba(255, 255, 255, .9);
+          border-radius: 17px;
+          background: rgba(255, 255, 255, .56);
+          box-shadow: 0 12px 32px rgba(91, 70, 43, .045);
         }
-
-        .facility-card:hover {
-          background: rgba(255,255,255,.12);
-          border-color: rgba(205,166,107,.6);
-          transform: translateY(-4px);
+        
+        .uv-project-highlights small {
+          display: block;
+          font-size: 8px;
+          letter-spacing: .16em;
+          font-weight: 750;
+          color: #987345;
         }
-
-        .facility-top {
+        
+        .uv-project-highlights strong {
+          display: block;
+          margin: 12px 0 9px;
+          font: 22px Georgia, serif;
+          color: #473d31;
+        }
+        
+        .uv-project-highlights p {
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 10px;
+          line-height: 1.8;
+        }
+        
+        .uv-project-head {
           display: flex;
           justify-content: space-between;
-          color: #c9a779;
-          font-size: 10px;
+          align-items: end;
+          gap: 35px;
+          margin-bottom: 32px;
         }
-
-        .facility-icon {
-          font-size: 23px;
+        
+        .uv-project-head h2 {
+          margin: 18px 0 8px;
         }
-
-        .facility-card h4 {
-          font-family: 'Playfair Display', serif;
-          font-weight: 400;
-          font-size: 22px;
-          margin: 20px 0 7px;
-        }
-
-        .facility-card p {
-          font-size: 10px;
-          line-height: 1.7;
-          color: rgba(255,255,255,.55);
-        }
-
-        /* COMMERCIAL */
-
-        .commercial-section {
-          background: #f1e9df;
-        }
-
-        .commercial-heading {
-          max-width: 780px;
-          margin-bottom: 55px;
-        }
-
-        .commercial-heading > p {
-          max-width: 450px;
-          font-size: 14px;
-          line-height: 2;
-          color: var(--muted);
-        }
-
-        .commercial-visual {
-          height: 480px;
-          position: relative;
-          overflow: hidden;
-          background: #b5a79b;
-        }
-
-        .commercial-visual img {
-          transition: transform 1s ease;
-        }
-
-        .commercial-visual:hover img {
-          transform: scale(1.04);
-        }
-
-        .commercial-glass {
-          position: absolute;
-          right: 40px;
-          bottom: 40px;
-          width: min(420px, calc(100% - 40px));
-          padding: 35px;
-          background: rgba(250,246,240,.83);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
-          border: 1px solid rgba(255,255,255,.8);
-        }
-
-        .commercial-glass h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 40px;
-          line-height: 1.12;
-          font-weight: 400;
-          color: var(--burgundy);
-          margin: 24px 0;
-        }
-
-        .commercial-glass p {
-          font-size: 11px;
-          color: var(--muted);
-        }
-
-        .commercial-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: #d9cabe;
-          border: 1px solid #d9cabe;
-          margin-top: 55px;
-        }
-
-        .commercial-card {
-          position: relative;
-          background: #f1e9df;
-          min-height: 210px;
-          padding: 30px;
-          transition: .35s;
-        }
-
-        .commercial-card:hover {
-          background: #fffaf4;
-        }
-
-        .commercial-card > span:first-child {
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          color: #b08b61;
-        }
-
-        .commercial-card h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 25px;
-          font-weight: 400;
-          color: var(--burgundy);
-          margin: 30px 0 12px;
-        }
-
-        .commercial-card p {
-          max-width: 290px;
-          font-size: 11px;
-          line-height: 1.8;
-          color: var(--muted);
-        }
-
-        .commercial-arrow {
-          position: absolute;
-          right: 25px;
-          bottom: 25px;
-          color: var(--gold);
-          font-size: 20px;
-        }
-
-        /* INVESTMENT */
-
-        .investment-section {
-          background:
-            radial-gradient(circle at 85% 10%, rgba(205,166,107,.13), transparent 30%),
-            #351b27;
-          color: white;
-        }
-
-        .investment-heading {
-          max-width: 800px;
-          margin-bottom: 65px;
-        }
-
-        .investment-heading > p {
-          max-width: 570px;
-          font-size: 14px;
-          line-height: 2;
-          color: rgba(255,255,255,.6);
-        }
-
-        .investment-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-        }
-
-        .investment-card {
-          min-height: 360px;
-          padding: 35px;
-          position: relative;
-          border: 1px solid rgba(255,255,255,.15);
-          background: rgba(255,255,255,.045);
-          backdrop-filter: blur(15px);
-          transition: .4s;
-        }
-
-        .investment-card:hover {
-          transform: translateY(-8px);
-          background: rgba(255,255,255,.1);
-        }
-
-        .investment-card.featured {
-          border-color: rgba(205,166,107,.65);
-          background: rgba(205,166,107,.09);
-        }
-
-        .investment-number {
-          font-size: 10px;
-          color: #d2ae78;
-          letter-spacing: 2px;
-        }
-
-        .investment-icon {
-          margin: 40px 0 25px;
-          color: #d2ae78;
-          font-size: 35px;
-        }
-
-        .investment-card h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 28px;
-          font-weight: 400;
-        }
-
-        .investment-card p {
+        
+        .uv-project-head p {
           font-size: 12px;
-          line-height: 1.9;
-          color: rgba(255,255,255,.6);
+          line-height: 1.8;
+          color: var(--uv-muted);
+          max-width: 460px;
         }
-
-        .investment-label {
+        
+        .uv-land-card {
+          min-width: 225px;
+          padding: 20px 23px;
+          border: 1px solid white;
+          border-radius: 17px;
+          background: rgba(255, 255, 255, .64);
+          box-shadow: 0 12px 35px rgba(91, 70, 43, .06);
+        }
+        
+        .uv-land-card small {
+          font-size: 8px;
+          letter-spacing: .17em;
+          color: #987345;
+          font-weight: 750;
+        }
+        
+        .uv-land-card strong {
           display: block;
-          margin-top: 35px;
-          font-size: 9px;
-          letter-spacing: 1.5px;
-          color: #d2ae78;
+          font: 43px Georgia, serif;
+          color: #a7814d;
+          margin: 7px 0;
         }
-
-        .investment-disclaimer {
+        
+        .uv-land-card strong em {
+          font: 14px Arial, sans-serif;
+        }
+        
+        .uv-land-card span,
+        .uv-land-card i {
+          display: block;
           font-size: 10px;
-          line-height: 1.8;
-          color: rgba(255,255,255,.45);
-          margin-top: 35px;
+          color: var(--uv-muted);
+          font-style: normal;
+          line-height: 1.7;
         }
-
-        /* NEARBY */
-
-        .nearby-section {
-          background: var(--ivory);
-        }
-
-        .nearby-heading {
-          max-width: 750px;
-          margin-bottom: 55px;
-        }
-
-        .nearby-heading > p {
-          color: var(--muted);
-          font-size: 13px;
-          line-height: 2;
-          max-width: 450px;
-        }
-
-        .nearby-layout {
-          display: grid;
-          grid-template-columns: .7fr 1fr;
-          gap: 55px;
-        }
-
-        .nearby-feature {
-          min-height: 480px;
-          padding: 45px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          color: white;
-          background:
-            linear-gradient(0deg, rgba(40,16,25,.9), rgba(40,16,25,.05)),
-            url('/images/about/neighborhood.jpg') center/cover;
-        }
-
-        .nearby-feature > span {
+        
+        .uv-land-card i {
+          margin-top: 8px;
           font-size: 9px;
-          letter-spacing: 2px;
-          color: #e4c18e;
         }
-
-        .nearby-feature h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 52px;
-          font-weight: 400;
-          line-height: 1.1;
-          margin: 20px 0;
-        }
-
-        .nearby-feature p {
-          font-size: 12px;
-          color: rgba(255,255,255,.7);
-        }
-
-        .nearby-list {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          align-content: start;
-          column-gap: 25px;
-        }
-
-        .nearby-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          min-height: 65px;
-          border-bottom: 1px solid #dfd1c6;
-        }
-
-        .nearby-item > span:first-child {
-          font-size: 9px;
-          color: #b38e5f;
-        }
-
-        .nearby-item strong {
-          font-size: 11px;
-          font-weight: 600;
-          flex: 1;
-        }
-
-        .nearby-item > span:last-child {
-          color: #b38e5f;
-        }
-
-        /* LEADERSHIP */
-
-        .leadership-section {
-          background: #eee4d9;
-        }
-
-        .leadership-content {
-          max-width: 850px;
-          margin: auto;
-          text-align: center;
-        }
-
-        .leadership-content .eyebrow {
-          justify-content: center;
-        }
-
-        .leadership-content > p {
-          max-width: 580px;
-          margin: 25px auto;
-          color: var(--muted);
-          font-size: 14px;
-          line-height: 2;
-        }
-
-        /* CTA */
-
-        .about-cta {
-          min-height: 570px;
-          display: flex;
-          align-items: center;
+        
+        .uv-masterplan {
+          height: 470px;
           position: relative;
           overflow: hidden;
-          color: white;
-          background: var(--burgundy-dark);
+          border-radius: 20px;
+          border: 7px solid rgba(255, 255, 255, .8);
+          box-shadow: 0 20px 55px rgba(80, 62, 38, .09);
         }
-
-        .cta-background {
+        
+        .uv-masterplan span {
           position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(90deg, rgba(37,12,23,.94), rgba(37,12,23,.68)),
-            url('/images/about/about-cta.jpg') center/cover;
+          bottom: 18px;
+          left: 18px;
+          padding: 10px 14px;
+          border: 1px solid rgba(255, 255, 255, .7);
+          border-radius: 50px;
+          background: rgba(255, 250, 241, .82);
+          backdrop-filter: blur(12px);
+          font-size: 8px;
+          letter-spacing: .15em;
+          color: #705633;
         }
-
-        .cta-content {
-          position: relative;
-          padding-top: 100px;
-          padding-bottom: 120px;
+        
+        .uv-project-note {
+          margin-top: 12px;
+          color: #958777;
+          font-size: 9px;
         }
-
-        .cta-content h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(55px, 7vw, 90px);
-          line-height: 1.05;
-          font-weight: 400;
-          letter-spacing: -3px;
+        
+        .uv-facilities {
+          padding-top: 70px;
+          padding-bottom: 100px;
+          background: linear-gradient(135deg, #f7f0e5, #fcfaf6);
+        }
+        
+        .uv-facilities-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          gap: 35px;
           margin: 30px 0;
         }
-
-        .cta-content h2 em {
-          color: #d7b27e;
+        
+        .uv-facilities h2 {
+          margin: 0;
         }
-
-        .cta-content > p {
+        
+        .uv-facilities-head p {
+          max-width: 410px;
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 11px;
+          line-height: 1.9;
+        }
+        
+        .uv-facility-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+        
+        .uv-facility-card {
+          position: relative;
+          min-height: 215px;
+          padding: 28px;
+          border: 1px solid rgba(255, 255, 255, .95);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, .58);
+          backdrop-filter: blur(18px);
+          box-shadow: 0 15px 38px rgba(91, 70, 43, .045);
+        }
+        
+        .uv-facility-number {
+          position: absolute;
+          right: 25px;
+          top: 24px;
+          color: #b49a75;
+          font-size: 10px;
+        }
+        
+        .uv-facility-card small {
+          font-size: 8px;
+          font-weight: 750;
+          letter-spacing: .16em;
+          color: #987345;
+        }
+        
+        .uv-facility-card h3 {
+          font: 26px Georgia, serif;
+          color: #473d31;
+          margin: 13px 0;
+        }
+        
+        .uv-facility-card p {
+          font-size: 11px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 440px;
+          margin: 0;
+        }
+        
+        .uv-card-rule {
+          height: 1px;
+          width: 45px;
+          background: var(--uv-gold);
+          margin-top: 22px;
+        }
+        
+        .uv-connect {
+          display: grid;
+          grid-template-columns: .85fr 1.15fr;
+          gap: 6%;
+          align-items: center;
+          padding: 85px 7%;
+          background: #f0e8dc;
+        }
+        
+        .uv-connect h2 {
+          font-size: clamp(38px, 4.5vw, 60px);
+        }
+        
+        .uv-connect-copy > p {
+          font-size: 12px;
+          line-height: 1.9;
+          color: var(--uv-muted);
           max-width: 450px;
-          color: rgba(255,255,255,.65);
+        }
+        
+        .uv-outline-button {
+          border: 1px solid rgba(157, 119, 68, .42);
+          color: #705633 !important;
+        }
+        
+        .uv-map {
+          position: relative;
+          height: 390px;
+          overflow: hidden;
+          border: 7px solid rgba(255, 255, 255, .82);
+          border-radius: 18px;
+          background: #fff;
+          box-shadow: 0 18px 45px rgba(91, 70, 43, .09);
+        }
+        
+        .uv-map :global(img) {
+          object-fit: contain;
+        }
+        
+        .uv-nearby {
+          display: grid;
+          grid-template-columns: .8fr 1.2fr;
+          gap: 8%;
+          align-items: start;
+        }
+        
+        .uv-nearby h2 {
+          font-size: clamp(36px, 4.4vw, 58px);
+        }
+        
+        .uv-nearby > div:first-child > p {
+          font-size: 12px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 370px;
+        }
+        
+        .uv-nearby-list {
+          border-top: 1px solid var(--uv-line);
+        }
+        
+        .uv-nearby-list > div {
+          display: grid;
+          grid-template-columns: 35px 1fr 20px;
+          gap: 12px;
+          align-items: center;
+          padding: 14px 0;
+          border-bottom: 1px solid var(--uv-line);
+        }
+        
+        .uv-nearby-list span {
+          font-size: 9px;
+          color: #ae8958;
+        }
+        
+        .uv-nearby-list strong {
+          font-size: 11px;
+          font-weight: 550;
+          color: #54483b;
+        }
+        
+        .uv-nearby-list i {
+          font-style: normal;
+          color: #ad8956;
           font-size: 13px;
-          line-height: 2;
         }
 
-        .cta-phone {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          color: white;
-          font-size: 16px;
+        .uv-investment {
+          background: linear-gradient(180deg, #faf7f1 0%, #f1e8da 100%);
+        }
+        
+        .uv-investment-head {
+          display: grid;
+          grid-template-columns: 1fr .8fr;
+          align-items: end;
+          gap: 8%;
+          margin-bottom: 34px;
+        }
+        
+        .uv-investment-head h2 {
+          font-size: clamp(38px, 4.5vw, 60px);
+          font-weight: 450;
+          line-height: 1.05;
+          letter-spacing: -.055em;
+          margin: 18px 0 0;
+          color: #423a31;
+        }
+        
+        .uv-investment-head > p {
+          max-width: 470px;
+          margin: 0 0 5px;
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+        }
+        
+        .uv-investment-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+        
+        .uv-investment-card {
+          position: relative;
+          overflow: hidden;
+          min-height: 290px;
+          padding: 25px 23px 22px;
+          border: 1px solid rgba(255, 255, 255, .92);
+          border-radius: 20px;
+          background: linear-gradient(145deg, rgba(255, 255, 255, .8), rgba(255, 250, 241, .5));
+          backdrop-filter: blur(18px);
+          box-shadow: 0 18px 45px rgba(91, 70, 43, .07);
+        }
+        
+        .uv-investment-card:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 23px;
+          right: 23px;
+          height: 2px;
+          background: linear-gradient(90deg, rgba(181, 139, 82, .8), transparent);
+        }
+        
+        .uv-investment-card-featured {
+          background: linear-gradient(145deg, rgba(255, 255, 255, .92), rgba(231, 215, 188, .5));
+          box-shadow: 0 22px 55px rgba(91, 70, 43, .11);
+        }
+        
+        .uv-investment-number {
+          position: absolute;
+          top: 20px;
+          right: 22px;
+          color: rgba(165, 129, 79, .6);
+          font: 20px Georgia, serif;
+        }
+        
+        .uv-investment-icon {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          margin-bottom: 22px;
+          border: 1px solid rgba(181, 139, 82, .3);
+          border-radius: 14px;
+          color: #a98555;
+          background: rgba(255, 255, 255, .62);
+          font-size: 23px;
+        }
+        
+        .uv-investment-card > small {
+          font-size: 8px;
+          letter-spacing: .14em;
+          color: #9b7545;
           font-weight: 700;
         }
-
-        .cta-phone span {
-          font-size: 8px;
-          letter-spacing: 1.5px;
-          color: #d7b27e;
+        
+        .uv-investment-card h3 {
+          margin: 12px 0 10px;
+          font: 23px/1.2 Georgia, serif;
+          color: #4a4034;
         }
-
-        .cta-footer {
-          position: absolute;
-          bottom: 28px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: min(1320px, calc(100% - 100px));
-          display: flex;
-          justify-content: space-between;
-          color: rgba(255,255,255,.6);
+        
+        .uv-investment-card p {
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 11px;
+          line-height: 1.8;
+        }
+        
+        .uv-investment-note {
+          display: block;
+          margin-top: 16px;
+          padding-top: 11px;
+          border-top: 1px solid var(--uv-line);
           font-size: 9px;
-          letter-spacing: 2px;
+          color: #8b765b;
+        }
+        
+        .uv-investment-disclaimer {
+          display: grid;
+          grid-template-columns: 150px 1fr auto;
+          align-items: center;
+          gap: 18px;
+          margin-top: 22px;
+          padding: 20px 22px;
+          border: 1px solid rgba(181, 139, 82, .19);
+          border-radius: 16px;
+          background: rgba(255, 255, 255, .46);
+        }
+        
+        .uv-investment-disclaimer > span {
+          font-size: 8px;
+          font-weight: 700;
+          letter-spacing: .13em;
+          color: #9b7545;
+        }
+        
+        .uv-investment-disclaimer p {
+          margin: 0;
+          font-size: 10px;
+          line-height: 1.8;
+          color: #786d61;
+        }
+        
+        .uv-investment-disclaimer .uv-outline-button {
+          white-space: nowrap;
+          margin: 0;
+          padding: 7px 8px 7px 14px;
+          gap: 12px;
+          min-height: 40px;
         }
 
-        @keyframes heroZoom {
-          from { transform: scale(1.08); }
-          to { transform: scale(1); }
+        .uv-cta {
+          text-align: center;
+          padding: 85px 20px 100px;
+          background: radial-gradient(ellipse at 50% 0, rgba(201, 164, 106, .17), transparent 58%), #faf7f1;
+        }
+        
+        .uv-cta .uv-eyebrow {
+          justify-content: center;
+        }
+        
+        .uv-cta h2 {
+          font-size: clamp(38px, 4.5vw, 58px);
+        }
+        
+        .uv-cta p {
+          max-width: 460px;
+          margin: 0 auto;
+          color: var(--uv-muted);
+          font-size: 12px;
+          line-height: 1.9;
         }
 
-        /* RESPONSIVE */
-
-        @media (max-width: 991px) {
-          .muh-about .container {
-            width: calc(100% - 50px);
+        @media (max-width: 950px) {
+          .uv-investment-head {
+            grid-template-columns: 1fr;
+            gap: 14px;
           }
-
-          .section-space {
-            padding: 90px 0;
-          }
-
-          .intro-grid,
-          .location-grid {
+          .uv-investment-grid {
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
           }
-
-          .section-heading {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 5px;
+          .uv-investment-card:last-child {
+            grid-column: 1 / -1;
           }
-
-          .location-image {
-            height: 600px;
-          }
-
-          .project-facts {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .fact:nth-child(2) {
-            border-right: none;
-          }
-
-          .fact:nth-child(3),
-          .fact:nth-child(4) {
-            border-top: 1px solid #d6c8bb;
-          }
-
-          .lifestyle-layout {
+          .uv-investment-disclaimer {
             grid-template-columns: 1fr;
-          }
-
-          .lifestyle-main-image {
-            height: 450px;
-          }
-
-          .nearby-layout {
-            grid-template-columns: .8fr 1fr;
-            gap: 25px;
+            gap: 10px;
           }
         }
-
-        @media (max-width: 767px) {
-          .muh-about .container {
-            width: calc(100% - 36px);
-          }
-
-          .section-space {
-            padding: 75px 0;
-          }
-
-          .about-hero {
-            min-height: 680px;
-            height: 90svh;
-          }
-
-          .hero-content {
-            padding-top: 0;
-          }
-
-          .hero-content h1 {
-            font-size: clamp(49px, 12vw, 75px);
-            letter-spacing: -2px;
-          }
-
-          .hero-content > p {
-            font-size: 13px;
-          }
-
-          .hero-scroll {
-            display: none;
-          }
-
-          .hero-bottom,
-          .cta-footer {
-            width: calc(100% - 36px);
-            font-size: 7px;
-          }
-
-          .hero-bottom {
-            bottom: 20px;
-          }
-
-          .intro-grid,
-          .location-grid {
-            grid-template-columns: 1fr;
-            gap: 45px;
-          }
-
-          .editorial-heading {
-            font-size: clamp(43px, 11vw, 65px);
-            letter-spacing: -2px;
-          }
-
-          .intro-image {
-            height: 300px;
-          }
-
-          .intro-right h3 {
-            font-size: 30px;
-          }
-
-          .intro-stats {
-            gap: 8px;
-          }
-
-          .intro-stats strong {
-            font-size: 31px;
-          }
-
-          .intro-stats small {
-            font-size: 9px;
-          }
-
-          .philosophy-section {
-            min-height: 480px;
-          }
-
-          .philosophy-content h2 {
-            font-size: 49px;
-            letter-spacing: -2px;
-          }
-
-          .philosophy-line {
-            gap: 10px;
-            font-size: 7px;
-          }
-
-          .philosophy-line i {
-            width: 20px;
-          }
-
-          .project-visual {
-            height: 480px;
-          }
-
-          .project-glass {
-            left: 15px;
-            bottom: 15px;
-            width: min(280px, calc(100% - 30px));
-            padding: 25px;
-          }
-
-          .project-location-label {
-            top: 20px;
-            right: 15px;
-            bottom: auto;
-          }
-
-          .project-facts {
-            margin-top: 35px;
-          }
-
-          .fact {
-            padding: 23px 12px;
-          }
-
-          .fact:first-child {
-            padding-left: 0;
-          }
-
-          .fact strong {
-            font-size: 43px;
-          }
-
-          .fact-note strong {
-            font-size: 21px;
-          }
-
-          .location-image {
-            height: 420px;
-          }
-
-          .advantage-item {
-            grid-template-columns: 30px 1fr 20px;
-          }
-
-          .facility-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-          }
-
-          .facility-card {
-            min-height: 155px;
-            padding: 17px;
-          }
-
-          .facility-card h4 {
-            font-size: 19px;
-          }
-
-          .lifestyle-main-image {
-            height: 380px;
-          }
-
-          .lifestyle-image-overlay {
-            padding: 25px;
-          }
-
-          .lifestyle-image-overlay h3 {
+        
+        @media (max-width: 600px) {
+          .uv-investment-head h2 {
             font-size: 40px;
           }
-
-          .commercial-visual {
-            height: 420px;
+          .uv-investment-grid {
+            grid-template-columns: 1fr;
           }
-
-          .commercial-glass {
-            bottom: 15px;
-            right: 15px;
-            padding: 25px;
+          .uv-investment-card:last-child {
+            grid-column: auto;
           }
-
-          .commercial-glass h3 {
-            font-size: 32px;
+          .uv-investment-card {
+            min-height: 0;
+            padding: 23px 19px;
           }
+          .uv-investment-disclaimer {
+            padding: 17px;
+          }
+          .uv-investment-disclaimer .uv-outline-button {
+            justify-self: start;
+            white-space: normal;
+          }
+        }
 
-          .commercial-grid {
+        @media (max-width: 950px) {
+          .uv-hero {
+            grid-template-columns: 1fr;
+            padding-top: 100px;
+            gap: 35px;
+          }
+          .uv-hero-visual {
+            height: 440px;
+          }
+          .uv-facts {
+            margin: 0 24px;
             grid-template-columns: repeat(2, 1fr);
-            margin-top: 30px;
+            gap: 20px;
           }
-
-          .commercial-card {
-            min-height: 195px;
-            padding: 20px;
+          .uv-fact {
+            border-right: 0;
+            padding: 8px 12px !important;
           }
-
-          .commercial-card h3 {
-            font-size: 21px;
-            margin-top: 25px;
+          .uv-fact:nth-child(odd) {
+            border-right: 1px solid var(--uv-line);
           }
-
-          .investment-grid {
+          .uv-story-grid,
+          .uv-nearby {
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 25px;
           }
-
-          .investment-card {
-            min-height: 300px;
-          }
-
-          .nearby-layout {
+          .uv-image-story,
+          .uv-connect {
             grid-template-columns: 1fr;
           }
-
-          .nearby-feature {
-            min-height: 340px;
+          .uv-image-story-photo {
+            min-height: 360px;
           }
-
-          .nearby-list {
-            column-gap: 15px;
+          .uv-image-story-copy {
+            padding: 55px 7%;
           }
-
-          .nearby-item {
-            min-height: 60px;
-            gap: 7px;
+          .uv-connect {
+            padding: 65px 5%;
           }
-
-          .nearby-item strong {
+          .uv-map {
+            height: 340px;
+          }
+        }
+        
+        @media (max-width: 600px) {
+          .uv-section {
+            padding: 62px 20px;
+          }
+          .uv-hero {
+            padding: 90px 20px 48px;
+            min-height: 0;
+          }
+          .uv-hero h1 {
+            font-size: 46px;
+          }
+          .uv-lead {
+            font-size: 14px;
+          }
+          .uv-hero-visual {
+            height: 320px;
+            border-radius: 4px 38px 4px 4px;
+            border-width: 5px;
+          }
+          .uv-visual-glass {
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            padding: 13px 15px;
+          }
+          .uv-visual-glass strong {
+            font-size: 24px;
+          }
+          .uv-hero-foot {
+            margin-top: 26px;
+            font-size: 7px;
+          }
+          .uv-facts {
+            margin: 0 16px;
+            padding: 16px 12px;
+            gap: 10px;
+            border-radius: 14px;
+          }
+          .uv-fact strong {
+            font-size: 28px;
+          }
+          .uv-fact strong em {
             font-size: 10px;
           }
-
-          .cta-content h2 {
-            font-size: 54px;
-            letter-spacing: -2px;
+          .uv-fact span {
+            font-size: 9px;
           }
-
-          .cta-actions {
-            align-items: flex-start;
-            flex-direction: column;
+          .uv-story h2,
+          .uv-image-story h2,
+          .uv-project h2,
+          .uv-facilities h2,
+          .uv-connect h2,
+          .uv-nearby h2,
+          .uv-cta h2 {
+            font-size: 40px;
           }
-        }
-
-        @media (max-width: 380px) {
-          .nearby-list {
+          .uv-story-grid {
+            gap: 15px;
+          }
+          .uv-image-story-photo {
+            min-height: 270px;
+          }
+          .uv-image-story-copy {
+            padding: 45px 20px;
+          }
+          .uv-mini-points {
+            gap: 12px;
+          }
+          .uv-project-head,
+          .uv-facilities-head {
+            display: block;
+          }
+          .uv-project-highlights {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+          .uv-project-highlights article {
+            padding: 20px;
+          }
+          .uv-land-card {
+            margin-top: 20px;
+          }
+          .uv-masterplan {
+            height: 280px;
+            border-width: 4px;
+            border-radius: 14px;
+          }
+          .uv-facility-grid {
             grid-template-columns: 1fr;
           }
-
-          .intro-stats {
-            grid-template-columns: repeat(2, 1fr);
+          .uv-facility-card {
+            min-height: 185px;
+            padding: 23px;
           }
-
-          .commercial-grid {
-            grid-template-columns: 1fr;
+          .uv-facility-card h3 {
+            font-size: 24px;
           }
-
-          .hero-content h1 {
-            font-size: 47px;
+          .uv-map {
+            height: 270px;
+            border-width: 4px;
+          }
+          .uv-nearby-list > div {
+            grid-template-columns: 28px 1fr 15px;
+          }
+          .uv-nearby-list strong {
+            font-size: 10px;
+          }
+          .uv-cta {
+            padding: 65px 20px 75px;
           }
         }
-
+        
         @media (prefers-reduced-motion: reduce) {
-          .muh-about *,
-          .muh-about *::before,
-          .muh-about *::after {
-            animation-duration: .01ms !important;
-            transition-duration: .01ms !important;
-          }
-
-          .about-reveal {
-            opacity: 1;
-            transform: none;
+          .uv-about-page * {
+            scroll-behavior: auto !important;
+            transition: none !important;
           }
         }
-      `}</style>
-        </>
-    );
-};
 
-export default AboutPage;
+        .uv-purpose { padding-top: 35px; }
+        .uv-purpose-heading { max-width: 700px; margin-bottom: 42px; }
+        .uv-purpose-heading h2 { margin: 20px 0 14px; font-size: clamp(36px, 4.5vw, 62px); line-height: 1.08; letter-spacing: -.045em; font-weight: 500; }
+        .uv-purpose-heading h2 em, .uv-purpose-card h3 em, .uv-values-intro h3 em { color: var(--uv-gold); font-family: Georgia, serif; font-weight: 400; }
+        .uv-purpose-heading p { max-width: 560px; color: var(--uv-muted); line-height: 1.9; font-size: 14px; }
+        .uv-purpose-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .uv-purpose-card { min-height: 285px; padding: 32px; border: 1px solid var(--uv-line); border-radius: 20px; background: rgba(255,255,255,.62); box-shadow: 0 18px 50px rgba(90,66,35,.045); }
+        .uv-purpose-card-featured { background: linear-gradient(135deg, rgba(222,199,159,.28), rgba(255,255,255,.78)); }
+        .uv-purpose-number { display: block; color: var(--uv-gold); font-size: 12px; letter-spacing: .15em; margin-bottom: 28px; }
+        .uv-purpose-label { display: block; color: #987345; font-size: 9px; font-weight: 750; letter-spacing: .17em; }
+        .uv-purpose-card h3 { font-size: clamp(24px, 2.5vw, 34px); line-height: 1.2; font-weight: 500; margin: 12px 0; letter-spacing: -.025em; }
+        .uv-purpose-card p, .uv-values-grid p { color: var(--uv-muted); font-size: 13px; line-height: 1.85; }
+        .uv-values-block { margin-top: 85px; display: grid; grid-template-columns: .7fr 1.3fr; gap: 55px; }
+        .uv-values-intro h3 { margin: 18px 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.15; font-weight: 500; }
+        .uv-values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 30px; }
+        .uv-values-grid article { padding-top: 17px; border-top: 1px solid var(--uv-line); }
+        .uv-values-grid article > span { color: var(--uv-gold); font-size: 10px; letter-spacing: .12em; }
+        .uv-values-grid h4 { font-size: 16px; font-weight: 600; margin: 10px 0 5px; }
+        .uv-commitment { margin-top: 65px; padding: 30px 34px; border: 1px solid var(--uv-line); border-radius: 18px; background: rgba(255,255,255,.5); }
+        .uv-commitment p { max-width: 900px; margin: 14px 0 0; font-family: Georgia, serif; font-size: clamp(20px, 2.4vw, 29px); line-height: 1.55; color: var(--uv-ink); }
+        @media (max-width: 760px) {
+          .uv-purpose { padding-top: 10px; }
+          .uv-purpose-grid, .uv-values-block { grid-template-columns: 1fr; }
+          .uv-purpose-card { min-height: auto; padding: 26px; }
+          .uv-values-block { gap: 24px; margin-top: 55px; }
+          .uv-values-grid { gap: 22px 18px; }
+          .uv-commitment { margin-top: 45px; padding: 24px; }
+        }
+
+      `}</style>
+        </main>
+    );
+}

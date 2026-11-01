@@ -1,0 +1,1655 @@
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "../../components/Navbar/Navbar";
+import Logo from "../../public/images/logo.png";
+import Footer from "../../components/footer/Footer";
+import WAIcon from "../../components/WAIcon/WAIcon";
+
+const projectFacts = [
+  { value: "5", unit: "Acres", note: "Total project land" },
+  { value: "303", unit: "Kathas", note: "Equivalent land area" },
+  { value: "80 ft", unit: "Road", note: "Front-side road width" },
+];
+
+const facilities = [
+  {
+    number: "01",
+    label: "HEALTHCARE",
+    title: "Residential buildings",
+    items: "A planned medical education institution.",
+  },
+  {
+    number: "02",
+    label: "RETAIL & COMMERCE",
+    title: "Shopping Mall",
+    items: "A planned destination for shopping and services.",
+  },
+  {
+    number: "03",
+    label: "RETAIL & COMMERCE",
+    title: "Commercial Spaces",
+    items: "Shops, restaurants and everyday services.",
+  },
+  {
+    number: "04",
+    label: "HEALTHCARE",
+    title: "General Hospital",
+    items: "Healthcare facilities for the wider community.",
+  },
+  {
+    number: "05",
+    label: "HEALTHCARE",
+    title: "Dental Hospital",
+    items: "Dedicated dental care facilities.",
+  },
+  {
+    number: "06",
+    label: "EDUCATION",
+    title: "Nursing Institute",
+    items: "A planned institute for nursing education.",
+  },
+  {
+    number: "07",
+    label: "EDUCATION",
+    title: "International School",
+    items: "An education destination for families.",
+  },
+  {
+    number: "08",
+    label: "FAITH & COMMUNITY",
+    title: "Mosque & Madrasha",
+    items: "Spaces for worship and religious learning.",
+  },
+
+  {
+    number: "09",
+    label: "OPEN SPACE",
+    title: "Green Zone & Park",
+    items: "Landscaped green areas and outdoor space.",
+  },
+  {
+    number: "10",
+    label: "FITNESS",
+    title: "Male & Female Gyms",
+    items: "Fitness facilities for residents.",
+  },
+  {
+    number: "11",
+    label: "FAMILY & PLAY",
+    title: "Kids’ Play Zone",
+    items: "A dedicated play area for children.",
+  },
+  {
+    number: "12",
+    label: "RECREATION",
+    title: "Swimming Pools",
+    items: "Lifestyle and recreation amenities listed in the project profile.",
+  },
+  {
+    number: "13",
+    label: "WALKABILITY",
+    title: "Long Walkway",
+    items: "A planned pedestrian-friendly walking route.",
+  },
+  {
+    number: "14",
+    label: "MOBILITY",
+    title: "Bicycle Zone",
+    items: "A designated zone for cycling.",
+  },
+];
+
+const nearby = [
+  "Uttara (West) Police Station",
+  "Metro Rail",
+  "Airport",
+  "Birulia Bridge",
+  "Gabtoli Bus Stand",
+  "Daffodil University",
+  "City University",
+  "Eastern University",
+  "BRAC University",
+  "World University",
+  "Passport Office",
+  "Boat Club",
+];
+
+export default function ProjectOverviewPage() {
+  return (
+    <main className="uv-about-page">
+      <Navbar Logo={Logo} />
+      <section className="uv-hero uv-overview-hero">
+        <Image
+          className="uv-overview-hero-image"
+          src="/images/slider/hero-slide/img-1-.png"
+          alt="Aerial masterplan concept for the MUHAJIREEN project"
+          fill
+          priority
+          sizes="100vw"
+        />
+        <div className="uv-overview-hero-shade" />
+        <div className="uv-overview-hero-content">
+          <span className="uv-overview-kicker">
+            <i /> THE PROJECT, AT A GLANCE
+          </span>
+          <h1>
+            Room to grow.
+            <br />
+            <em>Space to belong.</em>
+          </h1>
+          <p>
+            Discover MUHAJIREEN — a planned residential and commercial
+            destination at Ashulia Model Town, beside Uttara Sector 16.
+          </p>
+          <div className="uv-overview-hero-actions">
+            <Link href="#project-details" className="uv-button">
+              Explore the project <span>↘</span>
+            </Link>
+            <span className="uv-overview-location">
+              ASHULIA MODEL TOWN <b /> DHAKA, BANGLADESH
+            </span>
+          </div>
+        </div>
+        <div className="uv-overview-hero-index">
+          <span>MUHAJIREEN</span>
+          <b>PROJECT OVERVIEW</b>
+        </div>
+      </section>
+
+      <section
+        className="uv-facts"
+        id="project-details"
+        aria-label="Project facts"
+      >
+        {projectFacts.map((fact) => (
+          <div className="uv-fact" key={fact.note}>
+            <strong>
+              {fact.value} <em>{fact.unit}</em>
+            </strong>
+            <span>{fact.note}</span>
+          </div>
+        ))}
+        <div className="uv-fact uv-fact-last">
+          <strong>30–50 ft</strong>
+          <span>Side and back road widths listed in the profile</span>
+        </div>
+      </section>
+
+      <section className="uv-image-story">
+        <div className="uv-image-story-photo">
+          <Image
+            src="/images/slider/hero-slide/img-9.1-main.png"
+            alt="Conceptual view of landscaped community living"
+            fill
+            sizes="(max-width: 800px) 100vw, 50vw"
+          />
+        </div>
+        <div className="uv-image-story-copy">
+          <span className="uv-eyebrow">
+            <i /> PLANNED AROUND DAILY LIFE
+          </span>
+          <h2>
+            Living, leisure
+            <br />
+            and <em>community.</em>
+          </h2>
+          <p>
+            The profile outlines lifestyle amenities, green spaces and community
+            destinations alongside residential living, with commercial and
+            institutional facilities forming part of the wider project plan.
+          </p>
+          <div className="uv-mini-points">
+            <span>
+              01 <b>Residential</b>
+            </span>
+            <span>
+              02 <b>Lifestyle</b>
+            </span>
+            <span>
+              03 <b>Community</b>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="uv-project uv-section">
+        <div className="uv-project-head">
+          <div>
+            <div className="uv-section-tag">02 / PROJECT DETAILS</div>
+            <h2>MUHAJIREEN</h2>
+            <p>
+              A residential and commercial destination at Ashulia Model Town,
+              beside Uttara Sector 16.
+            </p>
+          </div>
+          <div className="uv-land-card">
+            <small>TOTAL LAND</small>
+            <strong>
+              5 <em>Acres</em>
+            </strong>
+            <span>Equivalent to 303 Kathas</span>
+            <i>
+              Road access noted: 80 ft front · 50 ft right · 30 ft left and back
+            </i>
+          </div>
+        </div>
+        <div className="uv-project-highlights">
+          <article>
+            <small>PROJECT TYPE</small>
+            <strong>Residential & Commercial</strong>
+            <p>
+              A mixed-use destination planned around homes, community facilities
+              and commercial spaces.
+            </p>
+          </article>
+          <article>
+            <small>LOCATION</small>
+            <strong>Ashulia Model Town</strong>
+            <p>
+              Beside Uttara Sector 16, as described in the supplied project
+              profile.
+            </p>
+          </article>
+          <article>
+            <small>ACCESS & ROADS</small>
+            <strong>Planned Road Network</strong>
+            <p>
+              Road widths noted in the profile: 80 ft front, 50 ft right, and 30
+              ft left and back.
+            </p>
+          </article>
+        </div>
+        <div className="uv-project-note">
+          Project details are based on the supplied profile; confirm current
+          specifications with the project team.
+        </div>
+      </section>
+
+      <section className="uv-facilities uv-section">
+        <div className="uv-section-tag">03 / PROJECT INFRASTRUCTURE</div>
+        <div className="uv-facilities-head">
+          <h2>
+            The infrastructure
+            <br />
+            <em>planned for MUHAJIREEN.</em>
+          </h2>
+          <p>
+            Explore the key institutions, healthcare facilities, lifestyle
+            amenities and commercial destinations listed in the project profile.
+            These are profile-listed plans; confirm final scope, approvals and
+            delivery status with the project team.
+          </p>
+        </div>
+        <div className="uv-facility-grid">
+          {facilities.map((item) => (
+            <article className="uv-facility-card" key={item.number}>
+              <span className="uv-facility-number">{item.number}</span>
+              <small>{item.label}</small>
+              <h3>{item.title}</h3>
+              <p>{item.items}</p>
+              <div className="uv-card-rule" />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="uv-connect">
+        <div className="uv-connect-copy">
+          <span className="uv-eyebrow">
+            <i /> LOCATION & CONNECTIVITY
+          </span>
+          <h2>
+            Beside Uttara.
+            <br />
+            <em>Connected to more.</em>
+          </h2>
+          <p>
+            The project profile highlights its proximity to Uttara and lists
+            road and regional connectivity considerations, including proposed or
+            developing infrastructure. These items are plans described in the
+            profile and may change over time.
+          </p>
+          <Link href="/contact" className="uv-outline-button">
+            Ask about the location <span>↗</span>
+          </Link>
+        </div>
+        <div className="uv-map">
+          <Image
+            src="/images/slider/hero-slide/pin-map.png"
+            alt="Project location map supplied for MUHAJIREEN"
+            fill
+            sizes="(max-width: 900px) 100vw, 54vw"
+          />
+        </div>
+      </section>
+
+      <section className="uv-nearby uv-section">
+        <div>
+          <div className="uv-section-tag">
+            04 / LOCATION & NEARBY DESTINATIONS
+          </div>
+          <h2>
+            Within reach
+            <br />
+            <em>of key destinations.</em>
+          </h2>
+          <p>
+            The profile names the following nearby places and institutions.
+            Exact travel times and distances are not stated here.
+          </p>
+        </div>
+        <div className="uv-nearby-list">
+          {nearby.map((name, index) => (
+            <div key={name}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{name}</strong>
+              <i>↗</i>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="uv-investment uv-section">
+        <div className="uv-investment-head">
+          <div>
+            <span className="uv-eyebrow">
+              <i /> INVESTMENT OVERVIEW
+            </span>
+            <h2>
+              More ways to be part
+              <br />
+              <em>of the vision.</em>
+            </h2>
+          </div>
+          <p>
+            The MUHAJIREEN project profile outlines residential land-share
+            options alongside commercial and institutional participation.
+            Explore the available structures with our team before making a
+            decision.
+          </p>
+        </div>
+
+        <div className="uv-investment-grid">
+          <article className="uv-investment-card">
+            <span className="uv-investment-number">01</span>
+            <div className="uv-investment-icon">⌂</div>
+            <small>RESIDENTIAL</small>
+            <h3>Residential Land Shares</h3>
+            <p>
+              The profile presents 2-flat and 6-flat land-share options, with
+              each flat described as approximately 1,300 sq. ft.
+            </p>
+            <span className="uv-investment-note">
+              Details subject to official project documents
+            </span>
+          </article>
+          <article className="uv-investment-card uv-investment-card-featured">
+            <span className="uv-investment-number">02</span>
+            <div className="uv-investment-icon">◇</div>
+            <small>COMMERCIAL & INSTITUTIONAL</small>
+            <h3>Commercial Participation</h3>
+            <p>
+              Land-share opportunities are described for the medical college,
+              general hospital, nursing institute, shopping mall, commercial
+              spaces and school.
+            </p>
+            <span className="uv-investment-note">
+              Availability and terms must be confirmed
+            </span>
+          </article>
+          <article className="uv-investment-card">
+            <span className="uv-investment-number">03</span>
+            <div className="uv-investment-icon">✳</div>
+            <small>MEMBERSHIP & PROFIT MODEL</small>
+            <h3>Membership and Profit Model</h3>
+            <p>
+              The profile also describes lifetime membership linked to
+              commercial spaces and a proposed monthly-profit model. Request the
+              official terms and supporting documents.
+            </p>
+            <span className="uv-investment-note">
+              Returns are not represented as guaranteed
+            </span>
+          </article>
+        </div>
+
+        <div className="uv-investment-disclaimer">
+          <span>IMPORTANT INFORMATION</span>
+          <p>
+            This section summarizes options described in the project profile; it
+            is not a guarantee of profit or investment performance. Verify
+            ownership structure, membership benefits, eligibility, availability,
+            payment terms and any distributions against current official
+            documents and agreements before committing funds.
+          </p>
+          <Link href="/contact" className="uv-outline-button">
+            Discuss investment options <span>↗</span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="uv-cta">
+        <span className="uv-eyebrow">
+          <i /> LEARN MORE
+        </span>
+        <h2>
+          Explore
+          <br />
+          <em>MUHAJIREEN.</em>
+        </h2>
+        <p>
+          Contact the MUHAJIREEN team to learn more about the project, listed
+          facilities, location and site visits.
+        </p>
+        <Link href="/contact" className="uv-button">
+          Contact our team <span>↗</span>
+        </Link>
+      </section>
+
+      <Footer />
+      {/* <Scrollbar /> */}
+      <WAIcon></WAIcon>
+
+      <style jsx global>{`
+        .uv-about-page {
+          --uv-ink: #3e372e;
+          --uv-muted: #766d62;
+          --uv-gold: #b58b52;
+          --uv-gold-light: #dec79f;
+          --uv-line: rgba(145, 111, 67, 0.2);
+          background: #faf7f1;
+          color: var(--uv-ink);
+          overflow: hidden;
+        }
+
+        .uv-about-page * {
+          box-sizing: border-box;
+        }
+
+        .uv-about-page img {
+          object-fit: cover;
+        }
+
+        .uv-section {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 100px 7%;
+        }
+
+        .uv-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #987345;
+          font-size: 9px;
+          font-weight: 750;
+          letter-spacing: 0.17em;
+          line-height: 1.6;
+        }
+
+        .uv-eyebrow i {
+          display: block;
+          width: 28px;
+          height: 1px;
+          background: var(--uv-gold);
+          flex-shrink: 0;
+        }
+
+        .uv-overview-hero {
+          min-height: min(790px, 88svh);
+          height: 790px;
+          max-height: 900px;
+          max-width: none;
+          margin: 0;
+          padding: 145px 8% 90px;
+          display: flex;
+          align-items: center;
+          position: relative;
+          isolation: isolate;
+          overflow: hidden;
+          background: #d9c9ae;
+        }
+        .uv-overview-hero-image {
+          object-fit: cover;
+          object-position: center 52%;
+          z-index: -2;
+        }
+        .uv-overview-hero-shade {
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background:
+            linear-gradient(
+              90deg,
+              rgba(35, 27, 19, 0.76) 0%,
+              rgba(35, 27, 19, 0.48) 44%,
+              rgba(35, 27, 19, 0.08) 100%
+            ),
+            linear-gradient(0deg, rgba(35, 27, 19, 0.28), transparent 42%);
+        }
+        .uv-overview-hero-content {
+          max-width: 760px;
+          color: #fffaf1;
+          position: relative;
+          z-index: 1;
+        }
+        .uv-overview-kicker {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 10px;
+          letter-spacing: 0.22em;
+          font-weight: 750;
+          color: #f0d6a9;
+        }
+        .uv-overview-kicker i {
+          width: 34px;
+          height: 1px;
+          background: #d9b77e;
+          display: block;
+        }
+        .uv-overview-hero h1 {
+          color: #fffaf1;
+          font-size: clamp(54px, 7.4vw, 104px);
+          line-height: 0.98;
+          letter-spacing: -0.065em;
+          font-weight: 400;
+          margin: 28px 0;
+        }
+        .uv-overview-hero h1 em {
+          color: #e6c28a;
+        }
+        .uv-overview-hero-content p {
+          max-width: 570px;
+          font-size: 15px;
+          line-height: 1.9;
+          color: rgba(255, 250, 241, 0.88);
+        }
+        .uv-overview-hero-actions {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 25px;
+          margin-top: 28px;
+        }
+        .uv-overview-hero .uv-button {
+          margin-top: 0;
+        }
+        .uv-overview-location {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #f3e5ce;
+          font-size: 8px;
+          letter-spacing: 0.13em;
+          font-weight: 700;
+        }
+        .uv-overview-location b {
+          width: 22px;
+          height: 1px;
+          background: #e6c28a;
+        }
+        .uv-overview-hero-index {
+          position: absolute;
+          right: 6%;
+          bottom: 42px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          color: #fff8eb;
+          text-align: right;
+          font-size: 8px;
+          letter-spacing: 0.2em;
+        }
+        .uv-overview-hero-index b {
+          color: #e6c28a;
+          font-weight: 600;
+        }
+
+        .uv-hero {
+          max-width: 1500px;
+          margin: 0 auto;
+          min-height: 700px;
+          padding: 115px 6.5% 78px;
+          display: grid;
+          grid-template-columns: 0.88fr 1.12fr;
+          gap: 6%;
+          align-items: center;
+          position: relative;
+        }
+
+        .uv-hero-copy {
+          position: relative;
+          z-index: 2;
+        }
+
+        .uv-hero h1,
+        .uv-story h2,
+        .uv-image-story h2,
+        .uv-project h2,
+        .uv-facilities h2,
+        .uv-connect h2,
+        .uv-nearby h2,
+        .uv-cta h2 {
+          font-size: clamp(42px, 5.2vw, 72px);
+          font-weight: 450;
+          line-height: 1.01;
+          letter-spacing: -0.06em;
+          margin: 22px 0;
+          color: #40382e;
+        }
+
+        .uv-about-page em {
+          font-family: Georgia, "Times New Roman", serif;
+          color: #a7814d;
+          font-weight: 400;
+        }
+
+        .uv-lead {
+          font-size: 16px;
+          line-height: 1.8;
+          color: #51483e;
+          max-width: 500px;
+        }
+
+        .uv-support {
+          font-size: 12px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 460px;
+        }
+
+        .uv-button,
+        .uv-outline-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 26px;
+          min-height: 48px;
+          margin-top: 22px;
+          padding: 7px 8px 7px 20px;
+          border-radius: 99px;
+          text-decoration: none !important;
+          font-size: 11px;
+          font-weight: 700;
+        }
+
+        .uv-button {
+          color: #3d3021 !important;
+          background: linear-gradient(135deg, #e3cea8, #bd965f);
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          box-shadow: 0 12px 28px rgba(130, 99, 55, 0.13);
+        }
+
+        .uv-button span,
+        .uv-outline-button span {
+          display: grid;
+          place-items: center;
+          width: 31px;
+          height: 31px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.62);
+          font-size: 16px;
+        }
+
+        .uv-hero-foot {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 42px;
+          color: #987b56;
+          font-size: 8px;
+          font-weight: 750;
+          letter-spacing: 0.12em;
+          flex-wrap: wrap;
+        }
+
+        .uv-hero-foot b {
+          height: 1px;
+          width: 24px;
+          background: var(--uv-gold);
+        }
+
+        .uv-hero-visual {
+          height: 510px;
+          position: relative;
+          border: 7px solid rgba(255, 255, 255, 0.8);
+          border-radius: 4px 65px 4px 4px;
+          overflow: hidden;
+          box-shadow: 0 25px 70px rgba(75, 59, 38, 0.14);
+          background: #e7ddce;
+        }
+
+        .uv-hero-visual:after {
+          content: "";
+          position: absolute;
+          inset: 35% 0 0;
+          background: linear-gradient(transparent, rgba(30, 26, 21, 0.36));
+        }
+
+        .uv-visual-glass {
+          position: absolute;
+          z-index: 2;
+          bottom: 22px;
+          left: 22px;
+          right: 22px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding: 18px 20px;
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          border-radius: 15px;
+          background: rgba(255, 250, 241, 0.77);
+          backdrop-filter: blur(5px);
+        }
+
+        .uv-visual-glass small {
+          font-size: 8px;
+          letter-spacing: 0.17em;
+          color: #987345;
+          font-weight: 750;
+        }
+
+        .uv-visual-glass strong {
+          font:
+            28px Georgia,
+            serif;
+        }
+
+        .uv-visual-glass span {
+          font-size: 10px;
+          color: #74685a;
+        }
+
+        .uv-vertical-label {
+          position: absolute;
+          z-index: 2;
+          top: 22px;
+          right: 17px;
+          writing-mode: vertical-rl;
+          color: white;
+          font-size: 8px;
+          letter-spacing: 0.2em;
+          text-shadow: 0 1px 8px #51483e;
+        }
+
+        .uv-facts {
+          max-width: 1250px;
+          margin: -20px auto 0;
+          position: relative;
+          z-index: 3;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.72);
+          backdrop-filter: blur(20px);
+          box-shadow: 0 18px 50px rgba(80, 62, 38, 0.07);
+          padding: 23px 28px;
+        }
+
+        .uv-fact {
+          padding: 0 24px;
+          border-right: 1px solid var(--uv-line);
+        }
+
+        .uv-fact:first-child {
+          padding-left: 8px;
+        }
+
+        .uv-fact:last-child {
+          border: 0;
+        }
+
+        .uv-fact strong {
+          display: block;
+          font:
+            35px Georgia,
+            serif;
+          color: #a7814d;
+        }
+
+        .uv-fact strong em {
+          font:
+            12px Arial,
+            sans-serif;
+          color: #8b7962;
+          letter-spacing: 0;
+        }
+
+        .uv-fact span {
+          display: block;
+          margin-top: 5px;
+          color: var(--uv-muted);
+          font-size: 10px;
+          line-height: 1.5;
+        }
+
+        .uv-section-tag {
+          padding-bottom: 17px;
+          border-bottom: 1px solid var(--uv-line);
+          font-size: 9px;
+          font-weight: 750;
+          letter-spacing: 0.17em;
+          color: #987345;
+        }
+
+        .uv-story-grid {
+          display: grid;
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 9%;
+          padding: 30px;
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: 22px;
+          background: rgba(255, 255, 255, 0.48);
+          backdrop-filter: blur(18px);
+          box-shadow: 0 18px 45px rgba(91, 70, 43, 0.05);
+          margin-top: 24px;
+        }
+
+        .uv-story h2 {
+          margin: 0;
+        }
+
+        .uv-story-copy p {
+          font-size: 13px;
+          line-height: 1.95;
+          color: var(--uv-muted);
+          margin: 0 0 14px;
+        }
+
+        .uv-image-story {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          background: linear-gradient(
+            135deg,
+            rgba(245, 236, 222, 0.78),
+            rgba(255, 255, 255, 0.52)
+          );
+          border-top: 1px solid rgba(255, 255, 255, 0.9);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .uv-image-story-photo {
+          position: relative;
+          min-height: 520px;
+        }
+
+        .uv-image-story-copy {
+          align-self: center;
+          padding: 70px clamp(35px, 7vw, 105px);
+        }
+
+        .uv-image-story h2 {
+          font-size: clamp(38px, 4.3vw, 60px);
+        }
+
+        .uv-image-story-copy > p {
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 480px;
+        }
+
+        .uv-mini-points {
+          display: flex;
+          gap: 18px;
+          flex-wrap: wrap;
+          margin-top: 30px;
+          padding-top: 17px;
+          border-top: 1px solid var(--uv-line);
+        }
+
+        .uv-mini-points span {
+          font-size: 9px;
+          color: #a7814d;
+        }
+
+        .uv-mini-points b {
+          display: block;
+          color: #5d5143;
+          margin-top: 5px;
+          font-size: 10px;
+        }
+
+        .uv-project-highlights {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 16px;
+          margin-top: 32px;
+        }
+
+        .uv-project-highlights article {
+          padding: 25px 24px;
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: 17px;
+          background: rgba(255, 255, 255, 0.56);
+          box-shadow: 0 12px 32px rgba(91, 70, 43, 0.045);
+        }
+
+        .uv-project-highlights small {
+          display: block;
+          font-size: 8px;
+          letter-spacing: 0.16em;
+          font-weight: 750;
+          color: #987345;
+        }
+
+        .uv-project-highlights strong {
+          display: block;
+          margin: 12px 0 9px;
+          font:
+            22px Georgia,
+            serif;
+          color: #473d31;
+        }
+
+        .uv-project-highlights p {
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 10px;
+          line-height: 1.8;
+        }
+
+        .uv-project-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          gap: 35px;
+          margin-bottom: 32px;
+        }
+
+        .uv-project-head h2 {
+          margin: 18px 0 8px;
+        }
+
+        .uv-project-head p {
+          font-size: 12px;
+          line-height: 1.8;
+          color: var(--uv-muted);
+          max-width: 460px;
+        }
+
+        .uv-land-card {
+          min-width: 225px;
+          padding: 20px 23px;
+          border: 1px solid white;
+          border-radius: 17px;
+          background: rgba(255, 255, 255, 0.64);
+          box-shadow: 0 12px 35px rgba(91, 70, 43, 0.06);
+        }
+
+        .uv-land-card small {
+          font-size: 8px;
+          letter-spacing: 0.17em;
+          color: #987345;
+          font-weight: 750;
+        }
+
+        .uv-land-card strong {
+          display: block;
+          font:
+            43px Georgia,
+            serif;
+          color: #a7814d;
+          margin: 7px 0;
+        }
+
+        .uv-land-card strong em {
+          font:
+            14px Arial,
+            sans-serif;
+        }
+
+        .uv-land-card span,
+        .uv-land-card i {
+          display: block;
+          font-size: 10px;
+          color: var(--uv-muted);
+          font-style: normal;
+          line-height: 1.7;
+        }
+
+        .uv-land-card i {
+          margin-top: 8px;
+          font-size: 9px;
+        }
+
+        .uv-masterplan {
+          height: 470px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 20px;
+          border: 7px solid rgba(255, 255, 255, 0.8);
+          box-shadow: 0 20px 55px rgba(80, 62, 38, 0.09);
+        }
+
+        .uv-masterplan span {
+          position: absolute;
+          bottom: 18px;
+          left: 18px;
+          padding: 10px 14px;
+          border: 1px solid rgba(255, 255, 255, 0.7);
+          border-radius: 50px;
+          background: rgba(255, 250, 241, 0.82);
+          backdrop-filter: blur(12px);
+          font-size: 8px;
+          letter-spacing: 0.15em;
+          color: #705633;
+        }
+
+        .uv-project-note {
+          margin-top: 12px;
+          color: #958777;
+          font-size: 9px;
+        }
+
+        .uv-facilities {
+          padding-top: 70px;
+          padding-bottom: 100px;
+          background: linear-gradient(135deg, #f7f0e5, #fcfaf6);
+        }
+
+        .uv-facilities-head {
+          display: flex;
+          justify-content: space-between;
+          align-items: end;
+          gap: 35px;
+          margin: 30px 0;
+        }
+
+        .uv-facilities h2 {
+          margin: 0;
+        }
+
+        .uv-facilities-head p {
+          max-width: 410px;
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 11px;
+          line-height: 1.9;
+        }
+
+        .uv-facility-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 14px;
+        }
+
+        .uv-facility-card {
+          position: relative;
+          min-height: 205px;
+          padding: 24px 20px;
+          border: 1px solid rgba(255, 255, 255, 0.95);
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.58);
+          backdrop-filter: blur(18px);
+          box-shadow: 0 15px 38px rgba(91, 70, 43, 0.045);
+        }
+
+        .uv-facility-number {
+          position: absolute;
+          right: 25px;
+          top: 24px;
+          color: #b49a75;
+          font-size: 10px;
+        }
+
+        .uv-facility-card small {
+          font-size: 8px;
+          font-weight: 750;
+          letter-spacing: 0.16em;
+          color: #987345;
+        }
+
+        .uv-facility-card h3 {
+          font:
+            22px Georgia,
+            serif;
+          color: #473d31;
+          margin: 13px 0;
+        }
+
+        .uv-facility-card p {
+          font-size: 11px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 440px;
+          margin: 0;
+        }
+
+        .uv-card-rule {
+          height: 1px;
+          width: 45px;
+          background: var(--uv-gold);
+          margin-top: 22px;
+        }
+
+        .uv-connect {
+          display: grid;
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 6%;
+          align-items: center;
+          padding: 85px 7%;
+          background: #f0e8dc;
+        }
+
+        .uv-connect h2 {
+          font-size: clamp(38px, 4.5vw, 60px);
+        }
+
+        .uv-connect-copy > p {
+          font-size: 12px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 450px;
+        }
+
+        .uv-outline-button {
+          border: 1px solid rgba(157, 119, 68, 0.42);
+          color: #705633 !important;
+        }
+
+        .uv-map {
+          position: relative;
+          height: 390px;
+          overflow: hidden;
+          border: 7px solid rgba(255, 255, 255, 0.82);
+          border-radius: 18px;
+          background: #fff;
+          box-shadow: 0 18px 45px rgba(91, 70, 43, 0.09);
+        }
+
+        .uv-map :global(img) {
+          object-fit: contain;
+        }
+
+        .uv-nearby {
+          display: grid;
+          grid-template-columns: 0.8fr 1.2fr;
+          gap: 8%;
+          align-items: start;
+        }
+
+        .uv-nearby h2 {
+          font-size: clamp(36px, 4.4vw, 58px);
+        }
+
+        .uv-nearby > div:first-child > p {
+          font-size: 12px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+          max-width: 370px;
+        }
+
+        .uv-nearby-list {
+          border-top: 1px solid var(--uv-line);
+        }
+
+        .uv-nearby-list > div {
+          display: grid;
+          grid-template-columns: 35px 1fr 20px;
+          gap: 12px;
+          align-items: center;
+          padding: 14px 0;
+          border-bottom: 1px solid var(--uv-line);
+        }
+
+        .uv-nearby-list span {
+          font-size: 9px;
+          color: #ae8958;
+        }
+
+        .uv-nearby-list strong {
+          font-size: 11px;
+          font-weight: 550;
+          color: #54483b;
+        }
+
+        .uv-nearby-list i {
+          font-style: normal;
+          color: #ad8956;
+          font-size: 13px;
+        }
+
+        .uv-investment {
+          background: linear-gradient(180deg, #faf7f1 0%, #f1e8da 100%);
+        }
+
+        .uv-investment-head {
+          display: grid;
+          grid-template-columns: 1fr 0.8fr;
+          align-items: end;
+          gap: 8%;
+          margin-bottom: 34px;
+        }
+
+        .uv-investment-head h2 {
+          font-size: clamp(38px, 4.5vw, 60px);
+          font-weight: 450;
+          line-height: 1.05;
+          letter-spacing: -0.055em;
+          margin: 18px 0 0;
+          color: #423a31;
+        }
+
+        .uv-investment-head > p {
+          max-width: 470px;
+          margin: 0 0 5px;
+          font-size: 13px;
+          line-height: 1.9;
+          color: var(--uv-muted);
+        }
+
+        .uv-investment-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .uv-investment-card {
+          position: relative;
+          overflow: hidden;
+          min-height: 290px;
+          padding: 25px 23px 22px;
+          border: 1px solid rgba(255, 255, 255, 0.92);
+          border-radius: 20px;
+          background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 250, 241, 0.5)
+          );
+          backdrop-filter: blur(18px);
+          box-shadow: 0 18px 45px rgba(91, 70, 43, 0.07);
+        }
+
+        .uv-investment-card:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 23px;
+          right: 23px;
+          height: 2px;
+          background: linear-gradient(
+            90deg,
+            rgba(181, 139, 82, 0.8),
+            transparent
+          );
+        }
+
+        .uv-investment-card-featured {
+          background: linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(231, 215, 188, 0.5)
+          );
+          box-shadow: 0 22px 55px rgba(91, 70, 43, 0.11);
+        }
+
+        .uv-investment-number {
+          position: absolute;
+          top: 20px;
+          right: 22px;
+          color: rgba(165, 129, 79, 0.6);
+          font:
+            20px Georgia,
+            serif;
+        }
+
+        .uv-investment-icon {
+          display: grid;
+          place-items: center;
+          width: 42px;
+          height: 42px;
+          margin-bottom: 22px;
+          border: 1px solid rgba(181, 139, 82, 0.3);
+          border-radius: 14px;
+          color: #a98555;
+          background: rgba(255, 255, 255, 0.62);
+          font-size: 23px;
+        }
+
+        .uv-investment-card > small {
+          font-size: 8px;
+          letter-spacing: 0.14em;
+          color: #9b7545;
+          font-weight: 700;
+        }
+
+        .uv-investment-card h3 {
+          margin: 12px 0 10px;
+          font:
+            23px/1.2 Georgia,
+            serif;
+          color: #4a4034;
+        }
+
+        .uv-investment-card p {
+          margin: 0;
+          color: var(--uv-muted);
+          font-size: 11px;
+          line-height: 1.8;
+        }
+
+        .uv-investment-note {
+          display: block;
+          margin-top: 16px;
+          padding-top: 11px;
+          border-top: 1px solid var(--uv-line);
+          font-size: 9px;
+          color: #8b765b;
+        }
+
+        .uv-investment-disclaimer {
+          display: grid;
+          grid-template-columns: 150px 1fr auto;
+          align-items: center;
+          gap: 18px;
+          margin-top: 22px;
+          padding: 20px 22px;
+          border: 1px solid rgba(181, 139, 82, 0.19);
+          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.46);
+        }
+
+        .uv-investment-disclaimer > span {
+          font-size: 8px;
+          font-weight: 700;
+          letter-spacing: 0.13em;
+          color: #9b7545;
+        }
+
+        .uv-investment-disclaimer p {
+          margin: 0;
+          font-size: 10px;
+          line-height: 1.8;
+          color: #786d61;
+        }
+
+        .uv-investment-disclaimer .uv-outline-button {
+          white-space: nowrap;
+          margin: 0;
+          padding: 7px 8px 7px 14px;
+          gap: 12px;
+          min-height: 40px;
+        }
+
+        .uv-cta {
+          text-align: center;
+          padding: 85px 20px 100px;
+          background:
+            radial-gradient(
+              ellipse at 50% 0,
+              rgba(201, 164, 106, 0.17),
+              transparent 58%
+            ),
+            #faf7f1;
+        }
+
+        .uv-cta .uv-eyebrow {
+          justify-content: center;
+        }
+
+        .uv-cta h2 {
+          font-size: clamp(38px, 4.5vw, 58px);
+        }
+
+        .uv-cta p {
+          max-width: 460px;
+          margin: 0 auto;
+          color: var(--uv-muted);
+          font-size: 12px;
+          line-height: 1.9;
+        }
+
+        @media (max-width: 1050px) {
+          .uv-facility-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
+        @media (max-width: 950px) {
+          .uv-investment-head {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+          .uv-investment-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+          .uv-investment-card:last-child {
+            grid-column: 1 / -1;
+          }
+          .uv-investment-disclaimer {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .uv-investment-head h2 {
+            font-size: 40px;
+          }
+          .uv-investment-grid {
+            grid-template-columns: 1fr;
+          }
+          .uv-investment-card:last-child {
+            grid-column: auto;
+          }
+          .uv-investment-card {
+            min-height: 0;
+            padding: 23px 19px;
+          }
+          .uv-investment-disclaimer {
+            padding: 17px;
+          }
+          .uv-investment-disclaimer .uv-outline-button {
+            justify-self: start;
+            white-space: normal;
+          }
+        }
+
+        @media (max-width: 950px) {
+          .uv-overview-hero {
+            height: 720px;
+            min-height: 680px;
+            padding: 125px 7% 100px;
+          }
+          .uv-overview-hero-shade {
+            background:
+              linear-gradient(
+                90deg,
+                rgba(35, 27, 19, 0.72),
+                rgba(35, 27, 19, 0.25)
+              ),
+              linear-gradient(0deg, rgba(35, 27, 19, 0.3), transparent 55%);
+          }
+          .uv-hero {
+            grid-template-columns: 1fr;
+            padding-top: 100px;
+            gap: 35px;
+          }
+          .uv-hero-visual {
+            height: 440px;
+          }
+          .uv-facts {
+            margin: 0 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+          }
+          .uv-fact {
+            border-right: 0;
+            padding: 8px 12px !important;
+          }
+          .uv-fact:nth-child(odd) {
+            border-right: 1px solid var(--uv-line);
+          }
+          .uv-story-grid,
+          .uv-nearby {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
+          .uv-image-story,
+          .uv-connect {
+            grid-template-columns: 1fr;
+          }
+          .uv-image-story-photo {
+            min-height: 360px;
+          }
+          .uv-image-story-copy {
+            padding: 55px 7%;
+          }
+          .uv-connect {
+            padding: 65px 5%;
+          }
+          .uv-map {
+            height: 340px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .uv-overview-hero {
+            height: 690px;
+            min-height: 690px;
+            padding: 115px 22px 105px;
+            align-items: center;
+          }
+          .uv-overview-hero-image {
+            object-position: 58% center;
+          }
+          .uv-overview-hero h1 {
+            font-size: clamp(48px, 13vw, 66px);
+          }
+          .uv-overview-hero-content p {
+            font-size: 13px;
+          }
+          .uv-overview-hero-actions {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 18px;
+          }
+          .uv-overview-hero-index {
+            right: 22px;
+            bottom: 22px;
+          }
+          .uv-section {
+            padding: 62px 20px;
+          }
+          .uv-hero {
+            padding: 90px 20px 48px;
+            min-height: 0;
+          }
+          .uv-hero h1 {
+            font-size: 46px;
+          }
+          .uv-lead {
+            font-size: 14px;
+          }
+          .uv-hero-visual {
+            height: 320px;
+            border-radius: 4px 38px 4px 4px;
+            border-width: 5px;
+          }
+          .uv-visual-glass {
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            padding: 13px 15px;
+          }
+          .uv-visual-glass strong {
+            font-size: 24px;
+          }
+          .uv-hero-foot {
+            margin-top: 26px;
+            font-size: 7px;
+          }
+          .uv-facts {
+            margin: 0 16px;
+            padding: 16px 12px;
+            gap: 10px;
+            border-radius: 14px;
+          }
+          .uv-fact strong {
+            font-size: 28px;
+          }
+          .uv-fact strong em {
+            font-size: 10px;
+          }
+          .uv-fact span {
+            font-size: 9px;
+          }
+          .uv-story h2,
+          .uv-image-story h2,
+          .uv-project h2,
+          .uv-facilities h2,
+          .uv-connect h2,
+          .uv-nearby h2,
+          .uv-cta h2 {
+            font-size: 40px;
+          }
+          .uv-story-grid {
+            gap: 15px;
+          }
+          .uv-image-story-photo {
+            min-height: 270px;
+          }
+          .uv-image-story-copy {
+            padding: 45px 20px;
+          }
+          .uv-mini-points {
+            gap: 12px;
+          }
+          .uv-project-head,
+          .uv-facilities-head {
+            display: block;
+          }
+          .uv-project-highlights {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+          .uv-project-highlights article {
+            padding: 20px;
+          }
+          .uv-land-card {
+            margin-top: 20px;
+          }
+          .uv-masterplan {
+            height: 280px;
+            border-width: 4px;
+            border-radius: 14px;
+          }
+          .uv-facility-grid {
+            grid-template-columns: 1fr;
+          }
+          .uv-facility-card {
+            min-height: 185px;
+            padding: 23px;
+          }
+          .uv-facility-card h3 {
+            font-size: 24px;
+          }
+          .uv-map {
+            height: 270px;
+            border-width: 4px;
+          }
+          .uv-nearby-list > div {
+            grid-template-columns: 28px 1fr 15px;
+          }
+          .uv-nearby-list strong {
+            font-size: 10px;
+          }
+          .uv-cta {
+            padding: 65px 20px 75px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .uv-about-page * {
+            scroll-behavior: auto !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
+    </main>
+  );
+}
