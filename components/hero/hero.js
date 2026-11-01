@@ -287,7 +287,7 @@ export default function Hero() {
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            // Autoplay,
+            Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -297,11 +297,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          //   pauseOnMouseEnter: true,
-          // }}
+           autoplay={{
+            delay: 2500,
+             disableOnInteraction: false,
+             pauseOnMouseEnter: true,
+           }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
