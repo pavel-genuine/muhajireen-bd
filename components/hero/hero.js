@@ -1744,13 +1744,17 @@ body {
 @media screen and (max-width: 768px) {
 
 
+  .uttara-hero .uttara-building-foreground .connection {
+    top: 10% !important;
+    margin-top: 10px !important;
+  }
   .uttara-hero-title .connection {
-    top: 0% !important;
+    top: 10% !important;
     margin-top: 10px !important;
   }
 
-  .uttara-hero .uttara-building-foreground.school {
-    top: 15% !important;
+  .uttara-hero-title.school {
+    top: 10% !important;
     margin-top: 0 !important;
   }
 
@@ -1798,7 +1802,7 @@ body {
     margin-left: -5px !important;
   }
   .uttara-hero-title.mosque {
-    top: 27% !important;
+    top: 25% !important;
    
   }
 }
