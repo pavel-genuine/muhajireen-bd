@@ -466,7 +466,7 @@ export default function Hero() {
                               >
                                 Next Infrastructure <b>→</b>
                               </button>
-                            </div>
+                              F  </div>
                           </div>
                         </aside>
                       )}
@@ -584,7 +584,7 @@ export default function Hero() {
 
   .connection { top: 15%; }
   .school     { top: 15%; }
-  .park     { top: 23%; margin-top: -20px;  }
+  .park     { top: 21%; margin-top: -20px;  }
   .nursing     { top: 13%; margin-top: 60px;margin-left: -60px; }
   .commercial { top: 18%; margin-top: -10px; }
   .residence  { top: 16%; margin-top: 20px; }
@@ -1763,7 +1763,7 @@ body {
     margin-top: -35px !important;
   }
     .uttara-hero-title.park {
-    top: 37% !important;
+    top: 36% !important;
     margin-top: -20px !important;
   }
 
