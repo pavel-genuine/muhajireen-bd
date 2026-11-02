@@ -170,7 +170,7 @@ const projectHotspots = [
 
     x: 42,
     y: 34,
-    image: "/images/slider/hero-slide/img-6.1-main.png",
+    image: "/images/slider/hero-slide/img-6.1-main1.png",
     description:
       "Modern nursing institute with hi-tech facilities.",
   },
@@ -297,11 +297,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-           autoplay={{
+          autoplay={{
             delay: 2500,
-             disableOnInteraction: false,
-             pauseOnMouseEnter: true,
-           }}
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
