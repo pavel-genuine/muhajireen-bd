@@ -34,7 +34,7 @@ const HomePage = () => {
                 <meta property="og:description" content="Thoughtful Spaces, Meaningful Lives" />
                 <meta property="og:url" content="" />
                 <meta property="og:site_name" content="MUHAJIREEN Consultant Ltd" />
-                <meta property="og:image" content="" />
+                <meta property="og:image" content="https://muhajireen-bd.vercel.app//images/logo.png" />
             </Head>
             <Navbar Logo={Logo}
             />
