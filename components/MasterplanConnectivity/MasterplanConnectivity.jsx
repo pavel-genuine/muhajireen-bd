@@ -343,14 +343,14 @@ export default function MasterplanConnectivity() {
                     <button
                       key={item.id}
                       type="button"
-                      className={`uv-mp-pin ${activeId === item.id ? "is-active" : ""}`}
+                      className={`uttara-hotspot ${activeId === item.id ? "is-active" : ""}`}
                       style={{ left: `${item.x}%`, top: `${item.y}%` }}
                       onClick={() => setActiveId(item.id)}
                       aria-label={`Show ${item.label} details`}
                       aria-pressed={activeId === item.id}
                     >
-                      <span className="uv-mp-pin-dot" />
-                      <span className="uv-mp-pin-label">{item.short}</span>
+                      <span className="uttara-hotspot-pulse" />
+                      <span className="uttara-hotspot-label">{item.short}</span>
                     </button>
                   ))}
                   <span className="uv-mp-map-caption">
@@ -492,17 +492,15 @@ export default function MasterplanConnectivity() {
                       <button
                         key={place.id}
                         type="button"
-                        className={`uv-mp-nearby-pin ${nearbyActiveId === place.id ? "is-active" : ""}`}
+                        className={`uttara-hotspot ${nearbyActiveId === place.id ? "is-active" : ""}`}
                         style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
                         onClick={() => setNearbyActiveId(place.id)}
                         aria-label={`Show ${place.name}`}
                         aria-pressed={nearbyActiveId === place.id}
                       >
-                        <span className="uv-mp-nearby-pin-dot">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <span className="uv-mp-nearby-pin-label">
-                          {place.name}
+                        <span className="uttara-hotspot-pulse" />
+                        <span className="uttara-hotspot-label">
+                          {String(index + 1).padStart(2, "0")}. {place.name}
                         </span>
                       </button>
                     );
@@ -818,72 +816,76 @@ export default function MasterplanConnectivity() {
           );
           pointer-events: none;
         }
-        .uv-mp-pin {
+
+        /* Minimal Project-Overview Styled Hotspots */
+        .uttara-hotspot {
           position: absolute;
-          z-index: 2;
           display: inline-flex;
           align-items: center;
-          gap: 7px;
-          max-width: 190px;
+          gap: 6px;
+          max-width: 200px;
           padding: 0;
           border: 0;
           background: transparent;
-          color: white;
+          color: #fff;
           cursor: pointer;
+          pointer-events: auto;
           transform: translate(-50%, -50%);
+          z-index: 60;
         }
-        .uv-mp-pin-dot {
+
+        .uttara-hotspot-pulse {
           position: relative;
-          display: grid;
-          flex: 0 0 26px;
-          place-items: center;
-          width: 26px;
-          height: 26px;
-          border: 2px solid white;
+          flex: 0 0 10px;
+          width: 10px;
+          height: 10px;
+          border: 1.5px solid #fff;
           border-radius: 50%;
-          color: #604a2e;
           background: #e6c28a;
           box-shadow:
-            0 0 0 4px rgba(255, 255, 255, 0.38),
-            0 3px 14px rgba(0, 0, 0, 0.25);
-          font-size: 7.5px;
-          font-weight: 900;
+            0 0 0 3px rgba(255, 255, 255, 0.22),
+            0 2px 8px rgba(0, 0, 0, 0.35);
+          animation: uttaraHotspotPulse 2.2s ease-out infinite;
         }
-        .uv-mp-pin-dot:after {
-          position: absolute;
-          inset: -6px;
-          border: 1px solid rgba(255, 255, 255, 0.85);
-          border-radius: 50%;
-          content: "";
-          animation: uvMpPulse 2.2s ease-out infinite;
-        }
-        .uv-mp-pin-label {
-          max-width: 155px;
-          padding: 6px 9px;
-          border: 1px solid rgba(255, 255, 255, 0.58);
-          border-radius: 99px;
-          color: white;
-          background: rgba(30, 37, 34, 0.72);
-          backdrop-filter: blur(10px);
-          font-size: 7.5px;
-          font-weight: 800;
-          letter-spacing: 0.05em;
-          line-height: 1.2;
-          white-space: nowrap;
+
+        .uttara-hotspot-label {
+          position: relative;
           overflow: hidden;
-          text-overflow: ellipsis;
+          padding: 5px 10px;
+          border: 1px solid rgba(255, 255, 255, 0.24);
+          border-radius: 999px;
+          background: rgba(13, 29, 39, 0.75);
+          color: rgba(255, 255, 255, 0.96);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            0 4px 16px rgba(0, 0, 0, 0.15);
+          backdrop-filter: blur(18px) saturate(150%);
+          font-size: 8.5px;
+          font-weight: 800;
+          line-height: 1.1;
+          letter-spacing: 0.02em;
+          white-space: nowrap;
+          transition: all 0.35s ease;
         }
-        .uv-mp-pin.is-active .uv-mp-pin-label,
-        .uv-mp-pin:hover .uv-mp-pin-label {
-          border-color: #e6c28a;
-          color: #51483d;
-          background: #f8f0e3;
+
+        .uttara-hotspot:hover .uttara-hotspot-label,
+        .uttara-hotspot.is-active .uttara-hotspot-label {
+          border-color: rgba(230, 194, 138, 0.85);
+          background: rgba(230, 194, 138, 0.9);
+          color: #14212a;
         }
-        .uv-mp-pin.is-active .uv-mp-pin-dot {
-          color: white;
-          background: #96784f;
-          transform: scale(1.12);
+
+        @keyframes uttaraHotspotPulse {
+          0% {
+            transform: scale(0.55);
+            opacity: 0.9;
+          }
+          100% {
+            transform: scale(1.55);
+            opacity: 0;
+          }
         }
+
         .uv-mp-map-caption {
           position: absolute;
           left: 14px;
@@ -896,6 +898,7 @@ export default function MasterplanConnectivity() {
           font-size: 7.5px;
           font-weight: 800;
           letter-spacing: 0.12em;
+          z-index: 5;
         }
         .uv-mp-note {
           margin: 0;
@@ -1163,66 +1166,6 @@ export default function MasterplanConnectivity() {
           font-size: 6.5px;
           letter-spacing: 0.13em;
         }
-        .uv-mp-nearby-pin {
-          position: absolute;
-          z-index: 5;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          max-width: 180px;
-          padding: 0;
-          border: 0;
-          background: transparent;
-          text-align: left;
-          cursor: pointer;
-          transform: translate(-50%, -50%);
-        }
-        .uv-mp-nearby-pin-dot {
-          display: grid;
-          flex: 0 0 26px;
-          place-items: center;
-          width: 26px;
-          height: 26px;
-          border: 2px solid white;
-          border-radius: 50%;
-          color: #76562e;
-          background: #e6c28a;
-          box-shadow:
-            0 2px 8px rgba(66, 53, 28, 0.19),
-            0 0 0 4px rgba(255, 255, 255, 0.58);
-          font-size: 8.5px;
-          font-weight: 800;
-        }
-        .uv-mp-nearby-pin-label {
-          max-width: 145px;
-          padding: 5px 7px;
-          border: 1px solid rgba(198, 161, 107, 0.72);
-          border-radius: 7px;
-          color: #4e585a;
-          background: rgba(255, 253, 248, 0.96);
-          box-shadow: 0 8px 24px rgba(24, 31, 34, 0.12);
-          font-size: 7.5px;
-          font-weight: 700;
-          line-height: 1.3;
-          opacity: 1;
-          visibility: visible;
-          transform: none;
-          transition:
-            border-color 0.22s ease,
-            background 0.22s ease;
-          pointer-events: none;
-        }
-        .uv-mp-nearby-pin.is-active .uv-mp-nearby-pin-label,
-        .uv-mp-nearby-pin:hover .uv-mp-nearby-pin-label {
-          border-color: #9c7847;
-          background: #f4ead8;
-        }
-        .uv-mp-nearby-pin.is-active .uv-mp-nearby-pin-dot,
-        .uv-mp-nearby-pin:hover .uv-mp-nearby-pin-dot {
-          color: white;
-          background: #9c7847;
-          transform: scale(1.12);
-        }
         .uv-mp-map-legend {
           position: absolute;
           left: 14px;
@@ -1425,7 +1368,7 @@ export default function MasterplanConnectivity() {
           outline: 3px solid #a68b67;
           outline-offset: 3px;
         }
-        @keyframes uvMpPulse {
+        @keyframes uttaraHotspotPulse {
           0% {
             transform: scale(0.55);
             opacity: 0.9;
@@ -1453,9 +1396,6 @@ export default function MasterplanConnectivity() {
           }
           .uv-mp-connectivity-map-layout {
             grid-template-columns: minmax(0, 1.4fr) minmax(230px, 0.8fr);
-          }
-          .uv-mp-nearby-pin-label {
-            max-width: 100px;
           }
         }
         @media (max-width: 650px) {
@@ -1495,20 +1435,14 @@ export default function MasterplanConnectivity() {
             min-height: 300px;
             aspect-ratio: auto;
           }
-          .uv-mp-pin {
-            gap: 4px;
+          .uttara-hotspot-label {
+            padding: 4px 8px;
+            font-size: 7px;
           }
-          .uv-mp-pin-dot {
-            flex-basis: 22px;
-            width: 22px;
-            height: 22px;
-            font-size: 6.5px;
-          }
-          .uv-mp-pin-label {
-            max-width: 95px;
-            padding: 5px 6px;
-            font-size: 6.5px;
-            white-space: normal;
+          .uttara-hotspot-pulse {
+            width: 8px;
+            height: 8px;
+            flex-basis: 8px;
           }
           .uv-mp-map-caption {
             left: 8px;
@@ -1588,20 +1522,6 @@ export default function MasterplanConnectivity() {
             padding: 7px 9px;
             font-size: 6.5px;
           }
-          .uv-mp-nearby-pin {
-            gap: 3px;
-          }
-          .uv-mp-nearby-pin-dot {
-            flex-basis: 22px;
-            width: 22px;
-            height: 22px;
-            font-size: 7.5px;
-          }
-          .uv-mp-nearby-pin-label {
-            max-width: 72px;
-            padding: 4px;
-            font-size: 6.5px;
-          }
           .uv-mp-nearby-home {
             left: 38%;
             top: 46%;
@@ -1624,7 +1544,7 @@ export default function MasterplanConnectivity() {
           }
         }
         @media (prefers-reduced-motion: reduce) {
-          .uv-mp-pin-dot:after {
+          .uttara-hotspot-pulse {
             animation: none;
           }
           .uv-masterplan * {

@@ -21,7 +21,7 @@ const projectLinks = [
 
 const contactInfo = {
   address: "Uttara View,Ashulia Model Town, Dhaka, Bangladesh",
-  phone: "+880 1XXXXXXXXX",
+  phone: "+8801715102130",
   email: "info@MUHAJIREEN.com",
 };
 

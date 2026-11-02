@@ -723,8 +723,9 @@ const About = (props) => {
                         width: 88%;
                     }
                     .mc-floating-card {
-                        top: 110px;
+                        top: 180px;
                         width: 180px;
+                        left:-20px;
                         padding: 15px;
                     }
                     .mc-floating-card h3 {

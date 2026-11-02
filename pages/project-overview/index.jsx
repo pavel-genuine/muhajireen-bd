@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar/Navbar";
@@ -257,19 +257,6 @@ const lifestyleFacilities = [
   },
 ];
 
-const categories = [
-  "ALL",
-  "RECREATION",
-  "WELLNESS",
-  "FAMILY LIVING",
-  "CORPORATE LIFE",
-  "NATURE",
-  "ACTIVE LIVING",
-  "FAITH & COMMUNITY",
-  "EDUCATION",
-  "CARE",
-];
-
 const projectHotspots = [
   {
     id: "hospital",
@@ -366,31 +353,170 @@ const projectHotspots = [
   },
 ];
 
-const nearby = [
-  "Uttara (West) Police Station",
-  "Metro Rail",
-  "Airport",
-  "Birulia Bridge",
-  "Gabtoli Bus Stand",
-  "Daffodil University",
-  "City University",
-  "Eastern University",
-  "BRAC University",
-  "World University",
-  "Passport Office",
-  "Boat Club",
+const nearbyDestinations = [
+  {
+    id: "metro",
+    name: "Uttara Center Metro Station",
+    category: "TRANSPORT",
+    icon: "↗",
+    description: "Metro Rail access for connections toward central Dhaka.",
+    query: "Uttara Center Metro Station Dhaka",
+  },
+  {
+    id: "airport",
+    name: "Hazrat Shahjalal International Airport",
+    category: "TRANSPORT",
+    icon: "✈",
+    description:
+      "Dhaka’s international airport and a key regional travel gateway.",
+    query: "Hazrat Shahjalal International Airport Dhaka",
+  },
+  {
+    id: "boat-club",
+    name: "Dhaka Boat Club",
+    category: "LIFESTYLE",
+    icon: "≈",
+    description:
+      "A recognised riverside club destination in the wider Uttara–Ashulia area.",
+    query: "Dhaka Boat Club Birulia",
+  },
+  {
+    id: "diu",
+    name: "Daffodil International University",
+    category: "EDUCATION",
+    icon: "⌂",
+    description: "University campus at Daffodil Smart City, Birulia.",
+    query: "Daffodil International University Daffodil Smart City",
+  },
+  {
+    id: "world-university",
+    name: "World University of Bangladesh",
+    category: "EDUCATION",
+    icon: "⌘",
+    description:
+      "World University of Bangladesh, shown south-east of MUHAJIREEN in the supplied map.",
+    query: "World University of Bangladesh",
+  },
+  {
+    id: "eastern",
+    name: "Eastern University",
+    category: "EDUCATION",
+    icon: "✳",
+    description: "Permanent campus in Ashulia Model Town.",
+    query: "Eastern University Ashulia Model Town",
+  },
+  {
+    id: "birulia-bridge",
+    name: "Birulia Bridge",
+    category: "CONNECTIVITY",
+    icon: "⌁",
+    description:
+      "A local river-crossing and road connection in the Birulia area.",
+    query: "Birulia Bridge Savar",
+  },
+  {
+    id: "uttara-university",
+    name: "Uttara University",
+    category: "EDUCATION",
+    icon: "⌂",
+    description:
+      "A university shown north-east of MUHAJIREEN in the supplied map screenshot.",
+    query: "Uttara University Dhaka",
+  },
+  {
+    id: "milestone",
+    name: "Milestone College",
+    category: "EDUCATION",
+    icon: "⌘",
+    description:
+      "Milestone College Permanent Campus, visible north-east of the project on the supplied map.",
+    query: "Milestone College Permanent Campus Uttara",
+  },
+];
+
+const categories = [
+  "ALL",
+  "RECREATION",
+  "WELLNESS",
+  "FAMILY LIVING",
+  "CORPORATE LIFE",
+  "NATURE",
+  "ACTIVE LIVING",
+  "FAITH & COMMUNITY",
+  "EDUCATION",
+  "CARE",
 ];
 
 export default function ProjectOverviewPage() {
   const [activeHotspotId, setActiveHotspotId] = useState("hospital");
   const [hotspotDetailsOpen, setHotspotDetailsOpen] = useState(true);
 
+  // Connectivity interactive map states
+  const [nearbyFilter, setNearbyFilter] = useState("ALL");
+  const [nearbyActiveId, setNearbyActiveId] = useState("metro");
+  const [activeFacilityId, setActiveFacilityId] = useState("pool");
+  const [activeCategory, setActiveCategory] = useState("ALL");
+
+  const filteredFacilities = useMemo(
+    () =>
+      activeCategory === "ALL"
+        ? lifestyleFacilities
+        : lifestyleFacilities.filter(
+            (item) => item.category === activeCategory,
+          ),
+    [activeCategory],
+  );
+
+  const selectCategory = (category) => {
+    setActiveCategory(category);
+
+    const nextItems =
+      category === "ALL"
+        ? lifestyleFacilities
+        : lifestyleFacilities.filter((item) => item.category === category);
+
+    setActiveFacilityId(nextItems[0]?.id || "");
+  };
+
+  useEffect(() => {
+    if (!filteredFacilities.some((item) => item.id === activeFacilityId)) {
+      setActiveFacilityId(filteredFacilities[0]?.id || "");
+    }
+  }, [activeCategory, activeFacilityId, filteredFacilities]);
+
   const activeHotspot =
     projectHotspots.find((item) => item.id === activeHotspotId) ||
     projectHotspots[0];
-  const activeHotspotIndex = projectHotspots.findIndex(
-    (item) => item.id === activeHotspot.id,
+
+  const activeNearby = useMemo(
+    () =>
+      nearbyDestinations.find((place) => place.id === nearbyActiveId) ||
+      nearbyDestinations[0],
+    [nearbyActiveId],
   );
+
+  const visibleDestinations = nearbyDestinations.filter(
+    (place) => nearbyFilter === "ALL" || place.category === nearbyFilter,
+  );
+
+  const moveNearby = () => {
+    const index = visibleDestinations.findIndex(
+      (place) => place.id === nearbyActiveId,
+    );
+    const next =
+      visibleDestinations[
+        (Math.max(index, 0) + 1) % visibleDestinations.length
+      ];
+    if (next) setNearbyActiveId(next.id);
+  };
+
+  const selectNearbyFilter = (filter) => {
+    setNearbyFilter(filter);
+    const first = nearbyDestinations.find(
+      (place) => filter === "ALL" || place.category === filter,
+    );
+    if (first) setNearbyActiveId(first.id);
+  };
 
   useEffect(() => {
     if (!hotspotDetailsOpen) return undefined;
@@ -420,10 +546,6 @@ export default function ProjectOverviewPage() {
 
       {/* MASTERPLAN FULL-WIDTH HERO SLIDE STYLE */}
       <section
-        style={{
-          marginBottom: width < 768 ? "150px" : "100px",
-          zIndex: 10,
-        }}
         className="uttara-hero"
         aria-label="MUHAJIREEN masterplan and infrastructure hotspots"
       >
@@ -541,9 +663,25 @@ export default function ProjectOverviewPage() {
       </section>
 
       <section
+        style={{
+          marginInline: "20px",
+          marginBottom: "50px",
+        }}
         className="uv-overview-masterplan"
         aria-label="MUHAJIREEN masterplan and facilities"
       >
+        <p
+          style={{
+            textAlign: "center",
+            marginBottom: "50px",
+            marginTop: width < 768 ? "150px" : "20px",
+            fontSize: "14px",
+          }}
+          className="uv-project-note"
+        >
+          Select a marker to explore planned facilities. Details rotate
+          automatically.
+        </p>
         <div className="uv-mp-intro">
           <span className="uv-overview-kicker">
             <i /> PROJECT MASTERPLAN
@@ -557,10 +695,6 @@ export default function ProjectOverviewPage() {
               </span>
             </em>
           </h1>
-          <p>
-            Select a marker to explore planned facilities. Details rotate
-            automatically.
-          </p>
         </div>
       </section>
 
@@ -771,8 +905,33 @@ export default function ProjectOverviewPage() {
             life.
           </p>
         </div>
+
+        <div style={{ marginBottom: "30px" }} className="uv-life-filter-row">
+          <div className="uv-life-filter-label">
+            <span className="uv-life-eyebrow-line" />
+            <span>EXPLORE FACILITIES</span>
+          </div>
+
+          <div
+            className="uv-life-filters"
+            role="group"
+            aria-label="Filter lifestyle facilities"
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={activeCategory === category ? "is-active" : ""}
+                aria-pressed={activeCategory === category}
+                onClick={() => selectCategory(category)}
+              >
+                {category === "ALL" ? "All" : category}
+              </button>
+            ))}
+          </div>
+        </div>
         <div className="uv-facility-grid uv-lifestyle-grid">
-          {lifestyleFacilities.map((item) => (
+          {filteredFacilities.map((item) => (
             <article
               className="uv-facility-card"
               key={item.number + item.title}
@@ -798,63 +957,460 @@ export default function ProjectOverviewPage() {
       </section>
 
       {/* LOCATION & CONNECTIVITY */}
-      <section className="uv-connect">
-        <div className="uv-connect-copy">
-          <div className="uv-eyebrow">
-            <span className="uv-eyebrow-line" />
-            <span>LOCATION & CONNECTIVITY</span>
-          </div>
-          <h2>
-            Beside Uttara.
-            <br />
-            <em>Connected to More.</em>
-          </h2>
-          <p>
-            The project profile highlights its proximity to Uttara and lists
-            road and regional connectivity considerations, including proposed or
-            developing infrastructure. These items are plans described in the
-            profile and may change over time.
-          </p>
-          <Link href="/contact" className="uv-outline-button">
-            <span>Ask About Location</span>
-            <span className="uv-button-icon">↗</span>
-          </Link>
-        </div>
-        <div className="uv-map">
-          <Image
-            src="/images/slider/hero-slide/pin-map.png"
-            alt="Project location map supplied for MUHAJIREEN"
-            fill
-            sizes="(max-width: 900px) 100vw, 54vw"
-          />
-        </div>
-      </section>
-
-      {/* NEARBY DESTINATIONS */}
-      <section className="uv-nearby uv-section">
-        <div>
-          <div className="uv-eyebrow">
-            <span className="uv-eyebrow-line" />
-            <span>05 / NEARBY DESTINATIONS</span>
-          </div>
-          <h2>
-            Within Reach
-            <br />
-            <em>of Key Destinations.</em>
-          </h2>
-          <p>
-            The profile names the following nearby places and institutions.
-            Exact travel times and distances are not stated here.
-          </p>
-        </div>
-        <div className="uv-nearby-list">
-          {nearby.map((name, index) => (
-            <div key={name}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{name}</strong>
-              <i>↗</i>
+      <section
+        className="uv-connect-masterplan-style"
+        style={{ padding: "60px 24px", maxWidth: "1320px", margin: "0 auto" }}
+      >
+        <div
+          className="uv-mp-nearby"
+          aria-labelledby="uv-mp-nearby-title"
+          style={{ marginTop: 0 }}
+        >
+          <div className="uv-mp-nearby-heading">
+            <div>
+              <div className="uv-eyebrow">
+                <span className="uv-eyebrow-line" />
+                <span>LOCATION & CONNECTIVITY</span>
+              </div>
+              <h3
+                id="uv-mp-nearby-title"
+                style={{
+                  margin: "10px 0 10px",
+                  fontSize: "clamp(28px, 4vw, 48px)",
+                  fontWeight: 500,
+                }}
+              >
+                Beside Uttara. <em>Connected to More.</em>
+              </h3>
+              <p
+                style={{
+                  maxWidth: "650px",
+                  margin: 0,
+                  color: "var(--uv-muted, #847873)",
+                  fontSize: "11.5px",
+                  lineHeight: 1.7,
+                }}
+              >
+                Explore key destinations around the wider Uttara–Ashulia area.
+                Select a hotspot to view details or open its location in Google
+                Maps.
+              </p>
             </div>
-          ))}
+            <div
+              className="uv-mp-nearby-count"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "10px 14px",
+                border: "1px solid rgba(166, 139, 103, 0.22)",
+                borderRadius: "12px",
+                background: "rgba(255, 255, 255, 0.58)",
+              }}
+            >
+              <strong
+                style={{
+                  color: "#a68b67",
+                  fontFamily: "Georgia, serif",
+                  fontSize: "30px",
+                  fontWeight: 400,
+                }}
+              >
+                {String(nearbyDestinations.length).padStart(2, "0")}
+              </strong>
+              <span
+                style={{
+                  maxWidth: "65px",
+                  color: "var(--uv-muted, #847873)",
+                  fontSize: "7.5px",
+                  fontWeight: 800,
+                  letterSpacing: "0.13em",
+                  lineHeight: 1.4,
+                }}
+              >
+                DESTINATIONS
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="uv-mp-connectivity-map-layout"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 1.7fr) minmax(260px, 0.7fr)",
+              overflow: "hidden",
+              border: "1px solid rgba(166, 139, 103, 0.2)",
+              borderRadius: "20px",
+              background: "rgba(255, 255, 255, 0.65)",
+              boxShadow: "0 16px 48px rgba(91, 73, 48, 0.07)",
+            }}
+          >
+            <div
+              className="uv-mp-connectivity-map uv-mp-connectivity-map-real"
+              aria-label="Real map showing MUHAJIREEN and nearby destinations"
+              style={{
+                position: "relative",
+                isolation: "isolate",
+                minHeight: 0,
+                aspectRatio: "1787/837",
+                overflow: "hidden",
+                background: "#e9e3d7",
+              }}
+            >
+              <img
+                className="uv-mp-connectivity-map-image"
+                src="/images/slider/hero-slide/localmap.png"
+                alt="Map of MUHAJIREEN and nearby destinations around Uttara and Ashulia"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "fill",
+                }}
+              />
+              <div
+                className="uv-mp-map-image-tint"
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "rgba(248, 245, 237, 0.08)",
+                  pointerEvents: "none",
+                }}
+              />
+
+              <div
+                className="uv-mp-nearby-home uv-mp-nearby-home-real"
+                style={{
+                  position: "absolute",
+                  left: "37.94%",
+                  top: "46.24%",
+                  zIndex: 4,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "6px 8px",
+                  border: "1px solid #d7bd91",
+                  background: "rgba(255, 253, 248, 0.96)",
+                  boxShadow: "0 4px 15px rgba(59, 51, 36, 0.16)",
+                  transform: "translate(-20%, -115%)",
+                }}
+              >
+                <span
+                  style={{
+                    display: "grid",
+                    placeItems: "center",
+                    width: "22px",
+                    height: "22px",
+                    borderRadius: "50%",
+                    color: "white",
+                    background: "#a8844f",
+                    fontSize: "14px",
+                  }}
+                >
+                  ⌂
+                </span>
+                <div style={{ display: "grid", gap: "2px" }}>
+                  <b
+                    style={{
+                      fontSize: "7.5px",
+                      letterSpacing: "0.1em",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    MUHAJIREEN
+                  </b>
+                  <small
+                    style={{
+                      color: "#9a7545",
+                      fontSize: "6.5px",
+                      letterSpacing: "0.13em",
+                    }}
+                  >
+                    PROJECT LOCATION
+                  </small>
+                </div>
+              </div>
+
+              {visibleDestinations.map((place, index) => {
+                const positions = {
+                  metro: { x: 52, y: 59.7 },
+                  airport: { x: 86, y: 83.6 },
+                  "boat-club": { x: 34.4, y: 62.5 },
+                  diu: { x: 13.3, y: 22.7 },
+                  eastern: { x: 8.5, y: 43 },
+                  "birulia-bridge": { x: 31.3, y: 70.1 },
+                  "uttara-university": { x: 49, y: 9 },
+                  "world-university": { x: 50.5, y: 73 },
+                  milestone: { x: 55, y: 20 },
+                };
+                const pos = positions[place.id];
+                const visible =
+                  nearbyFilter === "ALL" || place.category === nearbyFilter;
+                if (!visible || !pos) return null;
+                return (
+                  <button
+                    key={place.id}
+                    type="button"
+                    className={`uttara-hotspot ${nearbyActiveId === place.id ? "is-active" : ""}`}
+                    style={{
+                      left: `${pos.x}%`,
+                      top: `${pos.y}%`,
+                      position: "absolute",
+                      zIndex: 5,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: 0,
+                      border: 0,
+                      background: "transparent",
+                      cursor: "pointer",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                    onClick={() => setNearbyActiveId(place.id)}
+                    aria-label={`Show ${place.name}`}
+                    aria-pressed={nearbyActiveId === place.id}
+                  >
+                    <span className="uttara-hotspot-pulse" />
+                    <span className="uttara-hotspot-label">
+                      {String(index + 1).padStart(2, "0")}. {place.name}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <aside
+              className="uv-mp-nearby-detail"
+              aria-live="polite"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                minWidth: 0,
+                padding: "clamp(18px, 2.5vw, 28px)",
+                borderLeft: "1px solid rgba(166, 139, 103, 0.17)",
+                background:
+                  "linear-gradient(160deg, rgba(255, 255, 255, 0.88), rgba(250, 248, 242, 0.96))",
+              }}
+            >
+              <div
+                className="uv-mp-nearby-detail-top"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "10px",
+                  color: "#a68b67",
+                  fontSize: "8.5px",
+                  fontWeight: 800,
+                  letterSpacing: "0.12em",
+                }}
+              >
+                <span>{activeNearby.category}</span>
+                <strong style={{ fontSize: "11px", letterSpacing: 0 }}>
+                  {String(
+                    nearbyDestinations.findIndex(
+                      (place) => place.id === activeNearby.id,
+                    ) + 1,
+                  ).padStart(2, "0")}{" "}
+                  <i
+                    style={{
+                      color: "#9da2a0",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                    }}
+                  >
+                    / {String(nearbyDestinations.length).padStart(2, "0")}
+                  </i>
+                </strong>
+              </div>
+              <div
+                className="uv-mp-nearby-detail-icon"
+                style={{
+                  display: "grid",
+                  placeItems: "center",
+                  width: "46px",
+                  height: "46px",
+                  margin: "24px 0 16px",
+                  border: "1px solid #ddc69f",
+                  borderRadius: "50%",
+                  color: "#96713f",
+                  background: "#f4ead8",
+                  fontSize: "22px",
+                }}
+              >
+                {activeNearby.icon}
+              </div>
+              <h4
+                style={{
+                  margin: "0 0 10px",
+                  color: "#443d34",
+                  fontFamily: "Georgia, serif",
+                  fontSize: "clamp(20px, 2.2vw, 26px)",
+                  fontWeight: 400,
+                  lineHeight: 1.15,
+                }}
+              >
+                {activeNearby.name}
+              </h4>
+              <p
+                style={{
+                  margin: 0,
+                  color: "#847873",
+                  fontSize: "10.5px",
+                  lineHeight: 1.7,
+                }}
+              >
+                {activeNearby.description}
+              </p>
+              <div
+                className="uv-mp-nearby-detail-actions"
+                style={{
+                  display: "grid",
+                  gap: "12px",
+                  marginTop: "auto",
+                  paddingTop: "20px",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={moveNearby}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "10px 0",
+                    border: 0,
+                    borderTop: "1px solid rgba(166, 139, 103, 0.2)",
+                    background: "transparent",
+                    color: "#766d61",
+                    fontSize: "9.5px",
+                    fontWeight: 800,
+                    cursor: "pointer",
+                  }}
+                >
+                  Next destination{" "}
+                  <span style={{ color: "#a68b67", fontSize: "15px" }}>→</span>
+                </button>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(activeNearby.query)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "block",
+                    padding: "11px 12px",
+                    border: "1px solid rgba(166, 139, 103, 0.4)",
+                    borderRadius: "99px",
+                    color: "#6e593d",
+                    background: "#f4ead8",
+                    textAlign: "center",
+                    textDecoration: "none",
+                    fontSize: "8.5px",
+                    fontWeight: 800,
+                  }}
+                >
+                  Open in Google Maps ↗
+                </a>
+              </div>
+            </aside>
+          </div>
+
+          <div
+            className="uv-mp-nearby-toolbar"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              gap: "20px",
+              margin: "20px 0 12px",
+            }}
+          >
+            <div>
+              <span
+                className="uv-mp-eyebrow"
+                style={{
+                  color: "#a68b67",
+                  fontSize: "8.5px",
+                  fontWeight: 800,
+                  letterSpacing: "0.17em",
+                }}
+              >
+                FILTER DESTINATIONS
+              </span>
+              <strong
+                style={{
+                  color: "#443d34",
+                  fontFamily: "Georgia, serif",
+                  fontSize: "19px",
+                  fontWeight: 400,
+                  display: "block",
+                  marginTop: "4px",
+                }}
+              >
+                Choose a category
+              </strong>
+            </div>
+            <div
+              className="uv-mp-nearby-filters"
+              role="group"
+              aria-label="Filter nearby destinations"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "flex-end",
+                gap: "6px",
+              }}
+            >
+              {[
+                "ALL",
+                "TRANSPORT",
+                "EDUCATION",
+                "LIFESTYLE",
+                "CONNECTIVITY",
+              ].map((filter) => (
+                <button
+                  type="button"
+                  key={filter}
+                  className={nearbyFilter === filter ? "is-active" : ""}
+                  onClick={() => selectNearbyFilter(filter)}
+                  aria-pressed={nearbyFilter === filter}
+                  style={{
+                    padding: "8px 12px",
+                    border: "1px solid rgba(166, 139, 103, 0.25)",
+                    borderRadius: "99px",
+                    color: nearbyFilter === filter ? "#6d512d" : "#766d61",
+                    background:
+                      nearbyFilter === filter
+                        ? "#f2e5ce"
+                        : "rgba(255, 255, 255, 0.65)",
+                    fontSize: "7.5px",
+                    fontWeight: 800,
+                    letterSpacing: "0.08em",
+                    cursor: "pointer",
+                  }}
+                >
+                  {filter === "CONNECTIVITY" ? "ROADS" : filter}
+                </button>
+              ))}
+            </div>
+          </div>
+          <p
+            style={{
+              margin: "12px 0 0",
+              color: "#847873",
+              fontSize: "9.5px",
+              lineHeight: 1.6,
+            }}
+          >
+            Pin positions are placed visually from the map image you supplied
+            and are approximate, not surveyed coordinates. The bridge shown is a
+            proposed concept only—not a confirmed or completed project. Verify
+            destination locations, bridge feasibility and approvals before
+            publication.
+          </p>
         </div>
       </section>
 
@@ -1011,6 +1567,24 @@ export default function ProjectOverviewPage() {
           border-radius: 50%;
           box-shadow: inset 0 0 55px rgba(255, 255, 255, 0.4);
         }
+        .uv-life-filter-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 14px;
+        }
+        .uv-life-eyebrow,
+        .uv-life-filter-label {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: var(--life-gold-dark);
+          font-size: 8.5px;
+          font-weight: 800;
+          letter-spacing: 0.22em;
+          line-height: 1.5;
+        }
 
         .uv-contact-orb-one {
           top: 5%;
@@ -1107,6 +1681,34 @@ export default function ProjectOverviewPage() {
           color: var(--uv-gold-dark);
           font-style: italic;
           font-weight: 400;
+        }
+
+        .uv-life-filters {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          gap: 6px;
+        }
+
+        .uv-life-filters button {
+          min-height: 28px;
+          padding: 6px 11px;
+          border: 1px solid #e5ddd1;
+          border-radius: 99px;
+          color: #786f66;
+          background: rgba(255, 255, 255, 0.58);
+          font-size: 7.5px;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
+
+        .uv-life-filters button:hover,
+        .uv-life-filters button.is-active {
+          border-color: #c9a46a;
+          color: #70552f;
+          background: #f1e6d4;
         }
 
         /* BUTTONS */
@@ -1889,90 +2491,6 @@ export default function ProjectOverviewPage() {
           margin-top: 14px;
         }
 
-        /* CONNECTIVITY & MAP */
-        .uv-connect {
-          display: grid;
-          grid-template-columns: 0.85fr 1.15fr;
-          gap: 6%;
-          align-items: center;
-          padding: clamp(60px, 7vw, 90px) 7%;
-          border-top: 1px solid rgba(201, 164, 106, 0.2);
-          border-bottom: 1px solid rgba(201, 164, 106, 0.2);
-          background: linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.65),
-            rgba(255, 250, 242, 0.45)
-          );
-        }
-        .uv-connect h2 {
-          font-size: clamp(34px, 4vw, 54px);
-          font-weight: 400;
-          margin: 10px 0 14px;
-        }
-        .uv-connect-copy > p {
-          font-size: 12px;
-          line-height: 1.8;
-          color: #766c68;
-          max-width: 450px;
-        }
-        .uv-map {
-          position: relative;
-          height: 380px;
-          overflow: hidden;
-          border: 1px solid rgba(201, 164, 106, 0.25);
-          border-radius: 20px;
-          background: #f7f1e8;
-          box-shadow: 0 16px 45px rgba(107, 91, 72, 0.08);
-        }
-        .uv-map :global(img) {
-          object-fit: contain;
-        }
-
-        /* NEARBY DESTINATIONS */
-        .uv-nearby {
-          display: grid;
-          grid-template-columns: 0.8fr 1.2fr;
-          gap: 8%;
-          align-items: start;
-        }
-        .uv-nearby h2 {
-          font-size: clamp(32px, 4vw, 50px);
-          font-weight: 400;
-          margin: 10px 0 14px;
-        }
-        .uv-nearby > div:first-child > p {
-          font-size: 12px;
-          line-height: 1.8;
-          color: #766c68;
-          max-width: 370px;
-        }
-        .uv-nearby-list {
-          border-top: 1px solid rgba(165, 139, 104, 0.2);
-        }
-        .uv-nearby-list > div {
-          display: grid;
-          grid-template-columns: 35px 1fr 20px;
-          gap: 12px;
-          align-items: center;
-          padding: 14px 0;
-          border-bottom: 1px solid rgba(165, 139, 104, 0.16);
-        }
-        .uv-nearby-list span {
-          font-size: 8.5px;
-          color: var(--uv-gold-dark);
-          font-weight: 700;
-        }
-        .uv-nearby-list strong {
-          font-size: 11.5px;
-          font-weight: 500;
-          color: #443d34;
-        }
-        .uv-nearby-list i {
-          font-style: normal;
-          color: var(--uv-gold-dark);
-          font-size: 13px;
-        }
-
         /* INVESTMENT SECTION */
         .uv-investment-head {
           display: grid;
@@ -2157,7 +2675,7 @@ export default function ProjectOverviewPage() {
             left: 16px !important;
             right: 16px !important;
             top: auto !important;
-            bottom: -100px !important;
+            bottom: -120px !important;
             width: auto !important;
             max-width: none !important;
             transform: none !important;
@@ -2194,6 +2712,13 @@ export default function ProjectOverviewPage() {
           .uttara-hotspot-card-controls {
             margin-top: 8px;
             font-size: 9px;
+          }
+
+          .uv-mp-connectivity-map-layout {
+            grid-template-columns: 1fr !important;
+          }
+          .uv-mp-connectivity-map {
+            aspect-ratio: 1.25/1 !important;
           }
         }
 
@@ -2238,15 +2763,22 @@ export default function ProjectOverviewPage() {
           .uv-image-story-copy {
             padding: 40px 24px;
           }
-          .uv-map {
-            height: 300px;
-          }
           .uv-project-head,
           .uv-facilities-head {
             display: block;
           }
           .uv-land-card {
             margin-top: 20px;
+          }
+          .uv-mp-nearby-heading {
+            align-items: flex-start !important;
+            flex-direction: column;
+            gap: 14px;
+          }
+          .uv-mp-nearby-toolbar {
+            align-items: flex-start !important;
+            flex-direction: column;
+            gap: 12px;
           }
         }
 
@@ -2258,9 +2790,6 @@ export default function ProjectOverviewPage() {
           }
           .uv-fact:nth-child(odd) {
             border-right: 0;
-          }
-          .uv-nearby-list > div {
-            grid-template-columns: 28px 1fr 15px;
           }
         }
       `}</style>

@@ -25,9 +25,11 @@ const Header = (props) => {
 
     const [isHeaderVisible, setIsHeaderVisible] = useState(true);
     const pathname = usePathname();
+    const isProjectOverview =
+        pathname === "/project-overview";
 
-
-    const isTransparentPage = pathname === "/";
+    const isTransparentPage =
+        isProjectOverview || pathname === "/";
 
     useEffect(() => {
         let lastScrollY = window.scrollY;

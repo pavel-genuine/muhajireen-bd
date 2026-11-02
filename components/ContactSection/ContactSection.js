@@ -40,9 +40,9 @@ export default function ContactSection() {
                     <h2>Your Next Chapter<br /><em>Starts With A Conversation.</em></h2>
                     <p>Discover MUHAJIREEN and get the information you need to take your next step with confidence.</p>
                     <div className="uv-home-contact-actions">
-                        <a href="tel:+8801XXXXXXXXX" className="uv-home-contact-secondary">☎ <span>Call Our Team</span></a>
-                        <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener noreferrer" className="uv-home-contact-secondary">✆ <span>WhatsApp</span></a>
-                        <Link href="/contact-us" className="uv-home-contact-primary">Get in Touch <span>↗</span></Link>
+                        <a href="tel:+8801715102130" className="uv-home-contact-secondary">☎ <span>Call Our Team</span></a>
+                        <a href="https://wa.me/8801715102130" target="_blank" rel="noopener noreferrer" className="uv-home-contact-secondary">✆ <span>WhatsApp</span></a>
+                        <Link href="/contact" className="uv-home-contact-primary">Get in Touch <span>↗</span></Link>
                     </div>
                     <div className="uv-home-contact-foot"><span className="uv-home-contact-foot-mark">✧</span><span>PERSONAL GUIDANCE. THOUGHTFUL LIVING.</span></div>
                 </div>
