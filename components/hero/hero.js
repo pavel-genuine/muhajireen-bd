@@ -464,7 +464,7 @@ export default function Hero() {
                                   )
                                 }
                               >
-                                Next location <b>→</b>
+                                Next Infrastructure <b>→</b>
                               </button>
                             </div>
                           </div>

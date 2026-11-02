@@ -652,7 +652,7 @@ export default function ProjectOverviewPage() {
                         )
                       }
                     >
-                      Next location <b>→</b>
+                      Next Infrastructure <b>→</b>
                     </button>
                   </div>
                 </div>
