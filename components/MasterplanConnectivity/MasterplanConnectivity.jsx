@@ -314,7 +314,7 @@ export default function MasterplanConnectivity() {
               </div>
               <div>
                 <strong>10</strong>
-                <span>FEATURED LOCATIONS</span>
+                <span>FEATURED ENTITIES</span>
               </div>
             </div>
 
