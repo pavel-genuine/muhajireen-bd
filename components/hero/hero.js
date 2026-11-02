@@ -329,7 +329,7 @@ export default function Hero() {
                   />
 
                   {/* Contrast overlay sits above the background, below the title. */}
-                  {<div className="uttara-slide-overlay" />}
+                  {(slide.id != 2 && slide.id != 10) && <div className="uttara-slide-overlay" />}
 
                   {/* Large title: this layer sits BEHIND the building cutout. */}
                   <h1
