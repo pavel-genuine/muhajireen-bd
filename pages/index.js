@@ -13,6 +13,7 @@ import LifestyleFacilities from '../components/LifestyleFacilities/LifestyleFaci
 import InvestmentOpportunities from '../components/InvestmentOpportunities/InvestmentOpportunities';
 import ContactSection from '../components/ContactSection/ContactSection';
 import WAIcon from '../components/WAIcon/WAIcon';
+import Head from 'next/head';
 
 
 
@@ -20,6 +21,21 @@ import WAIcon from '../components/WAIcon/WAIcon';
 const HomePage = () => {
     return (
         <Fragment>
+            <Head>
+                <title>MUHAJIREEN Consultant Ltd</title>
+                <meta
+                    name="description"
+                    content="Thoughtful Spaces, Meaningful Lives"
+                />
+                <link rel="icon" type="image/png" href="/images/logo.png" />
+                <link rel="apple-touch-icon" href="/images/logo.png" />
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="MUHAJIREEN Consultant Ltd" />
+                <meta property="og:description" content="Thoughtful Spaces, Meaningful Lives" />
+                <meta property="og:url" content="" />
+                <meta property="og:site_name" content="MUHAJIREEN Consultant Ltd" />
+                <meta property="og:image" content="" />
+            </Head>
             <Navbar Logo={Logo}
             />
             <Hero />
