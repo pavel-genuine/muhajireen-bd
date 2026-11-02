@@ -498,7 +498,7 @@ export default function Hero() {
                         data-swiper-parallax="-100"
                         data-swiper-parallax-duration="900"
                       >
-                        <AnchorLink href="#about" className="uttara-cta">
+                        <AnchorLink href="/project-overview" className="uttara-cta">
                           <span>Discover MUHAJIREEN</span>
                           <span className="uttara-cta-icon">↗</span>
                         </AnchorLink>
