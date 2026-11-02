@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar/Navbar";
@@ -12,92 +14,37 @@ const projectFacts = [
   { value: "80 ft", unit: "Road", note: "Front-side road width" },
 ];
 
-const facilities = [
-  {
-    number: "01",
-    label: "HEALTHCARE",
-    title: "Residential buildings",
-    items: "A planned medical education institution.",
-  },
-  {
-    number: "02",
-    label: "RETAIL & COMMERCE",
-    title: "Shopping Mall",
-    items: "A planned destination for shopping and services.",
-  },
-  {
-    number: "03",
-    label: "RETAIL & COMMERCE",
-    title: "Commercial Spaces",
-    items: "Shops, restaurants and everyday services.",
-  },
-  {
-    number: "04",
-    label: "HEALTHCARE",
-    title: "General Hospital",
-    items: "Healthcare facilities for the wider community.",
-  },
-  {
-    number: "05",
-    label: "HEALTHCARE",
-    title: "Dental Hospital",
-    items: "Dedicated dental care facilities.",
-  },
-  {
-    number: "06",
-    label: "EDUCATION",
-    title: "Nursing Institute",
-    items: "A planned institute for nursing education.",
-  },
-  {
-    number: "07",
-    label: "EDUCATION",
-    title: "International School",
-    items: "An education destination for families.",
-  },
-  {
-    number: "08",
-    label: "FAITH & COMMUNITY",
-    title: "Mosque & Madrasha",
-    items: "Spaces for worship and religious learning.",
-  },
+const integratedDevelopments = [
+  { number: "01", label: "HEALTHCARE", title: "Medical College", items: "A planned medical education institution." },
+  { number: "02", label: "HEALTHCARE", title: "General Hospital", items: "Healthcare facilities for the wider community." },
+  { number: "03", label: "HEALTHCARE", title: "Dental Hospital", items: "Dedicated dental care facilities." },
+  { number: "04", label: "EDUCATION", title: "Nursing Institute", items: "A planned institute for nursing education." },
+  { number: "05", label: "EDUCATION", title: "International School", items: "An education destination for families." },
+  { number: "06", label: "FAITH & COMMUNITY", title: "Mosque & Madrasha", items: "Spaces for worship and religious learning." },
+  { number: "07", label: "RETAIL & COMMERCE", title: "Shopping Mall", items: "A planned destination for shopping and services." },
+  { number: "08", label: "RETAIL & COMMERCE", title: "Commercial Spaces", items: "Shops, restaurants and everyday services." },
+];
 
-  {
-    number: "09",
-    label: "OPEN SPACE",
-    title: "Green Zone & Park",
-    items: "Landscaped green areas and outdoor space.",
-  },
-  {
-    number: "10",
-    label: "FITNESS",
-    title: "Male & Female Gyms",
-    items: "Fitness facilities for residents.",
-  },
-  {
-    number: "11",
-    label: "FAMILY & PLAY",
-    title: "Kids’ Play Zone",
-    items: "A dedicated play area for children.",
-  },
-  {
-    number: "12",
-    label: "RECREATION",
-    title: "Swimming Pools",
-    items: "Lifestyle and recreation amenities listed in the project profile.",
-  },
-  {
-    number: "13",
-    label: "WALKABILITY",
-    title: "Long Walkway",
-    items: "A planned pedestrian-friendly walking route.",
-  },
-  {
-    number: "14",
-    label: "MOBILITY",
-    title: "Bicycle Zone",
-    items: "A designated zone for cycling.",
-  },
+const lifestyleFacilities = [
+  { number: "01", label: "RECREATION", title: "Swimming Pools", items: "Lifestyle and recreation amenities listed in the project profile." },
+  { number: "02", label: "FITNESS", title: "Male & Female Gyms", items: "Fitness facilities for residents." },
+  { number: "03", label: "FAMILY & PLAY", title: "Kids’ Play Zone", items: "A dedicated play area for children." },
+  { number: "04", label: "OPEN SPACE", title: "Green Zone & Park", items: "Landscaped green areas and outdoor space." },
+  { number: "05", label: "WALKABILITY", title: "Long Walkway", items: "A planned pedestrian-friendly walking route." },
+  { number: "06", label: "MOBILITY", title: "Bicycle Zone", items: "A designated zone for cycling." },
+];
+
+const projectHotspots = [
+  { id: "hospital", label: "Hospital", short: "HOSPITAL", x: 30, y: 50, image: "/images/slider/hero-slide/img-4.1-main.png", description: "Planned multi-specialist healthcare facilities for the community." },
+  { id: "dental", label: "Dental Hospital", short: "DENTAL", x: 37, y: 39, image: "/images/slider/hero-slide/img-5.1-main.png", description: "A dedicated dental care facility within the development plan." },
+  { id: "nursing", label: "Nursing Institute", short: "NURSING", x: 42, y: 34, image: "/images/slider/hero-slide/img-6.jpeg", description: "A planned institute for nursing education and training." },
+  { id: "school", label: "International School", short: "SCHOOL", x: 35, y: 20, image: "/images/slider/hero-slide/img-8-main.png", description: "An education destination planned for families." },
+  { id: "mosque", label: "Mosque & Madrasha", short: "MOSQUE", x: 50, y: 20, image: "/images/slider/hero-slide/img-7-main.png", description: "Spaces planned for worship and religious learning." },
+  { id: "residential", label: "Residential Area", short: "RESIDENCE", x: 83, y: 17, image: "/images/slider/hero-slide/img-3.1-main.png", description: "Residential spaces designed around everyday community living." },
+  { id: "park", label: "Central Park", short: "PARK", x: 63, y: 40, image: "/images/slider/hero-slide/img-3.1-main.png", description: "Planned green space and outdoor recreation area." },
+  { id: "commercial", label: "Commercial Spaces", short: "COMMERCE", x: 73, y: 59, image: "/images/slider/hero-slide/img-2.1-main.png", description: "Commercial spaces for shopping, dining and daily services." },
+  { id: "mall", label: "Shopping Mall", short: "MALL", x: 72, y: 77, image: "/images/slider/hero-slide/img-2.1-main.png", description: "A planned retail destination within the wider project." },
+  { id: "avenue", label: "Avenue 9", short: "AVENUE 9", x: 40, y: 92, image: "/images/slider/hero-slide/img-2.1-main.png", description: "A planned avenue forming part of the internal layout." },
 ];
 
 const nearby = [
@@ -116,52 +63,45 @@ const nearby = [
 ];
 
 export default function ProjectOverviewPage() {
+  const [activeHotspotId, setActiveHotspotId] = useState("hospital");
+  const activeHotspot = projectHotspots.find((item) => item.id === activeHotspotId) || projectHotspots[0];
+  const activeHotspotIndex = projectHotspots.findIndex((item) => item.id === activeHotspot.id);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHotspotId((current) => {
+        const index = projectHotspots.findIndex((item) => item.id === current);
+        return projectHotspots[(index + 1) % projectHotspots.length].id;
+      });
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <main className="uv-about-page">
       <Navbar Logo={Logo} />
-      <section className="uv-hero uv-overview-hero">
-        <Image
-          className="uv-overview-hero-image"
-          src="/images/slider/hero-slide/img-1-.png"
-          alt="Aerial masterplan concept for the MUHAJIREEN project"
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="uv-overview-hero-shade" />
-        <div className="uv-overview-hero-content">
-          <span className="uv-overview-kicker">
-            <i /> THE PROJECT, AT A GLANCE
-          </span>
-          <h1>
-            Room to grow.
-            <br />
-            <em>Space to belong.</em>
-          </h1>
-          <p>
-            Discover MUHAJIREEN — a planned residential and commercial
-            destination at Ashulia Model Town, beside Uttara Sector 16.
-          </p>
-          <div className="uv-overview-hero-actions">
-            <Link href="#project-details" className="uv-button">
-              Explore the project <span>↘</span>
-            </Link>
-            <span className="uv-overview-location">
-              ASHULIA MODEL TOWN <b /> DHAKA, BANGLADESH
-            </span>
-          </div>
+      <section className="uv-overview-masterplan" aria-label="MUHAJIREEN masterplan and facilities">
+        <div className="uv-mp-intro">
+          <span className="uv-overview-kicker"><i /> PROJECT MASTERPLAN</span>
+          <h1>Explore the plan.<br /><em>Discover MUHAJIREEN.</em></h1>
+          <p>Select a marker to explore planned facilities. Details rotate automatically.</p>
         </div>
-        <div className="uv-overview-hero-index">
-          <span>MUHAJIREEN</span>
-          <b>PROJECT OVERVIEW</b>
+        <div className="uv-mp-layout">
+          <div className="uv-mp-image-wrap">
+            <Image className="uv-mp-masterplan-image" src="/images/slider/hero-slide/img-1.1.png" alt="MUHAJIREEN project masterplan with facility markers" fill priority sizes="(max-width: 800px) 100vw, 75vw" />
+            {projectHotspots.map((item) => (
+              <button key={item.id} type="button" className={`uv-mp-hotspot ${activeHotspotId === item.id ? "is-active" : ""}`} style={{ left: `${item.x}%`, top: `${item.y}%` }} onClick={() => setActiveHotspotId(item.id)} aria-label={`Show ${item.label} details`} aria-pressed={activeHotspotId === item.id}><span /><b>{item.short}</b></button>
+            ))}
+            <span className="uv-mp-image-caption">ILLUSTRATIVE MASTERPLAN</span>
+          </div>
+          <aside className="uv-mp-detail" aria-live="polite">
+            <div className="uv-mp-detail-image"><Image key={activeHotspot.image} src={activeHotspot.image} alt={activeHotspot.label} fill sizes="(max-width: 800px) 100vw, 360px" /></div>
+            <div className="uv-mp-detail-copy"><span>PROJECT INFRASTRUCTURE · {String(activeHotspotIndex + 1).padStart(2, "0")} / {String(projectHotspots.length).padStart(2, "0")}</span><h2>{activeHotspot.label}</h2><p>{activeHotspot.description}</p><button type="button" onClick={() => setActiveHotspotId(projectHotspots[(activeHotspotIndex + 1) % projectHotspots.length].id)}>Next location <b>→</b></button></div>
+          </aside>
         </div>
       </section>
 
-      <section
-        className="uv-facts"
-        id="project-details"
-        aria-label="Project facts"
-      >
+      <section className="uv-facts" id="project-details" aria-label="Project facts">
         {projectFacts.map((fact) => (
           <div className="uv-fact" key={fact.note}>
             <strong>
@@ -175,6 +115,7 @@ export default function ProjectOverviewPage() {
           <span>Side and back road widths listed in the profile</span>
         </div>
       </section>
+
 
       <section className="uv-image-story">
         <div className="uv-image-story-photo">
@@ -266,31 +207,19 @@ export default function ProjectOverviewPage() {
         </div>
       </section>
 
-      <section className="uv-facilities uv-section">
-        <div className="uv-section-tag">03 / PROJECT INFRASTRUCTURE</div>
-        <div className="uv-facilities-head">
-          <h2>
-            The infrastructure
-            <br />
-            <em>planned for MUHAJIREEN.</em>
-          </h2>
-          <p>
-            Explore the key institutions, healthcare facilities, lifestyle
-            amenities and commercial destinations listed in the project profile.
-            These are profile-listed plans; confirm final scope, approvals and
-            delivery status with the project team.
-          </p>
+      <section className="uv-facilities uv-section uv-integrated-section">
+        <div className="uv-section-tag">03 / INTEGRATED DEVELOPMENT</div>
+        <div className="uv-facilities-head"><h2>Everything connected.<br /><em>A complete community.</em></h2><p>Planned healthcare, education, faith, retail and commercial destinations form part of the wider MUHAJIREEN development.</p></div>
+        <div className="uv-facility-grid uv-integrated-grid">
+          {integratedDevelopments.map((item) => <article className="uv-facility-card" key={item.number + item.title}><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></article>)}
         </div>
-        <div className="uv-facility-grid">
-          {facilities.map((item) => (
-            <article className="uv-facility-card" key={item.number}>
-              <span className="uv-facility-number">{item.number}</span>
-              <small>{item.label}</small>
-              <h3>{item.title}</h3>
-              <p>{item.items}</p>
-              <div className="uv-card-rule" />
-            </article>
-          ))}
+      </section>
+
+      <section className="uv-facilities uv-section uv-lifestyle-section">
+        <div className="uv-section-tag">04 / LIFESTYLE FACILITIES</div>
+        <div className="uv-facilities-head"><h2>Room for living.<br /><em>Space to unwind.</em></h2><p>Explore the lifestyle and outdoor amenities listed in the project profile, planned to support recreation, wellbeing and community life.</p></div>
+        <div className="uv-facility-grid uv-lifestyle-grid">
+          {lifestyleFacilities.map((item) => <article className="uv-facility-card" key={item.number + item.title}><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></article>)}
         </div>
       </section>
 
@@ -510,102 +439,23 @@ export default function ProjectOverviewPage() {
           overflow: hidden;
           background: #d9c9ae;
         }
-        .uv-overview-hero-image {
-          object-fit: cover;
-          object-position: center 52%;
-          z-index: -2;
-        }
+        .uv-overview-hero-image { object-fit: cover; object-position: center 52%; z-index: -2; }
         .uv-overview-hero-shade {
-          position: absolute;
-          inset: 0;
-          z-index: -1;
-          background:
-            linear-gradient(
-              90deg,
-              rgba(35, 27, 19, 0.76) 0%,
-              rgba(35, 27, 19, 0.48) 44%,
-              rgba(35, 27, 19, 0.08) 100%
-            ),
-            linear-gradient(0deg, rgba(35, 27, 19, 0.28), transparent 42%);
+          position: absolute; inset: 0; z-index: -1;
+          background: linear-gradient(90deg, rgba(35,27,19,.76) 0%, rgba(35,27,19,.48) 44%, rgba(35,27,19,.08) 100%), linear-gradient(0deg, rgba(35,27,19,.28), transparent 42%);
         }
-        .uv-overview-hero-content {
-          max-width: 760px;
-          color: #fffaf1;
-          position: relative;
-          z-index: 1;
-        }
-        .uv-overview-kicker {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 10px;
-          letter-spacing: 0.22em;
-          font-weight: 750;
-          color: #f0d6a9;
-        }
-        .uv-overview-kicker i {
-          width: 34px;
-          height: 1px;
-          background: #d9b77e;
-          display: block;
-        }
-        .uv-overview-hero h1 {
-          color: #fffaf1;
-          font-size: clamp(54px, 7.4vw, 104px);
-          line-height: 0.98;
-          letter-spacing: -0.065em;
-          font-weight: 400;
-          margin: 28px 0;
-        }
-        .uv-overview-hero h1 em {
-          color: #e6c28a;
-        }
-        .uv-overview-hero-content p {
-          max-width: 570px;
-          font-size: 15px;
-          line-height: 1.9;
-          color: rgba(255, 250, 241, 0.88);
-        }
-        .uv-overview-hero-actions {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 25px;
-          margin-top: 28px;
-        }
-        .uv-overview-hero .uv-button {
-          margin-top: 0;
-        }
-        .uv-overview-location {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          color: #f3e5ce;
-          font-size: 8px;
-          letter-spacing: 0.13em;
-          font-weight: 700;
-        }
-        .uv-overview-location b {
-          width: 22px;
-          height: 1px;
-          background: #e6c28a;
-        }
-        .uv-overview-hero-index {
-          position: absolute;
-          right: 6%;
-          bottom: 42px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          color: #fff8eb;
-          text-align: right;
-          font-size: 8px;
-          letter-spacing: 0.2em;
-        }
-        .uv-overview-hero-index b {
-          color: #e6c28a;
-          font-weight: 600;
-        }
+        .uv-overview-hero-content { max-width: 760px; color: #fffaf1; position: relative; z-index: 1; }
+        .uv-overview-kicker { display:flex; align-items:center; gap:12px; font-size:10px; letter-spacing:.22em; font-weight:750; color:#f0d6a9; }
+        .uv-overview-kicker i { width:34px; height:1px; background:#d9b77e; display:block; }
+        .uv-overview-hero h1 { color:#fffaf1; font-size:clamp(54px,7.4vw,104px); line-height:.98; letter-spacing:-.065em; font-weight:400; margin:28px 0; }
+        .uv-overview-hero h1 em { color:#e6c28a; }
+        .uv-overview-hero-content p { max-width:570px; font-size:15px; line-height:1.9; color:rgba(255,250,241,.88); }
+        .uv-overview-hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:25px; margin-top:28px; }
+        .uv-overview-hero .uv-button { margin-top:0; }
+        .uv-overview-location { display:flex; align-items:center; gap:10px; color:#f3e5ce; font-size:8px; letter-spacing:.13em; font-weight:700; }
+        .uv-overview-location b { width:22px; height:1px; background:#e6c28a; }
+        .uv-overview-hero-index { position:absolute; right:6%; bottom:42px; display:flex; flex-direction:column; gap:6px; color:#fff8eb; text-align:right; font-size:8px; letter-spacing:.2em; }
+        .uv-overview-hero-index b { color:#e6c28a; font-weight:600; }
 
         .uv-hero {
           max-width: 1500px;
@@ -1404,9 +1254,7 @@ export default function ProjectOverviewPage() {
         }
 
         @media (max-width: 1050px) {
-          .uv-facility-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
+          .uv-facility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
         @media (max-width: 950px) {
@@ -1450,20 +1298,8 @@ export default function ProjectOverviewPage() {
         }
 
         @media (max-width: 950px) {
-          .uv-overview-hero {
-            height: 720px;
-            min-height: 680px;
-            padding: 125px 7% 100px;
-          }
-          .uv-overview-hero-shade {
-            background:
-              linear-gradient(
-                90deg,
-                rgba(35, 27, 19, 0.72),
-                rgba(35, 27, 19, 0.25)
-              ),
-              linear-gradient(0deg, rgba(35, 27, 19, 0.3), transparent 55%);
-          }
+          .uv-overview-hero { height: 720px; min-height: 680px; padding: 125px 7% 100px; }
+          .uv-overview-hero-shade { background: linear-gradient(90deg, rgba(35,27,19,.72), rgba(35,27,19,.25)), linear-gradient(0deg, rgba(35,27,19,.3), transparent 55%); }
           .uv-hero {
             grid-template-columns: 1fr;
             padding-top: 100px;
@@ -1508,30 +1344,12 @@ export default function ProjectOverviewPage() {
         }
 
         @media (max-width: 600px) {
-          .uv-overview-hero {
-            height: 690px;
-            min-height: 690px;
-            padding: 115px 22px 105px;
-            align-items: center;
-          }
-          .uv-overview-hero-image {
-            object-position: 58% center;
-          }
-          .uv-overview-hero h1 {
-            font-size: clamp(48px, 13vw, 66px);
-          }
-          .uv-overview-hero-content p {
-            font-size: 13px;
-          }
-          .uv-overview-hero-actions {
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 18px;
-          }
-          .uv-overview-hero-index {
-            right: 22px;
-            bottom: 22px;
-          }
+          .uv-overview-hero { height: 690px; min-height: 690px; padding: 115px 22px 105px; align-items: center; }
+          .uv-overview-hero-image { object-position: 58% center; }
+          .uv-overview-hero h1 { font-size: clamp(48px, 13vw, 66px); }
+          .uv-overview-hero-content p { font-size: 13px; }
+          .uv-overview-hero-actions { align-items: flex-start; flex-direction: column; gap: 18px; }
+          .uv-overview-hero-index { right: 22px; bottom: 22px; }
           .uv-section {
             padding: 62px 20px;
           }
@@ -1649,7 +1467,35 @@ export default function ProjectOverviewPage() {
             transition: none !important;
           }
         }
+uv-overview-masterplan { padding: 110px 6.5% 75px; background: #101b25; color: #fffaf1; }
+        .uv-mp-intro { max-width: 900px; margin: 0 auto 36px; }
+        .uv-mp-intro h1 { margin: 20px 0 14px; font-size: clamp(42px, 6vw, 78px); line-height: .98; letter-spacing: -.055em; font-weight: 400; }
+        .uv-mp-intro h1 em { color: #e6c28a; font-family: Georgia, serif; font-weight: 400; }
+        .uv-mp-intro p { color: rgba(255,250,241,.72); font-size: 13px; line-height: 1.8; }
+        .uv-mp-layout { max-width: 1500px; margin: auto; }
+        .uv-mp-image-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 0; overflow: hidden; border: 1px solid rgba(230,194,138,.35); border-radius: 18px; background: #182632; }
+        .uv-mp-masterplan-image { object-fit: contain; }
+        .uv-mp-hotspot { position: absolute; z-index: 2; display: flex; align-items: center; gap: 7px; transform: translate(-50%,-50%); border: 0; padding: 0; background: transparent; color: white; cursor: pointer; }
+        .uv-mp-hotspot span { width: 13px; height: 13px; flex: 0 0 13px; border: 2px solid white; border-radius: 50%; background: #d6a85e; box-shadow: 0 0 0 5px rgba(214,168,94,.2); }
+        .uv-mp-hotspot b { padding: 6px 8px; border-radius: 4px; background: rgba(7,18,27,.78); border: 1px solid rgba(255,255,255,.28); font-size: 8px; letter-spacing: .08em; white-space: nowrap; }
+        .uv-mp-hotspot.is-active span { background: #fff; box-shadow: 0 0 0 8px rgba(230,194,138,.32); }
+        .uv-mp-hotspot.is-active b { background: #e6c28a; color: #101b25; border-color: #e6c28a; }
+        .uv-mp-image-caption { position: absolute; bottom: 14px; left: 16px; color: rgba(255,255,255,.8); font-size: 8px; letter-spacing: .15em; text-shadow: 0 1px 6px #000; }
+        .uv-mp-detail { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 24px; align-items: center; margin-top: 18px; padding: 18px; border: 1px solid rgba(230,194,138,.25); border-radius: 16px; background: rgba(255,255,255,.045); }
+        .uv-mp-detail-image { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px; background: #202e39; }
+        .uv-mp-detail-image img { object-fit: cover; }
+        .uv-mp-detail-copy > span { color: #e6c28a; font-size: 8px; letter-spacing: .15em; }
+        .uv-mp-detail-copy h2 { margin: 10px 0; font-size: clamp(24px,3vw,38px); font-weight: 400; }
+        .uv-mp-detail-copy p { max-width: 650px; margin: 0; color: rgba(255,250,241,.72); font-size: 12px; line-height: 1.8; }
+        .uv-mp-detail-copy button { margin-top: 16px; padding: 10px 14px; border: 1px solid rgba(230,194,138,.5); border-radius: 30px; background: transparent; color: #e6c28a; font-size: 10px; cursor: pointer; }
+        .uv-mp-detail-copy button b { margin-left: 12px; }
+        .uv-integrated-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+        .uv-lifestyle-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+        .uv-lifestyle-section { background: #fffdf9; }
+        @media (max-width: 800px) { .uv-overview-masterplan { padding: 88px 18px 50px; } .uv-mp-image-wrap { aspect-ratio: 4 / 3; border-radius: 10px; } .uv-mp-hotspot { gap: 0; } .uv-mp-hotspot b { display: none; } .uv-mp-hotspot.is-active b { display: block; position: absolute; left: 15px; top: -12px; } .uv-mp-detail { grid-template-columns: 1fr; gap: 16px; padding: 13px; } .uv-mp-detail-image { aspect-ratio: 16 / 9; } .uv-integrated-grid { grid-template-columns: 1fr; } .uv-lifestyle-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; } .uv-lifestyle-grid .uv-facility-card { min-height: 175px; padding: 20px 15px; } .uv-lifestyle-grid .uv-facility-card h3 { font-size: 20px; } }
+
       `}</style>
     </main>
   );
 }
+      
