@@ -637,7 +637,7 @@ const About = (props) => {
                 /* Secondary image */
                 .mc-image-secondary {
                     position: absolute;
-                    right: 2%;
+                    right: -4%;
                     bottom: 0;
                     width: 48%;
                     height: 170px;
@@ -725,7 +725,7 @@ const About = (props) => {
                     .mc-floating-card {
                         top: 180px;
                         width: 180px;
-                        left:-20px;
+                        left:-35px;
                         padding: 15px;
                     }
                     .mc-floating-card h3 {
