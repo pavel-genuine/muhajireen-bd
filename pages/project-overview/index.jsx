@@ -15,23 +15,23 @@ const projectFacts = [
 ];
 
 const integratedDevelopments = [
-  { number: "01", label: "HEALTHCARE", title: "Medical College", items: "A planned medical education institution." },
-  { number: "02", label: "HEALTHCARE", title: "General Hospital", items: "Healthcare facilities for the wider community." },
-  { number: "03", label: "HEALTHCARE", title: "Dental Hospital", items: "Dedicated dental care facilities." },
-  { number: "04", label: "EDUCATION", title: "Nursing Institute", items: "A planned institute for nursing education." },
-  { number: "05", label: "EDUCATION", title: "International School", items: "An education destination for families." },
-  { number: "06", label: "FAITH & COMMUNITY", title: "Mosque & Madrasha", items: "Spaces for worship and religious learning." },
-  { number: "07", label: "RETAIL & COMMERCE", title: "Shopping Mall", items: "A planned destination for shopping and services." },
-  { number: "08", label: "RETAIL & COMMERCE", title: "Commercial Spaces", items: "Shops, restaurants and everyday services." },
+  { number: "01", label: "HEALTHCARE", title: "Medical College", items: "A planned medical education institution.", image: "/images/slider/hero-slide/img-4.1-main.png" },
+  { number: "02", label: "HEALTHCARE", title: "General Hospital", items: "Healthcare facilities for the wider community.", image: "/images/slider/hero-slide/img-4.1-main.png" },
+  { number: "03", label: "HEALTHCARE", title: "Dental Hospital", items: "Dedicated dental care facilities.", image: "/images/slider/hero-slide/img-5.1-main.png" },
+  { number: "04", label: "EDUCATION", title: "Nursing Institute", items: "A planned institute for nursing education.", image: "/images/slider/hero-slide/img-6.jpeg" },
+  { number: "05", label: "EDUCATION", title: "International School", items: "An education destination for families.", image: "/images/slider/hero-slide/img-8-main.png" },
+  { number: "06", label: "FAITH & COMMUNITY", title: "Mosque & Madrasha", items: "Spaces for worship and religious learning.", image: "/images/slider/hero-slide/img-7-main.png" },
+  { number: "07", label: "RETAIL & COMMERCE", title: "Shopping Mall", items: "A planned destination for shopping and services.", image: "/images/slider/hero-slide/img-2.1-main.png" },
+  { number: "08", label: "RETAIL & COMMERCE", title: "Commercial Spaces", items: "Shops, restaurants and everyday services.", image: "/images/slider/hero-slide/img-2.1-main.png" },
 ];
 
 const lifestyleFacilities = [
-  { number: "01", label: "RECREATION", title: "Swimming Pools", items: "Lifestyle and recreation amenities listed in the project profile." },
-  { number: "02", label: "FITNESS", title: "Male & Female Gyms", items: "Fitness facilities for residents." },
-  { number: "03", label: "FAMILY & PLAY", title: "Kids’ Play Zone", items: "A dedicated play area for children." },
-  { number: "04", label: "OPEN SPACE", title: "Green Zone & Park", items: "Landscaped green areas and outdoor space." },
-  { number: "05", label: "WALKABILITY", title: "Long Walkway", items: "A planned pedestrian-friendly walking route." },
-  { number: "06", label: "MOBILITY", title: "Bicycle Zone", items: "A designated zone for cycling." },
+  { number: "01", label: "RECREATION", title: "Swimming Pools", items: "Lifestyle and recreation amenities listed in the project profile.", image: "/images/slider/hero-slide/img-3.1-main.png" },
+  { number: "02", label: "FITNESS", title: "Male & Female Gyms", items: "Fitness facilities for residents.", image: "/images/slider/hero-slide/img-3.1-main.png" },
+  { number: "03", label: "FAMILY & PLAY", title: "Kids’ Play Zone", items: "A dedicated play area for children.", image: "/images/slider/hero-slide/img-3.1-main.png" },
+  { number: "04", label: "OPEN SPACE", title: "Green Zone & Park", items: "Landscaped green areas and outdoor space.", image: "/images/slider/hero-slide/img-3.1-main.png" },
+  { number: "05", label: "WALKABILITY", title: "Long Walkway", items: "A planned pedestrian-friendly walking route.", image: "/images/slider/hero-slide/img-3.1-main.png" },
+  { number: "06", label: "MOBILITY", title: "Bicycle Zone", items: "A designated zone for cycling.", image: "/images/slider/hero-slide/img-3.1-main.png" },
 ];
 
 const projectHotspots = [
@@ -211,7 +211,10 @@ export default function ProjectOverviewPage() {
         <div className="uv-section-tag">03 / INTEGRATED DEVELOPMENT</div>
         <div className="uv-facilities-head"><h2>Everything connected.<br /><em>A complete community.</em></h2><p>Planned healthcare, education, faith, retail and commercial destinations form part of the wider MUHAJIREEN development.</p></div>
         <div className="uv-facility-grid uv-integrated-grid">
-          {integratedDevelopments.map((item) => <article className="uv-facility-card" key={item.number + item.title}><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></article>)}
+          {integratedDevelopments.map((item) => <article className="uv-facility-card" key={item.number + item.title}>
+            <div className="uv-facility-card-image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 800px) 100vw, 33vw" /></div>
+            <div className="uv-facility-card-copy"><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></div>
+          </article>)}
         </div>
       </section>
 
@@ -219,7 +222,10 @@ export default function ProjectOverviewPage() {
         <div className="uv-section-tag">04 / LIFESTYLE FACILITIES</div>
         <div className="uv-facilities-head"><h2>Room for living.<br /><em>Space to unwind.</em></h2><p>Explore the lifestyle and outdoor amenities listed in the project profile, planned to support recreation, wellbeing and community life.</p></div>
         <div className="uv-facility-grid uv-lifestyle-grid">
-          {lifestyleFacilities.map((item) => <article className="uv-facility-card" key={item.number + item.title}><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></article>)}
+          {lifestyleFacilities.map((item) => <article className="uv-facility-card" key={item.number + item.title}>
+            <div className="uv-facility-card-image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 800px) 50vw, 33vw" /></div>
+            <div className="uv-facility-card-copy"><span className="uv-facility-number">{item.number}</span><small>{item.label}</small><h3>{item.title}</h3><p>{item.items}</p><div className="uv-card-rule" /></div>
+          </article>)}
         </div>
       </section>
 
@@ -1467,35 +1473,64 @@ export default function ProjectOverviewPage() {
             transition: none !important;
           }
         }
-uv-overview-masterplan { padding: 110px 6.5% 75px; background: #101b25; color: #fffaf1; }
+
+        /* Project overview masterplan and visual facility cards */
+        .uv-overview-masterplan { padding: 110px 6.5% 75px; background: #101b25; color: #fffaf1; }
         .uv-mp-intro { max-width: 900px; margin: 0 auto 36px; }
         .uv-mp-intro h1 { margin: 20px 0 14px; font-size: clamp(42px, 6vw, 78px); line-height: .98; letter-spacing: -.055em; font-weight: 400; }
         .uv-mp-intro h1 em { color: #e6c28a; font-family: Georgia, serif; font-weight: 400; }
         .uv-mp-intro p { color: rgba(255,250,241,.72); font-size: 13px; line-height: 1.8; }
-        .uv-mp-layout { max-width: 1500px; margin: auto; }
+        .uv-mp-layout { max-width: 1500px; margin: auto; display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 22px; align-items: stretch; }
         .uv-mp-image-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; min-height: 0; overflow: hidden; border: 1px solid rgba(230,194,138,.35); border-radius: 18px; background: #182632; }
         .uv-mp-masterplan-image { object-fit: contain; }
         .uv-mp-hotspot { position: absolute; z-index: 2; display: flex; align-items: center; gap: 7px; transform: translate(-50%,-50%); border: 0; padding: 0; background: transparent; color: white; cursor: pointer; }
-        .uv-mp-hotspot span { width: 13px; height: 13px; flex: 0 0 13px; border: 2px solid white; border-radius: 50%; background: #d6a85e; box-shadow: 0 0 0 5px rgba(214,168,94,.2); }
+        .uv-mp-hotspot span { width: 13px; height: 13px; flex: 0 0 13px; border: 2px solid white; border-radius: 50%; background: #d6a85e; box-shadow: 0 0 0 5px rgba(214,168,94,.2); animation: uv-hotspot-pulse 2s infinite; }
         .uv-mp-hotspot b { padding: 6px 8px; border-radius: 4px; background: rgba(7,18,27,.78); border: 1px solid rgba(255,255,255,.28); font-size: 8px; letter-spacing: .08em; white-space: nowrap; }
         .uv-mp-hotspot.is-active span { background: #fff; box-shadow: 0 0 0 8px rgba(230,194,138,.32); }
         .uv-mp-hotspot.is-active b { background: #e6c28a; color: #101b25; border-color: #e6c28a; }
         .uv-mp-image-caption { position: absolute; bottom: 14px; left: 16px; color: rgba(255,255,255,.8); font-size: 8px; letter-spacing: .15em; text-shadow: 0 1px 6px #000; }
-        .uv-mp-detail { display: grid; grid-template-columns: 260px minmax(0,1fr); gap: 24px; align-items: center; margin-top: 18px; padding: 18px; border: 1px solid rgba(230,194,138,.25); border-radius: 16px; background: rgba(255,255,255,.045); }
-        .uv-mp-detail-image { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px; background: #202e39; }
+        .uv-mp-detail { display: flex; flex-direction: column; min-width: 0; gap: 0; align-items: stretch; margin-top: 0; padding: 14px; border: 1px solid rgba(230,194,138,.25); border-radius: 16px; background: rgba(255,255,255,.045); }
+        .uv-mp-detail-image { position: relative; width: 100%; aspect-ratio: 4 / 3; flex: 0 0 auto; overflow: hidden; border-radius: 10px; background: #202e39; }
         .uv-mp-detail-image img { object-fit: cover; }
+        .uv-mp-detail-copy { padding: 17px 3px 3px; }
         .uv-mp-detail-copy > span { color: #e6c28a; font-size: 8px; letter-spacing: .15em; }
-        .uv-mp-detail-copy h2 { margin: 10px 0; font-size: clamp(24px,3vw,38px); font-weight: 400; }
+        .uv-mp-detail-copy h2 { margin: 10px 0; font-size: clamp(24px,2.2vw,34px); font-weight: 400; }
         .uv-mp-detail-copy p { max-width: 650px; margin: 0; color: rgba(255,250,241,.72); font-size: 12px; line-height: 1.8; }
         .uv-mp-detail-copy button { margin-top: 16px; padding: 10px 14px; border: 1px solid rgba(230,194,138,.5); border-radius: 30px; background: transparent; color: #e6c28a; font-size: 10px; cursor: pointer; }
         .uv-mp-detail-copy button b { margin-left: 12px; }
         .uv-integrated-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
         .uv-lifestyle-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
         .uv-lifestyle-section { background: #fffdf9; }
-        @media (max-width: 800px) { .uv-overview-masterplan { padding: 88px 18px 50px; } .uv-mp-image-wrap { aspect-ratio: 4 / 3; border-radius: 10px; } .uv-mp-hotspot { gap: 0; } .uv-mp-hotspot b { display: none; } .uv-mp-hotspot.is-active b { display: block; position: absolute; left: 15px; top: -12px; } .uv-mp-detail { grid-template-columns: 1fr; gap: 16px; padding: 13px; } .uv-mp-detail-image { aspect-ratio: 16 / 9; } .uv-integrated-grid { grid-template-columns: 1fr; } .uv-lifestyle-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; } .uv-lifestyle-grid .uv-facility-card { min-height: 175px; padding: 20px 15px; } .uv-lifestyle-grid .uv-facility-card h3 { font-size: 20px; } }
-
+        .uv-facility-card { padding: 0 !important; overflow: hidden; position: relative; background: #fff; border: 1px solid rgba(145,111,67,.18); }
+        .uv-facility-card-image { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #e9e1d4; }
+        .uv-facility-card-image img { object-fit: cover; transition: transform .7s ease; }
+        .uv-facility-card:hover .uv-facility-card-image img { transform: scale(1.045); }
+        .uv-facility-card-copy { position: relative; padding: 23px 25px 25px; }
+        .uv-facility-number { display: inline-block; margin-bottom: 15px; }
+        .uv-facility-card-copy small { display: block; margin-bottom: 9px; color: var(--uv-gold); font-size: 9px; letter-spacing: .16em; }
+        .uv-facility-card-copy h3 { margin: 0 0 10px; }
+        .uv-facility-card-copy p { margin: 0; }
+        .uv-card-rule { margin-top: 19px; }
+        @keyframes uv-hotspot-pulse { 0%,100% { box-shadow: 0 0 0 5px rgba(214,168,94,.18); } 50% { box-shadow: 0 0 0 9px rgba(214,168,94,.04); } }
+        @media (max-width: 1000px) { .uv-mp-layout { grid-template-columns: minmax(0,1fr) 300px; gap: 14px; } .uv-mp-hotspot b { font-size: 7px; } }
+        @media (max-width: 800px) {
+          .uv-overview-masterplan { padding: 88px 18px 50px; }
+          .uv-mp-layout { display: flex; flex-direction: column; gap: 14px; }
+          .uv-mp-image-wrap { aspect-ratio: 4 / 3; border-radius: 10px; }
+          .uv-mp-hotspot { gap: 0; }
+          .uv-mp-hotspot b { display: none; }
+          .uv-mp-hotspot.is-active b { display: block; position: absolute; left: 15px; top: -12px; }
+          .uv-mp-detail { display: grid; grid-template-columns: 1fr; gap: 0; padding: 13px; }
+          .uv-mp-detail-image { aspect-ratio: 16 / 9; }
+          .uv-mp-detail-copy { padding: 16px 2px 2px; }
+          .uv-integrated-grid { grid-template-columns: 1fr; }
+          .uv-lifestyle-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+          .uv-lifestyle-grid .uv-facility-card-copy { padding: 17px 14px 18px; }
+          .uv-lifestyle-grid .uv-facility-card h3 { font-size: 20px; }
+          .uv-lifestyle-grid .uv-facility-card p { font-size: 12px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .uv-mp-hotspot span, .uv-facility-card-image img { animation: none !important; transition: none !important; } }
       `}</style>
     </main>
   );
-}
-      
+      }
