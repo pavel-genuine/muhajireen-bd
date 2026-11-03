@@ -577,11 +577,11 @@ export default function Hero() {
   .connection { top: 15%; }
   .school     { top: 15%; }
   .park     { top: 21%; margin-top: -20px;  }
-  .nursing     { top: 13%; margin-top: 60px;margin-left: -60px; }
+  .nursing     { top: 14%; margin-top: 60px;margin-left: -60px; }
   .commercial { top: 18%; margin-top: -10px; }
   .residence  { top: 16%; margin-top: 20px; }
   .hospital   { top: 19%; margin-top: -40px; }
-  .dental     { top: 13%; margin-top: 20px; }
+  .dental     { top: 14%; margin-top: 20px; }
   .mosque     { top: 24%; margin-top: -10px;margin-left: -10px; }
   
 
@@ -887,7 +887,7 @@ export default function Hero() {
     overflow: visible;
     color: #fff;
     font-weight: 600 !important;
-    font-size: clamp(80px, 15vh, 200px) !important;
+    font-size: clamp(80px, 14.9vh, 199px) !important;
     font-family: inherit;
     line-height: 0.95;
     letter-spacing: 0.025em;
@@ -1755,7 +1755,7 @@ body {
     margin-top: -35px !important;
   }
     .uttara-hero-title.park {
-    top: 36% !important;
+    top: 43% !important;
     margin-top: -20px !important;
   }
 
@@ -1765,7 +1765,7 @@ body {
     margin-left: -10px;
   }
   .uttara-hero-title.nursing {
-    top: 23% !important;
+    top: 21% !important;
 
   }
 
@@ -1785,7 +1785,7 @@ body {
   }
 
   .uttara-hero-title.dental {
-    top: 5% !important;
+    top: 3.5% !important;
     margin-top: 20px !important;
   }
 
