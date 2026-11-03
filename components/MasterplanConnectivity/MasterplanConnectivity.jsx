@@ -303,7 +303,7 @@ export default function MasterplanConnectivity() {
               </div>
               <div>
                 <strong>10</strong>
-                <span>FEATURED ENTITIES</span>
+                <span>FEATURED INFRASTRUCTURE</span>
               </div>
             </div>
 

@@ -14,6 +14,7 @@ import {
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import Link from "next/link";
 
 const sliderData = [
 
@@ -489,10 +490,10 @@ export default function Hero() {
                         data-swiper-parallax="-100"
                         data-swiper-parallax-duration="900"
                       >
-                        <AnchorLink href="/project-overview" className="uttara-cta">
+                        <Link href="/project-overview" className="uttara-cta">
                           <span>Discover MUHAJIREEN</span>
                           <span className="uttara-cta-icon">↗</span>
-                        </AnchorLink>
+                        </Link>
 
                         <span className="uttara-category">{slide.category}</span>
                       </div>

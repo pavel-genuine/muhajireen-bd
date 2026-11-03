@@ -75,7 +75,7 @@ const About = (props) => {
                             data-reveal
                         >
                             <span style={{ backgroundColor: "var(--mc-beige-dark)" }} className="mc-eyebrow-line" />
-                            <span style={{ color: "var(--mc-beige-dark)" }}>THE MUHAJIREEN VISION</span>
+                            <span style={{ color: "var(--mc-beige-dark)" }}>THE MUHAJIREEN ABOUT</span>
                         </div>
 
                         <h2
