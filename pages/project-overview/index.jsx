@@ -261,7 +261,7 @@ const projectHotspots = [
   {
     id: "hospital",
     label: "MULTI-SPECIALIST HOSPITAL",
-    short: "MULTI-SPECIALIST HOSPITAL",
+    short: "HOSPITAL",
     x: 30,
     y: 50,
     image: "/images/slider/hero-slide/img-4.1-main.png",
@@ -271,7 +271,7 @@ const projectHotspots = [
   {
     id: "dental",
     label: "Dental Hospital",
-    short: "DENTAL HOSPITAL",
+    short: "DENTAL",
     x: 37,
     y: 38,
     image: "/images/slider/hero-slide/img-5.1-main.png",
@@ -290,7 +290,7 @@ const projectHotspots = [
   {
     id: "school",
     label: "International School",
-    short: "INTERNATIONALSCHOOL",
+    short: "SCHOOL",
     x: 35,
     y: 20,
     image: "/images/slider/hero-slide/img-8-main.png",
@@ -299,8 +299,8 @@ const projectHotspots = [
   {
     id: "mosque",
     label: "Mosque & Madrasha",
-    short: "MOSQUE & MADRASHA",
-    x: 50,
+    short: "MOSQUE ",
+    x: 55,
     y: 20,
     image: "/images/slider/hero-slide/img-7-main.png",
     description: "Spaces planned for worship and religious learning.",
@@ -308,7 +308,7 @@ const projectHotspots = [
   {
     id: "residential",
     label: "Residential Area",
-    short: "RESIDENTIAL BUILDINGS",
+    short: "RESIDENCES",
     x: 70,
     y: 17,
     image: "/images/slider/hero-slide/img-3.1-main.png",
@@ -318,7 +318,7 @@ const projectHotspots = [
   {
     id: "park",
     label: "Central Park",
-    short: "CENTRALPARK",
+    short: "PARK",
     x: 63,
     y: 40,
     image: "/images/slider/hero-slide/img-9.1-main.png",
@@ -327,7 +327,7 @@ const projectHotspots = [
   {
     id: "commercial",
     label: "Commercial Spaces",
-    short: "COMMERCIAL SPACES",
+    short: "OFFICES",
     x: 70,
     y: 59,
     image: "/images/slider/hero-slide/img-2.1-main.png",
@@ -336,7 +336,7 @@ const projectHotspots = [
   {
     id: "mall",
     label: "Shopping Mall",
-    short: "SHOPPING MALL",
+    short: "MALL",
     x: 70,
     y: 70,
     image: "/images/slider/hero-slide/img-2.1-main.png",
@@ -1792,9 +1792,9 @@ export default function ProjectOverviewPage() {
           z-index: 1;
           pointer-events: none;
           background: linear-gradient(
-            20deg,
-            rgba(4, 13, 22, 0.35) 0%,
-            rgba(4, 13, 22, 0.15) 100%
+            5deg,
+            rgba(4, 13, 22, 0.17) 0%,
+            rgba(4, 13, 22, 0.09) 100%
           );
         }
 
