@@ -10,7 +10,7 @@ import WAIcon from "../../components/WAIcon/WAIcon";
 
 const projectFacts = [
   { value: "5", unit: "Acres", note: "Total project land" },
-  { value: "7", unit: "Infrastructure", note: "All Modern Facilities" },
+  { value: "10", unit: "Infrastructures", note: "All Modern Facilities" },
   { value: "80 ft", unit: "Road", note: "Front-side road width" },
 ];
 
