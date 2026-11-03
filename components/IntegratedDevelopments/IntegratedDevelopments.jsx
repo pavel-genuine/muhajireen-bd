@@ -21,7 +21,7 @@ const developmentGroups = [
     features: ["Shopping Mall", "Commercial Spaces"],
     image: "/images/slider/hero-slide/img-2.1-main.png",
     imageAlt: "Commercial spaces within the integrated development",
-    href: "/project-overview",
+    href: "/infrastructure-detail/commercial-retail",
     size: "development-card--wide",
   },
   {
@@ -33,7 +33,7 @@ const developmentGroups = [
     features: ["Residential Buildings"],
     image: "/images/slider/hero-slide/img-3.1-main.png",
     imageAlt: "Residential buildings in the development",
-    href: "/project-overview",
+    href: "/infrastructure-detail/residential-living",
     size: "",
   },
   {
@@ -44,8 +44,8 @@ const developmentGroups = [
       "Thoughtfully planned residential spaces designed around comfort, community and everyday living.",
     features: ["Park", "playground", "walking trails"],
     image: "/images/slider/hero-slide/img-9.1-main.png",
-    imageAlt: "Residential buildings in the development",
-    href: "/project-overview",
+    imageAlt: "Central park and outdoor recreational spaces",
+    href: "/infrastructure-detail/central-park",
     size: "",
   },
   {
@@ -61,7 +61,7 @@ const developmentGroups = [
     ],
     image: "/images/slider/hero-slide/img-4.1-main.png",
     imageAlt: "Hospital infrastructure",
-    href: "/project-overview",
+    href: "/infrastructure-detail/healthcare",
     size: "",
   },
   {
@@ -76,8 +76,8 @@ const developmentGroups = [
       "Nursing Institute",
     ],
     image: "/images/slider/hero-slide/img-5.1-main.png",
-    imageAlt: "Hospital infrastructure",
-    href: "/project-overview",
+    imageAlt: "Dental hospital infrastructure",
+    href: "/infrastructure-detail/dental-hospital",
     size: "",
   },
   {
@@ -92,8 +92,8 @@ const developmentGroups = [
       "Nursing Institute",
     ],
     image: "/images/slider/hero-slide/img-6.1-main1.png",
-    imageAlt: "Hospital infrastructure",
-    href: "/project-overview",
+    imageAlt: "Nursing institute infrastructure",
+    href: "/infrastructure-detail/nursing-institute",
     size: "",
   },
   {
@@ -105,7 +105,7 @@ const developmentGroups = [
     features: ["School"],
     image: "/images/slider/hero-slide/img-8-main.png",
     imageAlt: "School campus",
-    href: "/project-overview",
+    href: "/infrastructure-detail/education",
     size: "",
   },
   {
@@ -117,7 +117,7 @@ const developmentGroups = [
     features: ["Mosque", "Madrasha"],
     image: "/images/slider/hero-slide/img-7-main.png",
     imageAlt: "Mosque and madrasha infrastructure",
-    href: "/project-overview",
+    href: "/infrastructure-detail/faith-community",
     size: "development-card--wide",
   },
 ];
@@ -244,9 +244,11 @@ export default function IntegratedDevelopments() {
                       <span className="id-category">{item.category}</span>
                     </div>
 
-                    <span className="id-image-mark" aria-hidden="true">
-                      ↗
-                    </span>
+                    <Link href={item.href} className="id-card-link">
+                      <span className="id-image-mark" aria-hidden="true">
+                        ↗
+                      </span>
+                    </Link>
                   </div>
 
                   <div className="id-card-body">

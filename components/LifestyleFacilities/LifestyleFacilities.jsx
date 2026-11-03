@@ -93,7 +93,6 @@ const facilities = [
       "A planned bicycle-friendly zone encouraging active movement within the community.",
     image: "/images/slider/hero-slide/newfolder/img(1).jpeg",
   },
-
   {
     id: "medical",
     number: "11",
@@ -218,15 +217,6 @@ export default function LifestyleFacilities() {
     });
   };
 
-  if (!activeFacility) return null;
-
-  const activeIndex = filteredFacilities.findIndex(
-    (item) => item.id === activeFacility.id,
-  );
-
-  const nextFacility =
-    filteredFacilities[(activeIndex + 1) % filteredFacilities.length];
-
   useEffect(() => {
     if (isCarouselPaused || filteredFacilities.length <= 4) return;
 
@@ -243,6 +233,15 @@ export default function LifestyleFacilities() {
 
     return () => clearInterval(interval);
   }, [activeFacilityId, filteredFacilities, isCarouselPaused]);
+
+  if (!activeFacility) return null;
+
+  const activeIndex = filteredFacilities.findIndex(
+    (item) => item.id === activeFacility.id,
+  );
+
+  const nextFacility =
+    filteredFacilities[(activeIndex + 1) % filteredFacilities.length];
 
   return (
     <section
@@ -355,6 +354,16 @@ export default function LifestyleFacilities() {
 
               <h3>{activeFacility.title}</h3>
               <p>{activeFacility.description}</p>
+
+              {/* DETAIL PAGE LINK */}
+              <a
+                href={`/lifestyle-facilities/${activeFacility.id}`}
+                className="uv-life-detail-btn"
+                aria-label={`Explore details about ${activeFacility.title}`}
+              >
+                Explore Details
+                <span aria-hidden="true">↗</span>
+              </a>
             </div>
 
             <div className="uv-life-feature-bottom">
@@ -495,11 +504,11 @@ export default function LifestyleFacilities() {
           isolation: isolate;
           overflow: hidden;
           width: 100%;
-          height: auto !important; /* Fixed height bad diye auto kora holo */
+          height: auto !important;
           min-height: auto !important;
           max-height: none !important;
           display: block !important;
-          padding: clamp(60px, 7vw, 90px) 24px !important; /* Shudhu dorkari padding thakbe */
+          padding: clamp(60px, 7vw, 90px) 24px !important;
           color: var(--life-ink);
           background:
             radial-gradient(
@@ -554,7 +563,6 @@ export default function LifestyleFacilities() {
         }
 
         /* HEADING */
-
         .uv-life-heading {
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(250px, 0.62fr);
@@ -644,7 +652,6 @@ export default function LifestyleFacilities() {
         }
 
         /* CATEGORY FILTER */
-
         .uv-life-filter-row {
           display: flex;
           align-items: center;
@@ -682,11 +689,10 @@ export default function LifestyleFacilities() {
         }
 
         /* FEATURED AREA */
-
         .uv-life-feature {
           display: grid;
           grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
-          height: 310px;
+          min-height: 310px;
           overflow: hidden;
           border: 1px solid #e8e0d5;
           border-radius: 18px;
@@ -696,7 +702,7 @@ export default function LifestyleFacilities() {
 
         .uv-life-feature-image {
           position: relative;
-          height: 100%;
+          min-height: 310px;
           overflow: hidden;
           background: #d8d0c2;
         }
@@ -785,7 +791,7 @@ export default function LifestyleFacilities() {
         }
 
         .uv-life-feature-icon {
-          display: none; /* Height banchar jonno hide rakha holo */
+          display: none;
         }
 
         .uv-life-feature-copy {
@@ -815,6 +821,44 @@ export default function LifestyleFacilities() {
           color: #766c68;
           font-size: 11px;
           line-height: 1.55;
+        }
+
+        /* EXPLORE DETAILS BUTTON */
+        .uv-life-detail-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          width: fit-content;
+          margin-top: 14px;
+          padding: 10px 16px;
+          border: 1px solid #c9a46a;
+          border-radius: 4px;
+          color: #70552f;
+          background: transparent;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-decoration: none;
+          transition:
+            color 0.25s ease,
+            background 0.25s ease,
+            border-color 0.25s ease;
+        }
+
+        .uv-life-detail-btn:hover {
+          color: #fff;
+          background: #a88961;
+          border-color: #a88961;
+        }
+
+        .uv-life-detail-btn span {
+          font-size: 14px;
+          transition: transform 0.25s ease;
+        }
+
+        .uv-life-detail-btn:hover span {
+          transform: translate(2px, -2px);
         }
 
         .uv-life-feature-bottom {
@@ -895,8 +939,12 @@ export default function LifestyleFacilities() {
           background: #a88961;
         }
 
-        /* THUMBNAIL CAROUSEL HEADING */
+        .uv-life-feature-arrows button:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
 
+        /* THUMBNAIL CAROUSEL HEADING */
         .uv-life-carousel-heading {
           display: flex;
           align-items: flex-end;
@@ -928,7 +976,6 @@ export default function LifestyleFacilities() {
         }
 
         /* HORIZONTAL THUMBNAILS */
-
         .uv-life-thumbnail-track {
           display: flex;
           gap: 12px;
@@ -977,6 +1024,11 @@ export default function LifestyleFacilities() {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: transform 0.35s ease;
+        }
+
+        .uv-life-thumbnail:hover .uv-life-thumbnail-image img {
+          transform: scale(1.04);
         }
 
         .uv-life-thumbnail-number {
@@ -1034,28 +1086,92 @@ export default function LifestyleFacilities() {
 
         .uv-life-disclaimer,
         .uv-life-carousel-hint {
-          display: none; /* Height controler jonno hide rakha holo */
+          display: none;
+        }
+
+        @keyframes uvLifeImageIn {
+          from {
+            opacity: 0.65;
+            transform: scale(1.025);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
 
         @media (max-width: 900px) {
+          .uv-life-shell {
+            width: 100%;
+          }
+
           .uv-life-heading {
             display: block;
           }
 
-          .uv-lifestyle {
-            height: auto;
-            min-height: 120vh;
-            padding: 50px 0;
+          .uv-life-heading-side {
+            margin-top: 18px;
           }
+
+          .uv-life-filter-row {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .uv-life-filters {
+            justify-content: flex-start;
+          }
+
           .uv-life-feature {
             grid-template-columns: 1fr;
             height: auto;
           }
+
           .uv-life-feature-image {
-            height: 220px;
+            min-height: 220px;
           }
+
+          .uv-life-feature-panel {
+            min-height: 280px;
+          }
+
           .uv-life-thumbnail {
             flex: 0 0 calc((100% - 12px) / 2);
+          }
+        }
+
+        @media (max-width: 520px) {
+          .uv-lifestyle {
+            padding: 42px 18px !important;
+          }
+
+          .uv-life-heading h2 {
+            font-size: clamp(30px, 8vw, 42px);
+          }
+
+          .uv-life-heading-side {
+            align-items: flex-start;
+            flex-direction: column;
+          }
+
+          .uv-life-feature-panel {
+            padding: 18px;
+          }
+
+          .uv-life-carousel-heading {
+            align-items: flex-start;
+          }
+
+          .uv-life-carousel-controls {
+            gap: 4px;
+          }
+
+          .uv-life-result-count {
+            margin-right: 2px;
+          }
+
+          .uv-life-thumbnail {
+            flex: 0 0 78%;
           }
         }
       `}</style>

@@ -24,7 +24,7 @@ const integratedDevelopments = [
     features: ["Shopping Mall", "Commercial Spaces"],
     image: "/images/slider/hero-slide/img-2.1-main.png",
     imageAlt: "Commercial spaces within the integrated development",
-    href: "/projects#commercial",
+    href: "commercial-retail",
     size: "development-card--wide",
   },
   {
@@ -36,7 +36,7 @@ const integratedDevelopments = [
     features: ["Residential Buildings"],
     image: "/images/slider/hero-slide/img-3.1-main.png",
     imageAlt: "Residential buildings in the development",
-    href: "/projects#residential",
+    href: "residential-living",
     size: "",
   },
   {
@@ -52,7 +52,7 @@ const integratedDevelopments = [
     ],
     image: "/images/slider/hero-slide/img-4.1-main.png",
     imageAlt: "Hospital infrastructure",
-    href: "/projects#healthcare",
+    href: "healthcare",
     size: "",
   },
   {
@@ -68,7 +68,7 @@ const integratedDevelopments = [
     ],
     image: "/images/slider/hero-slide/img-5.1-main.png",
     imageAlt: "Hospital infrastructure",
-    href: "/projects#healthcare",
+    href: "dental-hospital",
     size: "",
   },
   {
@@ -84,7 +84,7 @@ const integratedDevelopments = [
     ],
     image: "/images/slider/hero-slide/img-6.1-main1.png",
     imageAlt: "Hospital infrastructure",
-    href: "/projects#healthcare",
+    href: "nursing-institute",
     size: "",
   },
   {
@@ -96,7 +96,7 @@ const integratedDevelopments = [
     features: ["School"],
     image: "/images/slider/hero-slide/img-8-main.png",
     imageAlt: "School campus",
-    href: "/projects#education",
+    href: "education",
     size: "",
   },
   {
@@ -108,12 +108,12 @@ const integratedDevelopments = [
     features: ["Mosque", "Madrasha"],
     image: "/images/slider/hero-slide/img-7-main.png",
     imageAlt: "Mosque and madrasha infrastructure",
-    href: "/projects#faith-community",
+    href: "faith-community",
     size: "development-card--wide",
   },
 ];
 
-const lifestyleFacilities = [
+export const lifestyleFacilities = [
   {
     id: "residences",
     number: "01",
@@ -177,7 +177,7 @@ const lifestyleFacilities = [
   },
   {
     id: "park",
-    number: "06",
+    number: "07",
     title: "Central Park",
     category: "NATURE",
     items: "Landscaped green areas, gardens, and open outdoor spaces.",
@@ -187,7 +187,7 @@ const lifestyleFacilities = [
   },
   {
     id: "kids",
-    number: "07",
+    number: "08",
     title: "Kids' Play Zone",
     category: "FAMILY LIVING",
     items: "A dedicated play area and safe outdoor zone for children.",
@@ -197,7 +197,7 @@ const lifestyleFacilities = [
   },
   {
     id: "green",
-    number: "08",
+    number: "09",
     title: "Green Spaces",
     category: "NATURE",
     items: "Landscaped green areas, gardens, and open outdoor spaces.",
@@ -207,7 +207,7 @@ const lifestyleFacilities = [
   },
   {
     id: "walkway",
-    number: "09",
+    number: "10",
     title: "Walking & Jogging",
     category: "ACTIVE LIVING",
     items: "A planned pedestrian-friendly walking and jogging route.",
@@ -217,7 +217,7 @@ const lifestyleFacilities = [
   },
   {
     id: "bicycle",
-    number: "10",
+    number: "11",
     title: "Bicycle Zone",
     category: "ACTIVE LIVING",
     items: "A designated cycling track and zone for active mobility.",
@@ -227,7 +227,7 @@ const lifestyleFacilities = [
   },
   {
     id: "medical",
-    number: "11",
+    number: "12",
     title: "Emergency Medical Support",
     category: "CARE",
     items: "Emergency medical services and healthcare support systems.",
@@ -237,7 +237,7 @@ const lifestyleFacilities = [
   },
   {
     id: "school",
-    number: "12",
+    number: "13",
     title: "School",
     category: "EDUCATION",
     items: "An educational institution planned for quality learning.",
@@ -247,7 +247,7 @@ const lifestyleFacilities = [
   },
   {
     id: "community",
-    number: "13",
+    number: "14",
     title: "Mosque & Madrasha",
     category: "FAITH & COMMUNITY",
     items: "Spiritual and religious facilities for community gatherings.",
@@ -847,6 +847,14 @@ export default function ProjectOverviewPage() {
                   <span className="id-number">{item.number}</span>
                   <span className="id-category">{item.category}</span>
                 </div>
+                <Link
+                  href={`/infrastructure-detail/${item.href}`}
+                  className="id-card-link"
+                >
+                  <span className="id-image-mark" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
               </div>
 
               <div className="id-card-body">
@@ -861,6 +869,16 @@ export default function ProjectOverviewPage() {
                     </span>
                   ))}
                 </div>
+
+                <Link
+                  href={`/infrastructure-detail/${item.href}`}
+                  className="id-card-link"
+                >
+                  <span>EXPLORE DEVELOPMENT</span>
+                  <span className="id-link-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
               </div>
             </article>
           ))}
@@ -930,6 +948,16 @@ export default function ProjectOverviewPage() {
                 <h3>{item.title}</h3>
                 <p>{item.items}</p>
                 <div className="uv-card-rule" />
+
+                <Link
+                  href={`/lifestyle-facilities/${item.id}`}
+                  className="id-card-link"
+                >
+                  <span>EXPLORE </span>
+                  <span className="id-link-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
               </div>
             </article>
           ))}
