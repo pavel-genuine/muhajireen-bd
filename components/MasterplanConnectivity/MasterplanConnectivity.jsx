@@ -102,17 +102,6 @@ const facilities = [
     description:
       "A planned destination for retail, dining and lifestyle experiences.",
   },
-  {
-    id: "avenue",
-    label: "Avenue 9",
-    short: "AVENUE 9",
-    x: 40,
-    y: 92,
-    image: "/images/slider/hero-slide/img-2.1-main.png",
-    category: "ROAD NETWORK",
-    description:
-      "A key internal access route shown in the project concept. Confirm final road naming against the approved plan.",
-  },
 ];
 
 const roads = [

@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        {/* <title>MUHAJIREEN Consultant Ltd</title> */}
+        <title>MUHAJIREEN Consultant Ltd</title>
       </Head>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

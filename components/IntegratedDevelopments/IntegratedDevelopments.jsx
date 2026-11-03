@@ -50,8 +50,8 @@ const developmentGroups = [
   },
   {
     number: "04",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
-    title: "Care for Every Chapter",
+    category: "HEALTHCARE",
+    title: "World-class Healthcare",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
     features: [
@@ -66,7 +66,7 @@ const developmentGroups = [
   },
   {
     number: "05",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
+    category: "HEALTHCARE",
     title: "Care for Every Chapter",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
@@ -82,8 +82,8 @@ const developmentGroups = [
   },
   {
     number: "06",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
-    title: "Care for Every Chapter",
+    category: "MEDICAL EDUCATION",
+    title: "New Dimension of Future",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
     features: [

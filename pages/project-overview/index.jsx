@@ -41,8 +41,8 @@ const integratedDevelopments = [
   },
   {
     number: "04",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
-    title: "Care for Every Chapter",
+    category: "HEALTHCARE",
+    title: "World-class healthcare",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
     features: [
@@ -57,7 +57,7 @@ const integratedDevelopments = [
   },
   {
     number: "05",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
+    category: "HEALTHCARE",
     title: "Care for Every Chapter",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
@@ -73,8 +73,8 @@ const integratedDevelopments = [
   },
   {
     number: "06",
-    category: "HEALTHCARE & MEDICAL EDUCATION",
-    title: "Care for Every Chapter",
+    category: "MEDICAL EDUCATION",
+    title: "New Dimension Of Future",
     description:
       "A healthcare ecosystem bringing medical services and healthcare education together in one vision.",
     features: [
@@ -341,15 +341,6 @@ const projectHotspots = [
     y: 77,
     image: "/images/slider/hero-slide/img-2.1-main.png",
     description: "A planned retail destination within the wider project.",
-  },
-  {
-    id: "avenue",
-    label: "Avenue 9",
-    short: "AVENUE 9",
-    x: 50,
-    y: 82,
-    image: "/images/slider/hero-slide/img-2.1-main.png",
-    description: "A planned avenue forming part of the internal layout.",
   },
 ];
 

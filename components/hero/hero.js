@@ -234,16 +234,7 @@ const projectHotspots = [
     image: "/images/slider/hero-slide/img-2.1-main.png",
     description: "Retail, dining and lifestyle experiences in one destination.",
   },
-  {
-    id: "avenue",
-    label: "Avenue 9",
-    short: "AVENUE 9",
-    x: 40,
-    y: 92,
-    image: "/images/slider/hero-slide/img-2.1-main.png",
-    description:
-      "A key access route connecting the development and its surroundings.",
-  },
+
 ];
 
 export default function Hero() {
@@ -1759,7 +1750,7 @@ body {
   }
 
   .uttara-hero .uttara-building-foreground.park {
-    top: 19% !important;
+    top: 19% !important;P
     margin-top: -35px !important;
   }
     .uttara-hero-title.park {
