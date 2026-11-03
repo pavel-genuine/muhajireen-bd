@@ -116,12 +116,12 @@ const About = (props) => {
                             data-reveal
                         >
                             <Link
-                                href="/about"
+                                href="/project-overview"
                                 onClick={ClickHandler}
                                 className="mc-primary-btn"
                             >
                                 <span >
-                                    <RollingText text="Discover Our Vision" />
+                                    <RollingText text="Discover Our Project" />
                                 </span>
 
                                 <span className="mc-btn-icon">
@@ -152,7 +152,7 @@ const About = (props) => {
                             <div className="mc-stat">
                                 <div className="mc-stat-number">
                                     <CountUp
-                                        end={7}
+                                        end={10}
                                         duration={2}
                                         enableScrollSpy
                                         scrollSpyOnce

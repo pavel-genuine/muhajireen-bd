@@ -10,149 +10,149 @@ import Footer from "../../components/footer/Footer";
 import WAIcon from "../../components/WAIcon/WAIcon";
 
 const investmentPlans = [
-    {
-        id: "residential",
-        number: "01",
-        label: "RESIDENTIAL OWNERSHIP",
-        title: "Residential 2 Flat Land Share Ownership",
-        description:
-            "Explore the residential ownership option described in the MUHAJIREEN investment proposal. The proposal refers to land shares associated with two residential flats; confirm the legal structure, allocation and delivery terms with the MUHAJIREEN team before making a decision.",
-        image: "/images/slider/hero-slide/img-3.1-main.png",
-        options: [
-            { share: "01 Share", title: "2 Flat Land Shares", detail: "Approx. 1,300 sft per flat, as stated in the proposal" },
-            { share: "03 Shares", title: "6 Flat Land Shares", detail: "Approx. 1,300 sft per flat, as stated in the proposal" },
-        ],
-        points: ["Residential-focused ownership option", "Share allocation to be confirmed in writing", "Review title, registration and handover terms"],
-    },
-    {
-        id: "profit",
-        number: "02",
-        label: "COMMERCIAL OPPORTUNITY",
-        title: "Monthly Profit Opportunity from Commercial Entities",
-        description:
-            "The proposal describes a recurring-profit opportunity connected with shares in commercial and institutional facilities. Actual distributions, if any, depend on the project's documented terms and financial performance; no return is guaranteed by this page.",
-        image: "/images/slider/hero-slide/img-2.1-main.png",
-        options: [
-            { share: "01 Share", title: "One Share Option", detail: "Participation terms and distribution basis require confirmation" },
-            { share: "03 Shares", title: "Three Share Option", detail: "Illustrative 3-share selection; terms require confirmation" },
-        ],
-        facilities: ["Shopping Mall", "Commercial Office Spaces", "Multi-specialized General Hospital", "Dental Hospital", "Nursing Institute", "International School"],
-        points: ["Commercial and institutional categories listed in the proposal", "Ask how profit is calculated and distributed", "Review operating costs, risks and exit provisions"],
-    },
-    {
-        id: "membership",
-        number: "03",
-        label: "LIFETIME MEMBERSHIP",
-        title: "Lifetime Membership Access from Listed Entities",
-        description:
-            "The proposal describes lifetime membership access for selected facilities. Ask for the written membership policy, eligible family members, service scope, exclusions, transferability and any additional service charges before subscribing.",
-        image: "/images/slider/hero-slide/img-4.1-main.png",
-        options: [
-            { share: "01 Share", title: "Membership for 1 Person", detail: "Lifetime access subject to the official membership terms" },
-            { share: "03 Shares", title: "Membership for 3 People", detail: "Eligibility and access conditions to be confirmed" },
-        ],
-        facilities: ["Shopping Mall", "Commercial Office Spaces", "Multi-specialized General Hospital", "Nursing Institute", "Dental Hospital", "International School"],
-        points: ["Membership benefit rather than a stated cash return", "Confirm which services are included", "Request official terms and conditions in writing"],
-    },
+  {
+    id: "residential",
+    number: "01",
+    label: "RESIDENTIAL OWNERSHIP",
+    title: "Residential 2 Flat Land Share Ownership",
+    description:
+      "Explore the residential ownership option described in the MUHAJIREEN investment proposal. The proposal refers to land shares associated with two residential flats; confirm the legal structure, allocation and delivery terms with the MUHAJIREEN team before making a decision.",
+    image: "/images/slider/hero-slide/img-3.1-main.png",
+    options: [
+      { share: "01 Share", title: "2 Flat Land Shares", detail: "Approx. 1,300 sft per flat, as stated in the proposal" },
+      { share: "03 Shares", title: "6 Flat Land Shares", detail: "Approx. 1,300 sft per flat, as stated in the proposal" },
+    ],
+    points: ["Residential-focused ownership option", "Share allocation to be confirmed in writing", "Review title, registration and handover terms"],
+  },
+  {
+    id: "profit",
+    number: "02",
+    label: "COMMERCIAL OPPORTUNITY",
+    title: "Monthly Profit Opportunity from Commercial Entities",
+    description:
+      "The proposal describes a recurring-profit opportunity connected with shares in commercial and institutional facilities. Actual distributions, if any, depend on the project's documented terms and financial performance; no return is guaranteed by this page.",
+    image: "/images/slider/hero-slide/img-2.1-main.png",
+    options: [
+      { share: "01 Share", title: "One Share Option", detail: "Participation terms and distribution basis require confirmation" },
+      { share: "03 Shares", title: "Three Share Option", detail: "Illustrative 3-share selection; terms require confirmation" },
+    ],
+    facilities: ["Shopping Mall", "Commercial Office Spaces", "Multi-specialized General Hospital", "Dental Hospital", "Nursing Institute", "International School"],
+    points: ["Commercial and institutional categories listed in the proposal", "Ask how profit is calculated and distributed", "Review operating costs, risks and exit provisions"],
+  },
+  {
+    id: "membership",
+    number: "03",
+    label: "LIFETIME MEMBERSHIP",
+    title: "Lifetime Membership Access from Listed Entities",
+    description:
+      "The proposal describes lifetime membership access for selected facilities. Ask for the written membership policy, eligible family members, service scope, exclusions, transferability and any additional service charges before subscribing.",
+    image: "/images/slider/hero-slide/img-4.1-main.png",
+    options: [
+      { share: "01 Share", title: "Membership for 1 Person", detail: "Lifetime access subject to the official membership terms" },
+      { share: "03 Shares", title: "Membership for 3 People", detail: "Eligibility and access conditions to be confirmed" },
+    ],
+    facilities: ["Shopping Mall", "Commercial Office Spaces", "Multi-specialized General Hospital", "Nursing Institute", "Dental Hospital", "International School"],
+    points: ["Membership benefit rather than a stated cash return", "Confirm which services are included", "Request official terms and conditions in writing"],
+  },
 ];
 
 const dueDiligence = [
-    { n: "01", title: "Understand the share", text: "Ask what a share legally represents, what asset or entity it relates to, and whether it conveys ownership, membership, profit participation or a combination." },
-    { n: "02", title: "Review the documents", text: "Request the current proposal, agreements, land and project documents, payment schedule, registration details and any applicable approvals." },
-    { n: "03", title: "Clarify returns and costs", text: "For any profit-linked option, review the calculation method, distribution timing, expenses, risks and whether returns are variable or guaranteed by contract." },
-    { n: "04", title: "Know your exit rights", text: "Confirm transfer, resale, refund, cancellation, inheritance and dispute-resolution terms before committing funds." },
+  { n: "01", title: "Understand the share", text: "Ask what a share legally represents, what asset or entity it relates to, and whether it conveys ownership, membership, profit participation or a combination." },
+  { n: "02", title: "Review the documents", text: "Request the current proposal, agreements, land and project documents, payment schedule, registration details and any applicable approvals." },
+  { n: "03", title: "Clarify returns and costs", text: "For any profit-linked option, review the calculation method, distribution timing, expenses, risks and whether returns are variable or guaranteed by contract." },
+  { n: "04", title: "Know your exit rights", text: "Confirm transfer, resale, refund, cancellation, inheritance and dispute-resolution terms before committing funds." },
 ];
 
 export default function InvestmentOpportunityPage() {
-    const [activePlan, setActivePlan] = useState("residential");
-    const [activeShare, setActiveShare] = useState(0);
-    const selectedPlan = investmentPlans.find((plan) => plan.id === activePlan) || investmentPlans[0];
-    const selectedOption = selectedPlan.options[activeShare] || selectedPlan.options[0];
+  const [activePlan, setActivePlan] = useState("residential");
+  const [activeShare, setActiveShare] = useState(0);
+  const selectedPlan = investmentPlans.find((plan) => plan.id === activePlan) || investmentPlans[0];
+  const selectedOption = selectedPlan.options[activeShare] || selectedPlan.options[0];
 
-    const selectPlan = (id) => {
-        setActivePlan(id);
-        setActiveShare(0);
-    };
+  const selectPlan = (id) => {
+    setActivePlan(id);
+    setActiveShare(0);
+  };
 
-    const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(0);
 
 
-    useEffect(() => {
-        setWidth(window.innerWidth);
+  useEffect(() => {
+    setWidth(window.innerWidth);
 
-    });
+  });
 
-    return (
-        <main className="uv-investment-page">
-            <Navbar Logo={Logo}
-            />
-            <section style={{ marginTop: width > 768 ? "" : "30px" }} className="uv-investment-hero">
-                <div className="uv-investment-orbit uv-investment-orbit--one" />
-                <div className="uv-investment-orbit uv-investment-orbit--two" />
-                <div className="uv-investment-shell">
-                    <div className="uv-investment-hero-copy">
-                        <span className="uv-investment-eyebrow"><i /> INVEST WITH MUHAJIREEN</span>
-                        <h1> <span style={{ color: 'var(--uv-ink)' }}>More Than an Investment. </span> <br /><em>A Share in the Vision.</em></h1>
-                        <p>Explore residential ownership, commercial profit opportunities and lifetime membership options outlined in the MUHAJIREEN investment proposal.</p>
-                        <div className="uv-investment-hero-actions">
-                            <a href="#opportunities" className="uv-investment-button uv-investment-button--gold">Explore Opportunities <b>↓</b></a>
-                            <Link href="/contact-us" className="uv-investment-button uv-investment-button--glass">Speak to Our Team <b>↗</b></Link>
-                        </div>
-                        <div className="uv-investment-trust-line"><span /> CLARITY FIRST · DOCUMENTED TERMS · INFORMED DECISIONS</div>
-                    </div>
-                    <div className="uv-investment-hero-card">
-                        <img src="/images/slider/hero-slide/img-3.1-main.png" alt="MUHAJIREEN residential development concept" />
-                        <div className="uv-investment-hero-card-shade" />
-                        <div className="uv-investment-hero-card-label"><small>THE MUHAJIREEN VISION</small><strong>Build a future<br />with purpose.</strong><span>Ownership · Opportunity · Access</span></div>
-                        <div className="uv-investment-floating-note"><span>03</span><div><b>Opportunity Categories</b><small>Explore the options below</small></div></div>
-                    </div>
-                </div>
-            </section>
+  return (
+    <main className="uv-investment-page">
+      <Navbar Logo={Logo}
+      />
+      <section style={{ marginTop: width > 768 ? "" : "30px" }} className="uv-investment-hero">
+        <div className="uv-investment-orbit uv-investment-orbit--one" />
+        <div className="uv-investment-orbit uv-investment-orbit--two" />
+        <div className="uv-investment-shell">
+          <div className="uv-investment-hero-copy">
+            <span className="uv-investment-eyebrow"><i /> INVEST WITH MUHAJIREEN</span>
+            <h1> <span style={{ color: 'var(--uv-ink)' }}>More Than an Investment. </span> <br /><em>A Share in the Vision.</em></h1>
+            <p>Explore residential ownership, commercial profit opportunities and lifetime membership options outlined in the MUHAJIREEN investment proposal.</p>
+            <div className="uv-investment-hero-actions">
+              <a href="#opportunities" className="uv-investment-button uv-investment-button--gold">Explore Opportunities <b>↓</b></a>
+              <Link href="/contact" className="uv-investment-button uv-investment-button--glass">Speak to Our Team <b>↗</b></Link>
+            </div>
+            <div className="uv-investment-trust-line"><span /> CLARITY FIRST · DOCUMENTED TERMS · INFORMED DECISIONS</div>
+          </div>
+          <div className="uv-investment-hero-card">
+            <img src="/images/slider/hero-slide/img-3.1-main.png" alt="MUHAJIREEN residential development concept" />
+            <div className="uv-investment-hero-card-shade" />
+            <div className="uv-investment-hero-card-label"><small>THE MUHAJIREEN VISION</small><strong>Build a future<br />with purpose.</strong><span>Ownership · Opportunity · Access</span></div>
+            <div className="uv-investment-floating-note"><span>03</span><div><b>Opportunity Categories</b><small>Explore the options below</small></div></div>
+          </div>
+        </div>
+      </section>
 
-            <section className="uv-investment-overview uv-investment-shell">
-                <div className="uv-investment-section-heading"><span className="uv-investment-kicker">A CLEARER PICTURE</span><h2> <span style={{ color: 'var(--uv-ink)' }}>Explore the opportunity </span><br /><em>that fits your priorities.</em></h2><p>Each category has a different purpose. Review the available options, ask questions and assess the written terms before deciding which—if any—is right for you.</p></div>
-                <div className="uv-investment-overview-grid">
-                    <article className="uv-investment-glass-card"><span className="uv-investment-card-number">01</span><div className="uv-investment-card-icon">⌂</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Residential Ownership</span></h3><p>Explore the proposal's residential flat land-share option and clarify exactly what ownership rights and allocations apply.</p><a href="#opportunities" onClick={() => selectPlan("residential")}>Explore ownership <b>↗</b></a></article>
-                    <article className="uv-investment-glass-card"><span className="uv-investment-card-number">02</span><div className="uv-investment-card-icon">◈</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Commercial Opportunity</span></h3><p>Review the profit-linked option associated with the listed commercial and institutional facilities, including its risks and distribution terms.</p><a href="#opportunities" onClick={() => selectPlan("profit")}>Explore commercial option <b>↗</b></a></article>
-                    <article className="uv-investment-glass-card"><span className="uv-investment-card-number">03</span><div className="uv-investment-card-icon">✧</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Lifetime Membership</span></h3><p>Understand the proposed membership benefits, eligible users, service scope and any exclusions or additional charges.</p><a href="#opportunities" onClick={() => selectPlan("membership")}>Explore membership <b>↗</b></a></article>
-                </div>
-            </section>
+      <section className="uv-investment-overview uv-investment-shell">
+        <div className="uv-investment-section-heading"><span className="uv-investment-kicker">A CLEARER PICTURE</span><h2> <span style={{ color: 'var(--uv-ink)' }}>Explore the opportunity </span><br /><em>that fits your priorities.</em></h2><p>Each category has a different purpose. Review the available options, ask questions and assess the written terms before deciding which—if any—is right for you.</p></div>
+        <div className="uv-investment-overview-grid">
+          <article className="uv-investment-glass-card"><span className="uv-investment-card-number">01</span><div className="uv-investment-card-icon">⌂</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Residential Ownership</span></h3><p>Explore the proposal's residential flat land-share option and clarify exactly what ownership rights and allocations apply.</p><a href="#opportunities" onClick={() => selectPlan("residential")}>Explore ownership <b>↗</b></a></article>
+          <article className="uv-investment-glass-card"><span className="uv-investment-card-number">02</span><div className="uv-investment-card-icon">◈</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Commercial Opportunity</span></h3><p>Review the profit-linked option associated with the listed commercial and institutional facilities, including its risks and distribution terms.</p><a href="#opportunities" onClick={() => selectPlan("profit")}>Explore commercial option <b>↗</b></a></article>
+          <article className="uv-investment-glass-card"><span className="uv-investment-card-number">03</span><div className="uv-investment-card-icon">✧</div><h3> <span style={{ color: 'var(--uv-ink)' }}>Lifetime Membership</span></h3><p>Understand the proposed membership benefits, eligible users, service scope and any exclusions or additional charges.</p><a href="#opportunities" onClick={() => selectPlan("membership")}>Explore membership <b>↗</b></a></article>
+        </div>
+      </section>
 
-            <section className="uv-investment-explorer" id="opportunities">
-                <div className="uv-investment-shell">
-                    <div className="uv-investment-section-heading uv-investment-section-heading--center"><span className="uv-investment-kicker">INVESTOR BENEFITS</span><h2 style={{ color: 'var(--uv-ink)' }}>What does each option <em>include?</em></h2><p>Select a category to view its share options and the facilities or considerations associated with it.</p></div>
-                    <div className="uv-investment-tabs" role="tablist" aria-label="Investment categories">
-                        {investmentPlans.map((plan) => <button key={plan.id} type="button" role="tab" aria-selected={activePlan === plan.id} className={`uv-investment-tab ${activePlan === plan.id ? "is-active" : ""}`} onClick={() => selectPlan(plan.id)}><span>{plan.number}</span>{plan.label}<b>↗</b></button>)}
-                    </div>
-                    <article className="uv-investment-feature" key={selectedPlan.id}>
-                        <div className="uv-investment-feature-visual"><img src={selectedPlan.image} alt={`${selectedPlan.label} visual`} /><div className="uv-investment-feature-shade" /><div className="uv-investment-feature-caption"><small>MUHAJIREEN · {selectedPlan.number}</small><strong>{selectedPlan.label}</strong></div></div>
-                        <div className="uv-investment-feature-content">
-                            <div className="uv-investment-feature-top"><span className="uv-investment-kicker">CATEGORY {selectedPlan.number}</span><span className="uv-investment-outline-pill">PROPOSAL OVERVIEW</span></div>
-                            <h3 style={{ color: 'var(--uv-ink)' }}>{selectedPlan.title}</h3><p className="uv-investment-description">{selectedPlan.description}</p>
-                            <div className="uv-investment-option-heading"><span>AVAILABLE SHARE OPTIONS</span><small>Choose to compare</small></div>
-                            <div className="uv-investment-options">{selectedPlan.options.map((option, index) => <button type="button" key={option.share} className={`uv-investment-option ${activeShare === index ? "is-selected" : ""}`} onClick={() => setActiveShare(index)} aria-pressed={activeShare === index}><span className="uv-investment-radio">{activeShare === index && <i />}</span><span className="uv-investment-option-copy"><small>{option.share}</small><strong>{option.title}</strong><em>{option.detail}</em></span><b className="uv-investment-option-arrow">↗</b></button>)}</div>
-                            <div className="uv-investment-selection-summary"><span>SELECTED OPTION</span><strong>{selectedOption.title}</strong><p>{selectedOption.detail}</p></div>
-                            {selectedPlan.facilities && <div className="uv-investment-facilities"><span className="uv-investment-option-heading-label">{activePlan === "membership" ? "FACILITIES LISTED FOR MEMBERSHIP ACCESS" : "COMMERCIAL & INSTITUTIONAL CATEGORIES"}</span><div>{selectedPlan.facilities.map((facility) => <span key={facility}><i>✓</i>{facility}</span>)}</div></div>}
-                            <ul className="uv-investment-considerations">{selectedPlan.points.map((point) => <li key={point}><i>✓</i>{point}</li>)}</ul>
-                            <Link href="/contact-us" className="uv-investment-inline-cta">Request details for this option <b>↗</b></Link>
-                        </div>
-                    </article>
-                </div>
-            </section>
+      <section className="uv-investment-explorer" id="opportunities">
+        <div className="uv-investment-shell">
+          <div className="uv-investment-section-heading uv-investment-section-heading--center"><span className="uv-investment-kicker">INVESTOR BENEFITS</span><h2 style={{ color: 'var(--uv-ink)' }}>What does each option <em>include?</em></h2><p>Select a category to view its share options and the facilities or considerations associated with it.</p></div>
+          <div className="uv-investment-tabs" role="tablist" aria-label="Investment categories">
+            {investmentPlans.map((plan) => <button key={plan.id} type="button" role="tab" aria-selected={activePlan === plan.id} className={`uv-investment-tab ${activePlan === plan.id ? "is-active" : ""}`} onClick={() => selectPlan(plan.id)}><span>{plan.number}</span>{plan.label}<b>↗</b></button>)}
+          </div>
+          <article className="uv-investment-feature" key={selectedPlan.id}>
+            <div className="uv-investment-feature-visual"><img src={selectedPlan.image} alt={`${selectedPlan.label} visual`} /><div className="uv-investment-feature-shade" /><div className="uv-investment-feature-caption"><small>MUHAJIREEN · {selectedPlan.number}</small><strong>{selectedPlan.label}</strong></div></div>
+            <div className="uv-investment-feature-content">
+              <div className="uv-investment-feature-top"><span className="uv-investment-kicker">CATEGORY {selectedPlan.number}</span><span className="uv-investment-outline-pill">PROPOSAL OVERVIEW</span></div>
+              <h3 style={{ color: 'var(--uv-ink)' }}>{selectedPlan.title}</h3><p className="uv-investment-description">{selectedPlan.description}</p>
+              <div className="uv-investment-option-heading"><span>AVAILABLE SHARE OPTIONS</span><small>Choose to compare</small></div>
+              <div className="uv-investment-options">{selectedPlan.options.map((option, index) => <button type="button" key={option.share} className={`uv-investment-option ${activeShare === index ? "is-selected" : ""}`} onClick={() => setActiveShare(index)} aria-pressed={activeShare === index}><span className="uv-investment-radio">{activeShare === index && <i />}</span><span className="uv-investment-option-copy"><small>{option.share}</small><strong>{option.title}</strong><em>{option.detail}</em></span><b className="uv-investment-option-arrow">↗</b></button>)}</div>
+              <div className="uv-investment-selection-summary"><span>SELECTED OPTION</span><strong>{selectedOption.title}</strong><p>{selectedOption.detail}</p></div>
+              {selectedPlan.facilities && <div className="uv-investment-facilities"><span className="uv-investment-option-heading-label">{activePlan === "membership" ? "FACILITIES LISTED FOR MEMBERSHIP ACCESS" : "COMMERCIAL & INSTITUTIONAL CATEGORIES"}</span><div>{selectedPlan.facilities.map((facility) => <span key={facility}><i>✓</i>{facility}</span>)}</div></div>}
+              <ul className="uv-investment-considerations">{selectedPlan.points.map((point) => <li key={point}><i>✓</i>{point}</li>)}</ul>
+              <Link href="/contact" className="uv-investment-inline-cta">Request details for this option <b>↗</b></Link>
+            </div>
+          </article>
+        </div>
+      </section>
 
-            <section className="uv-investment-process uv-investment-shell">
-                <div className="uv-investment-section-heading"><span className="uv-investment-kicker">INVEST WITH CONFIDENCE</span><h2 style={{ color: 'var(--uv-ink)' }}>Questions worth asking<br /><em>before you commit.</em></h2><p>A thoughtful investment decision starts with transparent information and a clear understanding of the documents—not assumptions.</p></div>
-                <div className="uv-investment-diligence-grid">{dueDiligence.map((item) => <article className="uv-investment-diligence-card" key={item.n}><span>{item.n}</span><h3 style={{ color: 'var(--uv-ink)' }}>{item.title}</h3><p>{item.text}</p></article>)}</div>
-            </section>
+      <section className="uv-investment-process uv-investment-shell">
+        <div className="uv-investment-section-heading"><span className="uv-investment-kicker">INVEST WITH CONFIDENCE</span><h2 style={{ color: 'var(--uv-ink)' }}>Questions worth asking<br /><em>before you commit.</em></h2><p>A thoughtful investment decision starts with transparent information and a clear understanding of the documents—not assumptions.</p></div>
+        <div className="uv-investment-diligence-grid">{dueDiligence.map((item) => <article className="uv-investment-diligence-card" key={item.n}><span>{item.n}</span><h3 style={{ color: 'var(--uv-ink)' }}>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      </section>
 
-            <section className="uv-investment-steps-wrap"><div className="uv-investment-shell uv-investment-steps"><div><span className="uv-investment-kicker">YOUR NEXT STEP</span><h2 style={{ color: 'var(--uv-ink)' }}>Get the details.<br /><em>Make an informed choice.</em></h2><p>Talk to the MUHAJIREEN team to request the latest proposal, share details, eligibility criteria and applicable legal documents.</p></div><div className="uv-investment-steps-list"><div><span >01</span><p><b>Tell us your interest</b><small>Residential, commercial or membership</small></p></div><div><span>02</span><p><b>Review the information</b><small>Ask for current terms and documents</small></p></div><div><span>03</span><p><b>Decide after due diligence</b><small>Proceed only when the terms are clear</small></p></div><Link href="/contact-us" className="uv-investment-button uv-investment-button--gold">Request Investment Details <b>↗</b></Link></div></div></section>
+      <section className="uv-investment-steps-wrap"><div className="uv-investment-shell uv-investment-steps"><div><span className="uv-investment-kicker">YOUR NEXT STEP</span><h2 style={{ color: 'var(--uv-ink)' }}>Get the details.<br /><em>Make an informed choice.</em></h2><p>Talk to the MUHAJIREEN team to request the latest proposal, share details, eligibility criteria and applicable legal documents.</p></div><div className="uv-investment-steps-list"><div><span >01</span><p><b>Tell us your interest</b><small>Residential, commercial or membership</small></p></div><div><span>02</span><p><b>Review the information</b><small>Ask for current terms and documents</small></p></div><div><span>03</span><p><b>Decide after due diligence</b><small>Proceed only when the terms are clear</small></p></div><Link href="/contact" className="uv-investment-button uv-investment-button--gold">Request Investment Details <b>↗</b></Link></div></div></section>
 
-            <section className="uv-investment-disclaimer uv-investment-shell"><span>IMPORTANT INFORMATION</span><p>This page summarizes categories and options described in the supplied MUHAJIREEN section. It does not constitute an offer, financial advice, or a guarantee of profit, appreciation, availability or membership benefits. Share sizes, eligibility, pricing, payment terms, legal rights, approvals, distributions and other conditions must be verified against current official documents and the applicable agreement. Please conduct independent legal and financial due diligence before making a commitment.</p></section>
+      <section className="uv-investment-disclaimer uv-investment-shell"><span>IMPORTANT INFORMATION</span><p>This page summarizes categories and options described in the supplied MUHAJIREEN section. It does not constitute an offer, financial advice, or a guarantee of profit, appreciation, availability or membership benefits. Share sizes, eligibility, pricing, payment terms, legal rights, approvals, distributions and other conditions must be verified against current official documents and the applicable agreement. Please conduct independent legal and financial due diligence before making a commitment.</p></section>
 
-            <Footer />
-            {/* <Scrollbar /> */}
-            <WAIcon></WAIcon>
-            <style jsx global>{`
+      <Footer />
+      {/* <Scrollbar /> */}
+      <WAIcon></WAIcon>
+      <style jsx global>{`
   .uv-investment-page {
     --uv-ink: #30251d;
     --uv-muted: #6b5e50;
@@ -1089,6 +1089,6 @@ export default function InvestmentOpportunityPage() {
     }
   }
 `}</style>
-        </main>
-    );
+    </main>
+  );
 }
