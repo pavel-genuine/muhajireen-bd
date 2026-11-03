@@ -260,8 +260,8 @@ const lifestyleFacilities = [
 const projectHotspots = [
   {
     id: "hospital",
-    label: "Hospital",
-    short: "HOSPITAL",
+    label: "MULTI-SPECIALIST HOSPITAL",
+    short: "MULTI-SPECIALIST HOSPITAL",
     x: 30,
     y: 50,
     image: "/images/slider/hero-slide/img-4.1-main.png",
@@ -271,9 +271,9 @@ const projectHotspots = [
   {
     id: "dental",
     label: "Dental Hospital",
-    short: "DENTAL",
+    short: "DENTAL HOSPITAL",
     x: 37,
-    y: 39,
+    y: 38,
     image: "/images/slider/hero-slide/img-5.1-main.png",
     description:
       "A dedicated dental care facility within the development plan.",
@@ -281,16 +281,16 @@ const projectHotspots = [
   {
     id: "nursing",
     label: "Nursing Institute",
-    short: "NURSING",
+    short: "NURSING INSTITUTE",
     x: 42,
-    y: 34,
+    y: 32,
     image: "/images/slider/hero-slide/img-6.1-main1.png",
     description: "A planned institute for nursing education and training.",
   },
   {
     id: "school",
     label: "International School",
-    short: "SCHOOL",
+    short: "INTERNATIONALSCHOOL",
     x: 35,
     y: 20,
     image: "/images/slider/hero-slide/img-8-main.png",
@@ -299,7 +299,7 @@ const projectHotspots = [
   {
     id: "mosque",
     label: "Mosque & Madrasha",
-    short: "MOSQUE",
+    short: "MOSQUE & MADRASHA",
     x: 50,
     y: 20,
     image: "/images/slider/hero-slide/img-7-main.png",
@@ -308,8 +308,8 @@ const projectHotspots = [
   {
     id: "residential",
     label: "Residential Area",
-    short: "RESIDENCE",
-    x: 83,
+    short: "RESIDENTIAL BUILDINGS",
+    x: 70,
     y: 17,
     image: "/images/slider/hero-slide/img-3.1-main.png",
     description:
@@ -318,7 +318,7 @@ const projectHotspots = [
   {
     id: "park",
     label: "Central Park",
-    short: "PARK",
+    short: "CENTRALPARK",
     x: 63,
     y: 40,
     image: "/images/slider/hero-slide/img-9.1-main.png",
@@ -327,8 +327,8 @@ const projectHotspots = [
   {
     id: "commercial",
     label: "Commercial Spaces",
-    short: "COMMERCE",
-    x: 73,
+    short: "COMMERCIAL SPACES",
+    x: 70,
     y: 59,
     image: "/images/slider/hero-slide/img-2.1-main.png",
     description: "Commercial spaces for shopping, dining and daily services.",
@@ -336,9 +336,9 @@ const projectHotspots = [
   {
     id: "mall",
     label: "Shopping Mall",
-    short: "MALL",
-    x: 72,
-    y: 77,
+    short: "SHOPPING MALL",
+    x: 70,
+    y: 70,
     image: "/images/slider/hero-slide/img-2.1-main.png",
     description: "A planned retail destination within the wider project.",
   },
@@ -516,7 +516,7 @@ export default function ProjectOverviewPage() {
         const index = projectHotspots.findIndex((item) => item.id === current);
         return projectHotspots[(index + 1) % projectHotspots.length].id;
       });
-    }, 4500);
+    }, 3000);
     return () => window.clearInterval(timer);
   }, [hotspotDetailsOpen]);
 
@@ -847,10 +847,6 @@ export default function ProjectOverviewPage() {
                   <span className="id-number">{item.number}</span>
                   <span className="id-category">{item.category}</span>
                 </div>
-
-                <span className="id-image-mark" aria-hidden="true">
-                  ↗
-                </span>
               </div>
 
               <div className="id-card-body">
@@ -865,13 +861,6 @@ export default function ProjectOverviewPage() {
                     </span>
                   ))}
                 </div>
-
-                <Link href={item.href} className="id-card-link">
-                  <span>EXPLORE DEVELOPMENT</span>
-                  <span className="id-link-arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </Link>
               </div>
             </article>
           ))}
@@ -2718,6 +2707,10 @@ export default function ProjectOverviewPage() {
           .uv-lifestyle-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
+
+          .uv-lifestyle-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
         }
 
         @media (max-width: 900px) {
@@ -2775,9 +2768,11 @@ export default function ProjectOverviewPage() {
 
         @media (max-width: 768px) {
           .uv-lifestyle-grid,
-          .uv-integrated-grid,
           .uv-facts {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .uv-integrated-grid {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
           }
           .uv-fact:nth-child(odd) {
             border-right: 0;
