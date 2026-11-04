@@ -809,7 +809,10 @@ export default function ProjectOverviewPage() {
       </section>
 
       {/* INTEGRATED DEVELOPMENTS */}
-      <section className="uv-facilities uv-section uv-integrated-section">
+      <section
+        id="integrated-development"
+        className="uv-facilities uv-section uv-integrated-section"
+      >
         <div className="uv-eyebrow">
           <span className="uv-eyebrow-line" />
           <span>03 / INTEGRATED DEVELOPMENT</span>
@@ -827,66 +830,72 @@ export default function ProjectOverviewPage() {
         </div>
         <div className="uv-facility-grid uv-integrated-grid">
           {integratedDevelopments.map((item, index) => (
-            <article
-              className={`id-card ${item.size}`}
-              key={item.number + item.title}
-              style={{ "--id-delay": `${index * 80}ms` }}
-            >
-              <div className="id-card-image">
-                <Image
-                  src={item.image}
-                  alt={item.imageAlt}
-                  fill
-                  sizes="(max-width: 620px) 90vw, (max-width: 1023px) 48vw, 32vw"
-                  className="id-photo"
-                />
+            <Link href={`/infrastructure-detail/${item.href}`}>
+              {" "}
+              <article
+                className={`id-card ${item.size}`}
+                key={item.number + item.title}
+                style={{ "--id-delay": `${index * 80}ms` }}
+              >
+                <div className="id-card-image">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 620px) 90vw, (max-width: 1023px) 48vw, 32vw"
+                    className="id-photo"
+                  />
 
-                <div className="id-image-shade" />
+                  <div className="id-image-shade" />
 
-                <div className="id-card-top">
-                  <span className="id-number">{item.number}</span>
-                  <span className="id-category">{item.category}</span>
-                </div>
-                <Link
-                  href={`/infrastructure-detail/${item.href}`}
-                  className="id-card-link"
-                >
-                  <span className="id-image-mark" aria-hidden="true">
-                    ↗
-                  </span>
-                </Link>
-              </div>
-
-              <div className="id-card-body">
-                <h3>{item.title}</h3>
-                <p className="id-card-description">{item.description}</p>
-
-                <div className="id-feature-list">
-                  {item.features.map((feature) => (
-                    <span className="id-feature" key={feature}>
-                      <span className="id-feature-dot" />
-                      {feature}
+                  <div className="id-card-top">
+                    <span className="id-number">{item.number}</span>
+                    <span className="id-category">{item.category}</span>
+                  </div>
+                  <Link
+                    href={`/infrastructure-detail/${item.href}`}
+                    className="id-card-link"
+                  >
+                    <span className="id-image-mark" aria-hidden="true">
+                      ↗
                     </span>
-                  ))}
+                  </Link>
                 </div>
 
-                <Link
-                  href={`/infrastructure-detail/${item.href}`}
-                  className="id-card-link"
-                >
-                  <span>EXPLORE DEVELOPMENT</span>
-                  <span className="id-link-arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </Link>
-              </div>
-            </article>
+                <div className="id-card-body">
+                  <h3>{item.title}</h3>
+                  <p className="id-card-description">{item.description}</p>
+
+                  <div className="id-feature-list">
+                    {item.features.map((feature) => (
+                      <span className="id-feature" key={feature}>
+                        <span className="id-feature-dot" />
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={`/infrastructure-detail/${item.href}`}
+                    className="id-card-link"
+                  >
+                    <span>EXPLORE DEVELOPMENT</span>
+                    <span className="id-link-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </Link>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
 
       {/* LIFESTYLE FACILITIES */}
-      <section className="uv-facilities uv-section uv-lifestyle-section">
+      <section
+        id="lifestyle-facilities"
+        className="uv-facilities uv-section uv-lifestyle-section"
+      >
         <div className="uv-eyebrow">
           <span className="uv-eyebrow-line" />
           <span>04 / LIFESTYLE FACILITIES</span>
@@ -930,36 +939,39 @@ export default function ProjectOverviewPage() {
         </div>
         <div className="uv-facility-grid uv-lifestyle-grid">
           {filteredFacilities.map((item) => (
-            <article
-              className="uv-facility-card"
-              key={item.number + item.title}
-            >
-              <div className="uv-facility-card-image">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 800px) 50vw, 33vw"
-                />
-              </div>
-              <div className="uv-facility-card-copy">
-                <span className="uv-facility-number">{item.number}</span>
-                <small>{item.category}</small>
-                <h3>{item.title}</h3>
-                <p>{item.items}</p>
-                <div className="uv-card-rule" />
+            <Link href={`/lifestyle-facilities/${item.id}`}>
+              {" "}
+              <article
+                className="uv-facility-card"
+                key={item.number + item.title}
+              >
+                <div className="uv-facility-card-image">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 800px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="uv-facility-card-copy">
+                  <span className="uv-facility-number">{item.number}</span>
+                  <small>{item.category}</small>
+                  <h3>{item.title}</h3>
+                  <p>{item.items}</p>
+                  <div className="uv-card-rule" />
 
-                <Link
-                  href={`/lifestyle-facilities/${item.id}`}
-                  className="id-card-link"
-                >
-                  <span>EXPLORE </span>
-                  <span className="id-link-arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </Link>
-              </div>
-            </article>
+                  <Link
+                    href={`/lifestyle-facilities/${item.id}`}
+                    className="id-card-link"
+                  >
+                    <span>EXPLORE </span>
+                    <span className="id-link-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </Link>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </section>

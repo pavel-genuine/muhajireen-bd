@@ -29,8 +29,8 @@ const facilities = [
     id: "nursing",
     label: "Nursing Institute",
     short: "NURSING INSTITUTE",
-    x: 42,
-    y: 34,
+    x: 44,
+    y: 35,
     image: "/images/slider/hero-slide/img-6.1-main1.png",
     category: "EDUCATION & HEALTHCARE",
     description:

@@ -566,7 +566,7 @@ export default function InfrastructureDetail({ id }) {
                             <span className="eyebrow dark-eyebrow">EXPLORE MORE</span>
                             <h2>Part of something <em>bigger.</em></h2>
                         </div>
-                        <Link href="/#infrastructure" className="all-link">
+                        <Link href="/project-overview#integrated-development" className="all-link">
                             All infrastructure <span>↗</span>
                         </Link>
                     </div>
@@ -1865,7 +1865,76 @@ export default function InfrastructureDetail({ id }) {
   .infrastructure-page .hero-inner {
     width: calc(100% - 36px);
   }
-} `}</style>
+} /* FIX: HERO IMAGE VISIBILITY ON MOBILE */
+.infrastructure-page .hero {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background: #d4c6af !important;
+}
+
+.infrastructure-page .hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  overflow: hidden !important;
+}
+
+.infrastructure-page .hero-image :global(img) {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+.infrastructure-page .hero-wash {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    90deg,
+    rgba(25, 25, 20, 0.5) 0%,
+    rgba(25, 25, 20, 0.24) 55%,
+    rgba(25, 25, 20, 0.08) 100%
+  ) !important;
+}
+
+.infrastructure-page .hero-inner {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 700px) {
+  .infrastructure-page .hero {
+    width: 100% !important;
+    min-height: 620px !important;
+    height: 82svh !important;
+    max-height: 850px !important;
+  }
+
+  .infrastructure-page .hero-image,
+  .infrastructure-page .hero-wash {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .infrastructure-page .hero-image :global(img) {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .infrastructure-page .hero-inner {
+    width: calc(100% - 36px) !important;
+    min-height: inherit !important;
+  }
+
+  .infrastructure-page .hero-copy {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+}`}</style>
         </>
     );
 }

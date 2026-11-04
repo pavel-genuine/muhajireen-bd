@@ -385,8 +385,8 @@ export default function LifestyleDetailPage({ facility, id }) {
                             <h2>Explore a life thoughtfully planned.</h2>
                             <p>Discover more facilities across the community.</p>
                         </div>
-                        <Link href="/#lifestyle-facilities">
-                            Explore all facilities <span>↗</span>
+                        <Link href="/project-overview#lifestyle-facilities">
+                            Explore all lifestyle facilities <span>↗</span>
                         </Link>
                     </section>
 

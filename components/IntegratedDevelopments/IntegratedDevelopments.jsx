@@ -223,55 +223,58 @@ export default function IntegratedDevelopments() {
           >
             {developmentGroups.map((item, index) => (
               <SwiperSlide key={item.number}>
-                <article
-                  className={`id-card ${item.size}`}
-                  data-development-reveal
-                  style={{ "--id-delay": `${index * 80}ms` }}
-                >
-                  <div className="id-card-image">
-                    <Image
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      sizes="(max-width: 620px) 90vw, (max-width: 1023px) 48vw, 32vw"
-                      className="id-photo"
-                    />
+                <Link href={item.href}>
+                  {" "}
+                  <article
+                    className={`id-card ${item.size}`}
+                    data-development-reveal
+                    style={{ "--id-delay": `${index * 80}ms` }}
+                  >
+                    <div className="id-card-image">
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt}
+                        fill
+                        sizes="(max-width: 620px) 90vw, (max-width: 1023px) 48vw, 32vw"
+                        className="id-photo"
+                      />
 
-                    <div className="id-image-shade" />
+                      <div className="id-image-shade" />
 
-                    <div className="id-card-top">
-                      <span className="id-number">{item.number}</span>
-                      <span className="id-category">{item.category}</span>
-                    </div>
+                      <div className="id-card-top">
+                        <span className="id-number">{item.number}</span>
+                        <span className="id-category">{item.category}</span>
+                      </div>
 
-                    <Link href={item.href} className="id-card-link">
-                      <span className="id-image-mark" aria-hidden="true">
-                        ↗
-                      </span>
-                    </Link>
-                  </div>
-
-                  <div className="id-card-body">
-                    <h3>{item.title}</h3>
-                    <p className="id-card-description">{item.description}</p>
-
-                    <div className="id-feature-list">
-                      {item.features.map((feature) => (
-                        <span className="id-feature" key={feature}>
-                          <span className="id-feature-dot" />
-                          {feature}
+                      <Link href={item.href} className="id-card-link">
+                        <span className="id-image-mark" aria-hidden="true">
+                          ↗
                         </span>
-                      ))}
+                      </Link>
                     </div>
 
-                    <Link href={item.href} className="id-card-link">
-                      <span>Explore Development</span>
-                      <span className="id-link-arrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    </Link>
-                  </div>
-                </article>
+                    <div className="id-card-body">
+                      <h3>{item.title}</h3>
+                      <p className="id-card-description">{item.description}</p>
+
+                      <div className="id-feature-list">
+                        {item.features.map((feature) => (
+                          <span className="id-feature" key={feature}>
+                            <span className="id-feature-dot" />
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+
+                      <Link href={item.href} className="id-card-link">
+                        <span>Explore Development</span>
+                        <span className="id-link-arrow" aria-hidden="true">
+                          ↗
+                        </span>
+                      </Link>
+                    </div>
+                  </article>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

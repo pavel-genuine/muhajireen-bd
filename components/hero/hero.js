@@ -159,7 +159,7 @@ const projectHotspots = [
     label: "Dental Hospital",
     short: "DENTAL HOSPITAL",
     x: 37,
-    y: 39,
+    y: 41,
     image: "/images/slider/hero-slide/img-5.1-main.png",
     description:
       "Dedicated dental care facilities designed around modern treatment.",
@@ -170,7 +170,7 @@ const projectHotspots = [
     short: "NURSING INSTITUTE",
 
     x: 42,
-    y: 34,
+    y: 37,
     image: "/images/slider/hero-slide/img-6.1-main1.png",
     description:
       "Modern nursing institute with hi-tech facilities.",
