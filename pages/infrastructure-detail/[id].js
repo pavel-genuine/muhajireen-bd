@@ -516,7 +516,7 @@ export default function InfrastructureDetail({ id }) {
                                     <div className="highlight-row" key={highlight}>
                                         <span>0{index + 1}</span>
                                         <p>{highlight}</p>
-                                        <span className="highlight-arrow">↗</span>
+                                        {/* <span className="highlight-arrow">↗</span> */}
                                     </div>
                                 ))}
                             </div>
