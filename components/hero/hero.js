@@ -1275,7 +1275,7 @@ export default function Hero() {
     .uttara-hero-title {
       top: 72px !important;
       padding: 0 14px;
-      font-size: clamp(22px, 7.2vw, 34px) !important;
+      font-size: clamp(22px, 10.2vw, 40px) !important;
       letter-spacing: -0.03em;
       line-height: 0.95;
       white-space: normal;
@@ -1680,7 +1680,7 @@ export default function Hero() {
 /* Remove conflicting responsive height rules */
 @media (max-width: 991px) {
   .uttara-hero {
-    height: 50vh !important;
+    height: 55vh !important;
   
     aspect-ratio: 1792/878 !important;
     overflow:hidden;
@@ -1759,11 +1759,11 @@ body {
   }
 
   .uttara-hero .uttara-building-foreground.park {
-    top: 19% !important;P
+    top: 5% !important;P
     margin-top: -35px !important;
   }
     .uttara-hero-title.park {
-    top: 43% !important;
+    top: 35% !important;
     margin-top: -20px !important;
   }
 
@@ -1773,37 +1773,38 @@ body {
     margin-left: -10px;
   }
   .uttara-hero-title.nursing {
-    top: 21% !important;
+    top: 24% !important;
 
   }
 
   .uttara-hero-title.commercial {
-    top: 25% !important;
+    top: 37% !important;
     margin-top: -10px !important;
   }
 
  .uttara-hero-title.residence {
-    top: 10% !important;
+    top: 18% !important;
     margin-top: 10px !important;
   }
 
+ 
   .uttara-hero-title.hospital {
-    top: 42% !important;
+    top: 35% !important;
     margin-top: -40px !important;
   }
 
   .uttara-hero-title.dental {
-    top: 3.5% !important;
+    top: 19% !important;
     margin-top: 20px !important;
   }
 
   .uttara-hero .uttara-building-foreground.mosque {
-    top: 19% !important;
-    margin-top: -45px !important;
-    margin-left: -5px !important;
+    top: 10% !important;
+    margin-top: -55px !important;
+    margin-left: -1px !important;
   }
   .uttara-hero-title.mosque {
-    top: 25% !important;
+    top: 30% !important;
    
   }
 }
