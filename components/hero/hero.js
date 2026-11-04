@@ -279,7 +279,7 @@ export default function Hero() {
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            Autoplay,
+            // Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -289,11 +289,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -1281,7 +1281,7 @@ export default function Hero() {
     .uttara-hero-title {
       top: 72px !important;
       padding: 0 14px;
-      font-size: clamp(22px, 10.2vw, 40px) !important;
+      font-size: clamp(22px, 8vw, 40px) !important;
       letter-spacing: -0.03em;
       line-height: 0.95;
       white-space: normal;
@@ -1769,7 +1769,7 @@ body {
     margin-top: -35px !important;
   }
     .uttara-hero-title.park {
-    top: 35% !important;
+    top: 36% !important;
     margin-top: -20px !important;
   }
 
@@ -1784,23 +1784,23 @@ body {
   }
 
   .uttara-hero-title.commercial {
-    top: 37% !important;
+    top: 38% !important;
     margin-top: -10px !important;
   }
 
  .uttara-hero-title.residence {
-    top: 18% !important;
+    top: 19% !important;
     margin-top: 10px !important;
   }
 
  
   .uttara-hero-title.hospital {
-    top: 35% !important;
+    top: 37% !important;
     margin-top: -40px !important;
   }
 
   .uttara-hero-title.dental {
-    top: 19% !important;
+    top: 19.5% !important;
     margin-top: 20px !important;
   }
 
