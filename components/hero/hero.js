@@ -1141,11 +1141,17 @@ export default function Hero() {
   /* ================================
      TABLET
   ================================ */
-  @media (max-width: 991px) {
+  @media (max-width: 1050px) {
     .uttara-hero {
       height: 90svh;
       min-height: 680px;
       max-height: none;
+    }
+
+    .uttara-hero-title{
+    font-size: clamp(38px, 7vw, 90px) !important;
+    position:absolute !important;
+    top:15%!important;
     }
 
     .uttara-container {
