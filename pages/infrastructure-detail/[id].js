@@ -388,15 +388,13 @@ export default function InfrastructureDetail({ id }) {
                                 allowFullScreen
                             />
                         ) : (
-                            <div className="video-placeholder">
-                                <div className="play-symbol">▶</div>
-                                <span className="placeholder-label">PROJECT FILM</span>
-                                <h3>See the vision come to life</h3>
-                                <p>
-                                    Add your YouTube video ID in the infrastructure data to
-                                    display the project film here.
-                                </p>
-                            </div>
+                            <iframe
+                                src={`https://www.youtube-nocookie.com/embed/fMiA6cikPS4?rel=0`}
+                                title={`${item.title} — MUHAJIREEN`}
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                            />
                         )}
                     </div>
 
