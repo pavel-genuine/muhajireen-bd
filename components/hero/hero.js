@@ -1680,10 +1680,18 @@ export default function Hero() {
 /* Remove conflicting responsive height rules */
 @media (max-width: 991px) {
   .uttara-hero {
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: 1792 / 878;
+    height: 50vh !important;
+  
+    aspect-ratio: 1792/878 !important;
+    overflow:hidden;
+  }
+  .uttara-hero .uttara-slide-image {
+    background-size: cover!important; 
+    background-position: center!important;
+  }
+  .uttara-hero .uttara-building-foreground {
+    object-fit: cover!important; 
+  object-position: center!important;
   }
 }
 
