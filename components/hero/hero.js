@@ -1779,7 +1779,7 @@ body {
     margin-left: -10px;
   }
   .uttara-hero-title.nursing {
-    top: 24% !important;
+    top: 24.5% !important;
 
   }
 
