@@ -44,7 +44,7 @@ export default function Footer() {
 
         {/* TOP CTA */}
         <div className="uv-footer-cta">
-          <div className="uv-cta-decoration">UV</div>
+          <div className="uv-cta-decoration">M</div>
 
           <div className="uv-cta-content">
             <span className="uv-eyebrow">

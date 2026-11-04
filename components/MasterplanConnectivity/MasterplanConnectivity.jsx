@@ -105,10 +105,10 @@ const facilities = [
 ];
 
 const roads = [
-  ["Front Road", "80 ft"],
-  ["Back Road", "30 ft"],
-  ["Right-side Road", "50 ft"],
-  ["Left-side Road", "30 ft"],
+  ["Front Road", "60 ft"],
+  ["Back Road", "25 ft"],
+  ["Right-side Road", "25 ft"],
+  ["Left-side Road", "25 ft"],
 ];
 
 const nearbyDestinations = [

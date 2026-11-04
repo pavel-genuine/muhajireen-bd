@@ -11,7 +11,7 @@ import WAIcon from "../../components/WAIcon/WAIcon";
 const projectFacts = [
   { value: "5", unit: "Acres", note: "Total project land" },
   { value: "10", unit: "Infrastructures", note: "All Modern Facilities" },
-  { value: "80 ft", unit: "Road", note: "Front-side road width" },
+  { value: "60 ft", unit: "Road", note: "Front-side road width" },
 ];
 
 const integratedDevelopments = [
@@ -705,7 +705,9 @@ export default function ProjectOverviewPage() {
           </div>
         ))}
         <div className="uv-fact uv-fact-last">
-          <strong>30–50 ft</strong>
+          <strong>
+            25 ft <em>Road</em>
+          </strong>
           <span>Side and back road widths listed in the profile</span>
         </div>
       </section>
@@ -771,9 +773,7 @@ export default function ProjectOverviewPage() {
               5 <em>Acres</em>
             </strong>
             <span>Equivalent to 303 Kathas</span>
-            <i>
-              Road access noted: 80 ft front · 50 ft right · 30 ft left and back
-            </i>
+            <i>Road access noted: 60 ft front · 25 ft right, left and back</i>
           </div>
         </div>
         <div className="uv-project-highlights">
@@ -797,8 +797,8 @@ export default function ProjectOverviewPage() {
             <small>ACCESS & ROADS</small>
             <strong>Planned Road Network</strong>
             <p>
-              Road widths noted in the profile: 80 ft front, 50 ft right, and 30
-              ft left and back.
+              Road widths noted in the profile: 60 ft front, 25 ft right, left
+              and back.
             </p>
           </article>
         </div>
