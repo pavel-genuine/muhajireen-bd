@@ -48,7 +48,7 @@ export default function WAIcon({
           background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0.94),
-            rgba(248, 243, 234, 0.82) 55%,
+            rgba(241, 219, 176, 0.82) 55%,
             rgba(237, 226, 208, 0.78)
           );
 
