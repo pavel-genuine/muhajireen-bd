@@ -270,16 +270,14 @@ export default function Hero() {
   return (
     <section >
       <section style={{
-        marginTop: width > 768 ? "0px" : "80px",
-        backgroundColor: "#101b25",
-        position: "relative",
+
 
 
       }} className="uttara-hero" aria-label="Uttara View highlights">
         <Swiper
           className="uttara-swiper"
           modules={[A11y,
-            Autoplay,
+            // Autoplay,
             Pagination, Parallax, EffectFade]}
           slidesPerView={1}
           spaceBetween={0}
@@ -289,11 +287,11 @@ export default function Hero() {
           effect="fade"
           fadeEffect={{ crossFade: true }}
           watchSlidesProgress
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           pagination={{
             el: ".uttara-pagination",
             clickable: true,
@@ -574,8 +572,8 @@ export default function Hero() {
      Full rewritten styles (Mobile + Tablet fixed)
   ================================ */
 
-  .connection { top: 15%; }
-  .school     { top: 15%; }
+  .connection { top: 20%; }
+  .school     { top: 20%; }
   .park     { top: 21%; margin-top: -20px;  }
   .nursing     { top: 14%; margin-top: 60px;margin-left: -60px; }
   .commercial { top: 18%; margin-top: -10px; }
@@ -1730,16 +1728,12 @@ export default function Hero() {
  
 }
   .uttara-hero {
-  
-  padding-top: 80px;
+
   box-sizing: border-box;
   background-color: #101b25;
 }
 
-html,
-body {
-  background-color: #423a30 !important;
-}
+
 
 @media (max-width: 768px) {
   .uttara-hero {
@@ -1751,16 +1745,13 @@ body {
 
 
   .uttara-hero .uttara-building-foreground .connection {
-    top: 10% !important;
-    margin-top: 10px !important;
+    top: 20% !important;
+    margin-top: 100px !important;
   }
-  .uttara-hero-title .connection {
-    top: 10% !important;
-    margin-top: 10px !important;
-  }
+  
 
   .uttara-hero-title.school {
-    top: 10% !important;
+    top: 20% !important;
     margin-top: 0 !important;
   }
 
