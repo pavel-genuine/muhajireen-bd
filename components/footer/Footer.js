@@ -13,9 +13,10 @@ const quickLinks = [
 ];
 
 const projectLinks = [
-  { label: "Master Plan & Connectivity", href: "/#masterplan-connectivity" },
-  { label: "Integrated Development", href: "/#developments" },
-  { label: "Lifestyle & Facilities", href: "/#lifestyle-facilities" },
+  { label: "Master Plan", href: "/project-overview" },
+  { label: "Integrated Development", href: "/project-overview#integrated-development" },
+  { label: "Lifestyle & Facilities", href: "/project-overview#lifestyle-facilities" },
+  { label: "Connectivity", href: "/project-overview#location-connectivity" },
 
 ];
 
@@ -44,7 +45,7 @@ export default function Footer() {
 
         {/* TOP CTA */}
         <div className="uv-footer-cta">
-          <div className="uv-cta-decoration">M</div>
+          <div className="uv-cta-decoration">M </div>
 
           <div className="uv-cta-content">
             <span className="uv-eyebrow">

@@ -442,7 +442,6 @@ export default function ProjectOverviewPage() {
   const [activeHotspotId, setActiveHotspotId] = useState("hospital");
   const [hotspotDetailsOpen, setHotspotDetailsOpen] = useState(true);
 
-  // Connectivity interactive map states
   const [nearbyFilter, setNearbyFilter] = useState("ALL");
   const [nearbyActiveId, setNearbyActiveId] = useState("metro");
   const [activeFacilityId, setActiveFacilityId] = useState("pool");
@@ -524,6 +523,25 @@ export default function ProjectOverviewPage() {
 
   useEffect(() => {
     setWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    const handleHashScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          const element = document.getElementById(hash.replace("#", ""));
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }, 300);
+      }
+    };
+
+    handleHashScroll();
+
+    window.addEventListener("hashchange", handleHashScroll);
+    return () => window.removeEventListener("hashchange", handleHashScroll);
   }, []);
 
   return (
@@ -978,6 +996,7 @@ export default function ProjectOverviewPage() {
 
       {/* LOCATION & CONNECTIVITY */}
       <section
+        id="location-connectivity"
         className="uv-connect-masterplan-style"
         style={{ padding: "60px 24px", maxWidth: "1320px", margin: "0 auto" }}
       >
@@ -990,7 +1009,7 @@ export default function ProjectOverviewPage() {
             <div>
               <div className="uv-eyebrow">
                 <span className="uv-eyebrow-line" />
-                <span>LOCATION & CONNECTIVITY</span>
+                <span>05 / LOCATION & CONNECTIVITY</span>
               </div>
               <h3
                 id="uv-mp-nearby-title"
