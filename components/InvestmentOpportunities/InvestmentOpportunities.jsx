@@ -259,8 +259,8 @@ export default function InvestmentOpportunities() {
             </p>
           </div>
 
-          <a className="uv-investment__cta" href="#contact">
-            <span>Request Investment Details</span>
+          <a className="uv-investment__cta" href="/investment-opportunity">
+            <span>Investment Details</span>
             <b>↗</b>
           </a>
         </div>

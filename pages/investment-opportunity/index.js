@@ -134,7 +134,7 @@ export default function InvestmentOpportunityPage() {
               <div className="uv-investment-selection-summary"><span>SELECTED OPTION</span><strong>{selectedOption.title}</strong><p>{selectedOption.detail}</p></div>
               {selectedPlan.facilities && <div className="uv-investment-facilities"><span className="uv-investment-option-heading-label">{activePlan === "membership" ? "FACILITIES LISTED FOR MEMBERSHIP ACCESS" : "COMMERCIAL & INSTITUTIONAL CATEGORIES"}</span><div>{selectedPlan.facilities.map((facility) => <span key={facility}><i>✓</i>{facility}</span>)}</div></div>}
               <ul className="uv-investment-considerations">{selectedPlan.points.map((point) => <li key={point}><i>✓</i>{point}</li>)}</ul>
-              <Link href="/contact" className="uv-investment-inline-cta">Request details for this option <b>↗</b></Link>
+              <Link href="/contact" className="uv-investment-inline-cta">Request for details  <b>↗</b></Link>
             </div>
           </article>
         </div>

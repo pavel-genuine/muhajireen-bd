@@ -243,7 +243,7 @@ export default function ContactUsPage() {
 
                                         <div>
                                             <small>CALL OUR TEAM</small>
-                                            <strong>+880 1XXXXXXXXX</strong>
+                                            <strong>+8801715102130</strong>
                                         </div>
                                     </div>
 
