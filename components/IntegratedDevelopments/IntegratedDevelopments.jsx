@@ -197,7 +197,7 @@ export default function IntegratedDevelopments() {
             watchOverflow={true}
             grabCursor={true}
             autoplay={{
-              delay: 3000,
+              delay: 2500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}

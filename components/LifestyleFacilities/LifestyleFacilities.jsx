@@ -229,7 +229,7 @@ export default function LifestyleFacilities() {
         currentIndex + 1 >= filteredFacilities.length ? 0 : currentIndex + 1;
 
       setActiveFacilityId(filteredFacilities[nextIndex].id);
-    }, 2500);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [activeFacilityId, filteredFacilities, isCarouselPaused]);
