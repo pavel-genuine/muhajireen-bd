@@ -19,8 +19,8 @@ const facilities = {
         image: `${BASE}/newfolder/img-9.jpg`,
         gallery: [
             `${BASE}/newfolder/img-9.jpg`,
-            `${BASE}/img-3.1-main.png`,
-            `${BASE}/newfolder/img-9.jpg`,
+            `${BASE}/newfolder/img-9.1.jpg`,
+            `${BASE}/newfolder/img-9.2.jpg`,
         ],
         features: [
             ["01", "Comfortable Living", "Spaces designed around everyday comfort."],
@@ -39,7 +39,7 @@ const facilities = {
         gallery: [
             `${BASE}/newfolder/img-11.jpg`,
             `${BASE}/newfolder/img-10.jpg`,
-            `${BASE}/newfolder/img-12.jpg`,
+            `${BASE}/newfolder/img-11.1.jpg`,
         ],
         features: [
             ["01", "Retail Experiences", "A destination for a variety of shopping needs."],
@@ -57,8 +57,8 @@ const facilities = {
         image: `${BASE}/newfolder/img-10.jpg`,
         gallery: [
             `${BASE}/newfolder/img-10.jpg`,
-            `${BASE}/newfolder/img-11.jpg`,
-            `${BASE}/newfolder/img-12.jpg`,
+            `${BASE}/newfolder/img-10.1.jpg`,
+            `${BASE}/newfolder/img-10.2.jpg`,
         ],
         features: [
             ["01", "Dining", "A destination for everyday food experiences."],
@@ -76,8 +76,8 @@ const facilities = {
         image: `${BASE}/newfolder/img-12.jpg`,
         gallery: [
             `${BASE}/newfolder/img-12.jpg`,
-            `${BASE}/newfolder/img-11.jpg`,
-            `${BASE}/newfolder/img-10.jpg`,
+            `${BASE}/newfolder/img-12.1.jpg`,
+            `${BASE}/newfolder/img-12.2.jpg`,
         ],
         features: [
             ["01", "Business Environment", "Spaces planned for commercial activity."],
@@ -95,8 +95,8 @@ const facilities = {
         image: `${BASE}/newfolder/img-8.jpeg`,
         gallery: [
             `${BASE}/newfolder/img-8.jpeg`,
-            `${BASE}/newfolder/img-9.jpg`,
-            `${BASE}/newfolder/img-10.jpg`,
+            `${BASE}/newfolder/img-8.1.jpg`,
+            `${BASE}/newfolder/img-8.2.jpg`,
         ],
         features: [
             ["01", "Recreation", "A setting for leisure and enjoyment."],
@@ -111,11 +111,11 @@ const facilities = {
         subtitle: "Make wellbeing part of your routine.",
         description:
             "Planned fitness facilities with dedicated spaces for men and women, designed to support regular exercise and an active lifestyle.",
-        image: `${BASE}/newfolder/img(2).jpeg`,
+        image: `${BASE}/newfolder/img-(2).2.jpg`,
         gallery: [
             `${BASE}/newfolder/img(2).jpeg`,
-            `${BASE}/newfolder/img-8.jpeg`,
-            `${BASE}/newfolder/img(3).jpeg`,
+            `${BASE}/newfolder/img-(2).1.jpg`,
+            `${BASE}/newfolder/img-(2).2.jpg`,
         ],
         features: [
             ["01", "Fitness", "Spaces planned for exercise and movement."],
